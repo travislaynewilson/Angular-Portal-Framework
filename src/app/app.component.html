@@ -1,8 +1,6 @@
 <div class="app">
 
-  <div class="preloader preloader-fixed-top app-preloader">
-    <div class="preloader-bar"></div>
-  </div>
+  <app-loader></app-loader>
 
   <nav class="appbar">
 
@@ -109,7 +107,7 @@
 
         <div class="drawer-body-top">
           <div class="list">
-            <a [routerLink]="item.route" routerLinkActive="active" class="list-item" *ngFor="let item of mainNavItems">
+            <a [routerLink]="item.route" routerLinkActive="active" class="list-item" *ngFor="let item of mainMenuLinks">
               <div class="list-item-object">
                 <i class="material-icons">{{item.icon}}</i>
               </div>

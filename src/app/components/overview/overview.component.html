@@ -7,6 +7,10 @@
   
           <div class="card-body px-1 pb-1">
               <p>Have fun.</p>
+
+              <ul>
+                <li *ngFor="let user of users">{{user.name}}</li>
+              </ul>
           </div>
       </section>
   

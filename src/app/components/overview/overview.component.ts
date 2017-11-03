@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../core/services';
 
 @Component({
   selector: 'app-overview',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  users = [];
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.getUsers().subscribe(data => {
+      this.users = data;
+    }) 
   }
 
 }
