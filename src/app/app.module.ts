@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
 import { LoaderInterceptor } from './core/loader';
+import { LoggingInterceptor } from './core/logger';
 
 @NgModule({
   declarations: [
@@ -22,19 +23,13 @@ import { LoaderInterceptor } from './core/loader';
     CoreModule,
     ComponentsModule,
     RouterModule.forRoot([
-      {
-        path: '',
-        component: AppComponent
-      }
+      { path: '', component: AppComponent }
     ]),
     SharedModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

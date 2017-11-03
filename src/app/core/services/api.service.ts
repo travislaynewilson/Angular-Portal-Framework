@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
 import {LoaderService} from '../loader';
@@ -13,8 +13,12 @@ export class ApiService {
 
   }
 
-  getUsers() : Observable<any> {
-    return this.http.get(this.apiUrl + 'users');
+  private get(url: string, options?: any) {
+    return this.http.get(this.apiUrl + url, options);
   }
 
+
+  getUsers() : Observable<any> {
+    return this.get('users');
+  }
 }
