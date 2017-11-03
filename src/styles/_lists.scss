@@ -1,0 +1,37 @@
+﻿@import 'references';
+
+
+.list { padding: gx(0.5) 0; margin-bottom: 0;
+    ul, ol { margin: 0; padding: 0; }
+    li { list-style: none; }
+}
+
+.list-item { display: flex; margin: 0; padding: 0 gx(0.5); list-style: none; align-items: center;
+    &.active { background-color: color(black, state-bg); }
+
+    @include hover { 
+        text-decoration: none;
+    }
+}
+
+.list-item-object,
+.list-item-body { padding: gx(0.5); }
+
+.list-item-object { box-sizing: content-box; flex: 0 0 auto; width: 40px; display: flex; align-items: flex-start; color: color(primary); user-select: none;
+    &:first-child { justify-content: flex-start; }
+    &:last-child { justify-content: flex-end; color: color(black, hint); }
+}
+.list-item-object-lg .material-icons { font-size: 40px; }
+.list-item-object-sm .material-icons { font-size: 24px; }
+
+.list-item-body { flex: 1 1 auto; color: color(black, primary);
+    h1, h2, h3, h4, h5, h6, p, .line-primary { @include reset-text; margin: 0; }
+    h1, .line-primary { @include reset-text; font-size: $font-size-base; font-weight: $font-weight-normal; color: color(black, primary); }
+    h2, h3, h4, h5, h6, p, .line-secondary { font-size: $font-size-sm; font-weight: $font-weight-normal; color: color(black, secondary); }
+}
+
+.list-item-divider { background-color: color(black, divider); height: 1px; margin-top: gx(0.5); margin-bottom: gx(0.5); }
+.list-item-divider-offset { margin-left: 72px; }
+
+
+.list-item-header { @include reset-text; font-size: $subheading-font-size; font-weight: $subheading-font-weight; color: color(black, secondary); padding: $subheading-padding-y gx(1); margin: 0; }

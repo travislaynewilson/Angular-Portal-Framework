@@ -1,0 +1,44 @@
+﻿@import 'references';
+
+
+
+// Tabs
+// *************************************
+.tabs { display: flex; flex-wrap: wrap; padding-left: 0; margin-bottom: 0; list-style: none;  
+    .dropdown-menu { margin-top: -($tab-link-height - $tab-border-width); }
+}
+
+.tab { margin-bottom: 0; }
+
+.tab-link {
+    display: block;
+    padding: gx(1) gx(1) (gx(1) - 4px) gx(1);
+    text-transform: uppercase;
+    font-size: $tab-link-font-size;
+    border-bottom: 4px solid transparent;
+    color: color(black, secondary);
+
+
+    @include hover-focus { text-decoration: none; color: $tab-link-hover-color; border-color: $tab-link-hover-border-color $tab-link-hover-border-color $tab-border-color; }
+
+    &.disabled { color: $tab-link-disabled-color; background-color: transparent; border-color: transparent; }
+
+    &.active { border-bottom-color: $tab-link-active-border-color; }
+}
+
+.tab-link.active,
+.tab.show .tab-link { color: $tab-link-active-color; font-weight: $font-weight-medium; background-color: $tab-link-active-bg; }
+
+
+.tab-content {
+    > .tab-pane { display: none; }
+    > .active { display: block; }
+}
+
+
+// Tabs in cards
+// *************************************
+.card > .tabs { border-bottom: $tab-border-width solid $tab-border-color; 
+    .tab { margin-bottom: -$tab-border-width; }
+    .dropdown-menu { margin-top: -($tab-link-height - ($tab-border-width * 2)); }
+}

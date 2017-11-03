@@ -1,0 +1,110 @@
+<div class="container p-1">
+  
+      <section class="card">
+          <header class="card-header">
+              <h1 class="card-title">Date range pickers</h1>
+          </header>
+  
+          <div class="card-body px-1 pb-1">
+  
+              <div class="form-group" data-editor="daterange">
+                  <div class="input-group">
+                      <span class="input-group-icon" id="addon-icon-1"><i class="icon material-icons">event</i></span>
+                      <div class="form-control" aria-label="Date Range" aria-describedby="addon-icon-1"></div>
+                  </div>
+              </div>
+  
+          </div>
+      </section>
+  
+  </div>
+
+
+  <!-- <script>
+    require(['jquery', 'moment', 'daterangepickers'], function ($, moment) {
+
+        var start = moment().subtract(29, 'days').startOf('month'),
+            end = moment(),
+            ranges = {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 days': [moment().subtract(29, 'days'), moment()],
+                'This month': [moment().startOf('month'), moment().endOf('month')],
+                'Last month': [moment().subtract(1, 'month').startOf('month'), moment()],
+                'Last 6 months': [moment().subtract(6, 'month').startOf('month'), moment()],
+                'This year': [moment().startOf('year'), moment().endOf('year')],
+                'Last year': [moment().subtract(1, 'year').startOf('year'), moment().endOf('year')]
+            },
+            startFormat = 'Last month';
+
+        function cb(start, end, selectedOption) {
+            var $text = $('[data-editor="daterange"] .form-control');
+
+            var value = '';
+
+            switch (selectedOption) {
+                case 'Today':
+                    value = start.format('dddd, MMMM D, YYYY');
+                    break;
+
+                case 'Yesterday':
+                    value = start.format('dddd, MMMM D, YYYY');
+                    break;
+
+                case 'Last 7 days':
+                case 'Last 30 days':
+                    var sameMonth = start.month() === end.month(),
+                        sameYear = start.year() === end.year();
+
+                    if (sameMonth && sameYear) {
+                        value = start.format('MMMM Do') + ' - ' + end.format('Do');
+                    }
+                    else if (sameYear) {
+                        value = start.format('MMMM Do') + ' - ' + end.format('MMMM Do');
+                    } else {
+                        value = start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY');
+                    }
+                    break;
+
+                case 'This month':
+                case 'Last month':
+                    value = start.format('MMMM YYYY');
+                    break;
+
+                case 'Last 6 months':
+                    var sameYear = start.year() === end.year();
+
+                    if (sameYear) {
+                        value = start.format('MMMM') + ' - ' + end.format('MMMM YYYY');
+                    } else {
+                        value = start.format('MMMM YYYY') + ' - ' + end.format('MMMM YYYY');
+                    }
+                    break;
+
+                case 'This year':
+                case 'Last year':
+                    value = start.format('YYYY');
+                    break;
+
+                default:
+                    value = start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY');
+                    break;
+            }
+
+            $text.html(value);
+        }
+
+        $('[data-editor="daterange"]').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: ranges,
+            opens: 'right',
+            autoApply: true,
+            linkedCalendars: false,
+            showDropdowns: false
+        }, cb);
+
+        cb(start, end, startFormat);
+    });
+</script> -->

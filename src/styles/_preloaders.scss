@@ -1,0 +1,48 @@
+﻿@import 'references';
+
+
+.preloader { position: relative; height: $preloader-height; display: block; width: 100%; opacity: 0; background-color: $preloader-background-color; border-radius: $border-radius; background-clip: padding-box; margin: gx(0.5) 0; overflow: hidden; transition: margin-top 0.15s $easing-timing, opacity 0.15s $easing-timing;
+    .preloader-bar { background-color: $preloader-bar-background-color; 
+        &:before { content: ''; position: absolute; background-color: inherit; top: 0; left: 0; bottom: 0; will-change: left, right; -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
+        &:after { content: ''; position: absolute; background-color: inherit; top: 0; left: 0; bottom: 0; will-change: left, right; -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; -webkit-animation-delay: 1.15s; animation-delay: 1.15s; }
+    }
+
+    &.show { opacity: 1; }
+
+    &.preloader-fixed-top,
+    &.preloader-static-top { top: 0; left: 0; right: 0; margin: 0; border-radius: 0;
+        &.show { opacity: 1; }
+    } 
+
+    &.preloader-static-top { position: absolute; z-index: $zindex-sticky;
+        &.show {  }
+    }
+
+    &.preloader-fixed-top { position: fixed; opacity: 1; margin-top: -$preloader-height; z-index: $zindex-fixed;
+        &.show { margin-top: 0; }
+    }
+}
+
+@-webkit-keyframes indeterminate {
+    0% { left: -35%; right: 100%; }
+    60% { left: 100%; right: -90%; }
+    100% { left: 100%; right: -90%; }
+}
+
+@keyframes indeterminate {
+    0% { left: -35%; right: 100%; }
+    60% { left: 100%; right: -90%; }
+    100% { left: 100%; right: -90%; }
+}
+
+@-webkit-keyframes indeterminate-short {
+    0% { left: -200%; right: 100%; }
+    60% { left: 107%; right: -8%; }
+    100% { left: 107%; right: -8%; }
+}
+
+@keyframes indeterminate-short {
+    0% { left: -200%; right: 100%; }
+    60% { left: 107%; right: -8%; }
+    100% { left: 107%; right: -8%; }
+}

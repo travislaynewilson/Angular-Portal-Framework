@@ -1,0 +1,42 @@
+﻿@import '../references';
+
+
+.b-0 { border: 0 !important; }
+.bx-0 { border-left: 0 !important; border-right: 0 !important; }
+.by-0 { border-top: 0 !important; border-bottom: 0 !important; }
+.bt-0 { border-top: 0 !important; }
+.br-0 { border-right: 0 !important; }
+.bb-0 { border-bottom: 0 !important; }
+.bl-0 { border-left: 0 !important; }
+
+$util-border-color: color(black, divider) !default;
+
+.b { border: 1px solid $util-border-color !important; }
+.bx { border-left: 1px solid $util-border-color !important; border-right: 1px solid $util-border-color !important; }
+.by { border-top: 1px solid $util-border-color !important; border-bottom: 1px solid $util-border-color !important; }
+.bt { border-top: 1px solid $util-border-color !important; }
+.br { border-right: 1px solid $util-border-color !important; }
+.bb { border-bottom: 1px solid $util-border-color !important; }
+.bl { border-left: 1px solid $util-border-color !important; }
+
+/* Border radius
+**********************************/
+.r-0 { border-radius: 0 !important; }
+.rtl-0 { border-top-left-radius: 0 !important; }
+.rtr-0 { border-top-right-radius: 0 !important; }
+.rbr-0 { border-bottom-right-radius: 0 !important; }
+.rbl-0 { border-bottom-left-radius: 0 !important; }
+.rt-0 { @include border-top-radius(0 !important); }
+.rb-0 { @include border-bottom-radius(0 !important); }
+.rl-0 { @include border-left-radius(0 !important); }
+.rr-0 { @include border-right-radius(0 !important); }
+
+.r { border-radius: $border-radius !important; }
+.rtl { border-top-left-radius: $border-radius !important; }
+.rtr { border-top-right-radius: $border-radius !important; }
+.rbr { border-bottom-right-radius: $border-radius !important; }
+.rbl { border-bottom-left-radius: $border-radius !important; }
+.rt { @include border-top-radius($border-radius !important); }
+.rb { @include border-bottom-radius($border-radius !important); }
+.rl { @include border-left-radius($border-radius !important); }
+.rr { @include border-right-radius($border-radius !important); }

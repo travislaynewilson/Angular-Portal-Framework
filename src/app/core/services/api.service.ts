@@ -1,0 +1,34 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ApiService {
+
+  constructor() { }
+
+  getMainNavItems() : object[] {
+    return [
+      { text: "Overview", icon: "home", route: '/overview'},
+      { text: "Alerts", icon: "error_outline", route: '/alerts'},
+      { text: "Breadcrumbs", icon: "history", route: '/breadcrumbs'},
+      { text: "Buttons", icon: "crop_7_5", route: '/buttons'},
+      { text: "Datatables", icon: "border_all", route: '/datatables'},
+      { text: "Date Range Pickers", icon: "date_range", route: '/date-range-pickers'},
+      { text: "Dropdowns", icon: "filter_frames", route: '/dropdowns'},
+      { text: "Forms", icon: "storage", route: '/forms'},
+      { text: "Grid", icon: "line_style", route: '/grid'},
+      { text: "Input Groups", icon: "flip", route: '/input-groups'},
+      { text: "Lists", icon: "format_list_bulleted", route: '/lists'},
+      { text: "Modals", icon: "aspect_ratio", route: '/modals'},
+      { text: "Panels", icon: "view_day", route: '/panels'},
+      { text: "Preloaders", icon: "timelapse", route: '/preloaders'},
+      { text: "Progress", icon: "hourglass_empty", route: '/progress'},
+      { text: "Steppers", icon: "linear_scale", route: '/steppers'},
+      { text: "Tabs", icon: "tab", route: '/tabs'},
+      { text: "Toasts", icon: "notifications_none", route: '/toasts'},
+      { text: "Toolbars", icon: "space_bar", route: '/toolbars'},
+      { text: "Tooltips", icon: "live_help", route: '/tooltips'},
+      { text: "Typography", icon: "text_fields", route: '/typography'}
+    ];
+  }
+
+}

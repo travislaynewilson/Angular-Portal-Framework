@@ -1,0 +1,82 @@
+﻿@import 'references';
+
+
+.modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; height: 100%; outline: 0; display: flex; align-items: center; justify-content: center; z-index: $zindex-modal; display: none; overflow: hidden;
+    &.modal-tall {
+        .modal-header { border-bottom: 1px solid color(black, divider); }
+        .modal-body { padding-top: $modal-padding; }
+        .modal-footer { border-top: 1px solid color(black, divider); }
+    }
+
+    &.fade .modal-dialog {
+        @include transition($modal-transition);
+        transform: translate(0, -10%);
+    }
+
+    &.show .modal-dialog { transform: translate(0, 0); }
+}
+
+.modal-dialog { position: relative; width: auto; flex: 0 1 auto; margin: $modal-margin; }
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    min-width: $modal-min-width;
+    max-width: $modal-max-width;
+    background-color: $white;
+    background-clip: padding-box;
+    border-radius: $border-radius;
+    @include z-depth-5;
+    outline: 0;
+}
+
+.modal-header { flex: 0 0 auto; height: $modal-header-height; padding: $modal-padding $modal-padding 20px $modal-padding;
+    + .modal-body { padding-top: 0; }
+}
+
+.modal-title { font-size: $font-size-lg; font-weight: $font-weight-medium; margin: 0; }
+
+.modal-body { flex: 1 1 auto; overflow-y: auto; max-height: $modal-max-body-height; padding: $modal-padding; color: color(black, secondary);
+    :last-child { margin-bottom: 0; }
+}
+
+.modal-footer {
+    flex: 0 0 auto;
+    padding: gx(0.5) gx(1);
+    min-height: $modal-footer-height;
+    @include clearfix;
+    .btn { padding-right: gx(0.5); padding-left: gx(0.5); float: right;
+        + .btn { margin-right: gx(0.5); }
+    }
+    .btn-primary { background-color: transparent; color: color(primary); }
+    .btn-link { }
+    .btn-block { text-align: right;
+        + .btn-block { margin-top: 0; }
+    }
+}
+
+.modal-open { overflow: hidden;
+    .modal { overflow-x: hidden; overflow-y: auto; }
+}
+
+
+.modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: $zindex-modal-backdrop; background-color: $modal-backdrop-bg;
+    &.fade { opacity: 0;
+        &.show { opacity: $modal-backdrop-opacity; }
+    }
+}
+
+
+.modal-scrollbar-measure { position: absolute; top: -9999px; width: 50px; height: 50px; overflow: scroll; }
+
+
+// Scale up the modal
+@include media-breakpoint-up(sm) {
+    .modal-dialog { max-width: $modal-max-width; margin: $modal-margin auto; }
+
+    .modal-sm { max-width: $modal-max-width; }
+}
+
+@include media-breakpoint-up(lg) {
+    .modal-lg { max-width: $modal-max-width; }
+}

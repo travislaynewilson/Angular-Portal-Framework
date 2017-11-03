@@ -1,0 +1,71 @@
+﻿@import 'references';
+
+
+/* Drawers 
+*****************************************/
+.drawer { flex: 0 0 $app-sidebar-width; width: $app-sidebar-width; background-color: color(primary, 900); display: flex; flex-direction: column; overflow: auto; user-select: none;
+    .list { color: color(white, primary);
+        .list-item {
+            .list-item-object { color: color(white, secondary); }
+            .list-item-body { 
+                h1, .line-primary { color: color(white, primary); font-weight: $font-weight-medium; }
+                h2, h3, h4, h5, h6, p, .line-secondary { color: color(white, secondary); }
+            } 
+
+            &.active { background-color: color(black, divider); 
+                .list-item-object { color: color(primary); }
+                h1, h2, h3, h4, h5, h6, p, .line-primary, .line-secondary { color: color(primary); }
+            }
+
+            @include hover-focus {
+                background-color: darken(color(primary, 900), 2);
+            }
+        }
+        .list-item-header { color: color(white, secondary); }
+    }
+}
+.drawer-header { min-height: 150px; padding: gx(0.5) 0; flex: 0 0 auto; display: none; flex-direction: column; justify-content: flex-end; border-bottom: 1px solid color(black, divider); background-color: color(primary, 900); 
+    .avatar { margin: gx(0.5) 0 gx(0.5) gx(1); width: 64px; height: 64px; border-radius: 50%; background-color: #ccc; }
+    .title { margin: gx(0.5) gx(1); color: color(white, primary); font-weight: $font-weight-medium; display: flex; flex-direction: column; justify-content: center; 
+        small { display: block; font-size: $font-size-sm; font-weight: $font-weight-base; color: color(white, secondary); }
+    }
+}
+.drawer-body { flex: 1 1 100%; display: flex; flex-direction: column; }
+.drawer-body-top { flex: 1 1 auto; } 
+.drawer-body-bottom { flex: 0 0 auto; border-top: $border-width solid color(black, divider); }
+
+.drawer-backdrop { position: fixed; z-index: $zindex-drawer - 1; top: 0; right: 0; bottom: 0; left: 0; background-color: $black; pointer-events: none; display: none; opacity: 0; @include transition($drawer-backdrop-transition); 
+    &.show { opacity: $drawer-backdrop-opacity; pointer-events: all; }
+}
+
+
+
+
+@include media-breakpoint-down(sm) {
+    .drawer { flex: unset; width: auto; background-color: $white; max-width: 280px; position: fixed; top: 0; right: 56px; bottom: 0; left: -280px; z-index: $zindex-drawer; transition: left 0.15s $easing-timing;
+        &.show { left: 0; @include z-depth-5; }
+
+        .list { color: color(black, primary);
+            .list-item {
+                .list-item-object { color: color(black, secondary); }
+                .list-item-body { color: color(black, secondary); 
+                    h1, .line-primary { color: color(black, primary); }
+                    h2, h3, h4, h5, h6, p, .line-secondary { color: color(black, secondary); }
+                }
+
+                &.active { background-color: lighten(color(black, divider), 50); 
+                    .list-item-object { color: color(primary); }
+                    h1, h2, h3, h4, h5, h6, p, .line-primary, .line-secondary { color: color(primary); }
+                }
+
+                @include hover-focus {
+                    background-color: lighten(color(black, divider), 75);
+                }
+            }
+        }
+
+    }
+
+    .drawer-header { display: flex; }
+    .drawer-backdrop { display: block; }
+}

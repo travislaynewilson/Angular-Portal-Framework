@@ -1,0 +1,119 @@
+﻿@import 'references';
+
+
+.input-group { 
+    position: relative; 
+    display: flex; 
+    width: 100%; 
+    height: $input-height;
+    background-color: $input-bg;
+    color: $input-color;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    box-shadow: $input-box-shadow;
+
+    .form-control {
+        position: relative;
+        z-index: 2;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+        box-shadow: none;
+        border-radius: 0;
+        border: 0; 
+        background-color: transparent;
+
+        @include hover-focus-active { z-index: 3; }
+    }
+}
+
+
+.input-group-text,
+.input-group-icon,
+.input-group-btn,
+.input-group .form-control { display: flex; align-items: center;
+
+    &:not(:first-child):not(:last-child) {
+        @include border-radius(0);
+    }
+}
+
+.input-group-text,
+.input-group-form,
+.input-group-icon,
+.input-group-btn { 
+    white-space: nowrap; 
+    vertical-align: middle; 
+    margin-bottom: 0;
+    font-size: $input-font-size;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height;
+    text-align: center;
+    user-select: none;
+
+    .dropdown-menu { margin-top: -($input-height); }
+}
+
+
+
+.input-group-text {
+  padding: $input-padding-y 0;
+  color: color(black, hint);
+  border: $input-border-width solid transparent;
+  @include border-radius($input-border-radius);
+
+  input[type="radio"],
+  input[type="checkbox"] { margin-top: 0; }
+
+  &:first-child { padding-left: $input-padding-x; }
+  &:last-child { padding-right: $input-padding-x; }
+
+  + .form-control { padding-left: 0; }
+}
+
+.input-group-icon {
+    padding: $input-padding-y $input-padding-x;
+    color: color(black, hint);
+    border: $input-border-width solid transparent;
+    @include border-radius($input-border-radius);
+
+    input[type="radio"],
+    input[type="checkbox"] { margin-top: 0; }
+
+    + .form-control { padding-left: 0; }
+
+    &:last-child { padding-right: ($input-padding-x / 2); }
+}
+
+.input-group-form {
+    display: block;
+    cursor: pointer;
+    padding: $input-padding-y $input-padding-x;
+    margin: 1px 0 0 0 !important;
+    color: color(black, hint);
+    background-color: transparent;
+    border: $input-border-width solid transparent;
+    @include border-radius($input-border-radius);
+
+    input[type="radio"],
+    input[type="checkbox"] { margin: 0; }
+
+    + .form-control { padding-left: 0; }
+}
+
+.input-group-btn { 
+    .btn-outline { border-color: transparent; }
+
+    .btn-link { color: color(primary); }
+
+    .btn-icon { background-color: transparent; border-radius: 0; 
+        .icon { color: color(black, secondary); }
+    }
+
+    &:first-child .btn { margin-left: -1px; @include border-right-radius(0); 
+        &.btn-outline { border-right-color: $input-border-color; }
+    }
+    &:last-child .btn { margin-right: -1px; @include border-left-radius(0);
+        &.btn-outline { border-left-color: $input-border-color; }
+    }
+}

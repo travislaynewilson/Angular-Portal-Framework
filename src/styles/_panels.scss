@@ -1,0 +1,53 @@
+﻿@import 'references';
+
+
+.panel-group {  }
+
+.panel { background-color: $white; margin: 0 gx(1); @include z-depth-1; border-bottom: $border-width solid color(black, divider); @include transition($panel-transition);
+    &:first-child { @include border-top-radius($border-radius); }
+    &:last-child { @include border-bottom-radius($border-radius); }
+
+    &.active { border-radius: $border-radius; @include z-depth-1; margin-left: 0; margin-right: 0;
+        &:not(:first-child) { margin-top: $panel-active-gutter-y; }
+        &:not(:last-child) { margin-bottom: $panel-active-gutter-y; }
+
+        .panel-header {
+            .hide-when-active { display: none; }
+            .hide-when-inactive { display: inline-block; }
+            .show-when-active { display: inline-block; }
+            .show-when-inactive { display: none; }
+        }
+
+        .panel-content { display: flex; }
+    }
+}
+
+.panel-header { flex: 0 0 auto; width: 100%; padding: 0 $panel-gutter-x; display: flex; align-items: center; cursor: pointer;
+    .hide-when-active { display: inline-block; }
+    .hide-when-inactive { display: none; }
+    .show-when-active { display: none; }
+    .show-when-inactive { display: inline-block; }
+}
+
+.panel-title { flex: 1 1 auto; min-width: $panel-title-min-width; max-width: $panel-title-max-width; padding: $panel-title-gutter-y 0; font-size: $panel-header-font-size; font-weight: $font-weight-medium; margin: 0; line-height: $line-height-base;
+    small { display: block; font-size: $font-size-xs; color: color(black, secondary); font-weight: $font-weight-base; }
+}
+
+.panel-header-content { flex: 1 1 auto; font-size: $panel-header-font-size; color: color(black, secondary); display: flex;
+    .col { flex: 1 1 auto; padding-right: gx(1); }
+}
+
+.panel-toggle { flex: 0 0 auto; @include size(24px); line-height: $btn-line-height; margin: 0; padding: 0; background: transparent; border: 0; color: color(black, secondary); cursor: pointer; user-select: none; }
+
+.panel-content { flex-direction: column; }
+
+.panel-body { flex: 1 1 auto; padding: 0 $panel-gutter-x gx(1) $panel-gutter-x; }
+
+.panel-footer { padding: gx(1) $panel-gutter-x; display: flex; flex-direction: row-reverse; border-top: 1px solid color(black, divider);
+    .btn { flex: 0 0 auto; }
+}
+
+
+.panel-body-container { flex: 1 1 auto; display: flex; flex-direction: row; 
+    .panel-body-offset { flex: 1 1 auto; min-width: $panel-title-min-width; max-width: $panel-title-max-width;  }
+}

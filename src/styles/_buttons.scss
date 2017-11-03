@@ -1,0 +1,170 @@
+﻿@import 'references';
+
+
+.btn {
+    display: inline-block;
+    font-weight: $font-weight-medium;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    height: $btn-height;
+    line-height: $btn-line-height;
+    text-transform: uppercase;
+    padding: $btn-padding-y $btn-padding-x;
+    border-radius: $border-radius;
+    cursor: pointer;
+    border: $border-width solid transparent;
+
+    @include hover-focus { text-decoration: none; }
+
+    &:focus,
+    &.focus { outline: 0; }
+
+    &.disabled,
+    &:disabled { cursor: not-allowed; pointer-events: none; }
+
+    &:active,
+    &.active { background-image: none; }
+}
+
+
+/* Disabled buttons (defined with <a> tags)
+*******************************************/
+a.btn.disabled,
+fieldset[disabled] a.btn { pointer-events: none; cursor: not-allowed; }
+
+
+/* Primary buttons
+*******************************************/
+.btn-primary { color: color(white, primary); background-color: color(primary);
+
+    &:hover { color: color(white, primary); background-color: color(primary, hover); }
+
+    &:focus,
+    &.focus { }
+
+    &.disabled,
+    &:disabled { background-color: color(black, state-bg); color: color(black, divider); }
+
+    &:active,
+    &.active,
+    .show > &.dropdown-toggle { background-color: color(primary, active); background-image: none; }
+}
+
+
+/* Link buttons
+*******************************************/
+.btn-link {
+    color: color(black, secondary);
+    border-radius: 0;
+
+    &,
+    &:active,
+    &.active,
+    &:disabled { background-color: transparent; }
+
+    &,
+    &:focus,
+    &:active { box-shadow: none; }
+
+    @include hover { border-color: transparent; }
+
+    @include hover-focus { color: color(black, primary); text-decoration: none; background-color: transparent; }
+
+    &:disabled {
+        color: color(black, divider);
+        @include hover-focus { text-decoration: none; }
+    }
+}
+
+
+.btn-link-primary {
+    color: $link-color;
+    border-radius: 0;
+
+    &,
+    &:active,
+    &.active,
+    &:disabled { background-color: transparent; }
+
+    &,
+    &:focus,
+    &:active { box-shadow: none; }
+
+    @include hover { border-color: transparent; }
+
+    @include hover-focus { color: $link-hover-color; text-decoration: none; background-color: transparent; }
+
+    &:disabled {
+        color: color(black, divider);
+        @include hover-focus { text-decoration: none; }
+    }
+}
+
+.btn-link-danger {
+    color: color(intent, danger);
+    border-radius: 0;
+
+    &,
+    &:active,
+    &.active,
+    &:disabled { background-color: transparent; }
+
+    &,
+    &:focus,
+    &:active { box-shadow: none; }
+
+    @include hover { border-color: transparent; }
+
+    @include hover-focus { color: darken(color(intent, danger), 15); text-decoration: none; background-color: transparent; }
+
+    &:disabled {
+        color: color(black, divider);
+        @include hover-focus { text-decoration: none; }
+    }
+}
+
+
+/* Outline buttons
+*******************************************/
+.btn-outline { color: $link-color; background-color: transparent; border: $border-width solid $link-color;
+
+    &:hover { background-color: color(black, state-bg); }
+
+    &:disabled {
+        border-color: color(black, divider);
+        color: color(black, divider);
+        @include hover-focus { text-decoration: none; }
+    }
+}
+
+
+
+/* Buttons with a single icon (no text)
+*******************************************/
+.btn-icon { width: $btn-height; border-radius: 50%; padding: gx(0.5);
+    .icon { font-size: $btn-icon-size; }
+}
+
+
+/* Buttons with both text and icons
+*******************************************/
+.btn-combo { padding-left: gx(0.75);
+    .icon { float: left; padding-right: gx(0.5); font-size: $btn-icon-size; }
+}
+
+
+/* Block buttons
+*******************************************/
+.btn-block { display: block; width: 100%; 
+    + .btn-block { margin-top: $btn-block-spacing-y; }
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

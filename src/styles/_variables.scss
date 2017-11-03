@@ -1,0 +1,372 @@
+﻿// Colors
+// - Used with 'color($key[,$hue][,$opacity])'
+// *************************************
+$white: #FFF !default;
+$black: #000 !default;
+
+$blue: #14BEC8 !default;
+$darkblue: #37474F !default;
+
+$colors: ( 
+    black: ( 
+        base: rgba($black, 0.87), 
+        primary: rgba($black, 0.87),
+        secondary: rgba($black, 0.54),
+        disabled: rgba($black, 0.38), 
+        hint: rgba($black, 0.38), 
+        divider: rgba($black, 0.12),
+        state-bg: rgba($black, 0.06)
+    ), 
+    white: ( 
+        base: rgba($white, 1), 
+        primary: rgba($white, 1), 
+        secondary: rgba($white, 0.70), 
+        disabled: rgba($white, 0.50), 
+        hint: rgba($white, 0.50), 
+        divider: rgba($white, 0.12),
+        state-bg: rgba($white, 0.06)
+    ), 
+    gray: ( 
+        base: #FAFAFA,
+        50: #FAFAFA,
+        100: #F5F5F5,
+        200: #EEEEEE,
+        300: #E0E0E0,
+        400: #BDBDBD,
+        500: #9E9E9E,
+        600: #757575,
+        700: #616161,
+        800: #424242,
+        900: #212121
+    ), 
+    primary: ( 
+        base: $blue,
+        active: darken($blue, 5),
+        hover: darken($blue, 5),
+        state-bg: rgba($blue, 0.06),
+        900: $darkblue
+    ),
+    intent: ( 
+        info: #14bec8, 
+        success: #5ab749, 
+        warning: #f98c10,
+        danger: #D50000,
+        star: #FBC02D
+    )
+) !default;
+
+
+// Spacing 
+// *************************************
+$gx: 16px !default;
+$spacers: (
+  '0': 0,
+  '0g5': gx(0.5),
+  '1': gx(1),
+  '1g5': gx(1.5),
+  '2': gx(2)
+) !default;
+
+
+// Transitions & easing 
+// *************************************
+$easing-duration: 0.4s !default;
+$easing-timing: cubic-bezier(0.4, 0.0, 0.2, 1) !default;
+
+$transition-base: all $easing-duration $easing-timing !default;
+$transition-fade: opacity .15s $easing-timing !default;
+$transition-collapse: height 0.2s $easing-timing !default;
+
+$backdrop-opacity: 0.28 !default;
+
+
+// App
+// *************************************
+$app-sidebar-width: 220px !default;
+$app-bar-height: 56px !default;
+$app-logo-height: 36px !default;
+$app-sidebar-backdrop-transition: $transition-fade !default;
+$app-sidebar-backdrop-opacity: $backdrop-opacity !default;
+
+// Appbar
+// *************************************
+$appbar-btn-width: 40px !default;
+$appbar-btn-height: 40px !default;
+
+
+// Body
+// *************************************
+$body-bg: color(gray, 200) !default;
+$body-color: color(black, primary) !default;
+
+
+// Links
+// *************************************
+$link-color: color(primary) !default;
+$link-decoration: none !default;
+$link-hover-color: color(primary, hover) !default;
+$link-hover-decoration: underline !default;
+
+
+// Grid breakpoints
+// - Used with 'grid-breakpoint($key)'
+// *************************************
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1300px,
+  xl: 1200px + $app-sidebar-width
+) !default;
+
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+// *************************************
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 1200px
+) !default;
+
+
+// Grid columns
+// *************************************
+$grid-columns: 12 !default;
+$grid-gutter-width: gx(2) !default;
+
+
+// Grid columns
+// *************************************
+$zindex-dropdown:           1000 !default;
+$zindex-sticky:             1010 !default;
+$zindex-fixed:              1020 !default;
+$zindex-modal-backdrop:     1030 !default;
+$zindex-modal:              1040 !default;
+$zindex-popover:            1050 !default;
+$zindex-tooltip:            1060 !default;
+$zindex-drawer:             1070 !default;
+
+
+// Components
+// *************************************
+$border-width: 1px !default;
+$border-radius: 2px !default;
+$max-width-increment: 64px !default;
+
+
+// Fonts
+// *************************************
+$font-family-sans-serif: 'Roboto','Arial', sans-serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+$font-size-base: 14px !default;
+$font-size-xl: 24px !default;
+$font-size-lg: 20px !default;
+$font-size-md: $font-size-base !default;
+$font-size-sm: 13px !default;
+$font-size-xs: 12px !default;
+
+$font-weight-base: 400 !default;
+$font-weight-normal: $font-weight-base !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 700 !default;
+
+$line-height-base: 1.4 !default;
+$line-height-computed: ceil($font-size-base * $line-height-base) !default;
+
+$h1-font-size: $font-size-xl !default;
+$h2-font-size: $font-size-lg !default;
+$h3-font-size: $font-size-md !default;
+$h4-font-size: $font-size-md !default;
+$h5-font-size: $font-size-sm !default;
+$h6-font-size: $font-size-xs !default;
+
+$headings-margin-bottom: gx(1) !default;
+$headings-font-family:   inherit !default;
+$headings-font-weight:   500 !default;
+$headings-line-height:   1 !default;
+$headings-color:         inherit !default;
+
+$hr-border-color: color(black, divider) !default;
+$hr-border-width: $border-width !default;
+
+$dt-font-weight: $font-weight-medium !default;
+
+$kbd-box-shadow: inset 0 -.1rem 0 rgba($black,.25) !default;
+$nested-kbd-font-weight: $font-weight-medium !default;
+
+
+// Drawers
+// *************************************
+$drawer-backdrop-transition: $transition-fade !default;
+$drawer-backdrop-opacity: $backdrop-opacity !default;
+
+
+// Tables
+// *************************************
+$table-cell-padding: 8px !default;
+
+$table-bg: transparent !default;
+$table-hover-bg: color(black, state-bg) !default;
+$table-active-bg: color(primary, state-bg) !default;
+
+$table-border-width: $border-width !default;
+$table-border-color: #E0E0E0 !default;
+
+
+// Forms
+// *************************************
+$input-bg:                      $white !default;
+$input-disabled-bg:             color(black, state-bg) !default;
+$input-color:                   color(black) !default;
+$input-border-color:            rgba($black, 0.2) !default;
+$input-font-size:               $font-size-base !default;
+$input-border-width:            $border-width !default; // For form controls and buttons
+$input-box-shadow:              inset 0 1px 2px rgba(0, 0, 0, 0.1) !default;
+$input-border-radius:           $border-radius !default;
+$input-focus-bg:                $input-bg !default;
+$input-focus-border-color:      rgba($black, 0.4) !default;
+$input-focus-box-shadow:        $input-box-shadow !default;
+$input-focus-color:             $input-color !default;
+
+$input-placeholder-color:       color(black, hint) !default; 
+
+$input-height-border:           $input-border-width * 2 !default;
+$input-line-height:             $line-height-base !default;
+$input-padding-x:               12px !default;
+$input-padding-y:               9px !default;
+
+$input-height-inner:            34px !default;
+$input-height:                  ($input-height-inner + $input-height-border) !default;
+
+$input-transition:              border-color ease-in-out .15s, box-shadow ease-in-out .15s !default;
+
+
+// Buttons
+// *************************************
+$btn-height: $input-height !default;
+$btn-line-height: 1.25 !default;
+$btn-icon-size: 18px !default;
+$btn-block-spacing-y: gx(0.5) !default;
+$btn-padding-x: 16px !default;
+$btn-padding-y: 8px !default;
+
+
+// Tables
+// *************************************
+$table-border-width: $border-width !default;
+$table-border-color: #E0E0E0 !default;
+
+$table-column-gutter: gx(0.5) !default;
+$table-cell-padding-x: ($table-column-gutter / 2) !default;
+$table-cell-padding-y: gx(0.5) !default;
+
+$table-accent-bg: color(gray, 50) !default;
+$table-hover-bg: color(gray, 50) !default;
+
+$table-active-bg: color(primary, state-bg) !default;
+$table-active-border-width: 1px !default;
+
+
+// Subheading
+// *************************************
+$subheading-font-size: $font-size-sm !default;
+$subheading-font-weight: $font-weight-medium !default;
+$subheading-padding-y: gx(0.5) !default;
+
+
+// Progress
+// *************************************
+$progress-height:               gx(0.25) !default;
+$progress-font-size:            $font-size-xs !default;
+$progress-bg:                   rgba(color(primary), 0.3) !default;
+$progress-border-radius:        0 !default;
+$progress-bar-color:            color(white) !default;
+$progress-bar-bg:               color(primary) !default;
+$progress-bar-transition:       width .6s $easing-timing !default;
+
+
+// Preloaders
+// *************************************
+$preloader-height: 4px !default;
+$preloader-background-color: lighten(color(primary), 45) !default;
+$preloader-bar-background-color: color(primary) !default;
+
+
+// Toasts
+// *************************************
+$toast-min-width: 288px !default;
+$toast-max-width: 568px !default;
+$toast-padding-x: gx(1.5) !default;
+$toast-padding-y: gx(1) !default;
+$toast-bg: color(primary, 900) !default;
+$toast-z-index: $zindex-fixed !default;
+$toast-hidden-offset-margin: -100px !default;
+$toast-in-transition-duration: $easing-duration !default;
+$toast-in-transition-timing: $easing-timing !default;
+
+
+// Panels
+// *************************************
+$panel-gutter-x: gx(1) !default;
+$panel-active-gutter-y: gx(1) !default;
+$panel-title-min-width: 160px !default;
+$panel-title-max-width: 200px !default;
+$panel-title-gutter-y: gx(1) !default;
+$panel-header-font-size: 15px !default;
+
+$panel-transition: margin 0.2s $easing-timing !default;
+
+
+// Modals
+// *************************************
+$modal-padding: gx(1.5) !default;
+$modal-margin: gx(0.5) !default;
+$modal-min-width: 288px !default;
+$modal-max-width: 568px !default;
+$modal-header-height: 64px !default;
+$modal-footer-height: 52px !default;
+$modal-max-body-height: calc(100vh - (#{$modal-margin} * 2) - #{$modal-header-height} - #{$modal-footer-height});
+
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: $backdrop-opacity !default;
+
+$modal-transition: transform .3s $easing-timing !default;
+
+
+// Dropdowns
+// *************************************
+$dropdown-menu-width-increment: $max-width-increment !default;
+
+
+// Tabs
+// *************************************
+$tab-link-padding-x: gx(1) !default;
+$tab-link-padding-y: gx(1) !default;
+$tab-link-font-size: $font-size-sm !default;
+$tab-link-height: ($line-height-computed + ($tab-link-padding-y * 2)) !default;
+$tab-link-disabled-color: color(black, disabled) !default;
+
+$tab-border-color: color(black, divider) !default;
+$tab-border-width: $border-width !default;
+$tab-link-hover-color: color(black, primary) !default;
+$tab-link-hover-border-color: color(black, divider) !default;
+$tab-link-active-color: color(black, primary) !default;
+$tab-link-active-bg: transparent !default;
+$tab-link-active-border-color: color(primary) !default;
+
+
+// Tooltips
+// *************************************
+$tooltip-max-width: ($max-width-increment * 3) !default;
+$tooltip-color: color(white) !default;
+$tooltip-bg: #333C44 !default;
+$tooltip-font-size: 12px !default;
+$tooltip-font-weight: $font-weight-base !default;
+$tooltip-opacity: .9 !default;
+$tooltip-padding-y: gx(0.25) !default;
+$tooltip-padding-x: gx(0.5) !default;
+$tooltip-margin: 0 !default;

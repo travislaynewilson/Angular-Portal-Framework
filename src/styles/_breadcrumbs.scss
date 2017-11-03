@@ -1,0 +1,14 @@
+﻿@import 'references';
+
+
+.breadcrumb { padding: gx(0.5) 0; user-select: none;
+    ul { margin: 0; padding: 0; list-style: none; display: flex; }
+    li { display: inline-block; flex: 0 0 auto; display: flex; align-items: center;
+         + li {
+             &:before { @include material-icon; font-size: 18px; display: block; flex: 0 0 auto; content: 'chevron_right'; color: color(black, hint); margin: 0 gx(0.25); }
+         }
+
+         &:last-child a { color: color(black, primary); }
+    }
+    a { display: block; padding: gx(0.5) 0; color: color(black, secondary); font-size: $font-size-sm; }
+}

@@ -1,0 +1,29 @@
+﻿@import 'references';
+
+
+.toast { background-color: $toast-bg; display: flex; align-items: center; min-width: $toast-min-width; max-width: $toast-max-width; border-radius: $border-radius;
+
+}
+
+.toast-text { flex: 1 1 auto; color: color(white, secondary); padding: $toast-padding-y $toast-padding-x; }
+
+.toast-nav { flex: 0 0 auto;
+    .btn { color: color(primary); padding-right: $toast-padding-x; padding-left: $toast-padding-x; }
+}
+
+.toast-container { position: fixed; bottom: 0; left: $app-sidebar-width + gx(0.5); right: gx(0.5); display: flex; justify-content: center;
+    .toast { z-index: $toast-z-index; margin-bottom: $toast-hidden-offset-margin; transition: margin-bottom $toast-in-transition-duration $toast-in-transition-timing;
+        .toast-text { opacity: 0; transition: opacity ($toast-in-transition-duration * 2) $toast-in-transition-timing; }
+
+        &.in { margin-bottom: 0;
+            .toast-text { opacity: 1; }
+        }
+    }
+}
+
+
+@include media-breakpoint-down(sm) {
+    .toast-container { left: 0; right: 0; }
+
+    .toast { border-radius: 0; }
+}

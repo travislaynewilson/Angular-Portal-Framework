@@ -1,0 +1,4 @@
+﻿@import 'references';
+
+
+.subheading { @include reset-text; font-size: $subheading-font-size; font-weight: $subheading-font-weight; color: color(black, secondary); padding: $subheading-padding-y 0; margin: 0; }

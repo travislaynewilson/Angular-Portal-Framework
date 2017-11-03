@@ -1,0 +1,10 @@
+﻿@import 'references';
+
+
+.card { display: flex; flex-direction: column; background-color: $white; border-radius: $border-radius; margin-bottom: gx(1); @include z-depth-1; }
+
+.card-header { flex: 0 0 auto; padding: 20px gx(1); }
+
+.card-title { font-size: $font-size-lg; font-weight: $font-weight-medium; margin: 0; }
+
+.card-body { flex: 1 1 auto; }

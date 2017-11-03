@@ -1,0 +1,156 @@
+<div class="app">
+
+  <div class="preloader preloader-fixed-top app-preloader">
+    <div class="preloader-bar"></div>
+  </div>
+
+  <nav class="appbar">
+
+    <div class="appbar-logo">
+      <img src="/assets/images/logo-rxlocal-white.svg" />
+    </div>
+
+    <a href="#app-drawer" data-toggle="drawer" class="appbar-btn appbar-drawer-toggle">
+      <i class="material-icons">menu</i>
+    </a>
+
+    <div class="appbar-title">
+      RxLocal Portal
+    </div>
+
+    <div class="appbar-search">
+      <div class="input-group">
+        <span class="input-group-icon" id="app-search">
+          <i class="icon material-icons">search</i>
+        </span>
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="app-search" />
+      </div>
+    </div>
+
+    <div class="appbar-identity">
+      <div class="identity">
+        <div class="name">Dr. John Hammond</div>
+        <div class="title">Physician</div>
+      </div>
+    </div>
+
+    <div class="appbar-btn-group">
+      <button type="button" class="appbar-btn appbar-search-toggle">
+        <i class="material-icons">search</i>
+      </button>
+
+      <div class="dropdown">
+        <button class="appbar-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-width-3">
+          <div class="dropdown-menu-content">
+            <div class="list">
+
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i class="icon material-icons">settings</i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Settings</h1>
+                </div>
+              </a>
+
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i class="icon material-icons">feedback</i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Send feedback</h1>
+                </div>
+              </a>
+
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i class="icon material-icons">help</i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Help</h1>
+                </div>
+              </a>
+
+              <div class="list-item-divider list-item-divider-offset"></div>
+
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i class="icon material-icons">exit_to_app</i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Sign out</h1>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+  <section class="app-content">
+
+    <aside class="drawer" id="app-drawer">
+
+      <div class="drawer-header">
+        <div class="avatar"></div>
+        <div class="title">
+          Travis Wilson
+          <small>travis.wilson@pioneerrx.com</small>
+        </div>
+      </div>
+
+      <div class="drawer-body">
+
+        <div class="drawer-body-top">
+          <div class="list">
+            <a [routerLink]="item.route" routerLinkActive="active" class="list-item" *ngFor="let item of mainNavItems">
+              <div class="list-item-object">
+                <i class="material-icons">{{item.icon}}</i>
+              </div>
+              <div class="list-item-body">
+                <h1>{{item.text}}</h1>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="drawer-body-bottom">
+          <div class="list">
+            <a href="javascript:;" class="list-item">
+              <div class="list-item-object">
+                <i class="material-icons">feedback</i>
+              </div>
+              <div class="list-item-body">
+                <h1>Send feedback</h1>
+              </div>
+            </a>
+            <a href="javascript:;" class="list-item">
+              <div class="list-item-object">
+                <i class="material-icons">help</i>
+              </div>
+              <div class="list-item-body">
+                <h1>Help</h1>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <main class="app-body">
+
+      <router-outlet></router-outlet>
+
+    </main>
+
+  </section>
+
+</div>

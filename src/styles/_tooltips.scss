@@ -1,0 +1,43 @@
+﻿@import 'references';
+
+
+.tooltip {
+    position: absolute;
+    z-index: $zindex-tooltip;
+    display: block;
+    margin: $tooltip-margin;
+    @include reset-text();
+    font-size: $tooltip-font-size;
+    font-weight: $tooltip-font-weight;
+    word-wrap: break-word;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+
+    &.fade { opacity: $tooltip-opacity;
+        @include transition(none);
+
+        .tooltip-inner { transform: scale(0); }
+
+        &.show { opacity: $tooltip-opacity;
+            .tooltip-inner { transform: scale(1); }
+        }
+    }
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+    max-width: $tooltip-max-width;
+    padding: $tooltip-padding-y $tooltip-padding-x;
+    color: $tooltip-color;
+    text-align: center;
+    background-color: $tooltip-bg;
+    @include border-radius($border-radius);
+    @include transition(transform 0.2s $easing-timing);
+}
+
+.rxl-tooltip-top .tooltip-inner { transform-origin: center bottom 0; }
+.rxl-tooltip-right .tooltip-inner { transform-origin: left center 0; }
+.rxl-tooltip-bottom .tooltip-inner { transform-origin: center top 0; }
+.rxl-tooltip-left .tooltip-inner { transform-origin: right center 0; }
+

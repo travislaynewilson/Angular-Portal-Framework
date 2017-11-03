@@ -1,0 +1,136 @@
+﻿@import 'references';
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: $input-height;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-image: none;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    box-shadow: $input-box-shadow;
+    @include transition($input-transition);
+
+    &::-moz-placeholder { color: $input-placeholder-color; opacity: 1; }
+    &:-ms-input-placeholder { color: $input-placeholder-color; }
+    &::-webkit-input-placeholder { color: $input-placeholder-color; }
+    &::placeholder { color: $input-placeholder-color; opacity: 1; }
+
+    &::-ms-expand { background-color: transparent; border: 0; }
+
+    @include form-control-focus();
+
+
+    &:disabled,
+    &[readonly] { background-color: $input-disabled-bg; opacity: 1; }
+}
+
+select.form-control {
+    &:not([size]):not([multiple]) { height: $input-height; }
+    &:focus::-ms-value { color: $input-color; background-color: $input-bg; }
+}
+
+textarea.form-control { height: 5.5em; }
+
+
+// File pickers & range inputs
+// ******************************************
+.form-control-file,
+.form-control-range { display: block; }
+
+
+// Readonly form control
+// ******************************************
+.form-control-plaintext { height: $input-height; padding-top: $btn-padding-y; padding-bottom: $btn-padding-y; margin-bottom: 0; line-height: $line-height-base; border: 0; }
+
+
+// Form groups
+// ******************************************
+.form-group { padding: gx(0.5) 0;
+    label { display: block; margin: gx(0.5) 0; color: color(black, secondary); font-size: $font-size-sm; }
+}
+.form-text { display: block; margin-top: gx(0.5); color: color(black, secondary); font-size: $font-size-sm; }
+
+fieldset { margin: gx(0.5) 0;
+    > legend:first-of-type { padding-top: ($subheading-padding-y / 2); }
+}
+legend { padding: $subheading-padding-y 0; margin: 0; font-size: $subheading-font-size; font-weight: $subheading-font-weight; color: color(primary); }
+
+
+// Checkboxes & radio buttons
+// ******************************************
+.form-check { position: relative; display: block; padding: gx(0.25) 0;
+    label { display: inline-block; margin: 0; padding-left: gx(1.5); cursor: pointer; color: color(black, primary); font-size: $font-size-base; user-select: none; }
+    &.disabled {
+        label { color: color(black, disabled); cursor: not-allowed; }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] { position: absolute; margin-top: 3px; margin-left: gx(-1.5); cursor: pointer; }
+    &.disabled {
+        input[type="checkbox"],
+        input[type="radio"] { cursor: not-allowed; }
+    }
+}
+
+.form-check-inline { display: inline-block;
+    + .form-check-inline { margin-left: gx(1.5); }
+}
+
+
+// Validation
+// ******************************************
+.invalid-feedback { display: none; margin-top: gx(0.25); font-size: $font-size-sm; color: color(intent, danger); }
+
+.form-validated {
+
+    .form-group {
+        &.is-invalid {
+            label { color: color(intent, danger); }
+        }
+    }
+
+    .form-control {
+        &:invalid,
+        &.is-invalid { border-color: color(intent, danger);
+            ~ .invalid-feedback,
+            ~ .invalid-tooltip { display: block; }
+        }
+    }
+
+
+    .form-check-input {
+        &:invalid,
+        &.is-invalid {
+            + .form-check-label { color: color(intent, danger); }
+        }
+    }
+}
+
+
+// Horizontal forms
+// ******************************************
+.form-horizontal {
+    .form-group {
+        > label { padding-top: $input-padding-y; padding-bottom: $input-padding-y; margin-top: 0 !important; margin-bottom: 0 !important; }
+    }
+
+    .form-check {
+        &:first-child { padding-top: gx(0.5); }
+    }
+}
+
+
+// Form grids
+// ******************************************
+.form-row { display: flex; flex-wrap: wrap; margin-right: gx(-0.25); margin-left: gx(-0.25);
+
+    > .col,
+    > [class*="col-"] { padding-right: gx(0.25); padding-left: gx(0.25); }
+}

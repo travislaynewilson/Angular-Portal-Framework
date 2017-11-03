@@ -1,0 +1,92 @@
+<div class="container px-1 pb-1">
+  
+  <h1 class="page-title">Grid</h1>
+
+  <h2 class="subheading px-0">Equal-width columns</h2>
+  <div class="row">
+      
+        <div class="col" *ngFor="let i of columns">
+            .col
+        </div>
+      
+  </div>
+
+
+
+  <h2 class="subheading px-0">Setting one column width</h2>
+  <div class="row">
+      <div class="col">
+          .col
+      </div>
+      <div class="col-6">
+          .col-6
+      </div>
+      <div class="col">
+          .col
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          .col
+      </div>
+      <div class="col-5">
+          .col-5
+      </div>
+      <div class="col">
+          .col
+      </div>
+  </div>
+
+
+
+  <h2 class="subheading px-0">Variable width content</h2>
+  <div class="row">
+      <div class="col-1">
+          .col-1
+      </div>
+      <div class="col-auto">
+          Variable width content
+      </div>
+      <div class="col">
+          Auto width
+      </div>
+      <div class="col-2">
+          .col-2
+      </div>
+  </div>
+
+
+
+  <h2 class="subheading px-0">Column sizes</h2>
+    <div class="row" *ngFor="let i of columns; let index = index">
+        <div class="col-{{index + 1}}">
+            .col-{{index + 1}}
+        </div>
+        <div class="col-{{columns.length - index - 1}}">
+            .col-{{columns.length - index - 1}}
+        </div>
+    </div>
+
+
+  <h2 class="subheading px-0">Responsive sizes</h2>
+  <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let i of columns">
+            <div class="d-xs-block">.col-xs-12</div>
+            <div class="d-sm-block" style="display: none;">.col-sm-6</div>
+            <div class="d-md-block" style="display: none;">.col-md-4</div>
+            <div class="d-lg-block" style="display: none;">.col-lg-3</div>
+            <div class="d-xl-block" style="display: none;">.col-xl-2</div>
+        </div>
+  </div>
+
+</div>
+
+
+<style>
+  /* Demo styles */
+  .row .col,
+  .row [class*="col-"] { background-color: #FFF3E0; padding-top: 16px; padding-bottom: 16px; border: 1px solid #FFE0B2; }
+
+  .row:nth-child(even) .col,
+  .row:nth-child(even) [class*="col-"] { background-color: #FFE0B2; padding-top: 16px; padding-bottom: 16px; border: 1px solid #FFCC80; }
+</style>
