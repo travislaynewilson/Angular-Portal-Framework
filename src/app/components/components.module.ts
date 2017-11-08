@@ -8,6 +8,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { DateRangePickersComponent } from './date-range-pickers/date-range-pickers.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
+import { ErrorPagesComponent } from './error-pages/error-pages.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridComponent } from './grid/grid.component';
 import { InputGroupsComponent } from './input-groups/input-groups.component';
@@ -36,6 +37,7 @@ import { TypographyComponent } from './typography/typography.component';
       { path: 'datatables', component: DatatablesComponent },
       { path: 'date-range-pickers', component: DateRangePickersComponent },
       { path: 'dropdowns', component: DropdownsComponent },
+      { path: 'error-pages', component: ErrorPagesComponent },
       { path: 'forms', component: FormsComponent },
       { path: 'grid', component: GridComponent },
       { path: 'input-groups', component: InputGroupsComponent },
@@ -59,6 +61,7 @@ import { TypographyComponent } from './typography/typography.component';
     DatatablesComponent, 
     DateRangePickersComponent, 
     DropdownsComponent, 
+    ErrorPagesComponent,
     FormsComponent, 
     GridComponent, 
     InputGroupsComponent, 
