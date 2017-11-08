@@ -1,10 +1,15 @@
 import {NgModule} from '@angular/core';
-import {PlatformModule} from '../platform';
 import {BreakpointObserver} from './breakpoint-observer';
+import {PlatformModule} from '../platform';
 import {MediaMatcher} from './media-matcher';
+import {VIEWPORT_RULER_PROVIDER} from './viewport-ruler';
 
 @NgModule({
-  providers: [BreakpointObserver, MediaMatcher],
+  providers: [
+    BreakpointObserver, 
+    MediaMatcher,
+    VIEWPORT_RULER_PROVIDER
+  ],
   imports: [PlatformModule]
 })
 export class LayoutModule {}

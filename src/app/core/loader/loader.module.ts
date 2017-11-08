@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { XHRBackend, RequestOptions } from '@angular/http';
 
-import { ApiService } from './api';
-import { LoaderComponent, LoaderService } from './loader';
+import { LoaderComponent } from './loader.component';
+import { LoaderService } from './loader.service';
 
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { LoaderComponent, LoaderService } from './loader';
     LoaderComponent
   ],
   providers: [
-    ApiService,
     LoaderService
   ]
 })
-export class CoreModule { }
+export class LoaderModule { }

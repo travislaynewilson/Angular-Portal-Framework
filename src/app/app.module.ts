@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { CoreModule } from './core/core.module';
+import { ApiModule } from './core/api';
 import { ComponentsModule } from './components/components.module';
+import { LoaderModule } from './core/loader';
+import { LayoutModule } from './core/layout';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { ScrollingModule } from './core/scrolling';
 
 import { LoaderInterceptor } from './core/loader';
 import { LoggingInterceptor } from './core/logger';
@@ -18,15 +21,22 @@ import { LoggingInterceptor } from './core/logger';
     AppComponent
   ],
   imports: [
+    ApiModule,
     BrowserModule,
-    HttpClientModule,
-    CoreModule,
     ComponentsModule,
+    HttpClientModule,
+    LayoutModule,
+    LoaderModule,
     RouterModule.forRoot([
       { path: '', component: AppComponent },
       { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
     ]),
+    ScrollingModule,
     SharedModule
+  ],
+  exports: [
+    ScrollingModule,
+    LayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

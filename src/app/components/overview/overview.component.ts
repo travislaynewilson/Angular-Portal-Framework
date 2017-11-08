@@ -9,8 +9,13 @@ import { ApiService } from '../../core/api';
 export class OverviewComponent implements OnInit {
 
   users = [];
+  viewportSize: any;
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService
+  ) {
+
+   }
 
   ngOnInit() {
     this.api.getUsers().subscribe(data => {
