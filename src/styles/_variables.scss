@@ -370,3 +370,12 @@ $tooltip-opacity: .9 !default;
 $tooltip-padding-y: gx(0.25) !default;
 $tooltip-padding-x: gx(0.5) !default;
 $tooltip-margin: 0 !default;
+
+
+// Error pages
+// *************************************
+$errorpage-max-width: 500px !default;
+$errorpage-gutter: gx(2) !default;
+$errorpage-statuscode-font-size: $font-size-xl !default;
+$errorpage-error-font-size: $font-size-xl !default;
+$errorpage-detail-font-size: 16px !default;

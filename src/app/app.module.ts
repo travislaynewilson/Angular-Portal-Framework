@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CoreModule } from './core/core.module';
 import { ComponentsModule } from './components/components.module';
@@ -23,7 +23,8 @@ import { LoggingInterceptor } from './core/logger';
     CoreModule,
     ComponentsModule,
     RouterModule.forRoot([
-      { path: '', component: AppComponent }
+      { path: '', component: AppComponent },
+      { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
     ]),
     SharedModule
   ],

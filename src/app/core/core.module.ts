@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { XHRBackend, RequestOptions } from '@angular/http';
 
-import { ApiService } from './services';
+import { ApiService } from './api';
 import { LoaderComponent, LoaderService } from './loader';
 
 @NgModule({

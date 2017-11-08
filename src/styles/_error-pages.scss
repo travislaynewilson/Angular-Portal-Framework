@@ -1,0 +1,16 @@
+﻿@import 'references';
+
+
+.view-error { display: flex; width: 100%; height: 100%; align-items: flex-start; justify-content: flex-start; }
+.view-error-body { padding: ($errorpage-gutter*2) $errorpage-gutter; flex: 0 1 100%; max-width: $errorpage-max-width; 
+    h1, h2 { font-size: $errorpage-statuscode-font-size; }
+    h1 { font-size: $errorpage-statuscode-font-size; color: color(black, hint); font-weight: $font-weight-normal; }
+    h2 { font-size: $errorpage-error-font-size; color: color(black, primary); }
+    hr { margin: $errorpage-gutter 0; }
+    p { font-size: $errorpage-detail-font-size; margin-bottom: $errorpage-gutter; }
+}
+
+@include media-breakpoint-down(sm) {
+    .view-error { align-items: center; }
+    .view-error-body { padding: $errorpage-gutter; }
+}
