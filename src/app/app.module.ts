@@ -8,6 +8,7 @@ import { ApiModule } from './core/api';
 import { ComponentsModule } from './components/components.module';
 import { LoaderModule } from './core/loader';
 import { LayoutModule } from './core/layout';
+import { PlatformModule } from './core/platform';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -31,6 +32,7 @@ import { LoggingInterceptor } from './core/logger';
       { path: '', component: AppComponent },
       { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
     ]),
+    PlatformModule,
     ScrollingModule,
     SharedModule
   ],

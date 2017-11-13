@@ -1,0 +1,1 @@
+export { AuthService, AUTH_PROVIDERS } from './auth.service';

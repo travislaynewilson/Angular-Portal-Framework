@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../core/api';
 
 @Component({
@@ -6,21 +6,26 @@ import { ApiService } from '../../core/api';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
+export class OverviewComponent implements OnInit, OnDestroy {
 
   users = [];
+  cachedUsers = [];
   viewportSize: any;
+  usersSub;
 
   constructor(
     private api: ApiService
   ) {
-
    }
 
   ngOnInit() {
-    this.api.getUsers().subscribe(data => {
+    this.usersSub = this.api.getUsers().subscribe(data => {
       this.users = data;
-    }) 
+    });
+  }
+
+  ngOnDestroy() {
+    this.usersSub.unsubscribe();
   }
 
 }
