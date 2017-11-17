@@ -8,6 +8,7 @@ import { ApiService } from '../../core/api';
 })
 export class OverviewComponent implements OnInit, OnDestroy {
 
+
   users = [];
   cachedUsers = [];
   viewportSize: any;

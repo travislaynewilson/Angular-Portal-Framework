@@ -16,6 +16,7 @@ import { ScrollingModule } from './core/scrolling';
 
 import { LoaderInterceptor } from './core/loader';
 import { LoggingInterceptor } from './core/logger';
+import { AUTH_PROVIDERS, AuthGuard } from './core/auth';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { LoggingInterceptor } from './core/logger';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+    AUTH_PROVIDERS,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
