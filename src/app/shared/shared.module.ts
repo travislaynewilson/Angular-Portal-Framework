@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { UIModule } from '../lib/ui';
 
 import { 
   ForbiddenComponent,
@@ -20,7 +21,8 @@ import {
         { path: '404', component: NotFoundComponent },
         { path: '500', component: InternalServerErrorComponent }
       ]}
-    ])
+    ]),
+    UIModule
   ],
   exports: [
     RouterModule

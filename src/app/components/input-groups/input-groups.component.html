@@ -19,55 +19,55 @@
                       </div>
                       <div class="form-group">
                           <div class="input-group">
-                              <span class="input-group-icon" id="addon-icon-1"><i class="icon material-icons">credit_card</i></span>
+                              <span class="input-group-icon" id="addon-icon-1"><i app-icon="credit_card"></i></span>
                               <input type="text" class="form-control" placeholder="Card number" aria-label="Card number" aria-describedby="addon-icon-1">
-                              <span class="input-group-icon"><i class="icon material-icons">help_outline</i></span>
+                              <span class="input-group-icon"><i app-icon="help_outline"></i></span>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="input-group">
-                              <label class="input-group-form" id="addon-form-1"><input type="checkbox" /></label>
-                              <input type="text" class="form-control" placeholder="Name (optional)" aria-label="Name" aria-describedby="addon-form-1">
+                              <label class="input-group-form" id="addon-icon-2"><input type="checkbox" /></label>
+                              <input type="text" class="form-control" placeholder="Name (optional)" aria-label="Name" aria-describedby="addon-icon-2">
                               <label class="input-group-form"><input type="radio" /></label>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="input-group">
                               <span class="input-group-btn">
-                                  <button type="button" class="btn btn-primary">Go</button>
+                                  <button app-button>Go</button>
                               </span>
-                              <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-btn-1">
+                              <input type="search" class="form-control" placeholder="Search" aria-label="Search">
                               <span class="input-group-btn">
-                                  <button type="button" class="btn btn-primary">Go</button>
-                              </span>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="input-group">
-                              <span class="input-group-btn">
-                                  <button type="button" class="btn btn-outline">Go</button>
-                              </span>
-                              <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-btn-1">
-                              <span class="input-group-btn">
-                                  <button type="button" class="btn btn-outline">Go</button>
+                                  <button app-button>Go</button>
                               </span>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="input-group">
                               <span class="input-group-btn">
-                                  <button type="button" class="btn btn-link">Go</button>
+                                  <button app-outline-button>Go</button>
                               </span>
-                              <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-btn-1">
+                              <input type="search" class="form-control" placeholder="Search" aria-label="Search">
                               <span class="input-group-btn">
-                                  <button type="button" class="btn btn-link">Go</button>
+                                  <button app-outline-button>Go</button>
+                              </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="input-group">
+                              <span class="input-group-btn">
+                                  <button app-link-button>Go</button>
+                              </span>
+                              <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+                              <span class="input-group-btn">
+                                  <button app-link-button>Go</button>
                               </span>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="input-group">
                               <span class="input-group-btn dropdown">
-                                  <button type="button" class="btn btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <button app-link-button app-icon-button class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="icon material-icons">more_vert</i>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-width-3">
@@ -76,7 +76,7 @@
   
                                               <a href="javascript:;" class="list-item">
                                                   <div class="list-item-object">
-                                                      <i class="icon material-icons">settings</i>
+                                                        <i app-icon="settings"></i>
                                                   </div>
                                                   <div class="list-item-body">
                                                       <h1>Settings</h1>
@@ -85,7 +85,7 @@
   
                                               <a href="javascript:;" class="list-item">
                                                   <div class="list-item-object">
-                                                      <i class="icon material-icons">feedback</i>
+                                                        <i app-icon="feedback"></i>
                                                   </div>
                                                   <div class="list-item-body">
                                                       <h1>Send feedback</h1>
@@ -94,7 +94,7 @@
   
                                               <a href="javascript:;" class="list-item">
                                                   <div class="list-item-object">
-                                                      <i class="icon material-icons">help</i>
+                                                        <i app-icon="help"></i>
                                                   </div>
                                                   <div class="list-item-body">
                                                       <h1>Help</h1>
@@ -105,7 +105,7 @@
   
                                               <a href="javascript:;" class="list-item">
                                                   <div class="list-item-object">
-                                                      <i class="icon material-icons">exit_to_app</i>
+                                                        <i app-icon="exit_to_app"></i>
                                                   </div>
                                                   <div class="list-item-body">
                                                       <h1>Sign out</h1>
@@ -116,52 +116,52 @@
                                       </div>
                                   </div>
                               </span>
-                              <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="addon-btn-1">
+                              <input type="search" class="form-control" placeholder="Search" aria-label="Search">
                               <span class="input-group-btn dropdown">
-                                  <button type="button" class="btn btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <button app-link-button app-icon-button class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="icon material-icons">more_vert</i>
                                   </button>
                                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-width-3">
                                       <div class="dropdown-menu-content">
                                           <div class="list">
   
-                                              <a href="javascript:;" class="list-item">
-                                                  <div class="list-item-object">
-                                                      <i class="icon material-icons">settings</i>
-                                                  </div>
-                                                  <div class="list-item-body">
-                                                      <h1>Settings</h1>
-                                                  </div>
-                                              </a>
-  
-                                              <a href="javascript:;" class="list-item">
-                                                  <div class="list-item-object">
-                                                      <i class="icon material-icons">feedback</i>
-                                                  </div>
-                                                  <div class="list-item-body">
-                                                      <h1>Send feedback</h1>
-                                                  </div>
-                                              </a>
-  
-                                              <a href="javascript:;" class="list-item">
-                                                  <div class="list-item-object">
-                                                      <i class="icon material-icons">help</i>
-                                                  </div>
-                                                  <div class="list-item-body">
-                                                      <h1>Help</h1>
-                                                  </div>
-                                              </a>
-  
-                                              <div class="list-item-divider list-item-divider-offset"></div>
-  
-                                              <a href="javascript:;" class="list-item">
-                                                  <div class="list-item-object">
-                                                      <i class="icon material-icons">exit_to_app</i>
-                                                  </div>
-                                                  <div class="list-item-body">
-                                                      <h1>Sign out</h1>
-                                                  </div>
-                                              </a>
+                                                <a href="javascript:;" class="list-item">
+                                                        <div class="list-item-object">
+                                                              <i app-icon="settings"></i>
+                                                        </div>
+                                                        <div class="list-item-body">
+                                                            <h1>Settings</h1>
+                                                        </div>
+                                                    </a>
+        
+                                                    <a href="javascript:;" class="list-item">
+                                                        <div class="list-item-object">
+                                                              <i app-icon="feedback"></i>
+                                                        </div>
+                                                        <div class="list-item-body">
+                                                            <h1>Send feedback</h1>
+                                                        </div>
+                                                    </a>
+        
+                                                    <a href="javascript:;" class="list-item">
+                                                        <div class="list-item-object">
+                                                              <i app-icon="help"></i>
+                                                        </div>
+                                                        <div class="list-item-body">
+                                                            <h1>Help</h1>
+                                                        </div>
+                                                    </a>
+        
+                                                    <div class="list-item-divider list-item-divider-offset"></div>
+        
+                                                    <a href="javascript:;" class="list-item">
+                                                        <div class="list-item-object">
+                                                              <i app-icon="exit_to_app"></i>
+                                                        </div>
+                                                        <div class="list-item-body">
+                                                            <h1>Sign out</h1>
+                                                        </div>
+                                                    </a>
   
                                           </div>
                                       </div>

@@ -39,28 +39,47 @@ fieldset[disabled] a.btn { pointer-events: none; cursor: not-allowed; }
 .btn-raised { @include z-depth-1; }
 
 
-/* Primary buttons
+/* Filled buttons
 *******************************************/
-.btn-primary { color: color(white, primary); background-color: color(primary);
+@mixin btn-filled-theme($name, $color, $hoverColor) {
+    &.btn-theme-#{$name} { background-color: $color; 
+        @include hover-focus { background-color: $hoverColor;  }
+        &:active,
+        &.active,
+        .show > &.dropdown-toggle { background-color: $hoverColor; }
+    }
+}
+.btn-filled { color: color(white, primary);
 
-    &:hover { color: color(white, primary); background-color: color(primary, hover); }
+    &:hover { color: color(white, primary); }
+
+    &:active,
+    &.active,
+    .show > &.dropdown-toggle { background-image: none; }
+
+    @include btn-filled-theme(text, color(black, secondary), color(black, primary));
+    @include btn-filled-theme(success, color(intent, success), darken(color(intent, success), 15));
+    @include btn-filled-theme(primary, color(primary), color(primary, hover));
+    @include btn-filled-theme(warning, color(intent, warning), darken(color(intent, warning), 15));
+    @include btn-filled-theme(danger, color(intent, danger), darken(color(intent, danger), 15));
 
     &:focus,
     &.focus { }
 
     &.disabled,
     &:disabled { background-color: color(black, state-bg); color: color(black, divider); }
-
-    &:active,
-    &.active,
-    .show > &.dropdown-toggle { background-color: color(primary, active); background-image: none; }
 }
 
 
 /* Link buttons
 *******************************************/
+@mixin btn-link-theme($name, $color, $hoverColor, $disabledColor: color(black, divider)) {
+    &.btn-theme-#{$name} { color: $color; 
+        @include hover-focus { color: $hoverColor;  }
+        &:disabled { color: $disabledColor; }
+    }
+}
 .btn-link {
-    color: color(black, secondary);
     border-radius: 0;
 
     &,
@@ -73,65 +92,28 @@ fieldset[disabled] a.btn { pointer-events: none; cursor: not-allowed; }
     &:active { box-shadow: none; }
 
     @include hover { border-color: transparent; }
-
-    @include hover-focus { color: color(black, primary); text-decoration: none; background-color: transparent; }
-
-    &:disabled {
-        color: color(black, divider);
-        @include hover-focus { text-decoration: none; }
-    }
-}
-
-
-.btn-link-primary {
-    color: $link-color;
-    border-radius: 0;
-
-    &,
-    &:active,
-    &.active,
-    &:disabled { background-color: transparent; }
-
-    &,
-    &:focus,
-    &:active { box-shadow: none; }
-
-    @include hover { border-color: transparent; }
-
-    @include hover-focus { color: $link-hover-color; text-decoration: none; background-color: transparent; }
+    @include hover-focus { text-decoration: none; background-color: transparent; }
 
     &:disabled {
-        color: color(black, divider);
         @include hover-focus { text-decoration: none; }
     }
-}
 
-.btn-link-danger {
-    color: color(intent, danger);
-    border-radius: 0;
-
-    &,
-    &:active,
-    &.active,
-    &:disabled { background-color: transparent; }
-
-    &,
-    &:focus,
-    &:active { box-shadow: none; }
-
-    @include hover { border-color: transparent; }
-
-    @include hover-focus { color: darken(color(intent, danger), 15); text-decoration: none; background-color: transparent; }
-
-    &:disabled {
-        color: color(black, divider);
-        @include hover-focus { text-decoration: none; }
-    }
+    @include btn-link-theme(text, color(black, secondary), color(black, primary));
+    @include btn-link-theme(success, color(intent, success), darken(color(intent, success), 15));
+    @include btn-link-theme(primary, color(primary), color(primary, hover));
+    @include btn-link-theme(warning, color(intent, warning), darken(color(intent, warning), 15));
+    @include btn-link-theme(danger, color(intent, danger), darken(color(intent, danger), 15));
 }
 
 
 /* Outline buttons
 *******************************************/
+@mixin btn-outline-theme($name, $color, $hoverColor, $disabledColor: color(black, divider)) {
+    &.btn-theme-#{$name} { color: $color; border-color: $color;
+        @include hover-focus { color: $hoverColor; border-color: $hoverColor; }
+        &:disabled { color: $disabledColor; border-color: $disabledColor; }
+    }
+}
 .btn-outline { color: $link-color; background-color: transparent; border: $border-width solid $link-color;
 
     &:hover { background-color: color(black, state-bg); }
@@ -141,6 +123,12 @@ fieldset[disabled] a.btn { pointer-events: none; cursor: not-allowed; }
         color: color(black, divider);
         @include hover-focus { text-decoration: none; }
     }
+
+    @include btn-outline-theme(text, color(black, secondary), color(black, primary));
+    @include btn-outline-theme(success, color(intent, success), darken(color(intent, success), 15));
+    @include btn-outline-theme(primary, color(primary), color(primary, hover));
+    @include btn-outline-theme(warning, color(intent, warning), darken(color(intent, warning), 15));
+    @include btn-outline-theme(danger, color(intent, danger), darken(color(intent, danger), 15));
 }
 
 

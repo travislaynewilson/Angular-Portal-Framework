@@ -18,6 +18,8 @@ import { LoaderInterceptor } from './core/loader';
 import { LoggingInterceptor } from './core/logger';
 import { AUTH_PROVIDERS, AuthGuard } from './core/auth';
 
+import { UIModule } from './lib/ui';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -35,7 +37,8 @@ import { AUTH_PROVIDERS, AuthGuard } from './core/auth';
     ]),
     PlatformModule,
     ScrollingModule,
-    SharedModule
+    SharedModule,
+    UIModule
   ],
   exports: [
     ScrollingModule,

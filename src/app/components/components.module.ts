@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule }   from '@angular/router';
 
+import { UIModule } from '../lib/ui';
+
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -52,7 +54,8 @@ import { TypographyComponent } from './typography/typography.component';
       { path: 'toolbars', component: ToolbarsComponent },
       { path: 'tooltips', component: TooltipsComponent },
       { path: 'typography', component: TypographyComponent }
-    ])
+    ]),
+    UIModule
   ],
   declarations: [
     AlertsComponent, 

@@ -12,7 +12,6 @@ export const DEFAULT_RESIZE_TIME = 20;
 
 /**
  * Simple utility for getting the bounds of the browser viewport.
- * @docs-private
  */
 @Injectable()
 export class ViewportRuler implements OnDestroy {
@@ -43,7 +42,10 @@ export class ViewportRuler implements OnDestroy {
       this._updateViewportSize();
     }
 
-    return {width: this._viewportSize.width, height: this._viewportSize.height};
+    return {
+      width: this._viewportSize.width, 
+      height: this._viewportSize.height
+    };
   }
 
   /** Gets a ClientRect for the viewport's bounds. */

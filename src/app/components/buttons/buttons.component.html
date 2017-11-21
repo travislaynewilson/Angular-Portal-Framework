@@ -1,122 +1,86 @@
 <div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Buttons</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-  
-              <h3 class="subheading">Normal buttons</h3>
-  
-              <button class="btn btn-primary" type="button">Button</button>
-  
-              <button class="btn btn-primary btn-icon" type="button">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-primary btn-combo" type="button">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-              <br />
-  
-              <button class="btn btn-primary" type="button" disabled="disabled">Button</button>
-  
-              <button class="btn btn-primary btn-icon" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-primary btn-combo" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-  
-              <h3 class="subheading">Outline buttons buttons</h3>
-  
-  
-  
-              <button class="btn btn-outline" type="button">Button</button>
-  
-              <button class="btn btn-outline btn-icon" type="button">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-outline btn-combo" type="button">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-              <br />
-  
-              <button class="btn btn-outline" type="button" disabled="disabled">Button</button>
-  
-              <button class="btn btn-outline btn-icon" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-outline btn-combo" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-  
-              <h3 class="subheading">Link buttons</h3>
-  
-  
-              <button class="btn btn-link btn-danger" type="button">Button</button>
-  
-              <button class="btn btn-link btn-icon btn-danger" type="button">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-link btn-combo btn-danger" type="button">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-              <br />
-  
-              <button class="btn btn-link-primary" type="button">Button</button>
-  
-              <button class="btn btn-link-primary btn-icon" type="button">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-link-primary btn-combo" type="button">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-              <br />
-  
-              <button class="btn btn-link-danger btn-danger" type="button">Button</button>
-  
-              <button class="btn btn-link-danger btn-icon btn-danger" type="button">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-link-danger btn-combo btn-danger" type="button">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-              <br />
-  
-              <button class="btn btn-link-primary" type="button" disabled="disabled">Button</button>
-  
-              <button class="btn btn-link-primary btn-icon" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-              </button>
-  
-              <button class="btn btn-link-primary btn-combo" type="button" disabled="disabled">
-                  <i class="icon material-icons">file_download</i>
-                  <span class="text">Button</span>
-              </button>
-  
-          </div>
-      </section>
-  
-  </div>
+
+  <section class="card">
+    <header class="card-header">
+      <h1 class="card-title">Buttons</h1>
+    </header>
+
+    <div class="card-body px-1 pb-1">
+
+      <h3 class="subheading">Filled buttons</h3>
+
+      <p>
+        <button app-button>Button</button>
+        <button app-button app-icon-button>
+          <i app-icon="home"></i>
+        </button>
+        <button app-button app-combo-button>
+          <i app-icon="home"></i> Button
+        </button>
+        <button app-button disabled="true">Disabled</button>
+      </p>
+
+      <p>
+        <a href="javascript:;" app-button color="text">Text</a>
+        <a href="javascript:;" app-button color="primary">Primary</a>
+        <a href="javascript:;" app-button color="success">Success</a>
+        <a href="javascript:;" app-button color="warning">Warning</a>
+        <a href="javascript:;" app-button color="danger">Danger</a>
+      </p>
+
+
+      <h3 class="subheading">Outline buttons</h3>
+
+      <p>
+        <button app-outline-button>Button</button>
+        <button app-outline-button app-icon-button>
+          <i app-icon="home"></i>
+        </button>
+        <button app-outline-button app-combo-button>
+          <i app-icon="home"></i> Button
+        </button>
+        <button app-outline-button disabled="true">Disabled</button>
+      </p>
+
+      <p>
+        <a href="javascript:;" app-outline-button color="text">Text</a>
+        <a href="javascript:;" app-outline-button color="primary">Primary</a>
+        <a href="javascript:;" app-outline-button color="success">Success</a>
+        <a href="javascript:;" app-outline-button color="warning">Warning</a>
+        <a href="javascript:;" app-outline-button color="danger">Danger</a>
+      </p>
+
+
+      <h3 class="subheading">Link buttons</h3>
+
+      <p>
+        <button app-link-button>Button</button>
+        <button app-link-button app-icon-button>
+          <i app-icon="home"></i>
+        </button>
+        <button app-link-button app-combo-button>
+            <i app-icon="home"></i> Button
+          </button>
+        <button app-link-button disabled="true">Disabled</button>
+      </p>
+
+      <p>
+        <a href="javascript:;" app-link-button color="text">Text</a>
+        <a href="javascript:;" app-link-button color="primary">Primary</a>
+        <a href="javascript:;" app-link-button color="success">Success</a>
+        <a href="javascript:;" app-link-button color="warning">Warning</a>
+        <a href="javascript:;" app-link-button color="danger">Danger</a>
+      </p>
+
+
+      <h3 class="subheading">Button directives</h3>
+
+      <p>
+        <button app-button app-block-button>Block Button</button>
+      </p>
+
+
+    </div>
+  </section>
+
+</div>
