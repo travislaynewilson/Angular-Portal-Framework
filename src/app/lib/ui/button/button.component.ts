@@ -69,7 +69,7 @@ export type ButtonTheme = 'text' | 'primary' | 'success' | 'danger' | 'warning' 
     '[attr.aria-disabled]': 'disabled.toString()',
     '(click)': 'onClick($event)'
   },
-  templateUrl: './button.component.html',
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
