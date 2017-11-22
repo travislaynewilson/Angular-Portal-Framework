@@ -1,8 +1,3 @@
-export { 
-    ScrollDispatcher, 
-    SCROLL_DISPATCHER_PROVIDER_FACTORY, 
-    SCROLL_DISPATCHER_PROVIDER 
-} from './scroll-dispatcher';
-
-export { ScrollableDirective } from './scrollable.directive';
-export { ScrollingModule } from './scrolling.module';
+export * from './scroll-dispatcher.service';
+export * from './scrollable.directive';
+export * from './scrolling.module';

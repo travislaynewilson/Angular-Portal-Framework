@@ -2,7 +2,7 @@
 import {Directive, ElementRef, OnInit, OnDestroy, NgZone, Renderer2} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import {ScrollDispatcher} from './scroll-dispatcher';
+import {ScrollDispatcherService} from './scroll-dispatcher.service';
 
 
 /**
@@ -11,14 +11,14 @@ import {ScrollDispatcher} from './scroll-dispatcher';
  * can be listened to through the service.
  */
 @Directive({
-  selector: '[app-scrollable], [appScrollable]'
+  selector: '[appScrollable]'
 })
 export class ScrollableDirective implements OnInit, OnDestroy {
   private _scrolled: Subject<Event> = new Subject();
   private _scrollListener: Function | null;
 
   constructor(private _elementRef: ElementRef,
-              private _scroll: ScrollDispatcher,
+              private _scrollDispatcherService: ScrollDispatcherService,
               private _ngZone: NgZone,
               private _renderer: Renderer2) {}
 
@@ -29,11 +29,11 @@ export class ScrollableDirective implements OnInit, OnDestroy {
       });
     });
 
-    this._scroll.register(this);
+    this._scrollDispatcherService.register(this);
   }
 
   ngOnDestroy() {
-    this._scroll.deregister(this);
+    this._scrollDispatcherService.deregister(this);
 
     if (this._scrollListener) {
       this._scrollListener();

@@ -1,0 +1,6 @@
+<div class="tooltip"
+[ngClass]="tooltipClass"
+[style.transform-origin]="_transformOrigin"
+[@state]="_visibility"
+(@state.start)="_animationStart()"
+(@state.done)="_animationDone($event)">{{message}}</div>

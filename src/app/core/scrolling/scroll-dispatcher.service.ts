@@ -18,7 +18,7 @@ export const DEFAULT_SCROLL_TIME = 20;
  * Scrollable references emit a scrolled event.
  */
 @Injectable()
-export class ScrollDispatcher {
+export class ScrollDispatcherService {
   constructor(private _ngZone: NgZone, private _platform: Platform) { }
 
   /** Subject for notifying that a registered scrollable reference element has been scrolled. */
@@ -141,14 +141,15 @@ export class ScrollDispatcher {
   }
 }
 
-export function SCROLL_DISPATCHER_PROVIDER_FACTORY(
-    parentDispatcher: ScrollDispatcher, ngZone: NgZone, platform: Platform) {
-  return parentDispatcher || new ScrollDispatcher(ngZone, platform);
+
+export function SCROLL_DISPATCHER_SERVICE_PROVIDER_FACTORY(
+    parentDispatcher: ScrollDispatcherService, ngZone: NgZone, platform: Platform) {
+  return parentDispatcher || new ScrollDispatcherService(ngZone, platform);
 }
 
-export const SCROLL_DISPATCHER_PROVIDER = {
-  // If there is already a ScrollDispatcher available, use that. Otherwise, provide a new one.
-  provide: ScrollDispatcher,
-  deps: [[new Optional(), new SkipSelf(), ScrollDispatcher], NgZone, Platform],
-  useFactory: SCROLL_DISPATCHER_PROVIDER_FACTORY
+export const SCROLL_DISPATCHER_SERVICE_PROVIDER = {
+  // If there is already a ScrollDispatcherService available, use that. Otherwise, provide a new one.
+  provide: ScrollDispatcherService,
+  deps: [[new Optional(), new SkipSelf(), ScrollDispatcherService], NgZone, Platform],
+  useFactory: SCROLL_DISPATCHER_SERVICE_PROVIDER_FACTORY
 };
