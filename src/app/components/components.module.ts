@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule }   from '@angular/router';
 
-import { UIModule } from '../lib/ui';
+import { UIModule } from '@app/lib/ui';
 
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';

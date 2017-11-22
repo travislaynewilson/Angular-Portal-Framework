@@ -10,7 +10,7 @@ import {
 import {Observable} from 'rxjs/Observable';
 import {of as observableOf} from 'rxjs/observable/of';
 import {Subject} from 'rxjs/Subject';
-import {Platform, supportsPassiveEventListeners} from '../platform';
+import {Platform, supportsPassiveEventListeners} from '@app/core/platform';
 import {FocusOrigin} from './focus-origin';
 
 // This is the value used by AngularJS Material. Through trial and error (on iPhone 6S) they found

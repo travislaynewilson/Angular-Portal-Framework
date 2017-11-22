@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
-import { environment } from '../../../environments/environment';
+import { environment } from '@app/environment';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {

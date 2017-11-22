@@ -6,7 +6,10 @@
     "module": "es2015",
     "types": [],
     "paths": {
-      "@app/*": ["app/*"]
+      "@app/*": [
+        "app/*",
+        "environments/*"
+      ]
     }
   },
   "exclude": [

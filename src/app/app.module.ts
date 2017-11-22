@@ -4,19 +4,20 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { ApiModule } from './core/api';
-import { ComponentsModule } from './components/components.module';
-import { LoaderModule } from './core/loader';
-import { LayoutModule } from './core/layout';
-import { PlatformModule } from './core/platform';
+import { ApiModule } from '@app/core/api';
+import { LoaderModule } from '@app/core/loader';
+import { LayoutModule } from '@app/core/layout';
+import { PlatformModule } from '@app/core/platform';
+import { LoaderInterceptor } from '@app/core/loader';
+import { LoggingInterceptor } from '@app/core/logger';
+import { AUTH_PROVIDERS, AuthGuard } from '@app/core/auth';
+import { ScrollingModule } from '@app/core/scrolling';
 
+import { SharedModule } from '@app/shared';
+
+import { ComponentsModule } from '@app/components/components.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { ScrollingModule } from './core/scrolling';
 
-import { LoaderInterceptor } from './core/loader';
-import { LoggingInterceptor } from './core/logger';
-import { AUTH_PROVIDERS, AuthGuard } from './core/auth';
 
 import { UIModule } from '@app/lib/ui';
 

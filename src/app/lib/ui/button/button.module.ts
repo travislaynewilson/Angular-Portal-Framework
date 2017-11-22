@@ -11,7 +11,7 @@ import {
   RaisedButtonDirective,
 } from './button.component';
 
-import { IconModule } from '../icon';
+import { IconModule } from '@app/lib/ui/icon';
 
 @NgModule({
   imports: [

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BreakpointObserver} from './breakpoint-observer';
-import {PlatformModule} from '../platform';
+import {PlatformModule} from '@app/core/platform';
 import {MediaMatcher} from './media-matcher';
 import {VIEWPORT_RULER_PROVIDER} from './viewport-ruler';
 
