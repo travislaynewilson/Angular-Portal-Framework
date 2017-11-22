@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SCROLL_DISPATCHER_PROVIDER} from './scroll-dispatcher';
-import {ScrollableDirective} from  './scrollable';
+import {ScrollableDirective} from  './scrollable.directive';
 import {PlatformModule} from '../platform';
 
 @NgModule({

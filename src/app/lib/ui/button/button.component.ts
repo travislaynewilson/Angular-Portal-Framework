@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 
 
-
 @Directive({
   selector: 'button[app-button], a[app-button]',
   host: { 'class': 'btn btn-filled' }
@@ -109,7 +108,7 @@ export class ButtonComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    
   }
 
   onClick(event: Event) {

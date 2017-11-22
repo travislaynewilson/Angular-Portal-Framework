@@ -4,5 +4,5 @@ export {
     SCROLL_DISPATCHER_PROVIDER 
 } from './scroll-dispatcher';
 
-export { ScrollableDirective } from './scrollable';
+export { ScrollableDirective } from './scrollable.directive';
 export { ScrollingModule } from './scrolling.module';

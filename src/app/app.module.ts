@@ -18,7 +18,7 @@ import { LoaderInterceptor } from './core/loader';
 import { LoggingInterceptor } from './core/logger';
 import { AUTH_PROVIDERS, AuthGuard } from './core/auth';
 
-import { UIModule } from './lib/ui';
+import { UIModule } from '@app/lib/ui';
 
 @NgModule({
   declarations: [

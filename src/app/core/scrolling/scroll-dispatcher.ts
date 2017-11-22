@@ -7,7 +7,7 @@ import {of as observableOf} from 'rxjs/observable/of';
 import {fromEvent} from 'rxjs/observable/fromEvent';
 import {auditTime} from 'rxjs/operators/auditTime';
 import {filter} from 'rxjs/operators/filter';
-import {ScrollableDirective} from './scrollable';
+import {ScrollableDirective} from './scrollable.directive';
 
 
 /** Time in ms to throttle the scrolling events by default. */
@@ -42,7 +42,7 @@ export class ScrollDispatcher {
    * @param scrollable Scrollable instance to be registered.
    */
   register(scrollable: ScrollableDirective): void {
-    const scrollSubscription = scrollable.elementScrolled()
+    const scrollSubscription = scrollable.scrolled()
         .subscribe(() => this._scrolled.next(scrollable));
 
     this.scrollContainers.set(scrollable, scrollSubscription);

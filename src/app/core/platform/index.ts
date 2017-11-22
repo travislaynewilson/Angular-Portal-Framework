@@ -1,2 +1,3 @@
-export { Platform } from './platform';
-export { PlatformModule } from './platform.module';
+export * from './features';
+export * from './platform';
+export * from './platform.module';

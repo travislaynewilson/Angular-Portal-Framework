@@ -6,15 +6,15 @@ import {ScrollDispatcher} from './scroll-dispatcher';
 
 
 /**
- * Sends an event when the directive's element is scrolled. Registers itself with the
+ * Sends an event when the element is scrolled. Registers itself with the
  * ScrollDispatcher service to include itself as part of its collection of scrolling events that it
  * can be listened to through the service.
  */
 @Directive({
-  selector: '[rxl-scrollable], [rxlScrollable]'
+  selector: '[app-scrollable], [appScrollable]'
 })
 export class ScrollableDirective implements OnInit, OnDestroy {
-  private _elementScrolled: Subject<Event> = new Subject();
+  private _scrolled: Subject<Event> = new Subject();
   private _scrollListener: Function | null;
 
   constructor(private _elementRef: ElementRef,
@@ -25,7 +25,7 @@ export class ScrollableDirective implements OnInit, OnDestroy {
   ngOnInit() {
     this._scrollListener = this._ngZone.runOutsideAngular(() => {
       return this._renderer.listen(this.getElementRef().nativeElement, 'scroll', (event: Event) => {
-        this._elementScrolled.next(event);
+        this._scrolled.next(event);
       });
     });
 
@@ -41,11 +41,8 @@ export class ScrollableDirective implements OnInit, OnDestroy {
     }
   }
 
-  /**
-   * Returns observable that emits when a scroll event is fired on the host element.
-   */
-  elementScrolled(): Observable<any> {
-    return this._elementScrolled.asObservable();
+  scrolled(): Observable<any> {
+    return this._scrolled.asObservable();
   }
 
   getElementRef(): ElementRef {
