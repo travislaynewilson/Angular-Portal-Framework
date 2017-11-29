@@ -7,7 +7,7 @@ import {
 
 
 @Directive({
-  selector: '[app-icon]',
+  selector: '[appIcon]',
   host: {
     'class': 'icon material-icons'
   }
@@ -18,7 +18,7 @@ export class IconDirective {
   get icon() {
     return this._icon;
   }
-  @Input('app-icon') set icon(value: string) {
+  @Input('appIcon') set icon(value: string) {
     if(value !== this._icon)  {
       this._icon = value;
       this.elementRef.nativeElement.innerHTML = this._icon;

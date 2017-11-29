@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -28,6 +29,7 @@ import { UIModule } from '@app/lib/ui';
   imports: [
     ApiModule,
     BrowserModule,
+    BrowserAnimationsModule,
     ComponentsModule,
     HttpClientModule,
     LayoutModule,

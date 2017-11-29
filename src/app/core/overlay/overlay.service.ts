@@ -6,7 +6,7 @@ import {
 	NgZone,
   } from '@angular/core';
 
-  import {DomPortalOutlet} from '@app/core';
+  import {DomPortalOutlet} from '@app/core/portal';
   import {OverlayConfig} from './overlay-config';
   import {OverlayRef} from './overlay-ref';
   import {OverlayPositionBuilder} from './position/overlay-position-builder';

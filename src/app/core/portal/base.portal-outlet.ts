@@ -37,23 +37,23 @@ export abstract class BasePortalOutlet implements PortalOutlet {
 	/** Attaches a portal. */
 	attach(portal: Portal<any>): any {
 	  if (!portal) {
-		throwNullPortalError();
+			throwNullPortalError();
 	  }
   
 	  if (this.hasAttached()) {
-		throwPortalAlreadyAttachedError();
+			throwPortalAlreadyAttachedError();
 	  }
   
 	  if (this._isDisposed) {
-		throwPortalOutletAlreadyDisposedError();
+			throwPortalOutletAlreadyDisposedError();
 	  }
   
 	  if (portal instanceof ComponentPortal) {
-		this._attachedPortal = portal;
-		return this.attachComponentPortal(portal);
+			this._attachedPortal = portal;
+			return this.attachComponentPortal(portal);
 	  } else if (portal instanceof TemplatePortal) {
-		this._attachedPortal = portal;
-		return this.attachTemplatePortal(portal);
+			this._attachedPortal = portal;
+			return this.attachTemplatePortal(portal);
 	  }
   
 	  throwUnknownPortalTypeError();
@@ -66,8 +66,8 @@ export abstract class BasePortalOutlet implements PortalOutlet {
 	/** Detaches a previously attached portal. */
 	detach(): void {
 	  if (this._attachedPortal) {
-		this._attachedPortal.setAttachedHost(null);
-		this._attachedPortal = null;
+			this._attachedPortal.setAttachedHost(null);
+			this._attachedPortal = null;
 	  }
   
 	  this._invokeDisposeFn();
@@ -76,7 +76,7 @@ export abstract class BasePortalOutlet implements PortalOutlet {
 	/** Permanently dispose of this portal host. */
 	dispose(): void {
 	  if (this.hasAttached()) {
-		this.detach();
+			this.detach();
 	  }
   
 	  this._invokeDisposeFn();
@@ -93,4 +93,4 @@ export abstract class BasePortalOutlet implements PortalOutlet {
 		this._disposeFn = null;
 	  }
 	}
-  }
+}

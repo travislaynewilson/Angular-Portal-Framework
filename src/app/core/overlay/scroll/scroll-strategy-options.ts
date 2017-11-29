@@ -1,5 +1,6 @@
 import {Injectable, NgZone} from '@angular/core';
-import {ScrollDispatcherService, ViewportRuler} from '@app/core';
+import {ScrollDispatcherService} from '@app/core/scrolling';
+import {ViewportRuler} from '@app/core/layout';
 import {CloseScrollStrategy} from './close-scroll-strategy';
 import {NoopScrollStrategy} from './noop-scroll-strategy';
 import {BlockScrollStrategy} from './block-scroll-strategy';

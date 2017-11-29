@@ -13,4 +13,4 @@ export function getAppTooltipInvalidPositionError(position: string) {
 }
 
 export type TooltipVisibility = 'initial' | 'visible' | 'hidden';
-export type TooltipPosition = 'left' | 'right' | 'above' | 'below' | 'before' | 'after';
+export type TooltipPosition = 'left' | 'right' | 'above' | 'below';

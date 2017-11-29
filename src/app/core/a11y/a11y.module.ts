@@ -4,6 +4,7 @@ import {
   FocusMonitorService,
   FOCUS_MONITOR_SERVICE_PROVIDER
 } from './focus-monitor.service';
+import {InteractivityCheckerUtility} from './interactivity-checker.utility';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {
   exports: [],
   declarations: [],
   providers: [
+    InteractivityCheckerUtility,
     FOCUS_MONITOR_SERVICE_PROVIDER
   ]
 })

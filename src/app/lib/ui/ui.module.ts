@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from './button';
 import { IconModule } from './icon';
+import { TooltipModule } from './tooltip';
 
 @NgModule({
     imports: [
-        CommonModule,
         ButtonModule,
-        IconModule
+        CommonModule,
+        IconModule,
+        TooltipModule
     ],
     exports: [
         ButtonModule,
-        IconModule
+        IconModule,
+        TooltipModule
     ]
 })
 export class UIModule {}

@@ -134,7 +134,7 @@ export class TooltipDirective implements OnDestroy {
     private _viewContainerRef: ViewContainerRef,
     private _ngZone: NgZone,
     private _platform: Platform,
-    private _focusMonitor: FocusMonitorService,
+    private _focusMonitorService: FocusMonitorService,
     @Inject(APP_TOOLTIP_SCROLL_STRATEGY) private _scrollStrategy) {
 
     // The mouse events shouldn't be bound on iOS devices, because
@@ -146,7 +146,7 @@ export class TooltipDirective implements OnDestroy {
         renderer.listen(_elementRef.nativeElement, 'mouseleave', () => this.hide());
     }
 
-    _focusMonitor.monitor(_elementRef.nativeElement, false).subscribe(origin => {
+    _focusMonitorService.monitor(_elementRef.nativeElement, false).subscribe(origin => {
       // Note that the focus monitor runs outside the Angular zone.
       if (!origin) {
         _ngZone.run(() => this.hide(0));
@@ -170,7 +170,7 @@ export class TooltipDirective implements OnDestroy {
       this._leaveListener();
     }
 
-    this._focusMonitor.stopMonitoring(this._elementRef.nativeElement);
+    this._focusMonitorService.stopMonitoring(this._elementRef.nativeElement);
   }
 
   /** Shows the tooltip after the delay in ms, defaults to tooltip-delay-show or 0ms if no input */
@@ -286,11 +286,9 @@ export class TooltipDirective implements OnDestroy {
 
     if (this.position == 'above' || this.position == 'below') {
       position = {originX: 'center', originY: this.position == 'above' ? 'top' : 'bottom'};
-    } else if (this.position == 'left' ||
-               this.position == 'before') {
+    } else if (this.position == 'left') {
       position = {originX: 'start', originY: 'center'};
-    } else if (this.position == 'right' ||
-               this.position == 'after') {
+    } else if (this.position == 'right') {
       position = {originX: 'end', originY: 'center'};
     } else {
       throw getAppTooltipInvalidPositionError(this.position);
@@ -312,11 +310,9 @@ export class TooltipDirective implements OnDestroy {
       position = {overlayX: 'center', overlayY: 'bottom'};
     } else if (this.position == 'below') {
       position = {overlayX: 'center', overlayY: 'top'};
-    } else if (this.position == 'left' ||
-               this.position == 'before') {
+    } else if (this.position == 'left') {
       position = {overlayX: 'end', overlayY: 'center'};
-    } else if (this.position == 'right' ||
-               this.position == 'after') {
+    } else if (this.position == 'right') {
       position = {overlayX: 'start', overlayY: 'center'};
     } else {
       throw getAppTooltipInvalidPositionError(this.position);

@@ -31,9 +31,9 @@ import { ConnectionPositionPair } from '@app/core';
  */
 @Component({
   moduleId: module.id,
-  selector: 'app-tooltip-component',
-  templateUrl: 'tooltip.html',
-  styleUrls: ['tooltip.scss'],
+  selector: 'app-tooltip',
+  templateUrl: './tooltip.component.html',
+  styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -5,7 +5,7 @@ import {
 	ApplicationRef,
 	Injector,
 } from '@angular/core';
-import { BasePortalOutlet } from './base-portal-outlet';
+import { BasePortalOutlet } from './base.portal-outlet';
 import { ComponentPortal } from './component-portal';
 import { TemplatePortal } from './template-portal';
   
@@ -37,19 +37,19 @@ import { TemplatePortal } from './template-portal';
 	  // When the ViewContainerRef is missing, we use the factory to create the component directly
 	  // and then manually attach the view to the application.
 	  if (portal.viewContainerRef) {
-		componentRef = portal.viewContainerRef.createComponent(
-			componentFactory,
-			portal.viewContainerRef.length,
-			portal.injector || portal.viewContainerRef.parentInjector);
+			componentRef = portal.viewContainerRef.createComponent(
+				componentFactory,
+				portal.viewContainerRef.length,
+				portal.injector || portal.viewContainerRef.parentInjector);
   
-		this.setDisposeFn(() => componentRef.destroy());
+			this.setDisposeFn(() => componentRef.destroy());
 	  } else {
-		componentRef = componentFactory.create(portal.injector || this._defaultInjector);
-		this._appRef.attachView(componentRef.hostView);
-		this.setDisposeFn(() => {
-		  this._appRef.detachView(componentRef.hostView);
-		  componentRef.destroy();
-		});
+			componentRef = componentFactory.create(portal.injector || this._defaultInjector);
+			this._appRef.attachView(componentRef.hostView);
+			this.setDisposeFn(() => {
+				this._appRef.detachView(componentRef.hostView);
+				componentRef.destroy();
+			});
 	  }
 	  // At this point the component has been instantiated, so we move it to the location in the DOM
 	  // where we want it to be rendered.
@@ -90,7 +90,7 @@ import { TemplatePortal } from './template-portal';
 	dispose(): void {
 	  super.dispose();
 	  if (this._hostDomElement.parentNode != null) {
-		this._hostDomElement.parentNode.removeChild(this._hostDomElement);
+			this._hostDomElement.parentNode.removeChild(this._hostDomElement);
 	  }
 	}
   
@@ -98,5 +98,5 @@ import { TemplatePortal } from './template-portal';
 	private _getComponentRootNode(componentRef: ComponentRef<any>): HTMLElement {
 	  return (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
 	}
-  }
+}
   

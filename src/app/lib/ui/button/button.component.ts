@@ -10,43 +10,43 @@ import {
 
 
 @Directive({
-  selector: 'button[app-button], a[app-button]',
+  selector: 'button[appButton], a[appButton]',
   host: { 'class': 'btn btn-filled' }
 })
 export class FilledButtonDirective {}
 
 @Directive({
-  selector: 'button[app-outline-button], a[app-outline-button]',
+  selector: 'button[appOutlineButton], a[appOutlineButton]',
   host: { 'class': 'btn btn-outline' }
 })
 export class OutlineButtonDirective {}
 
 @Directive({
-  selector: 'button[app-link-button], a[app-link-button]',
+  selector: 'button[appLinkButton], a[appLinkButton]',
   host: { 'class': 'btn btn-link' }
 })
 export class LinkButtonDirective {}
 
 @Directive({
-  selector: 'button[app-icon-button], a[app-icon-button]',
+  selector: 'button[appIconButton], a[appIconButton]',
   host: { 'class': 'btn-icon' }
 })
 export class IconButtonDirective {}
 
 @Directive({
-  selector: 'button[app-combo-button], a[app-combo-button]',
+  selector: 'button[appComboButton], a[appComboButton]',
   host: { 'class': 'btn-combo' }
 })
 export class ComboButtonDirective {}
 
 @Directive({
-  selector: 'button[app-raised-button], a[app-raised-button]',
+  selector: 'button[appRaisedButton], a[appRaisedButton]',
   host: { 'class': 'btn-raised' }
 })
 export class RaisedButtonDirective {}
 
 @Directive({
-  selector: 'button[app-block-button], a[app-block-button]',
+  selector: 'button[appBlockButton], a[appBlockButton]',
   host: { 'class': 'btn-block' }
 })
 export class BlockButtonDirective {}
@@ -57,9 +57,9 @@ export class BlockButtonDirective {}
 export type ButtonTheme = 'text' | 'primary' | 'success' | 'danger' | 'warning' | undefined;
 
 @Component({
-  selector: `button[app-button], a[app-button],
-             button[app-outline-button], a[app-outline-button],             
-             button[app-link-button], a[app-link-button]
+  selector: `button[appButton], a[appButton],
+             button[appOutlineButton], a[appOutlineButton],             
+             button[appLinkButton], a[appLinkButton]
   `,
   exportAs: 'appButton',
   host: {

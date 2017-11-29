@@ -24,22 +24,20 @@ import {
   } from '@angular/core';
 
 import {Subscription} from 'rxjs/Subscription';
-import {
-	CoercionHelper,
-	KeyCodes,
-	TemplatePortal
-} from '@app/core';
+import { CoercionHelper } from '@app/core/util';
+import { KeyCodes } from '@app/core/keycodes';
+import { TemplatePortal } from '@app/core/portal';
 
-  import {OverlayService} from './overlay.service';
-  import {OverlayRef} from './overlay-ref';
-  import {OverlayConfig} from './overlay-config';
-  import {OverlayOriginDirective} from './overlay-origin.directive';
-  import {
+import {OverlayService} from './overlay.service';
+import {OverlayRef} from './overlay-ref';
+import {OverlayConfig} from './overlay-config';
+import {OverlayOriginDirective} from './overlay-origin.directive';
+import {
 	ConnectedOverlayPositionChange,
 	ConnectionPositionPair,
-  } from './position/connected-position';
-  import {ConnectedPositionStrategy} from './position';
-  import {RepositionScrollStrategy, ScrollStrategy} from './scroll';
+} from './position/connected-position';
+import {ConnectedPositionStrategy} from './position';
+import {RepositionScrollStrategy, ScrollStrategy} from './scroll';
   
   
   /** Default set of positions for the overlay. Follows the behavior of a dropdown. */

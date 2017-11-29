@@ -9,7 +9,7 @@
     </div>
 
     <a href="#app-drawer" data-toggle="drawer" class="appbar-btn appbar-drawer-toggle">
-      <i app-icon="menu"></i>
+      <i appIcon="menu"></i>
     </a>
 
     <div class="appbar-title">
@@ -19,7 +19,7 @@
     <div class="appbar-search">
       <div class="input-group">
         <span class="input-group-icon" id="app-search">
-          <i app-icon="search"></i>
+          <i appIcon="search"></i>
         </span>
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="app-search" />
       </div>
@@ -34,12 +34,12 @@
 
     <div class="appbar-btn-group">
       <button type="button" class="appbar-btn appbar-search-toggle">
-        <i app-icon="search"></i>
+        <i appIcon="search"></i>
       </button>
 
       <div class="dropdown">
         <button class="appbar-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i app-icon="more_vert"></i>
+          <i appIcon="more_vert"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right dropdown-menu-width-3">
           <div class="dropdown-menu-content">
@@ -47,7 +47,7 @@
 
               <a href="javascript:;" class="list-item">
                 <div class="list-item-object">
-                  <i app-icon="settings"></i>
+                  <i appIcon="settings"></i>
                 </div>
                 <div class="list-item-body">
                   <h1>Settings</h1>
@@ -56,7 +56,7 @@
 
               <a href="javascript:;" class="list-item">
                 <div class="list-item-object">
-                  <i app-icon="feedback"></i>
+                  <i appIcon="feedback"></i>
                 </div>
                 <div class="list-item-body">
                   <h1>Send feedback</h1>
@@ -65,7 +65,7 @@
 
               <a href="javascript:;" class="list-item">
                 <div class="list-item-object">
-                  <i app-icon="help"></i>
+                  <i appIcon="help"></i>
                 </div>
                 <div class="list-item-body">
                   <h1>Help</h1>
@@ -76,7 +76,7 @@
 
               <a href="javascript:;" class="list-item">
                 <div class="list-item-object">
-                  <i app-icon="exit_to_app"></i>
+                  <i appIcon="exit_to_app"></i>
                 </div>
                 <div class="list-item-body">
                   <h1>Sign out</h1>
@@ -109,7 +109,7 @@
           <div class="list">
             <a [routerLink]="item.route" routerLinkActive="active" class="list-item" *ngFor="let item of mainMenuLinks">
               <div class="list-item-object">
-                <i [app-icon]="item.icon"></i>
+                <i [appIcon]="item.icon"></i>
               </div>
               <div class="list-item-body">
                 <h1>{{item.text}}</h1>
@@ -122,7 +122,7 @@
           <div class="list">
             <a href="javascript:;" class="list-item">
               <div class="list-item-object">
-                <i app-icon="feedback"></i>
+                <i appIcon="feedback"></i>
               </div>
               <div class="list-item-body">
                 <h1>Send feedback</h1>
@@ -130,7 +130,7 @@
             </a>
             <a href="javascript:;" class="list-item">
               <div class="list-item-object">
-                <i app-icon="help"></i>
+                <i appIcon="help"></i>
               </div>
               <div class="list-item-body">
                 <h1>Help</h1>

@@ -6,7 +6,7 @@ import {
     ViewContainerRef,
     OnDestroy
 } from '@angular/core';
-import { BasePortalOutlet } from './base-portal-outlet';
+import { BasePortalOutlet } from './base.portal-outlet';
 import { Portal } from './portal';
 import { ComponentPortal } from './component-portal';
 import { TemplatePortal } from './template-portal';

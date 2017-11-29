@@ -1,9 +1,7 @@
 import {NgModule, Provider} from '@angular/core';
-import {
-	PortalModule, 
-	ScrollingModule, 
-	VIEWPORT_RULER_PROVIDER
-} from '@app/core';
+import {PortalModule} from '@app/core/portal';
+import {ScrollingModule} from '@app/core/scrolling';
+import {VIEWPORT_RULER_PROVIDER} from '@app/core/layout';
 
 import {OverlayService} from './overlay.service';
 import {OVERLAY_CONTAINER_SERVICE_PROVIDER} from './overlay-container.service';
@@ -19,7 +17,7 @@ export const OVERLAY_PROVIDERS: Provider[] = [
   OVERLAY_KEYBOARD_DISPATCHER_SERVICE_PROVIDER,
   VIEWPORT_RULER_PROVIDER,
   OVERLAY_CONTAINER_SERVICE_PROVIDER,
-  APP_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER,
+  APP_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER
 ];
 
 @NgModule({
@@ -34,6 +32,6 @@ export const OVERLAY_PROVIDERS: Provider[] = [
 	],
 	declarations: [ConnectedOverlayDirective, OverlayOriginDirective],
 	providers: [OVERLAY_PROVIDERS, ScrollStrategyOptions]
-  })
-  export class OverlayModule {}
+})
+export class OverlayModule {}
   
