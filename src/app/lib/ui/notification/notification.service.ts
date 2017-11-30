@@ -89,8 +89,7 @@ export class NotificationService {
    * @param action The label for the notification action.
    * @param config Additional configuration options for the notification.
    */
-  open(message: string, action: string = '', config?: NotificationConfig):
-  NotificationContext<SimpleNotificationComponent> {
+  open(message: string, action: string = '', config?: NotificationConfig): NotificationContext<SimpleNotificationComponent> {
     const _config = _applyConfigDefaults(config);
 
     // Since the user doesn't have access to the component, we can

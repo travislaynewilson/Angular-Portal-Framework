@@ -10,10 +10,10 @@
 }
 
 .app-simple-notification-action {
-  padding-left: gx(1);
-  padding-right: gx(1);
+  padding: 0 gx(1);
   flex-shrink: 0;
   margin-left: $toast-action-margin;
   margin-right: gx(-1);
+  height: auto;
 }
  

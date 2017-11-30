@@ -10,7 +10,7 @@ import {OverlayModule} from '@app/core/overlay';
 
 import { TooltipComponent } from './tooltip.component';
 import { TooltipDirective } from './tooltip.directive';
-import { APP_TOOLTIP_SCROLL_STRATEGY_PROVIDER } from './tooltip-scroll.strategy';
+import { TOOLTIP_SCROLL_STRATEGY_PROVIDER } from './tooltip-scroll.strategy';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { APP_TOOLTIP_SCROLL_STRATEGY_PROVIDER } from './tooltip-scroll.strategy'
 	  TooltipDirective
 	],
 	entryComponents: [TooltipComponent],
-	providers: [APP_TOOLTIP_SCROLL_STRATEGY_PROVIDER]
-  })
-  export class TooltipModule {}
+	providers: [TOOLTIP_SCROLL_STRATEGY_PROVIDER]
+})
+export class TooltipModule {}
   

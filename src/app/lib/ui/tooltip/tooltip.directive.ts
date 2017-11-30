@@ -28,7 +28,7 @@ import {
   TOOLTIP_PANEL_CLASS
  } from './tooltip-config';
 
- import { APP_TOOLTIP_SCROLL_STRATEGY } from './tooltip-scroll.strategy';
+ import { TOOLTIP_SCROLL_STRATEGY } from './tooltip-scroll.strategy';
 
 import { TooltipComponent } from './tooltip.component';
 
@@ -135,7 +135,7 @@ export class TooltipDirective implements OnDestroy {
     private _ngZone: NgZone,
     private _platform: Platform,
     private _focusMonitorService: FocusMonitorService,
-    @Inject(APP_TOOLTIP_SCROLL_STRATEGY) private _scrollStrategy) {
+    @Inject(TOOLTIP_SCROLL_STRATEGY) private _scrollStrategy) {
 
     // The mouse events shouldn't be bound on iOS devices, because
     // they can prevent the first tap from firing its click event.

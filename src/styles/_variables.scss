@@ -302,7 +302,7 @@ $preloader-bar-background-color: color(primary) !default;
 $toast-min-width: 288px !default;
 $toast-max-width: 568px !default;
 $toast-padding-x: gx(1.5) !default;
-$toast-padding-y: gx(1) !default;
+$toast-padding-y: 14px !default;
 $toast-margin: gx(1.5) !default;
 $toast-action-margin: gx(2) !default;
 $toast-bg: color(primary, 900) !default;

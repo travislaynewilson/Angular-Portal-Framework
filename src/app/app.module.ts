@@ -16,12 +16,11 @@ import { AUTH_PROVIDERS, AuthGuard } from '@app/core/auth';
 import { ScrollingModule } from '@app/core/scrolling';
 
 import { SharedModule } from '@app/shared';
+import { UIModule } from '@app/lib/ui';
 
 import { ComponentsModule } from '@app/components/components.module';
 import { AppComponent } from './app.component';
 
-
-import { UIModule } from '@app/lib/ui';
 
 @NgModule({
   declarations: [

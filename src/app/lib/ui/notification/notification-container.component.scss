@@ -16,6 +16,7 @@
   &.app-notification-center {
     margin: 0;
     transform: translateY(100%);
+    border-radius: $border-radius $border-radius 0 0;
   }
 
   &.app-notification-top {
@@ -23,6 +24,7 @@
 
     &.app-notification-center {
       transform: translateY(-100%);
+      border-radius: 0 0 $border-radius $border-radius;
     }
   }
 
