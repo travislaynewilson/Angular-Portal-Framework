@@ -9,7 +9,7 @@ import {
 @Directive({
   selector: '[appIcon]',
   host: {
-    'class': 'icon material-icons'
+    'class': 'icon material-icons app-icon'
   }
 })
 export class IconDirective {

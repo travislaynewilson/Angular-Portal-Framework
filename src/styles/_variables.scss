@@ -339,9 +339,19 @@ $modal-backdrop-opacity: $backdrop-opacity !default;
 $modal-transition: transform .3s $easing-timing !default;
 
 
-// Dropdowns
+// Menus
 // *************************************
 $dropdown-menu-width-increment: $max-width-increment !default;
+$menu-padding-y: gx(0.5) !default;
+$menu-overlay-min-width: $max-width-increment * 2 !default;
+$menu-overlay-max-width: $max-width-increment * 5 !default;
+$menu-icon-margin: gx(1) !default;
+$menu-icon-size: 18px !default;
+$menu-item-height: 35px !default;
+$menu-item-padding-x: gx(1) !default;
+$menu-item-padding-y: 0 !default;
+$menu-border-radius: $border-radius !default;
+$menu-submenu-indicator-size: 8px !default;
 
 
 // Tabs

@@ -1,0 +1,16 @@
+<ng-template>
+	<div
+		class="app-menu-panel"
+		[ngClass]="_classList"
+		(keydown)="_handleKeydown($event)"
+		(click)="closed.emit('click')"
+		[@transformMenu]="_panelAnimationState"
+		(@transformMenu.done)="_onAnimationDone($event)"
+		tabindex="-1"
+		role="menu">
+		<div class="app-menu-content" [@fadeInItems]="'showing'">
+		<ng-content></ng-content>
+		</div>
+	</div>
+</ng-template>
+	

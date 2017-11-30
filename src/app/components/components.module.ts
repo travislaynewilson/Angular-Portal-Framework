@@ -10,12 +10,12 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { DateRangePickersComponent } from './date-range-pickers/date-range-pickers.component';
-import { DropdownsComponent } from './dropdowns/dropdowns.component';
 import { ErrorPagesComponent } from './error-pages/error-pages.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridComponent } from './grid/grid.component';
 import { InputGroupsComponent } from './input-groups/input-groups.component';
 import { ListsComponent } from './lists/lists.component';
+import { MenusComponent } from './menus/menus.component';
 import { ModalsComponent } from './modals/modals.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PanelsComponent } from './panels/panels.component';
@@ -41,12 +41,12 @@ import { TypographyComponent } from './typography/typography.component';
       { path: 'buttons', component: ButtonsComponent },
       { path: 'datatables', component: DatatablesComponent },
       { path: 'date-range-pickers', component: DateRangePickersComponent },
-      { path: 'dropdowns', component: DropdownsComponent },
       { path: 'error-pages', component: ErrorPagesComponent },
       { path: 'forms', component: FormsComponent },
       { path: 'grid', component: GridComponent },
       { path: 'input-groups', component: InputGroupsComponent },
       { path: 'lists', component: ListsComponent },
+      { path: 'menus', component: MenusComponent },
       { path: 'modals', component: ModalsComponent },
       { path: 'panels', component: PanelsComponent },
       { path: 'preloaders', component: PreloadersComponent },
@@ -66,12 +66,12 @@ import { TypographyComponent } from './typography/typography.component';
     ButtonsComponent, 
     DatatablesComponent, 
     DateRangePickersComponent, 
-    DropdownsComponent, 
     ErrorPagesComponent,
     FormsComponent, 
     GridComponent, 
     InputGroupsComponent, 
     ListsComponent, 
+    MenusComponent, 
     ModalsComponent, 
     OverviewComponent,
     PanelsComponent, 

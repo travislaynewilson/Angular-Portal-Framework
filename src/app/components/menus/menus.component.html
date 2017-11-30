@@ -1,0 +1,65 @@
+<div class="container p-1">
+
+  <section class="card">
+    <header class="card-header">
+      <h1 class="card-title">Menus</h1>
+    </header>
+
+    <div class="card-body px-1 pb-1">
+      <div class="row">
+        <div class="col">
+
+          <button appButton [appMenuTriggerFor]="leftMenu">
+            Left menu
+          </button>
+          <app-menu #leftMenu="appMenu">
+            <button appMenuItem>
+              <i appIcon="settings"></i>
+              <span>Settings</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="feedback"></i>
+              <span>Send feedback</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="help"></i>
+              <span>Help</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="exit_to_app"></i>
+              <span>Sign out</span>
+            </button>
+          </app-menu>
+
+        </div>
+
+        <div class="col">
+          <button appButton [appMenuTriggerFor]="rightMenu" class="float-right">
+            Right menu
+          </button>
+          <app-menu #rightMenu="appMenu">
+            <button appMenuItem>
+              <i appIcon="settings"></i>
+              <span>Settings</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="feedback"></i>
+              <span>Send feedback</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="help"></i>
+              <span>Help</span>
+            </button>
+            <button appMenuItem>
+              <i appIcon="exit_to_app"></i>
+              <span>Sign out</span>
+            </button>
+          </app-menu>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>

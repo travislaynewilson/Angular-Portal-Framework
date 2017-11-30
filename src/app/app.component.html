@@ -33,60 +33,32 @@
     </div>
 
     <div class="appbar-btn-group">
+
       <button type="button" class="appbar-btn appbar-search-toggle">
         <i appIcon="search"></i>
       </button>
 
-      <div class="dropdown">
-        <button class="appbar-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button appButton appIconButton [appMenuTriggerFor]="appbarMenu" xPosition="before">
           <i appIcon="more_vert"></i>
         </button>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-width-3">
-          <div class="dropdown-menu-content">
-            <div class="list">
-
-              <a href="javascript:;" class="list-item">
-                <div class="list-item-object">
-                  <i appIcon="settings"></i>
-                </div>
-                <div class="list-item-body">
-                  <h1>Settings</h1>
-                </div>
-              </a>
-
-              <a href="javascript:;" class="list-item">
-                <div class="list-item-object">
-                  <i appIcon="feedback"></i>
-                </div>
-                <div class="list-item-body">
-                  <h1>Send feedback</h1>
-                </div>
-              </a>
-
-              <a href="javascript:;" class="list-item">
-                <div class="list-item-object">
-                  <i appIcon="help"></i>
-                </div>
-                <div class="list-item-body">
-                  <h1>Help</h1>
-                </div>
-              </a>
-
-              <div class="list-item-divider list-item-divider-offset"></div>
-
-              <a href="javascript:;" class="list-item">
-                <div class="list-item-object">
-                  <i appIcon="exit_to_app"></i>
-                </div>
-                <div class="list-item-body">
-                  <h1>Sign out</h1>
-                </div>
-              </a>
-
-            </div>
-          </div>
-        </div>
-      </div>
+        <app-menu #appbarMenu="appMenu">
+          <button appMenuItem>
+            <i appIcon="settings"></i>
+            <span>Settings</span>
+          </button>
+          <button appMenuItem>
+            <i appIcon="feedback"></i>
+            <span>Send feedback</span>
+          </button>
+          <button appMenuItem>
+            <i appIcon="help"></i>
+            <span>Help</span>
+          </button>
+          <button appMenuItem>
+            <i appIcon="exit_to_app"></i>
+            <span>Sign out</span>
+          </button>
+        </app-menu>
     </div>
 
   </nav>
