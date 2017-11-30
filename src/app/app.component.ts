@@ -26,12 +26,12 @@ export class AppComponent implements OnInit {
     { text: "Input Groups", icon: "flip", route: '/input-groups'},
     { text: "Lists", icon: "format_list_bulleted", route: '/lists'},
     { text: "Modals", icon: "aspect_ratio", route: '/modals'},
+    { text: "Notifications", icon: "notifications_none", route: '/notifications'},
     { text: "Panels", icon: "view_day", route: '/panels'},
     { text: "Preloaders", icon: "timelapse", route: '/preloaders'},
     { text: "Progress", icon: "hourglass_empty", route: '/progress'},
     { text: "Steppers", icon: "linear_scale", route: '/steppers'},
     { text: "Tabs", icon: "tab", route: '/tabs'},
-    { text: "Toasts", icon: "notifications_none", route: '/toasts'},
     { text: "Toolbars", icon: "space_bar", route: '/toolbars'},
     { text: "Tooltips", icon: "live_help", route: '/tooltips'},
     { text: "Typography", icon: "text_fields", route: '/typography'}

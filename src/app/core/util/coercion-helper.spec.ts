@@ -1,4 +1,4 @@
-import { CoercionHelper } from './coercion';
+import { CoercionHelper } from './coercion-helper';
 
 
 describe('coerceArray', () => {

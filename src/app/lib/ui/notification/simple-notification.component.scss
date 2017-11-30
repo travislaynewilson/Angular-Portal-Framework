@@ -1,0 +1,19 @@
+@import '../../../../styles/references';
+
+
+.app-simple-notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  color: color(white, secondary); 
+  opacity: 1;
+}
+
+.app-simple-notification-action {
+  padding-left: gx(1);
+  padding-right: gx(1);
+  flex-shrink: 0;
+  margin-left: $toast-action-margin;
+  margin-right: gx(-1);
+}
+ 

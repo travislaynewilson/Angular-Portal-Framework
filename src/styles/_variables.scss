@@ -303,6 +303,8 @@ $toast-min-width: 288px !default;
 $toast-max-width: 568px !default;
 $toast-padding-x: gx(1.5) !default;
 $toast-padding-y: gx(1) !default;
+$toast-margin: gx(1.5) !default;
+$toast-action-margin: gx(2) !default;
 $toast-bg: color(primary, 900) !default;
 $toast-z-index: $zindex-fixed !default;
 $toast-hidden-offset-margin: -100px !default;

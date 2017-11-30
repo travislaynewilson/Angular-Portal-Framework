@@ -1,0 +1,6 @@
+{{data.message}}
+
+<button appLinkButton
+  class="app-simple-notification-action"
+  *ngIf="hasAction"
+  (click)="action()">{{data.action}}</button>

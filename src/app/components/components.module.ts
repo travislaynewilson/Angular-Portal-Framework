@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
 import { UIModule } from '@app/lib/ui';
@@ -22,7 +23,7 @@ import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { ToastsComponent } from './toasts/toasts.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -30,6 +31,7 @@ import { TypographyComponent } from './typography/typography.component';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
@@ -50,7 +52,7 @@ import { TypographyComponent } from './typography/typography.component';
       { path: 'progress', component: ProgressComponent },
       { path: 'steppers', component: SteppersComponent },
       { path: 'tabs', component: TabsComponent },
-      { path: 'toasts', component: ToastsComponent },
+      { path: 'notifications', component: NotificationsComponent },
       { path: 'toolbars', component: ToolbarsComponent },
       { path: 'tooltips', component: TooltipsComponent },
       { path: 'typography', component: TypographyComponent }
@@ -76,7 +78,7 @@ import { TypographyComponent } from './typography/typography.component';
     ProgressComponent, 
     SteppersComponent, 
     TabsComponent, 
-    ToastsComponent, 
+    NotificationsComponent, 
     ToolbarsComponent, 
     TooltipsComponent, 
     TypographyComponent

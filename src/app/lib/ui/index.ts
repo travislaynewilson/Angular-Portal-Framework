@@ -1,4 +1,6 @@
 export * from './button';
 export * from './icon';
+export * from './notification';
+export * from './tooltip';
 
-export { UIModule } from './ui.module';
+export * from './ui.module';

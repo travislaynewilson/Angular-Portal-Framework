@@ -1,5 +1,6 @@
 export * from './base.portal-outlet';
 export * from './component-portal';
+export * from './component-type';
 export * from './dom.portal-outlet';
 export * from './portal-errors';
 export * from './portal-injector';
