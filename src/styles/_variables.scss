@@ -43,6 +43,7 @@ $colors: (
         base: $blue,
         active: darken($blue, 5),
         hover: darken($blue, 5),
+        divider: rgba($blue, 0.12),
         state-bg: rgba($blue, 0.06),
         900: $darkblue
     ),
@@ -279,22 +280,20 @@ $subheading-font-weight: $font-weight-medium !default;
 $subheading-padding-y: gx(0.5) !default;
 
 
-// Progress
-// *************************************
-$progress-height:               gx(0.25) !default;
-$progress-font-size:            $font-size-xs !default;
-$progress-bg:                   rgba(color(primary), 0.3) !default;
-$progress-border-radius:        0 !default;
-$progress-bar-color:            color(white) !default;
-$progress-bar-bg:               color(primary) !default;
-$progress-bar-transition:       width .6s $easing-timing !default;
-
-
 // Preloaders
 // *************************************
 $preloader-height: 4px !default;
 $preloader-background-color: lighten(color(primary), 45) !default;
 $preloader-bar-background-color: color(primary) !default;
+
+
+// Progress bars
+// *************************************
+$progress-bar-height: 4px !default;
+$progress-bar-primary-background-color: color(primary) !default;
+$progress-bar-buffer-background-color: color(primary, divider) !default;
+$progress-bar-full-animation-duration: 2000ms !default;
+$progress-bar-piece-animation-duration: 250ms !default;
 
 
 // Toasts

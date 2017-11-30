@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from './button';
 import { IconModule } from './icon';
 import { NotificationModule } from './notification';
+import { ProgressBarModule } from './progress-bar';
 import { TooltipModule } from './tooltip';
 
 @NgModule({
@@ -12,12 +13,14 @@ import { TooltipModule } from './tooltip';
         CommonModule,
         IconModule,
         NotificationModule,
+        ProgressBarModule,
         TooltipModule
     ],
     exports: [
         ButtonModule,
         IconModule,
         NotificationModule,
+        ProgressBarModule,
         TooltipModule
     ]
 })

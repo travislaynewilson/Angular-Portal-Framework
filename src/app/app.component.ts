@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     { text: "Notifications", icon: "notifications_none", route: '/notifications'},
     { text: "Panels", icon: "view_day", route: '/panels'},
     { text: "Preloaders", icon: "timelapse", route: '/preloaders'},
-    { text: "Progress", icon: "hourglass_empty", route: '/progress'},
+    { text: "Progress Bars", icon: "hourglass_empty", route: '/progress-bars'},
     { text: "Steppers", icon: "linear_scale", route: '/steppers'},
     { text: "Tabs", icon: "tab", route: '/tabs'},
     { text: "Toolbars", icon: "space_bar", route: '/toolbars'},

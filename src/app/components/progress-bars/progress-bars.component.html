@@ -1,0 +1,25 @@
+<div class="container p-1">
+
+  <section class="card">
+    <header class="card-header">
+      <h1 class="card-title">Progress bars</h1>
+    </header>
+
+    <div class="card-body px-1 pb-1">
+
+
+        <h6>Determinate progress bar</h6>
+        <app-progress-bar [value]="progressValue"></app-progress-bar><br />
+        <input type="range" min="0" max="100" step="1" [(ngModel)]="progressValue" /> {{progressValue}}% 
+
+      <br />
+      <br />
+      <br />
+
+      <h6>Indeterminate progress bar</h6>
+      <app-progress-bar mode="indeterminate"></app-progress-bar>
+      
+    </div>
+  </section>
+
+</div>
