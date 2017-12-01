@@ -1,0 +1,42 @@
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {OverlayModule} from '@app/core/overlay';
+import {PortalModule} from '@app/core/portal';
+import {A11yModule} from '@app/core/a11y';
+import {DialogService} from './dialog.service';
+import {DIALOG_SCROLL_STRATEGY_PROVIDER} from './dialog-scroll.strategy';
+import {DialogContainerComponent} from './dialog-container.component';
+import {DialogActionsDirective} from './dialog-actions.directive';
+import {DialogCloseDirective} from './dialog-close.directive';
+import {DialogContentDirective} from './dialog-content.directive';
+import {DialogTitleDirective} from './dialog-title.directive';
+
+
+@NgModule({
+  imports: [
+    CommonModule,
+    OverlayModule,
+    PortalModule,
+    A11yModule
+  ],
+  exports: [
+    DialogContainerComponent,
+    DialogCloseDirective,
+    DialogTitleDirective,
+    DialogContentDirective,
+    DialogActionsDirective
+  ],
+  declarations: [
+    DialogContainerComponent,
+    DialogCloseDirective,
+    DialogTitleDirective,
+    DialogContentDirective,
+    DialogActionsDirective
+  ],
+  providers: [
+    DialogService,
+    DIALOG_SCROLL_STRATEGY_PROVIDER
+  ],
+  entryComponents: [DialogContainerComponent]
+})
+export class DialogModule {}

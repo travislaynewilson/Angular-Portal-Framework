@@ -1,55 +1,55 @@
-import { 
-  ChangeDetectionStrategy,
-  Component, 
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-  Renderer2
+import {
+	ChangeDetectionStrategy,
+	Component,
+	Directive,
+	ElementRef,
+	Input,
+	OnInit,
+	Renderer2
 } from '@angular/core';
 
 
 @Directive({
-  selector: 'button[appButton], a[appButton]',
-  host: { 'class': 'btn btn-filled' }
+	selector: 'button[appButton], a[appButton]',
+	host: { 'class': 'btn btn-filled' }
 })
-export class FilledButtonDirective {}
+export class FilledButtonDirective { }
 
 @Directive({
-  selector: 'button[appOutlineButton], a[appOutlineButton]',
-  host: { 'class': 'btn btn-outline' }
+	selector: 'button[appOutlineButton], a[appOutlineButton]',
+	host: { 'class': 'btn btn-outline' }
 })
-export class OutlineButtonDirective {}
+export class OutlineButtonDirective { }
 
 @Directive({
-  selector: 'button[appLinkButton], a[appLinkButton]',
-  host: { 'class': 'btn btn-link' }
+	selector: 'button[appLinkButton], a[appLinkButton]',
+	host: { 'class': 'btn btn-link' }
 })
-export class LinkButtonDirective {}
+export class LinkButtonDirective { }
 
 @Directive({
-  selector: 'button[appIconButton], a[appIconButton]',
-  host: { 'class': 'btn-icon' }
+	selector: 'button[appIconButton], a[appIconButton]',
+	host: { 'class': 'btn-icon' }
 })
-export class IconButtonDirective {}
+export class IconButtonDirective { }
 
 @Directive({
-  selector: 'button[appComboButton], a[appComboButton]',
-  host: { 'class': 'btn-combo' }
+	selector: 'button[appComboButton], a[appComboButton]',
+	host: { 'class': 'btn-combo' }
 })
-export class ComboButtonDirective {}
+export class ComboButtonDirective { }
 
 @Directive({
-  selector: 'button[appRaisedButton], a[appRaisedButton]',
-  host: { 'class': 'btn-raised' }
+	selector: 'button[appRaisedButton], a[appRaisedButton]',
+	host: { 'class': 'btn-raised' }
 })
-export class RaisedButtonDirective {}
+export class RaisedButtonDirective { }
 
 @Directive({
-  selector: 'button[appBlockButton], a[appBlockButton]',
-  host: { 'class': 'btn-block' }
+	selector: 'button[appBlockButton], a[appBlockButton]',
+	host: { 'class': 'btn-block' }
 })
-export class BlockButtonDirective {}
+export class BlockButtonDirective { }
 
 
 
@@ -57,64 +57,67 @@ export class BlockButtonDirective {}
 export type ButtonTheme = 'text' | 'primary' | 'success' | 'danger' | 'warning' | undefined;
 
 @Component({
-  selector: `button[appButton], a[appButton],
-             button[appOutlineButton], a[appOutlineButton],             
-             button[appLinkButton], a[appLinkButton]
-  `,
-  exportAs: 'appButton',
-  host: {
-    '[attr.tabindex]': 'disabled ? -1 : 0',
-    '[attr.disabled]': 'disabled || null',
-    '[attr.aria-disabled]': 'disabled.toString()',
-    '(click)': 'onClick($event)'
-  },
-  template: `<ng-content></ng-content>`,
-  styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: `button[appButton], a[appButton],
+button[appOutlineButton], a[appOutlineButton],             
+button[appLinkButton], a[appLinkButton]
+`,
+	exportAs: 'appButton',
+	host: {
+		'[type]': 'type',
+		'[attr.tabindex]': 'disabled ? -1 : 0',
+		'[attr.disabled]': 'disabled || null',
+		'[attr.aria-disabled]': 'disabled.toString()',
+		'(click)': 'onClick($event)'
+	},
+	template: `<ng-content></ng-content>`,
+	styleUrls: ['./button.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent implements OnInit {
 
-  @Input() disabled: boolean = false;
+	@Input() disabled: boolean = false;
 
-  // Color
-  _defaultColor: ButtonTheme = 'primary';
-  _color: ButtonTheme;
+	@Input() type: 'button' | 'submit' = 'button';
 
-  get color(): ButtonTheme {
-    return this._color;
-  };
-  @Input() set color(value: ButtonTheme) {
-    const _value = value || this. _defaultColor;
+	// Color
+	_defaultColor: ButtonTheme = 'primary';
+	_color: ButtonTheme;
 
-    // Only change the element if we've actually changed the color
-    if(_value !== this._color) {
-      if(this._color) {
-        this.renderer.removeClass(this.elementRef.nativeElement, `btn-theme-${this._color}`);
-      }
-      if(_value) {
-        this.renderer.addClass(this.elementRef.nativeElement, `btn-theme-${_value}`);
-      }
+	get color (): ButtonTheme {
+		return this._color;
+	};
+	@Input() set color (value: ButtonTheme) {
+		const _value = value || this._defaultColor;
 
-      this._color = _value;
-    }
-  }
+		// Only change the element if we've actually changed the color
+		if (_value !== this._color) {
+			if (this._color) {
+				this.renderer.removeClass(this.elementRef.nativeElement, `btn-theme-${this._color}`);
+			}
+			if (_value) {
+				this.renderer.addClass(this.elementRef.nativeElement, `btn-theme-${_value}`);
+			}
+
+			this._color = _value;
+		}
+	}
 
 
-  constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {
-    this.color = this._defaultColor;
-   }
+	constructor (
+		private renderer: Renderer2,
+		private elementRef: ElementRef
+	) {
+		this.color = this._defaultColor;
+	}
 
-  ngOnInit() {
-    
-  }
+	ngOnInit () {
 
-  onClick(event: Event) {
-    if(this.disabled) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-    }
-  }
+	}
+
+	onClick (event: Event) {
+		if (this.disabled) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+		}
+	}
 }

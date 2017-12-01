@@ -40,6 +40,88 @@ export class InteractivityCheckerUtility {
   }
 
   /**
+   * Gets whether an element can be reached via Tab key.
+   * Assumes that the element has already been checked with isFocusable.
+   *
+   * @param element Element to be checked.
+   * @returns Whether the element is tabbable.
+   */
+  isTabbable(element: HTMLElement): boolean {
+    // Nothing is tabbable on the the server 😎
+    if (!this._platform.isBrowser) {
+      return false;
+    }
+
+    let frameElement = (element.ownerDocument.defaultView || window).frameElement as HTMLElement;
+
+    if (frameElement) {
+
+      let frameType = frameElement && frameElement.nodeName.toLowerCase();
+
+      // Frame elements inherit their tabindex onto all child elements.
+      if (getTabIndexValue(frameElement) === -1) {
+        return false;
+      }
+
+      // Webkit and Blink consider anything inside of an <object> element as non-tabbable.
+      if ((this._platform.BLINK || this._platform.WEBKIT) && frameType === 'object') {
+        return false;
+      }
+
+      // Webkit and Blink disable tabbing to an element inside of an invisible frame.
+      if ((this._platform.BLINK || this._platform.WEBKIT) && !this.isVisible(frameElement)) {
+        return false;
+      }
+
+    }
+
+    let nodeName = element.nodeName.toLowerCase();
+    let tabIndexValue = getTabIndexValue(element);
+
+    if (element.hasAttribute('contenteditable')) {
+      return tabIndexValue !== -1;
+    }
+ 
+    if (nodeName === 'iframe') {
+      // The frames may be tabbable depending on content, but it's not possibly to reliably
+      // investigate the content of the frames.
+      return false;
+    }
+
+    if (nodeName === 'audio') {
+      if (!element.hasAttribute('controls')) {
+        // By default an <audio> element without the controls enabled is not tabbable.
+        return false;
+      } else if (this._platform.BLINK) {
+        // In Blink <audio controls> elements are always tabbable.
+        return true;
+      }
+    }
+
+    if (nodeName === 'video') {
+      if (!element.hasAttribute('controls') && this._platform.TRIDENT) {
+        // In Trident a <video> element without the controls enabled is not tabbable.
+        return false;
+      } else if (this._platform.BLINK || this._platform.FIREFOX) {
+        // In Chrome and Firefox <video controls> elements are always tabbable.
+        return true;
+      }
+    }
+
+    if (nodeName === 'object' && (this._platform.BLINK || this._platform.WEBKIT)) {
+      // In all Blink and WebKit based browsers <object> elements are never tabbable.
+      return false;
+    }
+
+    // In iOS the browser only considers some specific elements as tabbable.
+    if (this._platform.WEBKIT && this._platform.IOS && !isPotentiallyTabbableIOS(element)) {
+      return false;
+    }
+
+    return element.tabIndex >= 0;
+  }
+
+  /**
    * Gets whether an element can be focused by the user.
    *
    * @param element Element to be checked.
@@ -121,3 +203,29 @@ function isPotentiallyFocusable(element: HTMLElement): boolean {
       element.hasAttribute('contenteditable') ||
       hasValidTabIndex(element);
 }
+
+/**
+ * Returns the parsed tabindex from the element attributes instead of returning the
+ * evaluated tabindex from the browsers defaults.
+ */
+function getTabIndexValue(element: HTMLElement): number | null {
+	if (!hasValidTabIndex(element)) {
+	  return null;
+	}
+  
+	// See browser issue in Gecko https://bugzilla.mozilla.org/show_bug.cgi?id=1128054
+	const tabIndex = parseInt(element.getAttribute('tabindex') || '', 10);
+  
+	return isNaN(tabIndex) ? -1 : tabIndex;
+  }
+
+  /** Checks whether the specified element is potentially tabbable on iOS */
+function isPotentiallyTabbableIOS(element: HTMLElement): boolean {
+	let nodeName = element.nodeName.toLowerCase();
+	let inputType = nodeName === 'input' && (element as HTMLInputElement).type;
+  
+	return inputType === 'text'
+		|| inputType === 'password'
+		|| nodeName === 'select'
+		|| nodeName === 'textarea';
+  }

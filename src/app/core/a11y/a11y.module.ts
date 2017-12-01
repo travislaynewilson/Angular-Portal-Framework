@@ -4,6 +4,8 @@ import {
   FocusMonitorService,
   FOCUS_MONITOR_SERVICE_PROVIDER
 } from './focus-monitor.service';
+import {TrapFocusDirective} from './trap-focus.directive';
+import {FocusTrapFactory} from './focus-trap.factory';
 import {InteractivityCheckerUtility} from './interactivity-checker.utility';
 
 
@@ -11,10 +13,11 @@ import {InteractivityCheckerUtility} from './interactivity-checker.utility';
   imports: [
     CommonModule
   ],
-  exports: [],
-  declarations: [],
+  exports: [TrapFocusDirective],
+  declarations: [TrapFocusDirective],
   providers: [
-    InteractivityCheckerUtility,
+	InteractivityCheckerUtility,
+	FocusTrapFactory,
     FOCUS_MONITOR_SERVICE_PROVIDER
   ]
 })
