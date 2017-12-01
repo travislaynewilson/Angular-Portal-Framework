@@ -9,27 +9,37 @@
       <div class="row">
         <div class="col">
 
-          <button appButton [appMenuTriggerFor]="leftMenu">
-            Left menu
-          </button>
-          <app-menu #leftMenu="appMenu">
-            <button appMenuItem>
-              <i appIcon="settings"></i>
-              <span>Settings</span>
-            </button>
-            <button appMenuItem>
-              <i appIcon="feedback"></i>
-              <span>Send feedback</span>
-            </button>
-            <button appMenuItem>
-              <i appIcon="help"></i>
-              <span>Help</span>
-            </button>
-            <button appMenuItem>
-              <i appIcon="exit_to_app"></i>
-              <span>Sign out</span>
-            </button>
-          </app-menu>
+            <button appButton [appMenuTriggerFor]="leftMenu1">
+                Left menu
+              </button>
+              <app-menu #leftMenu1="appMenu">
+                <button appMenuItem>Action 1.1</button>
+                <button appMenuItem [appMenuTriggerFor]="leftMenu2">Action 1.2</button>
+                <button appMenuItem [appMenuTriggerFor]="leftMenu3">Action 1.3</button>
+                <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 1.4</button>
+              </app-menu>
+
+              <app-menu #leftMenu2="appMenu">
+                  <button appMenuItem>Action 2.1</button>
+                  <button appMenuItem>Action 2.2</button>
+                  <button appMenuItem [appMenuTriggerFor]="leftMenu3">Action 2.3</button>
+                  <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 2.4</button>
+              </app-menu>
+
+              <app-menu #leftMenu3="appMenu">
+                  <button appMenuItem>Action 3.1</button>
+                  <button appMenuItem>Action 3.2</button>
+                  <button appMenuItem>Action 3.3</button>
+                  <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 3.4</button>
+              </app-menu>
+
+              <app-menu #leftMenu4="appMenu">
+                  <button appMenuItem>Action 4.1</button>
+                  <button appMenuItem>Action 4.2</button>
+                  <button appMenuItem>Action 4.3</button>
+                  <button appMenuItem>Action 4.4</button>
+              </app-menu>
+              
 
         </div>
 

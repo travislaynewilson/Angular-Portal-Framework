@@ -105,7 +105,6 @@
 .app-menu-item-submenu-trigger {
   // Increase the side padding to prevent the indicator from overlapping the text.
   padding-right: $menu-item-padding-x * 2;
-  color: color(black, secondary);
 
   // Renders a triangle to indicate that the menu item will open a sub-menu.
   &::after {
