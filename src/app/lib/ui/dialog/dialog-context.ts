@@ -35,8 +35,8 @@ export class DialogContext<T> {
 
   constructor(
     private _overlayRef: OverlayRef,
-    private _containerInstance:DialogContainerComponent,
-    readonly id: string = `mat-dialog-${uniqueId++}`) {
+    private _containerInstance: DialogContainerComponent,
+    readonly id: string = `app-dialog-${uniqueId++}`) {
 
     // Emit when opening animation completes
     _containerInstance._animationStateChanged.pipe(
