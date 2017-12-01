@@ -16,7 +16,7 @@ export class NotificationsComponent implements OnInit {
   timestamp: Date;
 
   message: string = 'Hello world!';
-  horizontalPosition: NotificationHorizontalPosition = 'center';
+  horizontalPosition: NotificationHorizontalPosition = 'right';
   verticalPosition: NotificationVerticalPosition = 'bottom';
   duration?: number = 3000;
 

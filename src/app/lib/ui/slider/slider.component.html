@@ -1,0 +1,17 @@
+<div class="app-slider-wrapper" #sliderWrapper>
+	<div class="app-slider-track-wrapper">
+	  <div class="app-slider-track-background" [ngStyle]="_trackBackgroundStyles"></div>
+	  <div class="app-slider-track-fill" [ngStyle]="_trackFillStyles"></div>
+	</div>
+	<div class="app-slider-ticks-container" [ngStyle]="_ticksContainerStyles">
+	  <div class="app-slider-ticks" [ngStyle]="_ticksStyles"></div>
+	</div>
+	<div class="app-slider-thumb-container" [ngStyle]="_thumbContainerStyles">
+	  <div class="app-slider-focus-ring"></div>
+	  <div class="app-slider-thumb"></div>
+	  <div class="app-slider-thumb-label">
+		<span class="app-slider-thumb-label-text">{{displayValue}}</span>
+	  </div>
+	</div>
+  </div>
+  

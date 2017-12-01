@@ -6,6 +6,7 @@ import { IconModule } from './icon';
 import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
 import { ProgressBarModule } from './progress-bar';
+import { SliderModule } from './slider';
 import { TooltipModule } from './tooltip';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TooltipModule } from './tooltip';
         MenuModule,
         NotificationModule,
         ProgressBarModule,
+        SliderModule,
         TooltipModule
     ],
     exports: [
@@ -24,6 +26,7 @@ import { TooltipModule } from './tooltip';
         MenuModule,
         NotificationModule,
         ProgressBarModule,
+        SliderModule,
         TooltipModule
     ]
 })

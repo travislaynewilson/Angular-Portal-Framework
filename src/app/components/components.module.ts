@@ -22,6 +22,7 @@ import { PanelsComponent } from './panels/panels.component';
 import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
+import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { NotificationsComponent } from './notifications/notifications.component';
@@ -51,6 +52,7 @@ import { TypographyComponent } from './typography/typography.component';
       { path: 'panels', component: PanelsComponent },
       { path: 'preloaders', component: PreloadersComponent },
       { path: 'progress-bars', component: ProgressBarsComponent },
+      { path: 'sliders', component: SlidersComponent },
       { path: 'steppers', component: SteppersComponent },
       { path: 'tabs', component: TabsComponent },
       { path: 'notifications', component: NotificationsComponent },
@@ -78,6 +80,7 @@ import { TypographyComponent } from './typography/typography.component';
     PreloadersComponent, 
     ProgressComponent, 
     ProgressBarsComponent,
+    SlidersComponent,
     SteppersComponent, 
     TabsComponent, 
     NotificationsComponent, 

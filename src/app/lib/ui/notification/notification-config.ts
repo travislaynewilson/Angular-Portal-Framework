@@ -25,7 +25,7 @@ export class NotificationConfig {
   data?: any = null;
 
   /** The horizontal position to place the notificationr. */
-  horizontalPosition?: NotificationHorizontalPosition = 'center';
+  horizontalPosition?: NotificationHorizontalPosition = 'right';
 
   /** The vertical position to place the notification. */
   verticalPosition?: NotificationVerticalPosition = 'bottom';
