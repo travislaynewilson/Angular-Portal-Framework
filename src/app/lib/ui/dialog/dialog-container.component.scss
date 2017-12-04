@@ -7,7 +7,7 @@ $mat-dialog-border-radius: 2px !default;
 $mat-dialog-max-height: 65vh !default;
 $mat-dialog-button-margin: 8px !default;
 
-.mat-dialog-container {
+.app-dialog-container {
   //@include mat-elevation(24);
 
   display: block;
@@ -24,7 +24,7 @@ $mat-dialog-button-margin: 8px !default;
   height: 100%;
 }
 
-.mat-dialog-content {
+.app-dialog-content {
   display: block;
   margin: 0 $mat-dialog-padding * -1;
   padding: 0 $mat-dialog-padding;
@@ -37,12 +37,12 @@ $mat-dialog-button-margin: 8px !default;
   backface-visibility: hidden;
 }
 
-.mat-dialog-title {
+.app-dialog-title {
   margin: 0 0 20px;
   display: block;
 }
 
-.mat-dialog-actions {
+.app-dialog-actions {
   padding: $mat-dialog-padding / 2 0;
   display: flex;
   flex-wrap: wrap;
@@ -62,10 +62,11 @@ $mat-dialog-button-margin: 8px !default;
     justify-content: center;
   }
 
-  .mat-button + .mat-button,
-  .mat-raised-button + .mat-raised-button,
-  .mat-button + .mat-raised-button,
-  .mat-raised-button + .mat-button {
+  .btn + .btn,
+  .app-button + .app-button,
+  .app-raised-button + .app-raised-button,
+  .app-button + .app-raised-button,
+  .app-raised-button + .app-button {
     margin-left: $mat-dialog-button-margin;
   }
 }

@@ -20,7 +20,7 @@ export class DialogCloseDirective {
 	/** Screenreader label for the button. */
 	@Input('aria-label') ariaLabel: string = 'Close dialog';
 
-	@Input('matDialogClose') dialogResult: any;
+	@Input('appDialogClose') dialogResult: any;
 
 	constructor (public dialogContext: DialogContext<any>) { }
 }

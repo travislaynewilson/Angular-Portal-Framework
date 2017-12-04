@@ -63,7 +63,6 @@ button[appLinkButton], a[appLinkButton]
 `,
 	exportAs: 'appButton',
 	host: {
-		'[type]': 'type',
 		'[attr.tabindex]': 'disabled ? -1 : 0',
 		'[attr.disabled]': 'disabled || null',
 		'[attr.aria-disabled]': 'disabled.toString()',
@@ -77,7 +76,16 @@ export class ButtonComponent implements OnInit {
 
 	@Input() disabled: boolean = false;
 
-	@Input() type: 'button' | 'submit' = 'button';
+	@Input()
+	get type() {
+		return this._type;
+	}
+	set type(val) {
+		if(val !== this._type) {
+			this.setType(val);
+		}
+	}
+	private _type: 'button' | 'submit' | 'reset';
 
 	// Color
 	_defaultColor: ButtonTheme = 'primary';
@@ -109,15 +117,26 @@ export class ButtonComponent implements OnInit {
 	) {
 		this.color = this._defaultColor;
 	}
-
+	
 	ngOnInit () {
-
+		this.setType();
 	}
 
 	onClick (event: Event) {
 		if (this.disabled) {
 			event.preventDefault();
 			event.stopImmediatePropagation();
+		}
+	}
+
+	isButton(): boolean {
+		return this.elementRef.nativeElement.tagName.toLowerCase() === 'button';
+	}
+
+	private setType(val?: 'button' | 'submit' | 'reset') {
+		if(this.isButton()) {
+			this._type = val || this._type || 'button';
+			this.renderer.setAttribute(this.elementRef.nativeElement, 'type', this._type);
 		}
 	}
 }

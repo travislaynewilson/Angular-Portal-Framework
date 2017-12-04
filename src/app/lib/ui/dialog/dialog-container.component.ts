@@ -49,7 +49,7 @@ export function throwMatDialogContentAlreadyAttachedError () {
 		])
 	],
 	host: {
-		'class': 'mat-dialog-container',
+		'class': 'app-dialog-container',
 		'tabindex': '-1',
 		'[attr.role]': '_config?.role',
 		'[attr.aria-labelledby]': '_ariaLabelledBy',
