@@ -1,0 +1,85 @@
+@import '../../../../styles/references';
+
+
+.app-expansion-panel {
+  // @include mat-elevation-transition;
+  // @include mat-overridable-elevation(2);
+  box-sizing: content-box;
+  display: block;
+  margin: 0;
+  transition: margin 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-expansion-panel-content {
+  .app-expanded & {
+    overflow: visible;
+  }
+  &,
+  &.ng-animating {
+    overflow: hidden;
+  }
+}
+
+.app-expansion-panel-body {
+  padding: 0 24px 16px;
+}
+
+.app-expansion-panel-spacing {
+  margin: 16px 0;
+  .app-accordion &:first-child {
+    margin-top: 0;
+  }
+  .app-accordion &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.app-action-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 16px 8px 16px 24px;
+
+  button.app-button {
+    margin-left: 8px;
+  }
+} 
+
+// Theme
+.app-expansion-panel {
+  background: color(white);
+  color: color(black, primary);
+}
+
+.app-action-row {
+  border-top-color: color(black, divider);
+}
+
+.app-expansion-panel:not(.app-expanded) .app-expansion-panel-header {
+  &:not([aria-disabled='true']) {
+    &.cdk-keyboard-focused,
+    &.cdk-program-focused,
+    &:hover {
+      background: color(black, state-bg);
+    }
+  }
+}
+
+.app-expansion-panel-header-title {
+  color: color(black, primary);
+}
+
+.app-expansion-panel-header-description,
+.app-expansion-indicator::after {
+  color: color(black, secondary);
+}
+
+.app-expansion-panel-header[aria-disabled='true'] {
+  color: color(black, disabled);
+  .app-expansion-panel-header-title,
+  .app-expansion-panel-header-description {
+    color: inherit;
+  }
+}

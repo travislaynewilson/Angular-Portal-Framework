@@ -1,95 +1,116 @@
-<div class="container px-1 pb-1">
+<div class="container" padded>
+  <h1 class="page-title">Panels</h1>
+
   
-      <h1 class="page-title">Panels</h1>
-  
-      <div class="panel-group" id="panel-group-demo" data-children=".panel">
-  
-          <div class="panel">
-              <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-1" aria-expanded="true" aria-controls="panel-group-demo">
-                  <h1 class="panel-title">Name</h1>
-                  <div class="panel-header-content"></div>
-                  <button type="button" class="panel-toggle"><i class="material-icons">expand_more</i></button>
-              </div>
-              <div class="panel-content collapse" id="panel-1" role="tabpanel">
-                  <div class="panel-body">
-                      Here's some content!
-                  </div>
-                  <nav class="panel-footer">
-                      <button type="button" class="btn btn-primary">Save</button>
-                      <button type="button" class="btn btn-link">Cancel</button>
-                  </nav>
-              </div>
-          </div>
-  
-          <div class="panel">
-              <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-2" aria-controls="panel-group-demo">
-                  <h1 class="panel-title">Trip name</h1>
-                  <div class="panel-header-content">
-                      <div class="col">Caribbean cruise</div>
-                  </div>
-                  <button type="button" class="panel-toggle"><i class="material-icons">expand_more</i></button>
-              </div>
-              <div class="panel-content collapse" id="panel-2" role="tabpanel">
-                  <div class="panel-body">
-                      Here's some content!
-                  </div>
-                  <nav class="panel-footer">
-                      <button type="button" class="btn btn-primary">Save</button>
-                      <button type="button" class="btn btn-link">Cancel</button>
-                  </nav>
-              </div>
-          </div>
-  
-          <div class="panel">
-              <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-3" aria-controls="panel-group-demo">
-                  <h1 class="panel-title">Location</h1>
-                  <div class="panel-header-content">
-                      <div class="col hide-when-active">Barbados</div>
-                      <div class="col show-when-active">Select trip destination</div>
-                  </div>
-                  <button type="button" class="panel-toggle"><i class="material-icons">expand_more</i></button>
-              </div>
-              <div class="panel-content collapse" id="panel-3" role="tabpanel">
-  
-                  <div class="panel-body-container">
-                      <div class="panel-body-offset"></div>
-                      <div class="panel-body">
-  
-                          <div style="border: 1px dashed #ccc; background-color: #f5f5f5; height: 200px;"></div>
-  
-                      </div>
-                  </div>
-  
-                  <nav class="panel-footer">
-                      <button type="button" class="btn btn-primary">Save</button>
-                      <button type="button" class="btn btn-link">Cancel</button>
-                  </nav>
-              </div>
-          </div>
-  
-          <div class="panel">
-              <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-4" aria-controls="panel-group-demo">
-                  <h1 class="panel-title">Start and end dates <small>Optional</small></h1>
-                  <div class="panel-header-content">
-                      <div class="col">Start date: Feb 29, 2016</div>
-                      <div class="col">End date: Not set</div>
-                  </div>
-                  <button type="button" class="panel-toggle"><i class="material-icons">expand_more</i></button>
-              </div>
-              <div class="panel-content collapse" id="panel-4" role="tabpanel">
-                  <div class="panel-body">
-                      Here's some content!
-                  </div>
-                  <nav class="panel-footer">
-                      <button type="button" class="btn btn-primary">Save</button>
-                      <button type="button" class="btn btn-link">Cancel</button>
-                  </nav>
-              </div>
-          </div>
-  
+  <app-expansion-panel-accordion>
+    <app-expansion-panel>
+      <app-expansion-panel-header>
+        <app-panel-title> Personal data </app-panel-title>
+        <app-panel-description> Type your name and age </app-panel-description>
+      </app-expansion-panel-header>
+      <p>Hello world!</p>
+    </app-expansion-panel>
+    <app-expansion-panel>
+      <app-expansion-panel-header>
+        <app-panel-title> Self aware panel </app-panel-title>
+        <app-panel-description> Currently I am here </app-panel-description>
+      </app-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </app-expansion-panel>
+  </app-expansion-panel-accordion>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="panel-group" id="panel-group-demo" data-children=".panel">
+    <div class="panel">
+      <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-1" aria-expanded="true" aria-controls="panel-group-demo">
+        <h1 class="panel-title">Name</h1>
+        <div class="panel-header-content"></div>
+        <button type="button" class="panel-toggle">
+          <i class="material-icons">expand_more</i>
+        </button>
       </div>
-  
+      <div class="panel-content collapse" id="panel-1" role="tabpanel">
+        <div class="panel-body"> Here's some content! </div>
+        <nav class="panel-footer">
+          <button type="button" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-link">Cancel</button>
+        </nav>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-2" aria-controls="panel-group-demo">
+        <h1 class="panel-title">Trip name</h1>
+        <div class="panel-header-content">
+          <div class="col">Caribbean cruise</div>
+        </div>
+        <button type="button" class="panel-toggle">
+          <i class="material-icons">expand_more</i>
+        </button>
+      </div>
+      <div class="panel-content collapse" id="panel-2" role="tabpanel">
+        <div class="panel-body"> Here's some content! </div>
+        <nav class="panel-footer">
+          <button type="button" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-link">Cancel</button>
+        </nav>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-3" aria-controls="panel-group-demo">
+        <h1 class="panel-title">Location</h1>
+        <div class="panel-header-content">
+          <div class="col hide-when-active">Barbados</div>
+          <div class="col show-when-active">Select trip destination</div>
+        </div>
+        <button type="button" class="panel-toggle">
+          <i class="material-icons">expand_more</i>
+        </button>
+      </div>
+      <div class="panel-content collapse" id="panel-3" role="tabpanel">
+        <div class="panel-body-container">
+          <div class="panel-body-offset"></div>
+          <div class="panel-body">
+            <div style="border: 1px dashed #ccc; background-color: #f5f5f5; height: 200px;"></div>
+          </div>
+        </div>
+        <nav class="panel-footer">
+          <button type="button" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-link">Cancel</button>
+        </nav>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header" data-toggle="collapse" data-parent="#panel-group-demo" href="#panel-4" aria-controls="panel-group-demo">
+        <h1 class="panel-title">Start and end dates
+          <small>Optional</small>
+        </h1>
+        <div class="panel-header-content">
+          <div class="col">Start date: Feb 29, 2016</div>
+          <div class="col">End date: Not set</div>
+        </div>
+        <button type="button" class="panel-toggle">
+          <i class="material-icons">expand_more</i>
+        </button>
+      </div>
+      <div class="panel-content collapse" id="panel-4" role="tabpanel">
+        <div class="panel-body"> Here's some content! </div>
+        <nav class="panel-footer">
+          <button type="button" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-link">Cancel</button>
+        </nav>
+      </div>
+    </div>
   </div>
+</div>
 <!--   
   <script>
       require(['collapse.panels']);

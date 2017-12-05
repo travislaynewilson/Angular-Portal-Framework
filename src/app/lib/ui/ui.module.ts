@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from './button';
 import { CardModule } from './card';
 import { DialogModule } from './dialog';
+import { ExpansionPanelModule } from './expansion-panel';
 import { IconModule } from './icon';
 import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
@@ -13,30 +14,32 @@ import { TooltipModule } from './tooltip';
 import { UtilModule } from './util';
 
 @NgModule({
-    imports: [
+	imports: [
+		ButtonModule,
+		CardModule,
+		CommonModule,
+		DialogModule,
+		ExpansionPanelModule,
+		IconModule,
+		MenuModule,
+		NotificationModule,
+		ProgressBarModule,
+		SliderModule,
+		TooltipModule,
+		UtilModule
+	],
+	exports: [
 		ButtonModule,
 		CardModule,
 		DialogModule,
-        CommonModule,
-        IconModule,
-        MenuModule,
-        NotificationModule,
-        ProgressBarModule,
-        SliderModule,
+		ExpansionPanelModule,
+		IconModule,
+		MenuModule,
+		NotificationModule,
+		ProgressBarModule,
+		SliderModule,
 		TooltipModule,
 		UtilModule
-    ],
-    exports: [
-		ButtonModule,
-		CardModule,
-		DialogModule,
-        IconModule,
-        MenuModule,
-        NotificationModule,
-        ProgressBarModule,
-        SliderModule,
-		TooltipModule,
-		UtilModule
-    ]
+	]
 })
-export class UIModule {}
+export class UIModule { }

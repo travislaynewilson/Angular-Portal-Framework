@@ -1,4 +1,5 @@
 export * from './a11y';
+export * from './accordion';
 export * from './api';
 export * from './auth';
 export * from './keycodes';

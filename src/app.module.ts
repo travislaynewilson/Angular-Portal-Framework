@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ApiModule } from '@app/core/api';
 import { LoaderModule } from '@app/core/loader';
@@ -18,8 +19,8 @@ import { SharedModule } from '@app/shared';
 import { UIModule } from '@app/lib/ui';
 
 import { ComponentsModule } from '@app/components/components.module';
-import { RouteCollection } from './app.routing';
 import { AppComponent } from './app.component';
+import { RouteCollection } from './app.routing';
 
 
 
@@ -44,8 +45,7 @@ import { AppComponent } from './app.component';
   ],
   exports: [
     ScrollingModule,
-	LayoutModule,
-	RouterModule
+    LayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
