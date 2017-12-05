@@ -56,6 +56,11 @@ export class BlockButtonDirective { }
 /** Possible button theme values  */
 export type ButtonTheme = 'text' | 'primary' | 'success' | 'danger' | 'warning' | undefined;
 
+/** Possible button type values  */
+export type ButtonType = 'button' | 'submit' | 'reset' | undefined;
+
+
+
 @Component({
 	selector: `button[appButton], a[appButton],
 button[appOutlineButton], a[appOutlineButton],             
@@ -85,7 +90,7 @@ export class ButtonComponent implements OnInit {
 			this.setType(val);
 		}
 	}
-	private _type: 'button' | 'submit' | 'reset';
+	private _type: ButtonType;
 
 	// Color
 	_defaultColor: ButtonTheme = 'primary';
@@ -133,7 +138,7 @@ export class ButtonComponent implements OnInit {
 		return this.elementRef.nativeElement.tagName.toLowerCase() === 'button';
 	}
 
-	private setType(val?: 'button' | 'submit' | 'reset') {
+	private setType(val?: ButtonType) {
 		if(this.isButton()) {
 			this._type = val || this._type || 'button';
 			this.renderer.setAttribute(this.elementRef.nativeElement, 'type', this._type);

@@ -1,18 +1,16 @@
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">RxLocal Web Portal UI Framework</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-              <p>Have fun!</p>
+<div class="container" padded>
 
-              <h4>Fetched Users</h4>
-              <ul>
-                <li *ngFor="let user of users">{{user.name}}</li>
-              </ul>
-          </div>
-      </section>
+  <app-card>
+    <app-card-header>
+      <app-card-title>RxLocal Web Portal UI Framework</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX>
+      <p>Have fun!</p>
+      <h4>Fetched Users</h4>
+      <ul>
+        <li *ngFor="let user of users">{{user.name}}</li>
+      </ul>
+    </app-card-body>
+  </app-card>
   
-  </div>
+</div>

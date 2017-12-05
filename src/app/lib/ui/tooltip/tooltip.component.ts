@@ -50,7 +50,7 @@ import { ConnectionPositionPair } from '@app/core';
     // won't be rendered if the animations are disabled or there is no web animations polyfill.
     '[style.zoom]': '_visibility === "visible" ? 1 : null',
     '(body:click)': 'this._handleBodyInteraction()',
-    'aria-hidden': 'true',
+    'aria-hidden': 'true'
   }
 })
 export class TooltipComponent {
