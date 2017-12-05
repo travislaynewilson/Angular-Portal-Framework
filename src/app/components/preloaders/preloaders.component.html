@@ -1,35 +1,20 @@
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Preloaders</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-              
-             
-              <div class="preloader show">
-                  <div class="preloader-bar"></div>
-              </div>
-              
-              <br />
-              <br />
-              
-              <div style="width: 60vw; height: 50px; position: relative; border: 1px solid #eee; padding: 16px;">
-                  <div class="preloader preloader-static-top show">
-                      <div class="preloader-bar"></div>
-                  </div>
-  
-                  <p>Fixed to top of relative parent</p>
-              </div>
-  
-          </div>
-      </section>
-  
-  </div>
-  
-  <!-- <script>
-      require(['jquery'], function($) {
-          $('.app-preloader').addClass('show');
-      });
-  </script> -->
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Preloaders</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+      <div class="preloader show">
+        <div class="preloader-bar"></div>
+      </div>
+      <br />
+      <br />
+      <div style="width: 60vw; height: 50px; position: relative; border: 1px solid #eee; padding: 16px;">
+        <div class="preloader preloader-static-top show">
+          <div class="preloader-bar"></div>
+        </div>
+        <p>Fixed to top of relative parent</p>
+      </div>
+    </app-card-body>
+  </app-card>
+</div>

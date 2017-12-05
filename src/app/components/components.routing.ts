@@ -1,11 +1,3 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule }   from '@angular/router';
-import { RouteCollection } from './components.routing';
-
-import { UIModule } from '@app/lib/ui';
-
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -31,43 +23,30 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forRoot(RouteCollection),
-    UIModule
-  ],
-  declarations: [
-    AlertsComponent, 
-    BreadcrumbsComponent, 
-    ButtonsComponent, 
-    DatatablesComponent, 
-    DateRangePickersComponent, 
-	DialogsComponent, 
-	DialogDemoComponent,
-    ErrorPagesComponent,
-    FormsComponent, 
-    GridComponent, 
-    InputGroupsComponent, 
-    ListsComponent, 
-    MenusComponent, 
-    OverviewComponent,
-    PanelsComponent, 
-    PreloadersComponent, 
-    ProgressComponent, 
-    ProgressBarsComponent,
-    SlidersComponent,
-    SteppersComponent, 
-    TabsComponent, 
-    NotificationsComponent, 
-    ToolbarsComponent, 
-    TooltipsComponent, 
-    TypographyComponent
-  ],
-  entryComponents: [
-	DialogDemoComponent
-  ]
-})
-export class ComponentsModule { }
+ 
+export const RouteCollection = [
+	{ path: '', redirectTo: 'overview', pathMatch: 'full' },
+	{ path: 'overview', component: OverviewComponent },
+	{ path: 'alerts', component: AlertsComponent },
+	{ path: 'breadcrumbs', component: BreadcrumbsComponent },
+	{ path: 'buttons', component: ButtonsComponent },
+	{ path: 'datatables', component: DatatablesComponent },
+	{ path: 'date-range-pickers', component: DateRangePickersComponent },
+	{ path: 'dialogs', component: DialogsComponent },
+	{ path: 'error-pages', component: ErrorPagesComponent },
+	{ path: 'forms', component: FormsComponent },
+	{ path: 'grid', component: GridComponent },
+	{ path: 'input-groups', component: InputGroupsComponent },
+	{ path: 'lists', component: ListsComponent },
+	{ path: 'menus', component: MenusComponent },
+	{ path: 'panels', component: PanelsComponent },
+	{ path: 'preloaders', component: PreloadersComponent },
+	{ path: 'progress-bars', component: ProgressBarsComponent },
+	{ path: 'sliders', component: SlidersComponent },
+	{ path: 'steppers', component: SteppersComponent },
+	{ path: 'tabs', component: TabsComponent },
+	{ path: 'notifications', component: NotificationsComponent },
+	{ path: 'toolbars', component: ToolbarsComponent },
+	{ path: 'tooltips', component: TooltipsComponent },
+	{ path: 'typography', component: TypographyComponent }
+];

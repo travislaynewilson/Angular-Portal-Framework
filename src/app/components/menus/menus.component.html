@@ -1,51 +1,39 @@
-<div class="container p-1">
-
-  <section class="card">
-    <header class="card-header">
-      <h1 class="card-title">Menus</h1>
-    </header>
-
-    <div class="card-body px-1 pb-1">
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Menus</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
       <div class="row">
         <div class="col">
-
-          <button appButton [appMenuTriggerFor]="leftMenu1">
-            Left menu
-          </button>
+          <button appButton [appMenuTriggerFor]="leftMenu1"> Left menu </button>
           <app-menu #leftMenu1="appMenu">
             <button appMenuItem>Action 1.1</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu2">Action 1.2</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu3">Action 1.3</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 1.4</button>
           </app-menu>
-
           <app-menu #leftMenu2="appMenu">
             <button appMenuItem>Action 2.1</button>
             <button appMenuItem>Action 2.2</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu3">Action 2.3</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 2.4</button>
           </app-menu>
-
           <app-menu #leftMenu3="appMenu">
             <button appMenuItem>Action 3.1</button>
             <button appMenuItem>Action 3.2</button>
             <button appMenuItem>Action 3.3</button>
             <button appMenuItem [appMenuTriggerFor]="leftMenu4">Action 3.4</button>
           </app-menu>
-
           <app-menu #leftMenu4="appMenu">
             <button appMenuItem>Action 4.1</button>
             <button appMenuItem>Action 4.2</button>
             <button appMenuItem>Action 4.3</button>
             <button appMenuItem>Action 4.4</button>
           </app-menu>
-          
         </div>
-
         <div class="col">
-          <button appButton [appMenuTriggerFor]="rightMenu" class="float-right">
-            Right menu
-          </button>
+          <button appButton [appMenuTriggerFor]="rightMenu" class="float-right"> Right menu </button>
           <app-menu #rightMenu="appMenu">
             <button appMenuItem>
               <i appIcon="settings"></i>
@@ -64,11 +52,8 @@
               <span>Sign out</span>
             </button>
           </app-menu>
-
         </div>
       </div>
-
-    </div>
-  </section>
-
+    </app-card-body>
+  </app-card>
 </div>

@@ -1,32 +1,15 @@
-<div class="container p-1">
-
-  <section class="card">
-    <header class="card-header">
-      <h1 class="card-title">Tooltips</h1>
-    </header>
-
-    <div class="card-body p-1">
-        
-      <button appButton appTooltip="Tooltip!">
-        Default
-      </button>
-      <button appButton appTooltip="Here's a really long piece of information that probably shouldn't be in a tooltip.">
-        Long
-      </button>
-      <button appButton appTooltip="Tooltip above" appTooltipPosition="above">
-        Above
-      </button>
-      <button appButton appTooltip="Tooltip right" appTooltipPosition="right">
-        Right
-      </button>
-      <button appButton appTooltip="Tooltip below" appTooltipPosition="below">
-        Below
-      </button>
-      <button appButton appTooltip="Tooltip left" appTooltipPosition="left">
-        Left
-      </button>
-
-    </div>
-  </section>
-
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Tooltips</app-card-title>
+    </app-card-header>
+    <app-card-body padded>
+      <button appButton appTooltip="Tooltip!"> Default </button>
+      <button appButton appTooltip="Here's a really long piece of information that probably shouldn't be in a tooltip."> Long </button>
+      <button appButton appTooltip="Tooltip above" appTooltipPosition="above"> Above </button>
+      <button appButton appTooltip="Tooltip right" appTooltipPosition="right"> Right </button>
+      <button appButton appTooltip="Tooltip below" appTooltipPosition="below"> Below </button>
+      <button appButton appTooltip="Tooltip left" appTooltipPosition="left"> Left </button>
+    </app-card-body>
+  </app-card>
 </div>

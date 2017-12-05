@@ -1,19 +1,15 @@
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Error pages</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-  
-            <a appButton routerLink="/error/404">404</a>
-            <a appButton routerLink="/error/401">401</a>
-            <a appButton routerLink="/error/403">403</a>
-            <a appButton routerLink="/error/500">500</a>
-
-          </div>
-      </section>
-    
-  </div>
- 
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Error Pages</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX>
+      <p>
+        <a appButton routerLink="/error/404">404</a>
+        <a appButton routerLink="/error/401">401</a>
+        <a appButton routerLink="/error/403">403</a>
+        <a appButton routerLink="/error/500">500</a>
+      </p>
+    </app-card-body>
+  </app-card>
+</div>

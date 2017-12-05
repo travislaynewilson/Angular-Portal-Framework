@@ -20,6 +20,8 @@ import { UIModule } from '@app/lib/ui';
 
 import { ComponentsModule } from '@app/components/components.module';
 import { AppComponent } from './app.component';
+import { RouteCollection } from './app.routing';
+
 
 
 @NgModule({
@@ -35,10 +37,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     LayoutModule,
     LoaderModule,
-    RouterModule.forRoot([
-      { path: '', component: AppComponent },
-      { path: '**', redirectTo: 'error/404', pathMatch: 'full' }
-    ]),
+    RouterModule.forRoot(RouteCollection),
     PlatformModule,
     ScrollingModule,
     SharedModule,

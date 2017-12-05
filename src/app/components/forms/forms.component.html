@@ -1,221 +1,153 @@
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Vertical Forms</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-  
-              <form class="form-validated">
-                  <fieldset>
-                      <legend>Form groups</legend>
-  
-                      <div class="form-group">
-                          <label>Email Address</label>
-                          <input type="email" value="" class="form-control" />
-                          <div class="form-text">We'll never share your email address with anyone.</div>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Message</label>
-                          <textarea class="form-control"></textarea>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>State</label>
-                          <select class="form-control">
-                              <option>- Choose -</option>
-                              <option value="TX">Texas</option>
-                          </select>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Customer ID</label>
-                          <div class="form-control-plaintext">
-                              364901
-                          </div>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Checkboxes</label>
-  
-                          <div class="form-check">
-                              <label>
-                                  <input type="checkbox">
-                                  Checkbox
-                              </label>
-                          </div>
-                          <div class="form-check disabled">
-                              <label>
-                                  <input type="checkbox" disabled>
-                                  Disabled checkbox
-                              </label>
-                          </div>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Inline checkboxes</label>
-  
-                          <div class="form-check form-check-inline">
-                              <label>
-                                  <input type="checkbox">
-                                  A
-                              </label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <label>
-                                  <input type="checkbox">
-                                  B
-                              </label>
-                          </div>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Radio buttons</label>
-  
-                          <div class="form-check">
-                              <label>
-                                  <input type="radio">
-                                  Radio button
-                              </label>
-                          </div>
-                          <div class="form-check disabled">
-                              <label>
-                                  <input type="radio" disabled>
-                                  Disabled radio button
-                              </label>
-                          </div>
-                      </div>
-  
-                      <div class="form-group">
-                          <label>Inline radio buttons</label>
-  
-                          <div class="form-check form-check-inline">
-                              <label>
-                                  <input type="radio">
-                                  A
-                              </label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <label>
-                                  <input type="radio">
-                                  B
-                              </label>
-                          </div>
-                      </div>
-  
-  
-                  </fieldset>
-  
-                  <hr class="inset-x-1" />
-  
-                  <fieldset>
-                      <legend>Validation</legend>
-  
-                      <div class="form-group is-invalid">
-                          <label>Name</label>
-                          <input type="text" value="" class="form-control" required />
-                          <div class="invalid-feedback">Please enter your first name</div>
-                      </div>
-  
-                      <div class="form-group is-invalid">
-                          <label>Contact preference</label>
-  
-                          <div class="form-check">
-                              <label>
-                                  <input type="radio" name="radio-val" required>
-                                  Email
-                              </label>
-                          </div>
-                          <div class="form-check">
-                              <label>
-                                  <input type="radio" name="radio-val" required>
-                                  Text/SMS
-                              </label>
-                          </div>
-                      </div>
-  
-                  </fieldset>
-  
-              </form>
-  
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Vertical Forms</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+      <form class="form-validated">
+        <fieldset>
+          <legend>Form groups</legend>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" value="" class="form-control" />
+            <div class="form-text">We'll never share your email address with anyone.</div>
           </div>
-      </section>
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Horizontal Forms</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-  
-              <form class="form-horizontal">
-  
-                  <div class="form-group row">
-                      <label for="inputEmail3a" class="col-sm-2">Name</label>
-                      <div class="col form-row">
-                          <div class="col">
-                              <input type="text" class="form-control" id="inputEmail3a" placeholder="First name">
-                          </div>
-                          <div class="col">
-                              <input type="text" class="form-control" id="inputEmail3b" placeholder="Last name">
-                          </div>
-                      </div>
-                  </div>
-  
-                  <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-2">Password</label>
-                      <div class="col">
-                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                      </div>
-                  </div>
-  
-                  <div class="form-group row">
-                      <label class="col-sm-2">Radios</label>
-                      <div class="col">
-                          <div class="form-check">
-                              <label>
-                                  <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                  Option one is this and that&mdash;be sure to include why it's great
-                              </label>
-                          </div>
-                          <div class="form-check">
-                              <label>
-                                  <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                  Option two can be something else and selecting it will deselect option one
-                              </label>
-                          </div>
-                          <div class="form-check disabled">
-                              <label>
-                                  <input type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                                  Option three is disabled
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-  
-                  <div class="form-group row">
-                      <label class="col-sm-2">Checkbox</label>
-                      <div class="col">
-                          <div class="form-check">
-                              <label>
-                                  <input type="checkbox"> Check me out
-                              </label>
-                          </div>
-                      </div>
-                  </div>
-  
-                  <div class="form-group row">
-                      <div class="col-sm-2"></div>
-                      <div class="col">
-                          <button appButton>Sign in</button>
-                      </div>
-                  </div>
-  
-              </form>
-  
+          <div class="form-group">
+            <label>Message</label>
+            <textarea class="form-control"></textarea>
           </div>
-      </section>
-  
-  </div>
+          <div class="form-group">
+            <label>State</label>
+            <select class="form-control">
+              <option>- Choose -</option>
+              <option value="TX">Texas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Customer ID</label>
+            <div class="form-control-plaintext"> 364901 </div>
+          </div>
+          <div class="form-group">
+            <label>Checkboxes</label>
+            <div class="form-check">
+              <label>
+                <input type="checkbox"> Checkbox </label>
+            </div>
+            <div class="form-check disabled">
+              <label>
+                <input type="checkbox" disabled> Disabled checkbox </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Inline checkboxes</label>
+            <div class="form-check form-check-inline">
+              <label>
+                <input type="checkbox"> A </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label>
+                <input type="checkbox"> B </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Radio buttons</label>
+            <div class="form-check">
+              <label>
+                <input type="radio"> Radio button </label>
+            </div>
+            <div class="form-check disabled">
+              <label>
+                <input type="radio" disabled> Disabled radio button </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Inline radio buttons</label>
+            <div class="form-check form-check-inline">
+              <label>
+                <input type="radio"> A </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label>
+                <input type="radio"> B </label>
+            </div>
+          </div>
+        </fieldset>
+        <hr class="inset-x-1" />
+        <fieldset>
+          <legend>Validation</legend>
+          <div class="form-group is-invalid">
+            <label>Name</label>
+            <input type="text" value="" class="form-control" required />
+            <div class="invalid-feedback">Please enter your first name</div>
+          </div>
+          <div class="form-group is-invalid">
+            <label>Contact preference</label>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="radio-val" required> Email </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="radio-val" required> Text/SMS </label>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </app-card-body>
+  </app-card>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Horizontal Forms</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+      <form class="form-horizontal">
+        <div class="form-group row">
+          <label for="inputEmail3a" class="col-sm-2">Name</label>
+          <div class="col form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="inputEmail3a" placeholder="First name"> </div>
+            <div class="col">
+              <input type="text" class="form-control" id="inputEmail3b" placeholder="Last name"> </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2">Password</label>
+          <div class="col">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password"> </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Radios</label>
+          <div class="col">
+            <div class="form-check">
+              <label>
+                <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked> Option one is this and that&mdash;be sure to include why it's great </label>
+            </div>
+            <div class="form-check">
+              <label>
+                <input type="radio" name="gridRadios" id="gridRadios2" value="option2"> Option two can be something else and selecting it will deselect option one </label>
+            </div>
+            <div class="form-check disabled">
+              <label>
+                <input type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled> Option three is disabled </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Checkbox</label>
+          <div class="col">
+            <div class="form-check">
+              <label>
+                <input type="checkbox"> Check me out </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <div class="col">
+            <button appButton>Sign in</button>
+          </div>
+        </div>
+      </form>
+    </app-card-body>
+  </app-card>
+</div>
