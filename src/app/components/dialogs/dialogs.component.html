@@ -1,18 +1,10 @@
-
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Dialogs</h1>
-          </header>
-  
-          <div class="card-body p-1">
-  
-              <button appButton (click)="openDialog()">
-                  Open dialog
-              </button>
-  
-          </div>
-      </section>
-  
-  </div>
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Dialogs</app-card-title>
+    </app-card-header>
+    <app-card-body padded>
+      <button appButton (click)="openDialog()"> Open dialog </button>
+    </app-card-body>
+  </app-card>
+</div>

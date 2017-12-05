@@ -1,25 +1,19 @@
-<div class="container p-1">
-
-  <section class="card">
-    <header class="card-header">
-      <h1 class="card-title">Buttons</h1>
-    </header>
-
-    <div class="card-body px-1 pb-1">
-
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Buttons</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX>
       <h3 class="subheading">Filled buttons</h3>
-
       <p>
         <button appButton>Button</button>
         <button appButton appIconButton>
           <i appIcon="home"></i>
         </button>
         <button appButton appComboButton>
-          <i appIcon="home"></i> Button
-        </button>
+          <i appIcon="home"></i> Button </button>
         <button appButton disabled="true">Disabled</button>
       </p>
-
       <p>
         <a href="javascript:;" appButton color="primary">Primary</a>
         <a href="javascript:;" appButton color="text">Text</a>
@@ -27,21 +21,16 @@
         <a href="javascript:;" appButton color="warning">Warning</a>
         <a href="javascript:;" appButton color="danger">Danger</a>
       </p>
-
-
       <h3 class="subheading">Outline buttons</h3>
-
       <p>
         <button appOutlineButton>Button</button>
         <button appOutlineButton appIconButton>
           <i appIcon="home"></i>
         </button>
         <button appOutlineButton appComboButton>
-          <i appIcon="home"></i> Button
-        </button>
+          <i appIcon="home"></i> Button </button>
         <button appOutlineButton disabled="true">Disabled</button>
       </p>
-
       <p>
         <a href="javascript:;" appOutlineButton color="primary">Primary</a>
         <a href="javascript:;" appOutlineButton color="text">Text</a>
@@ -49,21 +38,16 @@
         <a href="javascript:;" appOutlineButton color="warning">Warning</a>
         <a href="javascript:;" appOutlineButton color="danger">Danger</a>
       </p>
-
-
       <h3 class="subheading">Link buttons</h3>
-
       <p>
         <button appLinkButton>Button</button>
         <button appLinkButton appIconButton>
           <i appIcon="home"></i>
         </button>
         <button appLinkButton appComboButton>
-            <i appIcon="home"></i> Button
-          </button>
+          <i appIcon="home"></i> Button </button>
         <button appLinkButton disabled="true">Disabled</button>
       </p>
-
       <p>
         <a href="javascript:;" appLinkButton color="primary">Primary</a>
         <a href="javascript:;" appLinkButton color="text">Text</a>
@@ -71,16 +55,11 @@
         <a href="javascript:;" appLinkButton color="warning">Warning</a>
         <a href="javascript:;" appLinkButton color="danger">Danger</a>
       </p>
-
-
       <h3 class="subheading">Button directives</h3>
-
       <p>
         <button appButton appBlockButton>Block Button</button>
       </p>
-
-
-    </div>
-  </section>
+    </app-card-body>
+  </app-card>
 
 </div>

@@ -1,26 +1,21 @@
-<div class="container p-1">
-  
-      <section class="card">
-          <header class="card-header">
-              <h1 class="card-title">Date range pickers</h1>
-          </header>
-  
-          <div class="card-body px-1 pb-1">
-  
-              <div class="form-group" data-editor="daterange">
-                  <div class="input-group">
-                      <span class="input-group-icon" id="addon-icon-1"><i class="icon material-icons">event</i></span>
-                      <div class="form-control" aria-label="Date Range" aria-describedby="addon-icon-1"></div>
-                  </div>
-              </div>
-  
-          </div>
-      </section>
-  
-  </div>
-
-
-  <!-- <script>
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Date range pickers</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+      <div class="form-group" data-editor="daterange">
+        <div class="input-group">
+          <span class="input-group-icon" id="addon-icon-1">
+            <i appIcon="event"></i>
+          </span>
+          <div class="form-control" aria-label="Date Range" aria-describedby="addon-icon-1"></div>
+        </div>
+      </div>
+    </app-card-body>
+  </app-card>
+</div>
+<!-- <script>
     require(['jquery', 'moment', 'daterangepickers'], function ($, moment) {
 
         var start = moment().subtract(29, 'days').startOf('month'),
