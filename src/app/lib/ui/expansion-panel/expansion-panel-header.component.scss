@@ -1,3 +1,6 @@
+@import '../../../../styles/references';
+
+
 .app-expansion-panel-header {
   display: flex;
   flex-direction: row;
@@ -20,7 +23,7 @@
   }
 }
 
-.app-content {
+.app-panel-content {
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -32,6 +35,7 @@
   display: flex;
   flex-grow: 1;
   margin-right: 16px;
+  font-size: 15px;
 }
 
 .app-expansion-panel-header-description {
@@ -53,3 +57,24 @@
   transform: rotate(45deg);
   vertical-align: middle;
 }
+
+
+
+// Theme
+.app-expansion-panel-header-title {
+	color: color(black, primary);
+  }
+  
+  .app-expansion-panel-header-description,
+  .app-expansion-indicator::after {
+	color: color(black, secondary);
+  }
+  
+  .app-expansion-panel-header[aria-disabled='true'] {
+	color: color(black, disabled);
+	.app-expansion-panel-header-title,
+	.app-expansion-panel-header-description {
+	  color: inherit;
+	}
+  }
+  
