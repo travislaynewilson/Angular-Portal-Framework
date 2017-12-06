@@ -124,8 +124,8 @@ $slider-tick-size: 2px;
               background-color $swift-ease-out-duration $swift-ease-out-timing-function,
               opacity $swift-ease-out-duration $swift-ease-out-timing-function;
 
-  .cdk-keyboard-focused &,
-  .cdk-program-focused & {
+  .app-keyboard-focused &,
+  .app-program-focused & {
     transform: scale(1);
     opacity: 1;
   }
@@ -208,7 +208,7 @@ $slider-tick-size: 2px;
     transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function;
   }
 
-  &.cdk-focused,
+  &.app-focused,
   &:hover {
     &:not(.app-slider-hide-last-tick) {
       .app-slider-wrapper::after {
@@ -250,7 +250,7 @@ $slider-tick-size: 2px;
 
 // Active slider.
 .app-slider:not(.app-slider-disabled) {
-  &.cdk-focused {
+  &.app-focused {
     &.app-slider-thumb-label-showing .app-slider-thumb {
       transform: scale(0);
     }
@@ -264,9 +264,9 @@ $slider-tick-size: 2px;
     }
   }
 
-  &.cdk-mouse-focused,
-  &.cdk-touch-focused,
-  &.cdk-program-focused {
+  &.app-mouse-focused,
+  &.app-touch-focused,
+  &.app-program-focused {
     .app-slider-thumb {
       border-width: $slider-thumb-border-width-active;
       transform: scale($slider-thumb-focus-scale);
@@ -362,7 +362,7 @@ $slider-tick-size: 2px;
     transform: rotate(-45deg);
   }
 
-  &.cdk-focused {
+  &.app-focused {
     .app-slider-thumb-label {
       transform: rotate(45deg);
     }
@@ -439,7 +439,7 @@ $slider-tick-size: 2px;
     transform: rotate(45deg);
   }
 
-  &.cdk-focused {
+  &.app-focused {
     .app-slider-thumb-label {
       transform: rotate(-45deg);
     }
@@ -468,7 +468,7 @@ $slider-tick-size: 2px;
 }
 
 .app-slider:hover,
-.cdk-focused {
+.app-focused {
   .app-slider-track-background {
     background-color: $slider-off-focused-color;
   }
@@ -499,7 +499,7 @@ $slider-tick-size: 2px;
       background-color: $slider-labeled-min-value-thumb-color;
     }
 
-    &.cdk-focused {
+    &.app-focused {
       .app-slider-thumb,
       .app-slider-thumb-label {
         background-color: $slider-labeled-min-value-thumb-label-color;
@@ -514,7 +514,7 @@ $slider-tick-size: 2px;
     }
 
     &:hover,
-    &.cdk-focused {
+    &.app-focused {
       .app-slider-thumb {
         border-color: $slider-off-focused-color;
       }

@@ -17,6 +17,7 @@ import { KeyCodes } from '@app/core/keycodes';
 import { PANEL_ANIMATION_TIMING, PanelComponent } from './panel.component';
 
 
+
 /**
  * <app-panel-header> component.
  *
@@ -45,7 +46,7 @@ import { PANEL_ANIMATION_TIMING, PanelComponent } from './panel.component';
           collapsedHeight: collapsedHeight,
           expandedHeight: expandedHeight
         }
-    }`,
+    }`
 	},
 	animations: [
 		trigger('indicatorRotate', [

@@ -17,6 +17,7 @@ import { Subject } from 'rxjs/Subject';
 import { AccordionItemDirective } from '@app/core/accordion';
 import { UniqueSelectionDispatcherService } from '@app/core/collections';
 import { CoercionHelper } from '@app/core/util';
+import { AnimationCurves, AnimationDurations } from '@app/core/animation';
 import { PanelGroupDirective } from './panel-group.directive';
 import { BasePanelComponent } from './base-panel.component';
 
@@ -26,7 +27,9 @@ import { BasePanelComponent } from './base-panel.component';
 export type PanelState = 'expanded' | 'collapsed';
 
 /** Time and timing curve for panel animations. */
-export const PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
+export const PANEL_ANIMATION_TIMING = `${AnimationDurations.ENTERING} ${AnimationCurves.STANDARD_CURVE}`;
+
+
 
 /**
  * <app-panel> component.
@@ -47,7 +50,7 @@ export const PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
 	host: {
 		'class': 'app-panel',
 		'[class.app-panel-expanded]': 'expanded',
-		'[class.app-panel-spacing]': '_hasSpacing()',
+		'[class.app-panel-spacing]': '_hasSpacing()'
 	},
 	providers: [
 		{ provide: BasePanelComponent, useExisting: forwardRef(() => PanelComponent) }
@@ -56,8 +59,8 @@ export const PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
 		trigger('bodyExpansion', [
 			state('collapsed', style({ height: '0px', visibility: 'hidden' })),
 			state('expanded', style({ height: '*', visibility: 'visible' })),
-			transition('expanded <=> collapsed', animate(PANEL_ANIMATION_TIMING)),
-		]),
+			transition('expanded <=> collapsed', animate(PANEL_ANIMATION_TIMING))
+		])
 	]
 })
 export class PanelComponent extends BasePanelComponent implements OnChanges, OnDestroy {
