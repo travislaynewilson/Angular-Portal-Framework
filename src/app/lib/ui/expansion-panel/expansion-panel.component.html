@@ -1,8 +1,0 @@
-<ng-content select="app-expansion-panel-header"></ng-content>
-<div [class.app-expanded]="expanded" class="app-expansion-panel-content"
-     [@bodyExpansion]="_getExpandedState()" [id]="id">
-  <div class="app-expansion-panel-body">
-    <ng-content></ng-content>
-  </div>
-  <ng-content select="app-action-row"></ng-content>
-</div>

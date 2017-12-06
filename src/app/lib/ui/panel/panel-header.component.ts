@@ -14,23 +14,23 @@ import { merge } from 'rxjs/observable/merge';
 import { Subscription } from 'rxjs/Subscription';
 import { FocusMonitorService } from '@app/core/a11y';
 import { KeyCodes } from '@app/core/keycodes';
-import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanelComponent } from './expansion-panel.component';
+import { PANEL_ANIMATION_TIMING, PanelComponent } from './panel.component';
 
 
 /**
- * <app-expansion-panel-header> component.
+ * <app-panel-header> component.
  *
- * This component corresponds to the header element of an <app-expansion-panel>.
+ * This component corresponds to the header element of an <app-panel>.
  */
 @Component({
-	selector: 'app-expansion-panel-header',
-	styleUrls: ['./expansion-panel-header.component.scss'],
-	templateUrl: './expansion-panel-header.component.html',
+	selector: 'app-panel-header',
+	styleUrls: ['./panel-header.component.scss'],
+	templateUrl: './panel-header.component.html',
 	encapsulation: ViewEncapsulation.None,
 	preserveWhitespaces: false,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: {
-		'class': 'app-expansion-panel-header',
+		'class': 'app-panel-header',
 		'role': 'button',
 		'[attr.tabindex]': 'panel.disabled ? -1 : 0',
 		'[attr.aria-controls]': '_getPanelId()',
@@ -51,28 +51,28 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanelComponent } from './exp
 		trigger('indicatorRotate', [
 			state('collapsed', style({ transform: 'rotate(0deg)' })),
 			state('expanded', style({ transform: 'rotate(180deg)' })),
-			transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
+			transition('expanded <=> collapsed', animate(PANEL_ANIMATION_TIMING))
 		]),
 		trigger('expansionHeight', [
 			state('collapsed', style({
 				height: '{{collapsedHeight}}',
 			}), {
-					params: { collapsedHeight: '48px' },
+					params: { collapsedHeight: '48px' }
 				}),
 			state('expanded', style({
 				height: '{{expandedHeight}}'
 			}), {
 					params: { expandedHeight: '64px' }
 				}),
-			transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
-		]),
-	],
+			transition('expanded <=> collapsed', animate(PANEL_ANIMATION_TIMING))
+		])
+	]
 })
-export class ExpansionPanelHeaderComponent implements OnDestroy {
+export class PanelHeaderComponent implements OnDestroy {
 	private _parentChangeSubscription = Subscription.EMPTY;
 
 	constructor (
-		@Host() public panel: ExpansionPanelComponent,
+		@Host() public panel: PanelComponent,
 		private _element: ElementRef,
 		private _focusMonitorService: FocusMonitorService,
 		private _changeDetectorRef: ChangeDetectorRef) {

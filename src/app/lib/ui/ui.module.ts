@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from './button';
 import { CardModule } from './card';
 import { DialogModule } from './dialog';
-import { ExpansionPanelModule } from './expansion-panel';
+import { PanelModule } from './panel';
 import { IconModule } from './icon';
 import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
@@ -19,10 +19,10 @@ import { UtilModule } from './util';
 		CardModule,
 		CommonModule,
 		DialogModule,
-		ExpansionPanelModule,
 		IconModule,
 		MenuModule,
 		NotificationModule,
+		PanelModule,
 		ProgressBarModule,
 		SliderModule,
 		TooltipModule,
@@ -32,10 +32,10 @@ import { UtilModule } from './util';
 		ButtonModule,
 		CardModule,
 		DialogModule,
-		ExpansionPanelModule,
 		IconModule,
 		MenuModule,
 		NotificationModule,
+		PanelModule,
 		ProgressBarModule,
 		SliderModule,
 		TooltipModule,

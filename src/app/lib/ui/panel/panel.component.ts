@@ -5,7 +5,7 @@ import {
 	Component,
 	Directive,
 	forwardRef,
-	Host,
+	Host, 
 	Input,
 	OnChanges,
 	OnDestroy,
@@ -17,50 +17,50 @@ import { Subject } from 'rxjs/Subject';
 import { AccordionItemDirective } from '@app/core/accordion';
 import { UniqueSelectionDispatcherService } from '@app/core/collections';
 import { CoercionHelper } from '@app/core/util';
-import { ExpansionPanelAccordionDirective } from './expansion-panel-accordion.directive';
-import { BaseExpansionPanelComponent } from './base-expansion-panel.component';
+import { PanelGroupDirective } from './panel-group.directive';
+import { BasePanelComponent } from './base-panel.component';
 
 
 
-/** ExpansionPanel's states. */
-export type ExpansionPanelState = 'expanded' | 'collapsed';
+/** Panel's states. */
+export type PanelState = 'expanded' | 'collapsed';
 
-/** Time and timing curve for expansion panel animations. */
-export const EXPANSION_PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
+/** Time and timing curve for panel animations. */
+export const PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
 
 /**
- * <app-expansion-panel> component.
+ * <app-panel> component.
  *
  * This component can be used as a single element to show expandable content, or as one of
  * multiple children of an element with the appAccordion directive attached.
  */
 @Component({
-	styleUrls: ['./expansion-panel.component.scss'],
-	selector: 'app-expansion-panel',
-	exportAs: 'appExpansionPanel',
-	templateUrl: './expansion-panel.component.html',
+	selector: 'app-panel',
+	exportAs: 'appPanel',
+	templateUrl: './panel.component.html',
+	styleUrls: ['./panel.component.scss'],
 	encapsulation: ViewEncapsulation.None,
 	preserveWhitespaces: false,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	inputs: ['disabled', 'expanded'],
 	outputs: ['opened', 'closed'],
 	host: {
-		'class': 'app-expansion-panel',
-		'[class.app-expanded]': 'expanded',
-		'[class.app-expansion-panel-spacing]': '_hasSpacing()',
+		'class': 'app-panel',
+		'[class.app-panel-expanded]': 'expanded',
+		'[class.app-panel-spacing]': '_hasSpacing()',
 	},
 	providers: [
-		{ provide: BaseExpansionPanelComponent, useExisting: forwardRef(() => ExpansionPanelComponent) }
+		{ provide: BasePanelComponent, useExisting: forwardRef(() => PanelComponent) }
 	],
 	animations: [
 		trigger('bodyExpansion', [
 			state('collapsed', style({ height: '0px', visibility: 'hidden' })),
 			state('expanded', style({ height: '*', visibility: 'visible' })),
-			transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
+			transition('expanded <=> collapsed', animate(PANEL_ANIMATION_TIMING)),
 		]),
 	]
 })
-export class ExpansionPanelComponent extends BaseExpansionPanelComponent implements OnChanges, OnDestroy {
+export class PanelComponent extends BasePanelComponent implements OnChanges, OnDestroy {
 
 	/** Whether the toggle indicator should be hidden. */
 	@Input()
@@ -75,10 +75,10 @@ export class ExpansionPanelComponent extends BaseExpansionPanelComponent impleme
 	/** Stream that emits for changes in `@Input` properties. */
 	_inputChanges = new Subject<SimpleChanges>();
 
-	/** Optionally defined accordion the expansion panel belongs to. */
-	accordion: ExpansionPanelAccordionDirective;
+	/** Optionally defined accordion the panel belongs to. */
+	accordion: PanelGroupDirective;
 
-	constructor ( @Optional() @Host() accordion: ExpansionPanelAccordionDirective,
+	constructor ( @Optional() @Host() accordion: PanelGroupDirective,
 		_changeDetectorRef: ChangeDetectorRef,
 		_uniqueSelectionDispatcherService: UniqueSelectionDispatcherService) {
 		super(accordion, _changeDetectorRef, _uniqueSelectionDispatcherService);
@@ -93,7 +93,7 @@ export class ExpansionPanelComponent extends BaseExpansionPanelComponent impleme
 		return this.hideToggle;
 	}
 
-	/** Determines whether the expansion panel should have spacing between it and its siblings. */
+	/** Determines whether the panel should have spacing between it and its siblings. */
 	_hasSpacing (): boolean {
 		if (this.accordion) {
 			return (this.expanded ? this.accordion.displayMode : this._getExpandedState()) === 'default';
@@ -102,7 +102,7 @@ export class ExpansionPanelComponent extends BaseExpansionPanelComponent impleme
 	}
 
 	/** Gets the expanded state string. */
-	_getExpandedState (): ExpansionPanelState {
+	_getExpandedState (): PanelState {
 		return this.expanded ? 'expanded' : 'collapsed';
 	}
 

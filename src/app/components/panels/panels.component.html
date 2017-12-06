@@ -1,19 +1,25 @@
 <div class="container" padded>
   <h1 class="page-title">Panels</h1>
-  <app-expansion-panel-accordion>
-    <app-expansion-panel>
-      <app-expansion-panel-header>
-        <app-panel-title> Personal data </app-panel-title>
-        <app-panel-description> Type your name and age </app-panel-description>
-      </app-expansion-panel-header>
+
+  <app-panel-group>
+
+    <app-panel>
+      <app-panel-header>
+        <app-panel-title>Personal data</app-panel-title>
+        <app-panel-description>Type your name and age</app-panel-description>
+      </app-panel-header>
+
       <p>Hello world!</p>
-    </app-expansion-panel>
-    <app-expansion-panel>
-      <app-expansion-panel-header>
-        <app-panel-title> Self aware panel </app-panel-title>
-        <app-panel-description> Currently I am here </app-panel-description>
-      </app-expansion-panel-header>
+    </app-panel>
+
+    <app-panel>
+      <app-panel-header>
+        <app-panel-title>Self aware panel</app-panel-title>
+        <app-panel-description>Currently I am here</app-panel-description>
+      </app-panel-header>
+
       <p>I'm visible because I am open</p>
-    </app-expansion-panel>
-  </app-expansion-panel-accordion>
+    </app-panel>
+
+  </app-panel-group>
 </div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ApiModule } from '@app/core/api';
@@ -24,35 +24,35 @@ import { AppComponent } from './app.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    ApiModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    ComponentsModule,
-    FormsModule,
-    HttpClientModule,
-    LayoutModule,
-    LoaderModule,
-    RouterModule.forRoot(RouteCollection),
-    PlatformModule,
-    ScrollingModule,
-    SharedModule,
-    UIModule
-  ],
-  exports: [
-    ScrollingModule,
-	LayoutModule,
-	RouterModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
-    AUTH_PROVIDERS,
-    AuthGuard
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		ApiModule,
+		BrowserModule,
+		BrowserAnimationsModule,
+		ComponentsModule,
+		FormsModule,
+		HttpClientModule,
+		LayoutModule,
+		LoaderModule,
+		RouterModule.forRoot(RouteCollection),
+		PlatformModule,
+		ScrollingModule,
+		SharedModule,
+		UIModule
+	],
+	exports: [
+		ScrollingModule,
+		LayoutModule,
+		RouterModule
+	],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+		{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+		AUTH_PROVIDERS,
+		AuthGuard
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

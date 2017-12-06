@@ -1,7 +1,7 @@
 @import '../../../../styles/references';
 
 
-.app-expansion-panel {
+.app-panel {
   // @include mat-elevation-transition;
   // @include mat-overridable-elevation(2);
   box-sizing: content-box;
@@ -13,9 +13,9 @@
   0px 1px 5px 0px rgba(black, 0.12);
 }
 
-.app-expansion-panel-content {
-  .app-expanded & {
-    overflow: visible;
+.app-panel-content {
+  .app-panel-expanded & {
+	overflow: visible;
   }
   &,
   &.ng-animating {
@@ -23,44 +23,44 @@
   }
 }
 
-.app-expansion-panel-body {
-  padding: 0 24px 16px;
+.app-panel-body {
+  padding: 0 gx(1) gx(1);
 }
 
-.app-expansion-panel-spacing {
-  margin: 16px 0;
-  .app-accordion &:first-child {
+.app-panel-spacing {
+  margin: gx(1) 0;
+  .app-panel-group &:first-child {
     margin-top: 0;
   }
-  .app-accordion &:last-child {
+  .app-panel-group &:last-child {
     margin-bottom: 0;
   }
 }
 
-.app-action-row {
+.app-panel-actions {
   border-top-style: solid;
   border-top-width: 1px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 16px 8px 16px 24px;
+  padding: gx(1) gx(0.5) gx(1) gx(1);
 
   button.app-button {
-    margin-left: 8px;
+    margin-left: gx(0.5);
   }
 } 
 
 // Theme
-.app-expansion-panel {
+.app-panel {
   background: color(white);
   color: color(black, primary);
 }
 
-.app-action-row {
+.app-panel-actions {
   border-top-color: color(black, divider);
 }
 
-.app-expansion-panel:not(.app-expanded) .app-expansion-panel-header {
+.app-panel:not(.app-panel-expanded) .app-panel-header {
   &:not([aria-disabled='true']) {
     &.app-keyboard-focused,
     &.app-program-focused,

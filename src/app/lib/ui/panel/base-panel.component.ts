@@ -7,7 +7,7 @@ import {
 import { AccordionItemDirective } from '@app/core/accordion';
 import { UniqueSelectionDispatcherService } from '@app/core/collections';
 import { CoercionHelper } from '@app/core/util';
-import { ExpansionPanelAccordionDirective } from './expansion-panel-accordion.directive';
+import { PanelGroupDirective } from './panel-group.directive';
 
 
 
@@ -18,8 +18,8 @@ import { ExpansionPanelAccordionDirective } from './expansion-panel-accordion.di
 	preserveWhitespaces: false,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaseExpansionPanelComponent extends AccordionItemDirective {
-	constructor (accordion: ExpansionPanelAccordionDirective,
+export class BasePanelComponent extends AccordionItemDirective {
+	constructor (accordion: PanelGroupDirective,
 		_changeDetectorRef: ChangeDetectorRef,
 		_uniqueSelectionDispatcherService: UniqueSelectionDispatcherService) {
 		super(accordion, _changeDetectorRef, _uniqueSelectionDispatcherService);

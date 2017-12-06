@@ -1,19 +1,19 @@
 @import '../../../../styles/references';
 
 
-.app-expansion-panel-header {
+.app-panel-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 gx(1);
 
   &:focus,
   &:hover {
     outline: none;
   }
 
-  &.app-expanded:focus,
-  &.app-expanded:hover,
+  &.app-panel-expanded:focus,
+  &.app-panel-expanded:hover,
   {
     background: inherit;
   }
@@ -30,15 +30,15 @@
   overflow: hidden;
 }
 
-.app-expansion-panel-header-title,
-.app-expansion-panel-header-description {
+.app-panel-title,
+.app-panel-description {
   display: flex;
   flex-grow: 1;
-  margin-right: 16px;
+  margin-right: gx(1);
   font-size: 15px;
 }
 
-.app-expansion-panel-header-description {
+.app-panel-description {
   flex-grow: 2;
 }
 
@@ -48,7 +48,7 @@
    * additional nodes in the template.
    */
 
-.app-expansion-indicator::after {
+.app-panel-expansion-indicator::after {
   border-style: solid;
   border-width: 0 2px 2px 0;
   content: '';
@@ -61,19 +61,19 @@
 
 
 // Theme
-.app-expansion-panel-header-title {
+.app-panel-title {
 	color: color(black, primary);
   }
   
-  .app-expansion-panel-header-description,
-  .app-expansion-indicator::after {
+  .app-panel-description,
+  .app-panel-expansion-indicator::after {
 	color: color(black, secondary);
   }
   
-  .app-expansion-panel-header[aria-disabled='true'] {
+  .app-panel-header[aria-disabled='true'] {
 	color: color(black, disabled);
-	.app-expansion-panel-header-title,
-	.app-expansion-panel-header-description {
+	.app-panel-title,
+	.app-panel-description {
 	  color: inherit;
 	}
   }

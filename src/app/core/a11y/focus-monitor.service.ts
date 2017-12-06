@@ -218,11 +218,11 @@ export class FocusMonitorService {
     const elementInfo = this._elementInfo.get(element);
 
     if (elementInfo) {
-      this._toggleClass(element, 'cdk-focused', !!origin);
-      this._toggleClass(element, 'cdk-touch-focused', origin === 'touch');
-      this._toggleClass(element, 'cdk-keyboard-focused', origin === 'keyboard');
-      this._toggleClass(element, 'cdk-mouse-focused', origin === 'mouse');
-      this._toggleClass(element, 'cdk-program-focused', origin === 'program');
+      this._toggleClass(element, 'app-focused', !!origin);
+      this._toggleClass(element, 'app-touch-focused', origin === 'touch');
+      this._toggleClass(element, 'app-keyboard-focused', origin === 'keyboard');
+      this._toggleClass(element, 'app-mouse-focused', origin === 'mouse');
+      this._toggleClass(element, 'app-program-focused', origin === 'program');
     }
   }
 
