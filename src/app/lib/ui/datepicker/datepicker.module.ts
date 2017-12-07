@@ -53,7 +53,7 @@ import {YearViewComponent} from './year-view/year-view.component';
     DATEPICKER_SCROLL_STRATEGY_PROVIDER
   ],
   entryComponents: [
-    DatepickerContentComponent
+	DatepickerContentComponent
   ]
 })
 export class DatepickerModule {}

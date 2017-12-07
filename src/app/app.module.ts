@@ -13,13 +13,16 @@ import { LoaderInterceptor } from '@app/core/loader';
 import { LoggingInterceptor } from '@app/core/logger';
 import { AUTH_PROVIDERS, AuthGuard } from '@app/core/auth';
 import { ScrollingModule } from '@app/core/scrolling';
+import { MomentDateModule } from '@app/lib/ui/core';
 
 import { SharedModule } from '@app/shared';
 import { UIModule } from '@app/lib/ui';
 import { ComponentsModule } from '@app/components/components.module';
 
-import { AppComponent } from './app.component'; 
-import { RouteCollection } from './app.routing'; 
+import { AppComponent } from './app.component';
+import { RouteCollection } from './app.routing';
+
+import { DATE_LOCALE } from '@app/lib/ui/core';
 
 
 
@@ -36,6 +39,7 @@ import { RouteCollection } from './app.routing';
 		HttpClientModule,
 		LayoutModule,
 		LoaderModule,
+		MomentDateModule,
 		RouterModule.forRoot(RouteCollection),
 		PlatformModule,
 		ScrollingModule,
@@ -51,7 +55,8 @@ import { RouteCollection } from './app.routing';
 		{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
 		{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
 		AUTH_PROVIDERS,
-		AuthGuard
+		AuthGuard,
+		{ provide: DATE_LOCALE, useValue: 'en-US' }
 	],
 	bootstrap: [AppComponent]
 })

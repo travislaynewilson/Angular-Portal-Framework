@@ -42,7 +42,9 @@ $colors: (
     primary: ( 
         base: $blue,
         active: darken($blue, 5),
-        hover: darken($blue, 5),
+		hover: darken($blue, 5),
+		disabled: rgba($blue, 0.50), 
+		hint: rgba($blue, 0.50), 
         divider: rgba($blue, 0.12),
         state-bg: rgba($blue, 0.06),
         900: $darkblue

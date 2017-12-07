@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
-import { RouteCollection } from './components.routing';
-
 import { UIModule } from '@app/lib/ui';
+
+import { RouteCollection } from './components.routing';
 
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { DatatablesComponent } from './datatables/datatables.component';
-import { DateRangePickersComponent } from './date-range-pickers/date-range-pickers.component';
+import { DatepickersComponent } from './datepickers/datepickers.component';
 import { DialogsComponent } from './dialogs/dialogs.component';
 import { DialogDemoComponent } from './dialogs/dialog-demo/dialog-demo.component';
 import { ErrorPagesComponent } from './error-pages/error-pages.component';
@@ -44,7 +44,7 @@ import { TypographyComponent } from './typography/typography.component';
     BreadcrumbsComponent, 
     ButtonsComponent, 
     DatatablesComponent, 
-    DateRangePickersComponent, 
+    DatepickersComponent, 
 	DialogsComponent, 
 	DialogDemoComponent,
     ErrorPagesComponent,

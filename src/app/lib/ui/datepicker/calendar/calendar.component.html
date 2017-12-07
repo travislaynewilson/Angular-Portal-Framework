@@ -1,6 +1,6 @@
 <div class="mat-calendar-header">
 		<div class="mat-calendar-controls">
-		  <button appButton class="mat-calendar-period-button"
+		  <button appLinkButton class="mat-calendar-period-button"
 				  (click)="_currentPeriodClicked()"  [attr.aria-label]="_periodButtonLabel">
 			{{_periodButtonText}}
 			<div class="mat-calendar-arrow" [class.mat-calendar-invert]="!_monthView"></div>
@@ -8,12 +8,12 @@
 	  
 		  <div class="mat-calendar-spacer"></div>
 	  
-		  <button appIconButton class="mat-calendar-previous-button"
+		  <button appLinkButton appIconButton class="mat-calendar-previous-button"
 				  [disabled]="!_previousEnabled()" (click)="_previousClicked()"
 				  [attr.aria-label]="_prevButtonLabel">
 		  </button>
 	  
-		  <button appIconButton class="mat-calendar-next-button"
+		  <button appLinkButton appIconButton class="mat-calendar-next-button"
 				  [disabled]="!_nextEnabled()" (click)="_nextClicked()"
 				  [attr.aria-label]="_nextButtonLabel">
 		  </button>

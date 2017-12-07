@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 		{ text: "Breadcrumbs", icon: "history", route: '/breadcrumbs' },
 		{ text: "Buttons", icon: "crop_7_5", route: '/buttons' },
 		{ text: "Datatables", icon: "border_all", route: '/datatables' },
-		{ text: "Date Range Pickers", icon: "date_range", route: '/date-range-pickers' },
+		{ text: "Datepickers", icon: "date_range", route: '/datepickers' },
 		{ text: "Dialogs", icon: "aspect_ratio", route: '/dialogs' },
 		{ text: "Error Pages", icon: "error", route: '/error-pages' },
 		{ text: "Forms", icon: "storage", route: '/forms' },

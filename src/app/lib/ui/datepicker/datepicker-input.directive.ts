@@ -71,7 +71,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 
 	/** The datepicker that this input is associated with. */
 	@Input()
-	set matDatepicker (value: DatepickerComponent<D>) {
+	set appDatepicker (value: DatepickerComponent<D>) {
 		this.registerDatepicker(value);
 	}
 	_datepicker: DatepickerComponent<D>;
@@ -83,7 +83,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 		}
 	}
 
-	@Input() set matDatepickerFilter (filter: (date: D | null) => boolean) {
+	@Input() set appDatepickerFilter (filter: (date: D | null) => boolean) {
 		this._dateFilter = filter;
 		this._validatorOnChange();
 	}
@@ -164,7 +164,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 	/** The form control validator for whether the input parses. */
 	private _parseValidator: ValidatorFn = (): ValidationErrors | null => {
 		return this._lastValueValid ?
-			null : { 'matDatepickerParse': { 'text': this._elementRef.nativeElement.value } };
+			null : { 'appDatepickerParse': { 'text': this._elementRef.nativeElement.value } };
 	}
 
 	/** The form control validator for the min date. */
@@ -172,7 +172,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 		const controlValue = this._getValidDateOrNull(this._dateAdapter.deserialize(control.value));
 		return (!this.min || !controlValue ||
 			this._dateAdapter.compareDate(this.min, controlValue) <= 0) ?
-			null : { 'matDatepickerMin': { 'min': this.min, 'actual': controlValue } };
+			null : { 'appDatepickerMin': { 'min': this.min, 'actual': controlValue } };
 	}
 
 	/** The form control validator for the max date. */
@@ -180,14 +180,14 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 		const controlValue = this._getValidDateOrNull(this._dateAdapter.deserialize(control.value));
 		return (!this.max || !controlValue ||
 			this._dateAdapter.compareDate(this.max, controlValue) >= 0) ?
-			null : { 'matDatepickerMax': { 'max': this.max, 'actual': controlValue } };
+			null : { 'appDatepickerMax': { 'max': this.max, 'actual': controlValue } };
 	}
 
 	/** The form control validator for the date filter. */
 	private _filterValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
 		const controlValue = this._getValidDateOrNull(this._dateAdapter.deserialize(control.value));
 		return !this._dateFilter || !controlValue || this._dateFilter(controlValue) ?
-			null : { 'matDatepickerFilter': true };
+			null : { 'appDatepickerFilter': true };
 	}
 
 	/** The combined form control validator for this input. */

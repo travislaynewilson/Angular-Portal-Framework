@@ -1,6 +1,7 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { ObjectHelper } from '@app/core/util';
-import { DateAdapter, DATE_LOCALE } from './date-adapter';
+import { DateAdapter } from './date-adapter';
+import { DATE_LOCALE } from './date-locale';
 
 
 

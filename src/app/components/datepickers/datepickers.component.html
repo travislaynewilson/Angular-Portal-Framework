@@ -1,0 +1,22 @@
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Datepickers</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+
+
+      <div class="form-group">
+        <div class="input-group">
+          <input [appDatepicker]="picker" class="form-control" />
+          <app-datepicker #picker></app-datepicker>
+          <span class="input-group-btn">
+            <app-datepicker-toggle [for]="picker"></app-datepicker-toggle>
+          </span>
+        </div>
+      </div>
+
+
+    </app-card-body>
+  </app-card>
+</div>

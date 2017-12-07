@@ -8,7 +8,7 @@ $mat-dialog-max-height: 65vh !default;
 $mat-dialog-button-margin: 8px !default;
 
 .app-dialog-container {
-  //@include mat-elevation(24);
+  //TODO: @include mat-elevation(24);
 
   display: block;
   padding: $mat-dialog-padding;
