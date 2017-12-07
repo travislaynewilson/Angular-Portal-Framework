@@ -16,10 +16,10 @@ import { ScrollingModule } from '@app/core/scrolling';
 
 import { SharedModule } from '@app/shared';
 import { UIModule } from '@app/lib/ui';
-
 import { ComponentsModule } from '@app/components/components.module';
-import { RouteCollection } from './app.routing';
-import { AppComponent } from './app.component';
+
+import { AppComponent } from './app.component'; 
+import { RouteCollection } from './app.routing'; 
 
 
 

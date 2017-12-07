@@ -19,6 +19,7 @@ import { DatepickerErrorFactory } from '../datepicker-error.factory';
 const DAYS_PER_WEEK = 7;
 
 
+
 /** An internal component used to display a single month in the datepicker. */
 @Component({
 	selector: 'app-month-view',

@@ -19,7 +19,7 @@ import { DatepickerIntlService } from '../datepicker-intl.service';
 
 @Component({
 	selector: 'app-datepicker-toggle',
-	templateUrl: 'datepicker-toggle.html',
+	templateUrl: './datepicker-toggle.component.html',
 	host: {
 		'class': 'mat-datepicker-toggle',
 	},
@@ -28,7 +28,7 @@ import { DatepickerIntlService } from '../datepicker-intl.service';
 	preserveWhitespaces: false,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MatDatepickerToggle<D> implements AfterContentInit, OnChanges, OnDestroy {
+export class DatepickerToggleComponent<D> implements AfterContentInit, OnChanges, OnDestroy {
 	private _stateChanges = Subscription.EMPTY;
 
 	/** Datepicker instance that the button will toggle. */

@@ -5,11 +5,11 @@ import { DateAdapter, DATE_LOCALE } from './date-adapter';
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
 // the `default as` syntax.
 import * as _moment from 'moment';
-import { default as _rollupMoment, Moment } from 'moment';
+import { Moment } from 'moment';
 
 
 
-const moment = _rollupMoment || _moment;
+const moment = _moment;
 
 
 

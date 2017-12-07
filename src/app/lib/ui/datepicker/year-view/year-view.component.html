@@ -2,7 +2,7 @@
 	<thead class="mat-calendar-table-header">
 		<tr><th class="mat-calendar-table-header-divider" colspan="4"></th></tr>
 	</thead>
-	<tbody mat-calendar-body
+	<tbody appCalendarBody
 			role="grid"
 			allowDisabledSelection="true"
 			[label]="_yearLabel"
@@ -16,4 +16,3 @@
 			(selectedValueChange)="_monthSelected($event)">
 	</tbody>
 </table>
-	  

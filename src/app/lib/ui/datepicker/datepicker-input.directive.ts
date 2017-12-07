@@ -25,8 +25,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { CoercionHelper } from '@app/core/util';
 import { KeyCodes } from '@app/core/keycodes';
 import { DateAdapter, DATE_FORMAT, DateFormat } from '@app/lib/ui/core/datetime';
-import { MatFormField } from '@angular/material/form-field';
-import { INPUT_VALUE_ACCESSOR } from '@angular/material/input';
+import { INPUT_VALUE_ACCESSOR } from '@app/lib/ui/core/input';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { DatepickerErrorFactory } from './datepicker-error.factory';
 import { DatepickerInputEvent } from './datepicker-input.event';
@@ -102,7 +101,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 		let oldDate = this.value;
 		this._value = value;
 		this._renderer.setProperty(this._elementRef.nativeElement, 'value',
-			value ? this._dateAdapter.format(value, this._dateFormats.display.dateInput) : '');
+			value ? this._dateAdapter.format(value, this._dateFormat.display.dateInput) : '');
 		if (!this._dateAdapter.sameDate(oldDate, value)) {
 			this._valueChange.emit(value);
 		}
@@ -203,8 +202,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 		private _elementRef: ElementRef,
 		private _renderer: Renderer2,
 		@Optional() private _dateAdapter: DateAdapter<D>,
-		@Optional() @Inject(DATE_FORMAT) private _dateFormat: DateFormat,
-		@Optional() private _formField: MatFormField) {
+		@Optional() @Inject(DATE_FORMAT) private _dateFormat: DateFormat) {
 		if (!this._dateAdapter) {
 			throw DatepickerErrorFactory.createMissingDateImplError('DateAdapter');
 		}
@@ -251,7 +249,7 @@ export class DatepickerInputDirective<D> implements AfterContentInit, ControlVal
 	 * @return The element to connect the popup to.
 	 */
 	getPopupConnectionElementRef (): ElementRef {
-		return this._formField ? this._formField.underlineRef : this._elementRef;
+		return this._elementRef;
 	}
 
 	// Implemented as part of ControlValueAccessor

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from './button';
 import { CardModule } from './card';
+import { DatepickerModule } from './datepicker';
 import { DialogModule } from './dialog';
 import { PanelModule } from './panel';
 import { IconModule } from './icon';
@@ -18,6 +19,7 @@ import { UtilModule } from './util';
 		ButtonModule,
 		CardModule,
 		CommonModule,
+		DatepickerModule,
 		DialogModule,
 		IconModule,
 		MenuModule,
@@ -32,6 +34,7 @@ import { UtilModule } from './util';
 		ButtonModule,
 		CardModule,
 		DialogModule,
+		DatepickerModule,
 		IconModule,
 		MenuModule,
 		NotificationModule,
