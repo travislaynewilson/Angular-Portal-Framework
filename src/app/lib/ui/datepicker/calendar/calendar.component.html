@@ -1,26 +1,25 @@
-<div class="mat-calendar-header">
-		<div class="mat-calendar-controls">
-		  <button appLinkButton class="mat-calendar-period-button"
-				  (click)="_currentPeriodClicked()"  [attr.aria-label]="_periodButtonLabel">
+<div class="app-calendar-header">
+		<div class="app-calendar-controls">
+		  <button appLinkButton class="app-calendar-period-button" (click)="_currentPeriodClicked()"  [attr.aria-label]="_periodButtonLabel">
 			{{_periodButtonText}}
-			<div class="mat-calendar-arrow" [class.mat-calendar-invert]="!_monthView"></div>
+			<div class="app-calendar-arrow" [class.app-calendar-invert]="!_monthView"></div>
 		  </button>
 	  
-		  <div class="mat-calendar-spacer"></div>
+		  <div class="app-calendar-spacer"></div>
 	  
-		  <button appLinkButton appIconButton class="mat-calendar-previous-button"
+		  <button appLinkButton appIconButton class="app-calendar-previous-button"
 				  [disabled]="!_previousEnabled()" (click)="_previousClicked()"
 				  [attr.aria-label]="_prevButtonLabel">
 		  </button>
 	  
-		  <button appLinkButton appIconButton class="mat-calendar-next-button"
+		  <button appLinkButton appIconButton class="app-calendar-next-button"
 				  [disabled]="!_nextEnabled()" (click)="_nextClicked()"
 				  [attr.aria-label]="_nextButtonLabel">
 		  </button>
 		</div>
 	  </div>
 	  
-	  <div class="mat-calendar-content" (keydown)="_handleCalendarBodyKeydown($event)"
+	  <div class="app-calendar-content" (keydown)="_handleCalendarBodyKeydown($event)"
 		  [ngSwitch]="_monthView" appMonitorSubtreeFocus>
 		<app-month-view
 			*ngSwitchCase="true"

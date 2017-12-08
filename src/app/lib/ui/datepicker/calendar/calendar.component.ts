@@ -33,7 +33,7 @@ import { YearViewComponent } from '../year-view/year-view.component';
 	templateUrl: 'calendar.component.html',
 	styleUrls: ['calendar.component.scss'],
 	host: {
-		'class': 'mat-calendar',
+		'class': 'app-calendar'
 	},
 	exportAs: 'appCalendar',
 	encapsulation: ViewEncapsulation.None,
@@ -241,7 +241,7 @@ export class CalendarComponent<D> implements AfterContentInit, OnDestroy, OnChan
 	_focusActiveCell () {
 		this._ngZone.runOutsideAngular(() => {
 			this._ngZone.onStable.asObservable().pipe(first()).subscribe(() => {
-				this._elementRef.nativeElement.querySelector('.mat-calendar-body-active').focus();
+				this._elementRef.nativeElement.querySelector('.app-calendar-body-active').focus();
 			});
 		});
 	}

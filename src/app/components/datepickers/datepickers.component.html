@@ -11,7 +11,9 @@
           <input [appDatepicker]="picker" class="form-control" />
           <app-datepicker #picker></app-datepicker>
           <span class="input-group-btn">
-            <app-datepicker-toggle [for]="picker"></app-datepicker-toggle>
+			<button appLinkButton (click)="picker.open()">
+				<i appIcon="event"></i>
+			</button>
           </span>
         </div>
       </div>

@@ -16,7 +16,7 @@ import {CalendarCell} from '../calendar-cell';
 	templateUrl: 'calendar-body.component.html',
 	styleUrls: ['calendar-body.component.scss'],
 	host: {
-		'class': 'mat-calendar-body',
+		'class': 'app-calendar-body',
 	},
 	exportAs: 'appCalendarBody',
 	encapsulation: ViewEncapsulation.None,

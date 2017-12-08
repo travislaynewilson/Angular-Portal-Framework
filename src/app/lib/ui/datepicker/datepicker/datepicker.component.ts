@@ -196,7 +196,7 @@ export class DatepickerComponent<D> implements OnDestroy {
 	 */
 	_registerInput (input: DatepickerInputDirective<D>): void {
 		if (this._datepickerInput) {
-			throw Error('A MatDatepicker can only be associated with a single input.');
+			throw Error('A Datepicker can only be associated with a single input.');
 		}
 		this._datepickerInput = input;
 		this._inputSubscription =
@@ -209,7 +209,7 @@ export class DatepickerComponent<D> implements OnDestroy {
 			return;
 		}
 		if (!this._datepickerInput) {
-			throw Error('Attempted to open an MatDatepicker with no associated input.');
+			throw Error('Attempted to open an Datepicker with no associated input.');
 		}
 		if (this._document) {
 			this._focusedElementBeforeOpen = this._document.activeElement;
@@ -250,7 +250,7 @@ export class DatepickerComponent<D> implements OnDestroy {
 	private _openAsDialog (): void {
 		this._dialogContext = this._dialogService.open(DatepickerContentComponent, {
 			viewContainerRef: this._viewContainerRef,
-			panelClass: 'mat-datepicker-dialog',
+			panelClass: 'app-datepicker-dialog',
 		});
 		this._dialogContext.afterClosed().subscribe(() => this.close());
 		this._dialogContext.componentInstance.datepicker = this;
@@ -285,9 +285,9 @@ export class DatepickerComponent<D> implements OnDestroy {
 		const overlayConfig = new OverlayConfig({
 			positionStrategy: this._createPopupPositionStrategy(),
 			hasBackdrop: true,
-			backdropClass: 'mat-overlay-transparent-backdrop',
+			backdropClass: 'app-overlay-transparent-backdrop',
 			scrollStrategy: this._scrollStrategy(),
-			panelClass: 'mat-datepicker-popup',
+			panelClass: 'app-datepicker-popup',
 		});
 
 		this._popupRef = this._overlayService.create(overlayConfig);

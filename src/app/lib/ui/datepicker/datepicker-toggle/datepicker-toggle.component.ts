@@ -22,7 +22,7 @@ import { DatepickerIntlService } from '../datepicker-intl.service';
 	selector: 'app-datepicker-toggle',
 	templateUrl: './datepicker-toggle.component.html',
 	host: {
-		'class': 'mat-datepicker-toggle',
+		'class': 'app-datepicker-toggle',
 	},
 	exportAs: 'appDatepickerToggle',
 	encapsulation: ViewEncapsulation.None,

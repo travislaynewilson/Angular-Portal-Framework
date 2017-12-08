@@ -21,8 +21,8 @@ import { DatepickerComponent } from '../datepicker/datepicker.component';
 	templateUrl: 'datepicker-content.component.html',
 	styleUrls: ['datepicker-content.component.scss'],
 	host: {
-		'class': 'mat-datepicker-content',
-		'[class.mat-datepicker-content-touch]': 'datepicker.touchUi',
+		'class': 'app-datepicker-content',
+		'[class.app-datepicker-content-touch]': 'datepicker.touchUi',
 		'(keydown)': '_handleKeydown($event)'
 	},
 	exportAs: 'appDatepickerContent',

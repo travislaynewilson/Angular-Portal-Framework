@@ -2,70 +2,68 @@
 
 
 
-$mat-calendar-padding: 8px !default;
-$mat-calendar-header-divider-width: 1px !default;
-$mat-calendar-controls-vertical-padding: 5%;
+$app-calendar-padding: gx(0.5) !default;
+$app-calendar-header-divider-width: 1px !default;
+$app-calendar-controls-vertical-padding: 5%;
 // We use the same padding as the month / year label, but subtract 16px since there is padding
 // between the edge of the button and the text. This ensures that the button text lines up with
 // the month / year label text.
-$mat-calendar-controls-side-margin: calc(33% / 7 - 16px);
+$app-calendar-controls-side-margin: calc(33% / 7 - #{gx(1)});
 
-$mat-calendar-arrow-size: 5px !default;
-$mat-calendar-arrow-disabled-opacity: 0.5 !default;
+$app-calendar-arrow-size: 5px !default;
+$app-calendar-arrow-disabled-opacity: 0.5 !default;
 
-// Values chosen to approximate https://material.io/icons/#ic_navigate_before and
-// https://material.io/icons/#ic_navigate_next as closely as possible.
-$mat-calendar-prev-next-icon-border-width: 2px;
-$mat-calendar-prev-next-icon-margin: 12.5px;
-$mat-calendar-prev-icon-transform: translateX(2px) rotate(-45deg);
-$mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
+$app-calendar-prev-next-icon-border-width: 2px;
+$app-calendar-prev-next-icon-margin: 12.5px;
+$app-calendar-prev-icon-transform: translateX(2px) rotate(-45deg);
+$app-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
 
 
-.mat-calendar {
+.app-calendar {
   display: block;
 }
 
-.mat-calendar-header {
-  padding: $mat-calendar-padding $mat-calendar-padding 0 $mat-calendar-padding;
+.app-calendar-header {
+  padding: $app-calendar-padding $app-calendar-padding 0 $app-calendar-padding;
 }
 
-.mat-calendar-content {
-  padding: 0 $mat-calendar-padding $mat-calendar-padding $mat-calendar-padding;
+.app-calendar-content {
+  padding: 0 $app-calendar-padding $app-calendar-padding $app-calendar-padding;
   outline: none;
 }
 
-.mat-calendar-controls {
+.app-calendar-controls {
   display: flex;
-  margin: $mat-calendar-controls-vertical-padding $mat-calendar-controls-side-margin;
+  margin: $app-calendar-controls-vertical-padding $app-calendar-controls-side-margin;
 }
 
-.mat-calendar-spacer {
+.app-calendar-spacer {
   flex: 1 1 auto;
 }
 
-.mat-calendar-period-button {
+.app-calendar-period-button {
   min-width: 0;
 }
 
-.mat-calendar-arrow {
+.app-calendar-arrow {
   display: inline-block;
   width: 0;
   height: 0;
-  border-left: $mat-calendar-arrow-size solid transparent;
-  border-right: $mat-calendar-arrow-size solid transparent;
-  border-top-width: $mat-calendar-arrow-size;
+  border-left: $app-calendar-arrow-size solid transparent;
+  border-right: $app-calendar-arrow-size solid transparent;
+  border-top-width: $app-calendar-arrow-size;
   border-top-style: solid;
   border-top-color: color(black, hint);
-  margin: 0 0 0 $mat-calendar-arrow-size;
+  margin: 0 0 0 $app-calendar-arrow-size;
   vertical-align: middle;
 
-  &.mat-calendar-invert {
+  &.app-calendar-invert {
     transform: rotate(180deg);
   }
 }
 
-.mat-calendar-previous-button,
-.mat-calendar-next-button {
+.app-calendar-previous-button,
+.app-calendar-next-button {
   position: relative;
   color: color(black, secondary);
 
@@ -76,40 +74,42 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
 	bottom: 0;
 	position: absolute;
     content: '';
-    margin: $mat-calendar-prev-next-icon-margin;
+    margin: $app-calendar-prev-next-icon-margin;
     border: 0 solid currentColor;
-    border-top-width: $mat-calendar-prev-next-icon-border-width;
+    border-top-width: $app-calendar-prev-next-icon-border-width;
   }
 }
 
-.mat-calendar-previous-button::after {
-  border-left-width: $mat-calendar-prev-next-icon-border-width;
-  transform: $mat-calendar-prev-icon-transform;
+.app-calendar-previous-button::after {
+  border-left-width: $app-calendar-prev-next-icon-border-width;
+  transform: $app-calendar-prev-icon-transform;
 }
 
-.mat-calendar-next-button::after {
-  border-right-width: $mat-calendar-prev-next-icon-border-width;
-  transform: $mat-calendar-next-icon-transform;
+.app-calendar-next-button::after {
+  border-right-width: $app-calendar-prev-next-icon-border-width;
+  transform: $app-calendar-next-icon-transform;
 }
 
-.mat-calendar-table {
+.app-calendar-table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
 }
 
-.mat-calendar-table-header {
+.app-calendar-table-header {
 	color: color(black, hint);
 }
 
-.mat-calendar-table-header th {
-  text-align: center;
-  padding: 0 0 $mat-calendar-padding 0;
+.app-calendar-table-header th {
+	text-align: center;
+	padding: 0 0 $app-calendar-padding 0;
+	font-size: 12px;
+	font-weight: $font-weight-medium;
 }
 
-.mat-calendar-table-header-divider {
+.app-calendar-table-header-divider {
   position: relative;
-  height: $mat-calendar-header-divider-width;
+  height: $app-calendar-header-divider-width;
 
   // We use an absolutely positioned pseudo-element as the divider line for the table header so we
   // can extend it all the way to the edge of the calendar.
@@ -117,9 +117,9 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
     content: '';
     position: absolute;
     top: 0;
-    left: -$mat-calendar-padding;
-    right: -$mat-calendar-padding;
-	height: $mat-calendar-header-divider-width;
+    left: -$app-calendar-padding;
+    right: -$app-calendar-padding;
+	height: $app-calendar-header-divider-width;
 	background: color(black, divider);
   }
 }

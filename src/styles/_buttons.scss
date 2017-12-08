@@ -96,7 +96,9 @@ fieldset[disabled] a.btn { pointer-events: none; cursor: not-allowed; }
 
     &:disabled {
         @include hover-focus { text-decoration: none; }
-    }
+	}
+	
+	.app-icon { font-size: 18px; }
 
     @include btn-link-theme(text, color(black, secondary), color(black, primary));
     @include btn-link-theme(success, color(intent, success), darken(color(intent, success), 15));
