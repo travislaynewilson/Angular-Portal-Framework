@@ -6,13 +6,13 @@ $header-border: 1px solid color(black, divider);
 
 
 
-.app-tab-nav-bar,
+.app-tab-nav,
 .app-tab-header {
   border-bottom: $header-border;
 }
 
 .app-tab-group-inverted-header {
-  .app-tab-nav-bar,
+  .app-tab-nav,
   .app-tab-header {
     border-top: $header-border;
     border-bottom: none;
@@ -37,13 +37,13 @@ $header-border: 1px solid color(black, divider);
 
 // Remove header border when there is a background color
 .app-tab-group[class*='app-background-'] .app-tab-header,
-.app-tab-nav-bar[class*='app-background-'] {
+.app-tab-nav[class*='app-background-'] {
   border-bottom: none;
   border-top: none;
 }
 
 .app-tab-group,
-.app-tab-nav-bar {
+.app-tab-nav {
   .app-tab-label:focus,
   .app-tab-link:focus {
     background-color: transparent;
