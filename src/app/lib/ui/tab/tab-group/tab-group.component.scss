@@ -1,0 +1,61 @@
+@import '../tabs-common';
+.app-tab-group {
+  display: flex;
+  flex-direction: column;
+  &.app-tab-group-inverted-header {
+    flex-direction: column-reverse;
+  }
+}
+
+// Wraps each tab label
+.app-tab-label {
+  @include tab-label;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .app-tab-label {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 960px) {
+  .app-tab-label {
+    padding: 0 12px;
+  }
+}
+
+.app-tab-group[app-stretch-tabs] .app-tab-label,
+.app-tab-group[app-stretch-tabs] .app-tab-label {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+// The bottom section of the view; contains the tab bodies
+.app-tab-body-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  transition: height $app-tab-animation-duration $ease-in-out-curve-function;
+}
+
+// Wraps each tab body
+.app-tab-body {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  &.app-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    flex-grow: 1;
+  }
+  .app-tab-group.app-tab-group-dynamic-height &.app-tab-body-active {
+    overflow-y: hidden;
+  }
+}

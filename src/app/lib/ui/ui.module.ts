@@ -11,6 +11,7 @@ import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
 import { ProgressBarModule } from './progress-bar';
 import { SliderModule } from './slider';
+import { TabModule } from './tab';
 import { TooltipModule } from './tooltip';
 import { UtilModule } from './util';
 
@@ -27,6 +28,7 @@ import { UtilModule } from './util';
 		PanelModule,
 		ProgressBarModule,
 		SliderModule,
+		TabModule,
 		TooltipModule,
 		UtilModule
 	],
@@ -41,6 +43,7 @@ import { UtilModule } from './util';
 		PanelModule,
 		ProgressBarModule,
 		SliderModule,
+		TabModule,
 		TooltipModule,
 		UtilModule
 	]

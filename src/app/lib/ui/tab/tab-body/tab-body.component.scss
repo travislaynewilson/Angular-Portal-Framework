@@ -1,0 +1,10 @@
+.app-tab-body-content {
+  // Avoids repainting while scrolling.
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: 100%;
+  overflow: auto;
+  .app-tab-group-dynamic-height & {
+    overflow: hidden;
+  }
+}

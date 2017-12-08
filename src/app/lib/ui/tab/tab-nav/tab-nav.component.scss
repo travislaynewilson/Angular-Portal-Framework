@@ -1,0 +1,28 @@
+@import '../tabs-common';
+
+
+
+// Wraps the nav containing the anchors
+.app-tab-nav {
+  @include tab-header;
+}
+
+.app-tab-links {
+  position: relative;
+} // Wraps each link in the header
+.app-tab-link {
+  @include tab-label;
+  vertical-align: top;
+  text-decoration: none; // Removes anchor underline styling
+  position: relative;
+  overflow: hidden; // Keeps the ripple from extending outside the element bounds
+}
+
+@media (max-width: 600px) {
+  .app-tab-link {
+    min-width: 72px;
+  }
+} // Styling for the ink bar that displays near the activated anchor
+.app-ink-bar {
+  @include ink-bar;
+}

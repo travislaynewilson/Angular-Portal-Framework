@@ -1,7 +1,44 @@
-<div class="container px-1 pb-1">
-  
-      <h1 class="page-title">Tabs</h1>
-  
+<div class="container padded">
+
+  <h1 class="page-title">Tabs</h1>
+
+
+  <app-tab-group>
+
+    <app-tab label="Tab 1">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.
+	</app-tab>
+	
+    <app-tab label="Tab 2">
+      <ng-template appTabLabel>
+        ⭐
+      </ng-template>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.
+	</app-tab>
+	
+    <app-tab label="Tab 3 (Disabled)" disabled>
+      No content
+    </app-tab>
+
+    <app-tab label="Tab 4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.</p>      
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus.</p>
+	</app-tab>
+	
+    <app-tab label="Tab 5">
+      No content
+	</app-tab>
+	
+    <app-tab label="Tab 6">
+      No content
+	</app-tab>
+	
+  </app-tab-group>
+
+
+  <!-- 
+
+
       <ul class="tabs tabs-demo" role="tablist">
           <li class="tab">
               <a class="tab-link active" id="tab-a-1" data-toggle="tab" href="#a-1" role="tab" aria-controls="a-1" aria-expanded="true">
@@ -133,16 +170,5 @@
                   <div class="tab-pane" id="d-3" role="tabpanel" aria-labelledby="tab-d-3">D</div>
               </div>
           </div>
-      </div>
-  </div>
-  
-  
-  
-<!-- <script>
-  // Tabs
-  require(['jquery', 'tabs'], function ($) {
-    $('.tabs-demo .active').tab('show');
-  });
-
-</script>
- -->
+      </div> -->
+</div>

@@ -1,0 +1,22 @@
+<div class="app-tab-header-pagination app-tab-header-pagination-before app-elevation-z4" 
+	aria-hidden="true" 
+	[class.app-tab-header-pagination-disabled]="_disableScrollBefore" 
+	(click)="_scrollHeader('before')">
+  <div class="app-tab-header-pagination-chevron"></div>
+</div>
+
+<div class="app-tab-label-container" #tabListContainer (keydown)="_handleKeydown($event)">
+  <div class="app-tab-list" #tabList role="tablist" (cdkObserveContent)="_onContentChanges()">
+    <div class="app-tab-labels">
+      <ng-content></ng-content>
+    </div>
+    <app-ink-bar></app-ink-bar>
+  </div>
+</div>
+
+<div class="app-tab-header-pagination app-tab-header-pagination-after app-elevation-z4" 
+	aria-hidden="true" 
+	[class.app-tab-header-pagination-disabled]="_disableScrollAfter" 
+	(click)="_scrollHeader('after')">
+  <div class="app-tab-header-pagination-chevron"></div>
+</div>

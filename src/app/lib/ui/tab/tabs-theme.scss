@@ -1,0 +1,100 @@
+@import '../../../../styles/references';
+
+
+
+$header-border: 1px solid color(black, divider);
+
+
+
+.app-tab-nav-bar,
+.app-tab-header {
+  border-bottom: $header-border;
+}
+
+.app-tab-group-inverted-header {
+  .app-tab-nav-bar,
+  .app-tab-header {
+    border-top: $header-border;
+    border-bottom: none;
+  }
+}
+
+.app-tab-label,
+.app-tab-link {
+  color: color(black, primary);
+  &.app-tab-disabled {
+    color: color(black, disabled);
+  }
+}
+
+.app-tab-header-pagination-chevron {
+  border-color: color(black, primary);
+}
+
+.app-tab-header-pagination-disabled .app-tab-header-pagination-chevron {
+  border-color: color(black, disabled);
+}
+
+// Remove header border when there is a background color
+.app-tab-group[class*='app-background-'] .app-tab-header,
+.app-tab-nav-bar[class*='app-background-'] {
+  border-bottom: none;
+  border-top: none;
+}
+
+.app-tab-group,
+.app-tab-nav-bar {
+  $theme-colors: (primary: color(primary));
+
+  @each $name, $color in $theme-colors {
+    // Set the foreground color of the tabs
+    &.app-#{$name} {
+      .app-tab-label:focus,
+      .app-tab-link:focus {
+        background-color: color(primary, state-bg);
+      }
+      .app-ink-bar {
+		background-color: color(primary);
+	  }
+      &.app-background-#{$name} { 
+        .app-ink-bar {
+			background-color: color(white);
+		}
+      }
+    }
+  }
+
+  @each $name, $color in $theme-colors {
+    // Set background color of the tabs and override focus color
+    &.app-background-#{$name} {
+      .app-tab-label:focus,
+      .app-tab-link:focus {
+        background-color: color(primary, state-bg);
+	  }
+	  
+	  // Set background color for the tab group
+  .app-tab-header, .app-tab-links {
+    background-color: color(primary);
+  }
+
+  // Set labels to contrast against background
+  .app-tab-label, .app-tab-link {
+    color: color(white);
+
+    &.app-tab-disabled {
+      color: color(white, disabled);
+    }
+  }
+
+  // Set pagination chevrons to contrast background
+  .app-tab-header-pagination-chevron {
+    border-color: color(white);
+  }
+
+  .app-tab-header-pagination-disabled .app-tab-header-pagination-chevron {
+    border-color: color(white, disabled);
+  }
+ 
+    }
+  }
+}
