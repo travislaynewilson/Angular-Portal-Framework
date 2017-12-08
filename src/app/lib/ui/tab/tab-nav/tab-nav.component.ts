@@ -33,7 +33,7 @@ export type ThemePalette = 'primary' | undefined;
  * Provides anchored navigation with animated ink bar.
  */
 @Component({
-	selector: '[app-tab-nav]',
+	selector: 'app-tab-nav, [appTabNav]',
 	exportAs: 'appTabNav',
 	templateUrl: './tab-nav.component.html',
 	styleUrls: ['./tab-nav.component.scss'],
@@ -144,7 +144,7 @@ export class TabNavComponent implements AfterContentInit, OnDestroy {
  * Link inside of a `app-tab-nav-bar`.
  */
 @Directive({
-	selector: '[app-tab-link], [appTabLink]',
+	selector: '[appTabLink]',
 	exportAs: 'appTabLink',
 	host: {
 		'class': 'app-tab-link',

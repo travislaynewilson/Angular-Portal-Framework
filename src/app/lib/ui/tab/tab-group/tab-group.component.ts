@@ -77,7 +77,7 @@ export class TabGroupComponent implements AfterContentInit, AfterContentChecked,
 	@Input()
 	get dynamicHeight (): boolean { return this._dynamicHeight; }
 	set dynamicHeight (value: boolean) { this._dynamicHeight = CoercionHelper.coerceBoolean(value); }
-	private _dynamicHeight: boolean = false;
+	private _dynamicHeight: boolean = true;
 
 	/** The index of the active tab. */
 	@Input()

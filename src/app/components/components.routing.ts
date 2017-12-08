@@ -23,6 +23,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
+import { Sub1Component } from '@app/components/tabs/subtabs/sub1.component';
+import { Sub2Component } from '@app/components/tabs/subtabs/sub2.component';
  
 export const RouteCollection = [
 	{ path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -44,7 +46,10 @@ export const RouteCollection = [
 	{ path: 'progress-bars', component: ProgressBarsComponent },
 	{ path: 'sliders', component: SlidersComponent },
 	{ path: 'steppers', component: SteppersComponent },
-	{ path: 'tabs', component: TabsComponent },
+	{ path: 'tabs', component: TabsComponent, children: [
+		{ path: 'sub1', component: Sub1Component, outlet: 'tabsubs' },
+		{ path: 'sub2', component: Sub2Component, outlet: 'tabsubs' }
+	]},
 	{ path: 'notifications', component: NotificationsComponent },
 	{ path: 'toolbars', component: ToolbarsComponent },
 	{ path: 'tooltips', component: TooltipsComponent },

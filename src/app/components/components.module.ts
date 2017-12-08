@@ -31,6 +31,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
+import { Sub1Component } from './tabs/subtabs/sub1.component';
+import { Sub2Component } from './tabs/subtabs/sub2.component';
 
 @NgModule({
   imports: [
@@ -64,7 +66,7 @@ import { TypographyComponent } from './typography/typography.component';
     NotificationsComponent, 
     ToolbarsComponent, 
     TooltipsComponent, 
-    TypographyComponent
+    TypographyComponent, Sub1Component, Sub2Component
   ],
   entryComponents: [
 	DialogDemoComponent
