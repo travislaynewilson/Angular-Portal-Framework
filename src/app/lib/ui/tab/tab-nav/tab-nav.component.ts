@@ -145,55 +145,7 @@ export class TabNavComponent implements AfterContentInit, OnDestroy {
 
 
 /**
- * Link inside of a `app-tab-nav`.
- */
-// @Directive({
-// 	selector: '[appTabLink]',
-// 	exportAs: 'appTabLink',
-// 	host: {
-// 		'class': 'app-tab-link',
-// 		'[attr.aria-disabled]': 'disabled.toString()',
-// 		'[attr.tabIndex]': 'tabIndex',
-// 		'[class.app-tab-disabled]': 'disabled',
-// 		'[class.app-tab-label-active]': 'active'
-// 	}
-// })
-// export class TabLinkDirective {
-
-// 	private _disabled: boolean = false;
-
-// 	@Input()
-// 	get disabled () { return this._disabled; }
-// 	set disabled (value: any) { this._disabled = CoercionHelper.coerceBoolean(value); }
-
-// 	/** Whether the tab link is active or not. */
-// 	private _isActive: boolean = false;
-
-// 	/** Whether the link is active. */
-// 	@Input()
-// 	get active (): boolean { return this._isActive; }
-// 	set active (value: boolean) {
-// 		this._isActive = value;
-// 		if (value) {
-// 			this._tabNav.updateActiveLink(this._elementRef);
-// 		}
-// 	}
-
-// 	get tabIndex (): number | null {
-// 		return this.disabled ? null : 0;
-// 	}
-
-// 	constructor (private _tabNav: TabNavComponent,
-// 		private _elementRef: ElementRef) {		
-// 	}
-// }
-
-
-
-
-
-/**
- * V2 of a Link inside of a `app-tab-nav-bar`.
+ * Link inside of a `app-tab-nav-bar`.
  */
 @Directive({
 	selector: '[appTabLink]',
