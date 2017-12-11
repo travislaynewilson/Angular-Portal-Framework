@@ -69,16 +69,24 @@
       <app-card-body>
 
         <app-tab-nav>
-          <a appTabLink [routerLink]="['/tabs', { outlets: { 'tabsubs': ['sub1']}}]" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+          <!-- <a appTabLink routerLink="subone" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+            Sub 1
+          </a>
+
+          <a appTabLink routerLink="subtwo" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive">
+            Sub 2
+		  </a> -->
+		  
+		  <a appTabLink routerLink="subone">
             Sub 1
 		  </a>
 		  
-		  <a appTabLink [routerLink]="['/tabs', { outlets: { 'tabsubs': ['sub2']}}]" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+		  <a appTabLink routerLink="subtwo">
             Sub 2
           </a>
-		</app-tab-nav>
-		
-		<router-outlet name="tabsubs"></router-outlet>
+        </app-tab-nav>
+
+        <router-outlet></router-outlet>
 
       </app-card-body>
     </app-card>

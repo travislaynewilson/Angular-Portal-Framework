@@ -38,7 +38,7 @@ import { Sub2Component } from './tabs/subtabs/sub2.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forRoot(RouteCollection),
+    RouterModule.forChild(RouteCollection),
     UIModule
   ],
   declarations: [
@@ -55,18 +55,20 @@ import { Sub2Component } from './tabs/subtabs/sub2.component';
     InputGroupsComponent, 
     ListsComponent, 
     MenusComponent, 
+    NotificationsComponent, 
     OverviewComponent,
     PanelsComponent, 
     PreloadersComponent, 
     ProgressComponent, 
     ProgressBarsComponent,
     SlidersComponent,
-    SteppersComponent, 
+	SteppersComponent, 
+	Sub1Component, 
+	Sub2Component,
     TabsComponent, 
-    NotificationsComponent, 
     ToolbarsComponent, 
     TooltipsComponent, 
-    TypographyComponent, Sub1Component, Sub2Component
+    TypographyComponent
   ],
   entryComponents: [
 	DialogDemoComponent

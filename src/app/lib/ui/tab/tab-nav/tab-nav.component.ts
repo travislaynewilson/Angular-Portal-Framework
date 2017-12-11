@@ -9,13 +9,17 @@ import {
 	forwardRef,
 	Input,
 	NgZone,
+	OnChanges,
 	OnDestroy,
 	Optional,
 	QueryList,
 	Renderer2,
+	SimpleChanges,
 	ViewChild,
 	ViewEncapsulation
 } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { of as observableOf } from 'rxjs/observable/of';
 import { Subject } from 'rxjs/Subject';
@@ -141,7 +145,55 @@ export class TabNavComponent implements AfterContentInit, OnDestroy {
 
 
 /**
- * Link inside of a `app-tab-nav-bar`.
+ * Link inside of a `app-tab-nav`.
+ */
+// @Directive({
+// 	selector: '[appTabLink]',
+// 	exportAs: 'appTabLink',
+// 	host: {
+// 		'class': 'app-tab-link',
+// 		'[attr.aria-disabled]': 'disabled.toString()',
+// 		'[attr.tabIndex]': 'tabIndex',
+// 		'[class.app-tab-disabled]': 'disabled',
+// 		'[class.app-tab-label-active]': 'active'
+// 	}
+// })
+// export class TabLinkDirective {
+
+// 	private _disabled: boolean = false;
+
+// 	@Input()
+// 	get disabled () { return this._disabled; }
+// 	set disabled (value: any) { this._disabled = CoercionHelper.coerceBoolean(value); }
+
+// 	/** Whether the tab link is active or not. */
+// 	private _isActive: boolean = false;
+
+// 	/** Whether the link is active. */
+// 	@Input()
+// 	get active (): boolean { return this._isActive; }
+// 	set active (value: boolean) {
+// 		this._isActive = value;
+// 		if (value) {
+// 			this._tabNav.updateActiveLink(this._elementRef);
+// 		}
+// 	}
+
+// 	get tabIndex (): number | null {
+// 		return this.disabled ? null : 0;
+// 	}
+
+// 	constructor (private _tabNav: TabNavComponent,
+// 		private _elementRef: ElementRef) {		
+// 	}
+// }
+
+
+
+
+
+/**
+ * V2 of a Link inside of a `app-tab-nav-bar`.
  */
 @Directive({
 	selector: '[appTabLink]',
@@ -154,7 +206,11 @@ export class TabNavComponent implements AfterContentInit, OnDestroy {
 		'[class.app-tab-label-active]': 'active'
 	}
 })
-export class TabLinkDirective {
+export class TabLinkDirective implements AfterContentInit, OnDestroy, OnChanges {
+
+	@ContentChildren(RouterLink, { descendants: true }) links: QueryList<RouterLink>;
+	@ContentChildren(RouterLinkWithHref, { descendants: true })
+	linksWithHrefs: QueryList<RouterLinkWithHref>;
 
 	private _disabled: boolean = false;
 
@@ -175,10 +231,54 @@ export class TabLinkDirective {
 		}
 	}
 
+	@Input() routerLinkActiveOptions: { exact: boolean } = { exact: false };
+
+	private subscription: Subscription;
+
 	get tabIndex (): number | null {
 		return this.disabled ? null : 0;
 	}
 
 	constructor (private _tabNav: TabNavComponent,
-		private _elementRef: ElementRef) { }
+		private _elementRef: ElementRef,
+		private renderer: Renderer2,
+		private router: Router,
+		private cdr: ChangeDetectorRef) {
+
+		this.subscription = router.events.subscribe(s => {
+			if (s instanceof NavigationEnd) {
+				this.update();
+			}
+		});
+	}
+
+	ngAfterContentInit (): void {
+		this.links.changes.subscribe(_ => this.update());
+		this.linksWithHrefs.changes.subscribe(_ => this.update());
+		this.update();
+	}
+
+	ngOnChanges (changes: SimpleChanges): void { this.update(); }
+
+	ngOnDestroy (): void { this.subscription.unsubscribe(); }
+
+	update (): void {
+		if (!this.links || !this.linksWithHrefs || !this.router.navigated) return;
+		Promise.resolve().then(() => {
+			const hasActiveLinks = this.hasActiveLinks();
+			if (this.active !== hasActiveLinks) {
+				this.active = hasActiveLinks;
+			}
+		});
+	}
+
+	private isLinkActive (router: Router): (link: (RouterLink | RouterLinkWithHref)) => boolean {
+		return (link: RouterLink | RouterLinkWithHref) =>
+			router.isActive(link.urlTree, this.routerLinkActiveOptions.exact);
+	}
+
+	private hasActiveLinks (): boolean {
+		return this.links.some(this.isLinkActive(this.router)) ||
+			this.linksWithHrefs.some(this.isLinkActive(this.router));
+	}
 }
