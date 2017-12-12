@@ -1,6 +1,7 @@
 @import '../../../../styles/references';
 
 
+
 .app-menu-panel {
   min-width: $menu-overlay-min-width;
   max-width: $menu-overlay-max-width;
@@ -11,14 +12,10 @@
   outline: 0;
   background: color(white);
 
-  // &:not([class*='app-elevation-z']) {
-  //   box-shadow: 0px 3px 1px -2px rgba(black, 0.2),
-  //               0px 2px 2px 0px rgba(black, 0.14),
-  //               0px 1px 5px 0px rgba(black, 0.12);
-  // }
-  box-shadow: 0px 3px 1px -2px rgba(black, 0.2),
-              0px 2px 2px 0px rgba(black, 0.14),
-              0px 1px 5px 0px rgba(black, 0.12);
+   &:not([class*='app-elevation-z']) {
+	 @include elevation(2);
+   }
+  
 
   &.app-menu-after.app-menu-below {
     transform-origin: left top;
