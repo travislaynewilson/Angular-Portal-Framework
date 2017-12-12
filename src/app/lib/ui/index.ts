@@ -5,6 +5,7 @@ export * from './dialog';
 export * from './icon';
 export * from './menu';
 export * from './notification';
+export * from './slide-toggle';
 export * from './slider';
 export * from './tab';
 export * from './tooltip';

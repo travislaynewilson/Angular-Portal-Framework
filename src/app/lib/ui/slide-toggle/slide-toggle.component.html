@@ -1,0 +1,32 @@
+<label class="app-slide-toggle-label" #label>
+	
+	<div class="app-slide-toggle-bar"
+		[class.app-slide-toggle-bar-no-side-margin]="!labelContent.textContent || !labelContent.textContent.trim()">
+
+	<input #input class="app-slide-toggle-input app-visually-hidden" type="checkbox"
+			[id]="inputId"
+			[required]="required"
+			[tabIndex]="tabIndex"
+			[checked]="checked"
+			[disabled]="disabled"
+			[attr.name]="name"
+			[attr.aria-label]="ariaLabel"
+			[attr.aria-labelledby]="ariaLabelledby"
+			(change)="_onChangeEvent($event)"
+			(click)="_onInputClick($event)">
+
+	<div class="app-slide-toggle-thumb-container"
+			(slidestart)="_onDragStart()"
+			(slide)="_onDrag($event)"
+			(slideend)="_onDragEnd()">
+
+		<div class="app-slide-toggle-thumb"></div>
+	</div>
+
+
+	</div>
+
+	<span class="app-slide-toggle-content" #labelContent (appObserveContent)="_onLabelTextChange()">
+	<ng-content></ng-content>
+	</span>
+</label>

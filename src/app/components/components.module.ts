@@ -24,6 +24,7 @@ import { PanelsComponent } from './panels/panels.component';
 import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
+import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -60,7 +61,8 @@ import { Sub2Component } from './tabs/subtabs/sub2.component';
     PanelsComponent, 
     PreloadersComponent, 
     ProgressComponent, 
-    ProgressBarsComponent,
+	ProgressBarsComponent,
+	SlideTogglesComponent,
     SlidersComponent,
 	SteppersComponent, 
 	Sub1Component, 

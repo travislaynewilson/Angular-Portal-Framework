@@ -145,7 +145,7 @@ export class TabNavComponent implements AfterContentInit, OnDestroy {
 
 
 /**
- * Link inside of a `app-tab-nav-bar`.
+ * Link inside of a `app-tab-nav`.
  */
 @Directive({
 	selector: '[appTabLink]',

@@ -16,6 +16,7 @@ import { PanelsComponent } from './panels/panels.component';
 import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
+import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -44,6 +45,7 @@ export const RouteCollection = [
 	{ path: 'panels', component: PanelsComponent },
 	{ path: 'preloaders', component: PreloadersComponent },
 	{ path: 'progress-bars', component: ProgressBarsComponent },
+	{ path: 'slide-toggles', component: SlideTogglesComponent },
 	{ path: 'sliders', component: SlidersComponent },
 	{ path: 'steppers', component: SteppersComponent },
 	{ path: 'tabs', component: TabsComponent, children: [
