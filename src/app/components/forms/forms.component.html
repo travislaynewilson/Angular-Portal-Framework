@@ -28,8 +28,8 @@
             <div class="form-control-plaintext"> 364901 </div>
           </div>
           <div class="form-group">
-			<label>Checkboxes</label>
-			
+            <label>Checkboxes</label>
+
             <app-checkbox>Checkbox</app-checkbox>
             <app-checkbox disabled="true">Disabled checkbox</app-checkbox>
           </div>
@@ -46,25 +46,21 @@
           </div>
           <div class="form-group">
             <label>Radio buttons</label>
-            <div class="form-check">
-              <label>
-                <input type="radio"> Radio button </label>
-            </div>
-            <div class="form-check disabled">
-              <label>
-                <input type="radio" disabled> Disabled radio button </label>
-            </div>
+
+            <app-radio-group stacked="true">
+              <app-radio-button value="1">Radio button</app-radio-button>
+              <app-radio-button value="2">Another radio button</app-radio-button>
+              <app-radio-button value="3" disabled="true">Disabled radio button</app-radio-button>
+            </app-radio-group>
           </div>
           <div class="form-group">
             <label>Inline radio buttons</label>
-            <div class="form-check form-check-inline">
-              <label>
-                <input type="radio"> A </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <label>
-                <input type="radio"> B </label>
-            </div>
+
+            <app-radio-group>
+              <app-radio-button value="1">Radio button</app-radio-button>
+              <app-radio-button value="2">Another radio button</app-radio-button>
+              <app-radio-button value="3" disabled="true">Disabled radio button</app-radio-button>
+            </app-radio-group>
           </div>
         </fieldset>
         <hr class="inset-x-1" />
@@ -77,14 +73,11 @@
           </div>
           <div class="form-group is-invalid">
             <label>Contact preference</label>
-            <div class="form-check">
-              <label>
-                <input type="radio" name="radio-val" required> Email </label>
-            </div>
-            <div class="form-check">
-              <label>
-                <input type="radio" name="radio-val" required> Text/SMS </label>
-            </div>
+
+            <app-radio-group required="true" stacked="true">
+              <app-radio-button value="1">Email</app-radio-button>
+              <app-radio-button value="2">Text/SMS</app-radio-button>
+            </app-radio-group>
           </div>
         </fieldset>
       </form>
@@ -113,18 +106,12 @@
         <div class="form-group row">
           <label class="col-sm-2">Radios</label>
           <div class="col">
-            <div class="form-check">
-              <label>
-                <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked> Option one is this and that&mdash;be sure to include why it's great </label>
-            </div>
-            <div class="form-check">
-              <label>
-                <input type="radio" name="gridRadios" id="gridRadios2" value="option2"> Option two can be something else and selecting it will deselect option one </label>
-            </div>
-            <div class="form-check disabled">
-              <label>
-                <input type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled> Option three is disabled </label>
-            </div>
+
+            <app-radio-group required="true" stacked="true" value="1">
+              <app-radio-button value="1">Option one is this and that&mdash;be sure to include why it's great </app-radio-button>
+              <app-radio-button value="2">Option two can be something else and selecting it will deselect option one</app-radio-button>
+              <app-radio-button value="3" disabled="true">Option three is disabled</app-radio-button>
+            </app-radio-group>
           </div>
         </div>
         <div class="form-group row">

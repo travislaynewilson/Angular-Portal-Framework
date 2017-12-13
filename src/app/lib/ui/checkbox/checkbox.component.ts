@@ -32,7 +32,7 @@ let nextUniqueId = 0;
 
 
 /**
- * Provider Expression that allows mat-checkbox to register as a ControlValueAccessor.
+ * Provider Expression that allows app-checkbox to register as a ControlValueAccessor.
  * This allows it to support [(ngModel)].
  */
 export const CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
@@ -115,8 +115,8 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 	@Input('aria-labelledby') ariaLabelledby: string | null = null;
 
 	/** A unique id for the checkbox input. If none is supplied, it will be auto-generated. */
+	private _uniqueId: string = `app-checkbox-${++nextUniqueId}`;
 	@Input() id: string = this._uniqueId;
-	private _uniqueId: string = `mat-checkbox-${++nextUniqueId}`;
 
 	/** Whether the checkbox is required. */
 	@Input()
@@ -321,8 +321,6 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 		// Preventing bubbling for the second event will solve that issue.
 		event.stopPropagation();
 
-		this._removeFocusRipple();
-
 		if (!this.disabled) {
 			// When user manually click on the checkbox, `indeterminate` is set to false.
 			if (this._indeterminate) {
@@ -345,7 +343,7 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 
 	/** Focuses the checkbox. */
 	focus(): void {
-		this._focusMonitor.focusVia(this._inputElement.nativeElement, 'keyboard');
+		this._focusMonitorService.focusVia(this._inputElement.nativeElement, 'keyboard');
 	}
 
 	_onInteractionEvent(event: Event) {
@@ -385,6 +383,6 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 				break;
 		}
 
-		return `mat-checkbox-anim-${animSuffix}`;
+		return `app-checkbox-anim-${animSuffix}`;
 	}
 }

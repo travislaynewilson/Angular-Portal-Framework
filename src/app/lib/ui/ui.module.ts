@@ -11,6 +11,7 @@ import { IconModule } from './icon';
 import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
 import { ProgressBarModule } from './progress-bar';
+import { RadioModule } from './radio';
 import { SlideToggleModule } from './slide-toggle';
 import { SliderModule } from './slider';
 import { TabModule } from './tab';
@@ -30,6 +31,7 @@ import { UtilModule } from './util';
 		NotificationModule,
 		PanelModule,
 		ProgressBarModule,
+		RadioModule,
 		SlideToggleModule,
 		SliderModule,
 		TabModule,
@@ -47,6 +49,7 @@ import { UtilModule } from './util';
 		NotificationModule,
 		PanelModule,
 		ProgressBarModule,
+		RadioModule,
 		SlideToggleModule,
 		SliderModule,
 		TabModule,

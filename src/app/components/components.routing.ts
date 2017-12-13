@@ -12,16 +12,17 @@ import { GridComponent } from './grid/grid.component';
 import { InputGroupsComponent } from './input-groups/input-groups.component';
 import { ListsComponent } from './lists/lists.component';
 import { MenusComponent } from './menus/menus.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PanelsComponent } from './panels/panels.component';
 import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
+import { RadioButtonsComponent } from './radio-buttons/radio-buttons.component';
 import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { NotificationsComponent } from './notifications/notifications.component';
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -47,6 +48,7 @@ export const RouteCollection = [
 	{ path: 'panels', component: PanelsComponent },
 	{ path: 'preloaders', component: PreloadersComponent },
 	{ path: 'progress-bars', component: ProgressBarsComponent },
+	{ path: 'radio-buttons', component: RadioButtonsComponent },
 	{ path: 'slide-toggles', component: SlideTogglesComponent },
 	{ path: 'sliders', component: SlidersComponent },
 	{ path: 'steppers', component: SteppersComponent },

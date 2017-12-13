@@ -33,3 +33,11 @@
   white-space: normal;
   line-break: auto;
 }
+
+
+@mixin user-select($value) {
+	-webkit-user-select: $value;
+	-moz-user-select: $value;
+	-ms-user-select: $value;
+	user-select: $value;
+  }

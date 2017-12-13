@@ -192,6 +192,7 @@ $disabled-color: color(black, disabled);
               elevation-transition-property-value();
 
   cursor: pointer;
+  @include user-select(none);
 }
 
 .app-checkbox-layout {

@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
 		{ text: "Panels", icon: "view_day", route: '/panels' },
 		{ text: "Preloaders", icon: "timelapse", route: '/preloaders' },
 		{ text: "Progress Bars", icon: "hourglass_empty", route: '/progress-bars' },
+		{ text: "Radio Buttons", icon: "radio_button_checked", route: '/radio-buttons' },
 		{ text: "Slide Toggles", icon: "hdr_strong", route: '/slide-toggles' },
 		{ text: "Sliders", icon: "tune", route: '/sliders' },
 		{ text: "Steppers", icon: "linear_scale", route: '/steppers' },
