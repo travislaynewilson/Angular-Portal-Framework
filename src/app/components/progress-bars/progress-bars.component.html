@@ -7,7 +7,7 @@
       <h6>Determinate progress bar</h6>
       <app-progress-bar [value]="progressValue"></app-progress-bar>
       <br />
-      <input type="range" min="0" max="100" step="1" [(ngModel)]="progressValue" /> {{progressValue}}%
+	  <app-slider min="0" max="100" step="1" [(ngModel)]="progressValue"></app-slider>
       <br />
       <br />
       <br />
