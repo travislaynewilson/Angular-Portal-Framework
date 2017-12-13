@@ -11,19 +11,19 @@ import {
 
 @Directive({
 	selector: 'button[appButton], a[appButton]',
-	host: { 'class': 'btn btn-filled' }
+	host: { 'class': 'app-button btn btn-filled' }
 })
 export class FilledButtonDirective { }
 
 @Directive({
 	selector: 'button[appOutlineButton], a[appOutlineButton]',
-	host: { 'class': 'btn btn-outline' }
+	host: { 'class': 'app-button btn btn-outline' }
 })
 export class OutlineButtonDirective { }
 
 @Directive({
 	selector: 'button[appLinkButton], a[appLinkButton]',
-	host: { 'class': 'btn btn-link' }
+	host: { 'class': 'app-button btn btn-link' }
 })
 export class LinkButtonDirective { }
 

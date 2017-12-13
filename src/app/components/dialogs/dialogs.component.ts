@@ -17,6 +17,8 @@ export class DialogsComponent implements OnInit {
 	}
 
 	openDialog () {
-		let context = this._dialogService.open(DialogDemoComponent);
+		let context = this._dialogService.open(DialogDemoComponent, {
+			width: '300px'
+		});
 	}
 }
