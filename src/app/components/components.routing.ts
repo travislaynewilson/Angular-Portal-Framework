@@ -1,6 +1,7 @@
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { DatepickersComponent } from './datepickers/datepickers.component';
 import { DialogsComponent } from './dialogs/dialogs.component';
@@ -33,6 +34,7 @@ export const RouteCollection = [
 	{ path: 'alerts', component: AlertsComponent },
 	{ path: 'breadcrumbs', component: BreadcrumbsComponent },
 	{ path: 'buttons', component: ButtonsComponent },
+	{ path: 'checkboxes', component: CheckboxesComponent },
 	{ path: 'datatables', component: DatatablesComponent },
 	{ path: 'datepickers', component: DatepickersComponent },
 	{ path: 'dialogs', component: DialogsComponent },

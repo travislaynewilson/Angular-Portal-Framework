@@ -9,6 +9,7 @@ import { RouteCollection } from './components.routing';
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { DatepickersComponent } from './datepickers/datepickers.component';
 import { DialogsComponent } from './dialogs/dialogs.component';
@@ -45,7 +46,8 @@ import { Sub2Component } from './tabs/subtabs/sub2.component';
   declarations: [
     AlertsComponent, 
     BreadcrumbsComponent, 
-    ButtonsComponent, 
+	ButtonsComponent, 
+	CheckboxesComponent,
     DatatablesComponent, 
     DatepickersComponent, 
 	DialogsComponent, 

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 		{ text: "Alerts", icon: "error_outline", route: '/alerts' },
 		{ text: "Breadcrumbs", icon: "history", route: '/breadcrumbs' },
 		{ text: "Buttons", icon: "crop_7_5", route: '/buttons' },
+		{ text: "Checkboxes", icon: "check_box", route: '/checkboxes' },
 		{ text: "Datatables", icon: "border_all", route: '/datatables' },
 		{ text: "Datepickers", icon: "date_range", route: '/datepickers' },
 		{ text: "Dialogs", icon: "aspect_ratio", route: '/dialogs' },

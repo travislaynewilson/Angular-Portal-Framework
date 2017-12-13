@@ -87,7 +87,16 @@ $_umbra-elevation-map: (
   );
 
 
-  // Applies the correct css rules to an element to give it the elevation specified by $zValue.
+
+$elevation-transition-duration: 280ms !default;
+$elevation-transition-timing-function: $fast-out-slow-in-timing-function;
+
+
+// Prefix for elevation-related selectors.
+$elevation-prefix: 'mat-elevation-z';
+
+
+// Applies the correct css rules to an element to give it the elevation specified by $zValue.
 // The $zValue must be between 0 and 24.
 @mixin elevation($zValue) {
 	@if type-of($zValue) != number or not unitless($zValue) {
@@ -101,3 +110,35 @@ $_umbra-elevation-map: (
 				#{map-get($_penumbra-elevation-map, $zValue)},
 				#{map-get($_ambient-elevation-map, $zValue)};
   }
+
+
+
+// Applies the elevation to an element in a manner that allows
+// consumers to override it via the Material elevation classes.
+@mixin overridable-elevation($zValue) {
+	&:not([class*='#{$elevation-prefix}']) {
+	  @include mat-elevation($zValue);
+	}
+  }
+
+// Returns a string that can be used as the value for a transition property for elevation.
+// Calling this function directly is useful in situations where a component needs to transition
+// more than one property.
+//
+// .foo {
+//   transition: elevation-transition-property-value(), opacity 100ms ease;
+// }
+@function elevation-transition-property-value(
+    $duration: $elevation-transition-duration,
+    $easing: $elevation-transition-timing-function) {
+  @return box-shadow #{$duration} #{$easing};
+}
+
+// Applies the correct css rules needed to have an element transition between elevations.
+// This mixin should be applied to elements whose elevation values will change depending on their
+// context (e.g. when active or disabled).
+@mixin elevation-transition(
+    $duration: $elevation-transition-duration,
+    $easing: $elevation-transition-timing-function) {
+  transition: elevation-transition-property-value($duration, $easing);
+}

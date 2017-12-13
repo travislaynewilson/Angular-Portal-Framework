@@ -1,0 +1,40 @@
+<label [attr.for]="inputId" class="app-checkbox-layout" #label>
+	<div class="app-checkbox-inner-container"
+		 [class.app-checkbox-inner-container-no-side-margin]="!checkboxLabel.textContent || !checkboxLabel.textContent.trim()">
+	  <input #input
+			 class="app-checkbox-input app-visually-hidden" type="checkbox"
+			 [id]="inputId"
+			 [required]="required"
+			 [checked]="checked"
+			 [attr.value]="value"
+			 [disabled]="disabled"
+			 [attr.name]="name"
+			 [tabIndex]="tabIndex"
+			 [indeterminate]="indeterminate"
+			 [attr.aria-label]="ariaLabel"
+			 [attr.aria-labelledby]="ariaLabelledby"
+			 (change)="_onInteractionEvent($event)"
+			 (click)="_onInputClick($event)">
+	  <div class="app-checkbox-frame"></div>
+	  <div class="app-checkbox-background">
+		<svg version="1.1"
+			 focusable="false"
+			 class="app-checkbox-checkmark"
+			 viewBox="0 0 24 24"
+			 xml:space="preserve">
+		  <path class="app-checkbox-checkmark-path"
+				fill="none"
+				stroke="white"
+				d="M4.1,12.7 9,17.6 20.3,6.3"/>
+		</svg>
+		<!-- Element for rendering the indeterminate state checkbox. -->
+		<div class="app-checkbox-mixedmark"></div>
+	  </div>
+	</div>
+	<span class="app-checkbox-label" #checkboxLabel (appObserveContent)="_onLabelTextChange()">
+	  <!-- Add an invisible span so JAWS can read the label -->
+	  <span style="display:none">&nbsp;</span>
+	  <ng-content></ng-content>
+	</span>
+  </label>
+  
