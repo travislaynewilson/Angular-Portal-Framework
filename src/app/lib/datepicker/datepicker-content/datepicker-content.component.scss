@@ -1,0 +1,72 @@
+@import '../../../../styles/references';
+
+
+
+$app-datepicker-calendar-padding: gx(0.5);
+$app-datepicker-non-touch-calendar-cell-size: 40px;
+$app-datepicker-non-touch-calendar-width: $app-datepicker-non-touch-calendar-cell-size * 7 + $app-datepicker-calendar-padding * 2;
+// Based on the natural height of the calendar in a month with 6 rows of dates
+// (largest the calendar will get).
+$app-datepicker-non-touch-calendar-height: 354px;
+
+// Ideally the calendar would have a constant aspect ratio, no matter its size, and we would base
+// these measurements off the aspect ratio. Unfortunately, the aspect ratio does change a little as
+// the calendar grows, since some of the elements have pixel-based sizes. These numbers have been
+// chosen to minimize extra whitespace at larger sizes, while still ensuring we won't need
+// scrollbars at smaller sizes.
+$app-datepicker-touch-landscape-width: 64vh;
+$app-datepicker-touch-landscape-height: 80vh;
+$app-datepicker-touch-portrait-width: 80vw;
+$app-datepicker-touch-portrait-height: 100vw;
+$app-datepicker-touch-min-width: 250px;
+$app-datepicker-touch-min-height: 312px;
+$app-datepicker-touch-max-width: 750px;
+$app-datepicker-touch-max-height: 788px;
+
+
+.app-datepicker-content {
+	@include elevation(8);
+
+  display: block;
+  color: color(black, primary);
+  background-color: color(white);
+}
+
+.app-calendar {
+  width: $app-datepicker-non-touch-calendar-width;
+  height: $app-datepicker-non-touch-calendar-height;
+}
+
+.app-datepicker-content-touch {
+	@include elevation(0);
+
+  display: block;
+  // make sure the dialog scrolls rather than being cropped on ludicrously small screens
+  max-height: 80vh;
+  overflow: auto;
+
+  // TODO(mmalerba): hack to offset the padding of the dialog. Can be removed when we switch away
+  // from using dialog.
+  margin: -24px;
+
+  .app-calendar {
+    min-width: $app-datepicker-touch-min-width;
+    min-height: $app-datepicker-touch-min-height;
+    max-width: $app-datepicker-touch-max-width;
+    max-height: $app-datepicker-touch-max-height;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .app-datepicker-content-touch .app-calendar {
+    width: $app-datepicker-touch-landscape-width;
+    height: $app-datepicker-touch-landscape-height;
+  }
+}
+
+@media all and (orientation: portrait) {
+  .app-datepicker-content-touch .app-calendar {
+    width: $app-datepicker-touch-portrait-width;
+    height: $app-datepicker-touch-portrait-height;
+  }
+}

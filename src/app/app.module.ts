@@ -4,25 +4,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-import { ApiModule } from '@app/core/api';
-import { LoaderModule } from '@app/core/loader';
-import { LayoutModule } from '@app/core/layout';
-import { PlatformModule } from '@app/core/platform';
-import { LoaderInterceptor } from '@app/core/loader';
-import { LoggingInterceptor } from '@app/core/logger';
-import { AUTH_PROVIDERS, AuthGuard } from '@app/core/auth';
-import { ScrollingModule } from '@app/core/scrolling';
-import { MomentDateModule } from '@app/lib/ui/core';
-
+import {
+	DATE_LOCALE,
+	LayoutModule,
+	MomentDateModule,
+	PlatformModule,
+	ScrollingModule
+} from '@app/cdk';
+import { LibModule } from '@app/lib';
+import {
+	ApiModule,
+	AuthModule,
+	LoaderInterceptor,
+	LoaderModule,
+	LoggingInterceptor
+} from '@app/core';
 import { SharedModule } from '@app/shared';
-import { UIModule } from '@app/lib/ui';
-import { ComponentsModule } from '@app/components/components.module';
-
+import { DemoModule } from '@app/demo';
 import { AppComponent } from './app.component';
 import { RouteCollection } from './app.routing';
-
-import { DATE_LOCALE } from '@app/lib/ui/core';
 
 
 
@@ -32,9 +32,10 @@ import { DATE_LOCALE } from '@app/lib/ui/core';
 	],
 	imports: [
 		ApiModule,
+		AuthModule,
 		BrowserModule,
 		BrowserAnimationsModule,
-		ComponentsModule,
+		DemoModule,
 		FormsModule,
 		HttpClientModule,
 		LayoutModule,
@@ -44,18 +45,18 @@ import { DATE_LOCALE } from '@app/lib/ui/core';
 		PlatformModule,
 		ScrollingModule,
 		SharedModule,
-		UIModule
+		LibModule
 	],
 	exports: [
+		AuthModule,
 		ScrollingModule,
 		LayoutModule,
-		RouterModule
+		RouterModule,
+		LibModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
 		{ provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
-		AUTH_PROVIDERS,
-		AuthGuard,
 		{ provide: DATE_LOCALE, useValue: 'en-US' }
 	],
 	bootstrap: [AppComponent]

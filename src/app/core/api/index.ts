@@ -1,2 +1,2 @@
-export { ApiService } from './api.service';
-export { ApiModule } from './api.module';
+export * from './api.service';
+export * from './api.module';

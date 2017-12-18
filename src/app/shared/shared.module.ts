@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-import { UIModule } from '@app/lib/ui';
+import { LibModule } from '@app/lib';
 import {
 	ForbiddenComponent,
 	InternalServerErrorComponent,
@@ -11,14 +10,17 @@ import {
 } from './errors';
 import { RouteCollection } from './shared.routing';
 
+
+
 @NgModule({
-	imports: [ 
+	imports: [
 		CommonModule,
 		RouterModule.forRoot(RouteCollection),
-		UIModule
+		LibModule
 	],
 	exports: [
-		RouterModule
+		RouterModule,
+		LibModule
 	],
 	declarations: [
 		NotFoundComponent,

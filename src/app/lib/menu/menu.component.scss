@@ -1,0 +1,126 @@
+@import '../../../styles/references';
+
+
+
+.app-menu-panel {
+  min-width: $menu-overlay-min-width;
+  max-width: $menu-overlay-max-width;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - $menu-item-height);
+  border-radius: $menu-border-radius;
+  outline: 0;
+  background: color(white);
+
+   &:not([class*='app-elevation-z']) {
+	 @include elevation(2);
+   }
+  
+
+  &.app-menu-after.app-menu-below {
+    transform-origin: left top;
+  }
+
+  &.app-menu-after.app-menu-above {
+    transform-origin: left bottom;
+  }
+
+  &.app-menu-before.app-menu-below {
+    transform-origin: right top;
+  }
+
+  &.app-menu-before.app-menu-above {
+    transform-origin: right bottom;
+  }
+
+  // Prevent the user from interacting while the panel is still animating.
+  // This avoids issues where the user could accidentally open a sub-menu,
+  // because of the `overlapTrigger` option.
+  &.ng-animating {
+    pointer-events: none;
+  }
+}
+
+.app-menu-content {
+  padding-top: $menu-padding-y;
+  padding-bottom: $menu-padding-y;
+}
+
+.app-menu-item {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  display: block;
+  line-height: $menu-item-height;
+  height: $menu-item-height;
+  padding: $menu-item-padding-y $menu-item-padding-x;
+
+  text-align: left;
+  text-decoration: none;   // necessary to reset anchor tags
+  position: relative;
+  background: transparent;
+  color: color(black, primary);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  &[disabled] {
+    cursor: default;
+    color: color(black, disabled);
+  }
+ 
+  .app-icon {
+    width: $menu-icon-size;
+    height: $menu-icon-size;
+    font-size: $menu-icon-size;
+    margin-right: $menu-icon-margin;
+    vertical-align: middle;
+    color: color(black, secondary);
+  }
+
+  &:hover,
+  &:focus {
+    &:not([disabled]) {
+      background-color: color(black, state-bg);
+    }
+  }
+}
+
+.app-menu-item-highlighted {
+  &:not([disabled]) {
+    background-color: color(black, state-bg);
+  }
+}
+
+.app-menu-item-submenu-trigger {
+  // Increase the side padding to prevent the indicator from overlapping the text.
+  padding-right: $menu-item-padding-x * 2;
+
+  // Renders a triangle to indicate that the menu item will open a sub-menu.
+  &::after {
+    $size: $menu-submenu-indicator-size / 2;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $size 0 $size $size;
+    border-color: transparent transparent transparent currentColor;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: $menu-item-padding-x;
+    transform: translateY(-50%);
+  }
+}
+
+button.app-menu-item {
+  width: 100%;
+}

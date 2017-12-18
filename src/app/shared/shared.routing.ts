@@ -6,6 +6,7 @@ import {
 } from './errors';
 
 
+
 export const RouteCollection = [
 	{
 		path: 'error', children: [

@@ -1,0 +1,111 @@
+@import '../../../../styles/references';
+
+
+
+$app-calendar-body-label-padding-start: 5% !default;
+// We don't want the label to jump around when we switch between month and year views, so we use
+// the same amount of padding regardless of the number of columns. We align the header label with
+// the one third mark of the first cell, this was chosen somewhat arbitrarily to make it look
+// roughly like the mock. Half way is too far since the cell text is center aligned.
+$app-calendar-body-label-side-padding: 33% / 7 !default;
+$app-calendar-body-cell-min-size: 32px !default;
+$app-calendar-body-cell-content-margin: 5% !default;
+$app-calendar-body-cell-content-border-width: 1px !default;
+
+$app-calendar-body-min-size: 7 * $app-calendar-body-cell-min-size !default;
+$app-calendar-body-cell-content-size: 100% - $app-calendar-body-cell-content-margin * 2 !default;
+
+$app-datepicker-selected-today-box-shadow-width: 1px;
+$app-datepicker-selected-fade-amount: 0.6;
+$app-datepicker-today-fade-amount: 0.2;
+
+.app-calendar-body {
+  min-width: $app-calendar-body-min-size;
+}
+
+.app-calendar-body-label {
+  height: 0;
+  line-height: 0;
+  text-align: left;
+  padding-left: $app-calendar-body-label-side-padding;
+  padding-right: $app-calendar-body-label-side-padding;
+  color: color(black, secondary);
+}
+
+.app-calendar-body-cell {
+  position: relative;
+  height: 0;
+  line-height: 0;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.app-calendar-body-disabled {
+  cursor: default;
+}
+
+.app-calendar-body-cell-content {
+  position: absolute;
+  top: $app-calendar-body-cell-content-margin;
+  left: $app-calendar-body-cell-content-margin;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: $app-calendar-body-cell-content-size;
+  height: $app-calendar-body-cell-content-size;
+
+  // Prevents text being off-center on Android.
+  line-height: 1;
+
+  border-width: $app-calendar-body-cell-content-border-width;
+  border-style: solid;
+
+  // Choosing a value clearly larger than the height ensures we get the correct capsule shape.
+  border-radius: 999px;
+
+  color: color(black, primary);
+  border-color: transparent;
+
+  .app-calendar-body-disabled > &:not(.app-calendar-body-selected) {
+	color: color(black, disabled);
+  }
+}
+
+
+:not(.app-calendar-body-disabled):hover,
+.app-keyboard-focused .app-calendar-body-active,
+.app-program-focused .app-calendar-body-active {
+  & > .app-calendar-body-cell-content:not(.app-calendar-body-selected) {
+	background-color: color(black, state-bg);
+  }
+}
+
+.app-calendar-body-selected {
+  background-color: color(primary);
+  color: color(white, primary);
+}
+
+.app-calendar-body-disabled > .app-calendar-body-selected {
+  background-color: color(primary, disabled);
+}
+
+.app-calendar-body-today {
+  &:not(.app-calendar-body-selected) {
+	// Note: though it's not text, the border is a hint about the fact that this is today's date,
+	// so we use the hint color.
+	border-color: color(black, hint);
+  }
+
+  &.app-calendar-body-selected {
+	box-shadow: inset 0 0 0 $app-datepicker-selected-today-box-shadow-width
+		color(black, divider);
+  }
+}
+
+.app-calendar-body-disabled > .app-calendar-body-today:not(.app-calendar-body-selected) {
+  border-color: color(black, disabled);
+}
