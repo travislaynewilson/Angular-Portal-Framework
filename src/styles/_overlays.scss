@@ -13,7 +13,7 @@ $backdrop-animation-duration: 400ms !default;
 $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 
 
-.cdk-overlay-container, .cdk-global-overlay-wrapper {
+.app-overlay-container, .app-global-overlay-wrapper {
     // Disable events from being captured on the overlay container.
     pointer-events: none;
 
@@ -25,7 +25,7 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   }
 
   // The overlay-container is an invisible element which contains all individual overlays.
-  .cdk-overlay-container {
+  .app-overlay-container {
     position: fixed;
     z-index: $cdk-z-index-overlay-container;
   }
@@ -34,21 +34,21 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
   // This makes centering the overlay easy without running into the subpixel rendering
   // problems tied to using `transform` and without interfering with the other position
   // strategies.
-  .cdk-global-overlay-wrapper {
+  .app-global-overlay-wrapper {
     display: flex;
     position: absolute;
     z-index: $cdk-z-index-overlay;
   }
 
   // A single overlay pane.
-  .cdk-overlay-pane {
+  .app-overlay-pane {
     position: absolute;
     pointer-events: auto;
     box-sizing: border-box;
     z-index: $cdk-z-index-overlay;
   }
 
-  .cdk-overlay-backdrop {
+  .app-overlay-backdrop {
     // TODO(jelbourn): reuse sidenav fullscreen mixin.
     position: absolute;
     top: 0;
@@ -62,21 +62,21 @@ $backdrop-animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
     transition: opacity $backdrop-animation-duration $backdrop-animation-timing-function;
     opacity: 0;
 
-    &.cdk-overlay-backdrop-showing {
+    &.app-overlay-backdrop-showing {
       opacity: 0.48;
     }
   }
 
-  .cdk-overlay-dark-backdrop {
+  .app-overlay-dark-backdrop {
     background: $cdk-overlay-dark-backdrop-background;
   }
 
-  .cdk-overlay-transparent-backdrop {
+  .app-overlay-transparent-backdrop {
     background: none;
   }
 
   // Used when disabling global scrolling.
-  .cdk-global-scrollblock {
+  .app-global-scrollblock {
     position: fixed;
 
     // Necessary for the content not to lose its width. Note that we're using 100%, instead of
