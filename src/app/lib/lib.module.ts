@@ -6,8 +6,10 @@ import { CardModule } from './card';
 import { CheckboxModule } from './checkbox';
 import { DatepickerModule } from './datepicker';
 import { DialogModule } from './dialog';
+import { FormFieldModule } from './form-field';
 import { PanelModule } from './panel';
 import { IconModule } from './icon';
+import { InputModule } from './input';
 import { MenuModule } from './menu';
 import { NotificationModule } from './notification';
 import { ProgressBarModule } from './progress-bar';
@@ -28,7 +30,9 @@ import { UtilModule } from './util';
 		CommonModule,
 		DatepickerModule,
 		DialogModule,
+		FormFieldModule,
 		IconModule,
+		InputModule,
 		MenuModule,
 		NotificationModule,
 		PanelModule,
@@ -46,7 +50,9 @@ import { UtilModule } from './util';
 		CheckboxModule,
 		DialogModule,
 		DatepickerModule,
+		FormFieldModule,
 		IconModule,
+		InputModule,
 		MenuModule,
 		NotificationModule,
 		PanelModule,

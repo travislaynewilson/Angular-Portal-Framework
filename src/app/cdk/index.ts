@@ -1,5 +1,6 @@
 export * from './a11y';
 export * from './accordion';
+export * from './animation';
 export * from './collections';
 export * from './datetime';
 export * from './gestures';

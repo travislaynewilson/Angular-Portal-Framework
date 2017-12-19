@@ -1,0 +1,57 @@
+<div class="app-input-wrapper app-form-field-wrapper">
+	<div class="app-input-flex app-form-field-flex" #connectionContainer
+		 (click)="_control.onContainerClick && _control.onContainerClick($event)">
+	  <div class="app-input-prefix app-form-field-prefix" *ngIf="_prefixChildren.length">
+		<ng-content select="[appPrefix]"></ng-content>
+	  </div>
+  
+	  <div class="app-input-infix app-form-field-infix">
+		<ng-content></ng-content>
+  
+		<span class="app-input-placeholder-wrapper app-form-field-placeholder-wrapper">
+		  <!-- We add aria-owns as a workaround for an issue in JAWS & NVDA where the label isn't
+			   read if it comes before the control in the DOM. -->
+		  <label class="app-input-placeholder app-form-field-placeholder"
+				 [attr.for]="_control.id"
+				 [attr.aria-owns]="_control.id"
+				 [class.app-empty]="_control.empty && !_shouldAlwaysFloat"
+				 [class.app-form-field-empty]="_control.empty && !_shouldAlwaysFloat"
+				 [class.app-warn]="color == 'warn'"
+				 #placeholder
+				 *ngIf="_hasPlaceholder()">
+			<ng-content select="app-placeholder"></ng-content>
+			{{_control.placeholder}}
+			<span
+			  class="app-placeholder-required app-form-field-required-marker"
+			  aria-hidden="true"
+			  *ngIf="!hideRequiredMarker && _control.required">*</span>
+		  </label>
+		</span>
+	  </div>
+  
+	  <div class="app-input-suffix app-form-field-suffix" *ngIf="_suffixChildren.length">
+		<ng-content select="[appSuffix]"></ng-content>
+	  </div>
+	</div>
+  
+	<div class="app-input-underline app-form-field-underline" #underline>
+	  <span class="app-input-ripple app-form-field-ripple" [class.app-warn]="color == 'warn'"></span>
+	</div>
+  
+	<div class="app-input-subscript-wrapper app-form-field-subscript-wrapper"
+		 [ngSwitch]="_getDisplayedMessages()">
+	  <div *ngSwitchCase="'error'" [@transitionMessages]="_subscriptAnimationState">
+		<ng-content select="app-error"></ng-content>
+	  </div>
+  
+	  <div class="app-input-hint-wrapper app-form-field-hint-wrapper" *ngSwitchCase="'hint'"
+		[@transitionMessages]="_subscriptAnimationState">
+		<!-- TODO: use an actual <app-hint> once all selectors are switched to app-* -->
+		<div *ngIf="hintLabel" [id]="_hintLabelId" class="app-hint">{{hintLabel}}</div>
+		<ng-content select="app-hint:not([align='end'])"></ng-content>
+		<div class="app-input-hint-spacer app-form-field-hint-spacer"></div>
+		<ng-content select="app-hint[align='end']"></ng-content>
+	  </div>
+	</div>
+  </div>
+  

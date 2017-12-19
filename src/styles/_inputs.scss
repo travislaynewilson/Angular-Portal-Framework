@@ -1,0 +1,60 @@
+@import 'references';
+
+
+// The Input element proper.
+.app-input-element {
+	// Font needs to be inherited, because by default <input> has a system font.
+	font: inherit;
+  
+	// The Material input should match whatever background it is above.
+	background: transparent;
+  
+	// If background matches current background then so should the color for proper contrast
+	color: color(black, primary);
+  
+	// By default, <input> has a padding, border, outline and a default width.
+	border: none;
+	outline: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+  
+	// Prevent textareas from being resized outside the form field.
+	max-width: 100%;
+  
+	// Needed to make last line of the textarea line up with the baseline.
+	vertical-align: bottom;
+  
+&:disabled {
+    color: color(black, disabled);
+  }
+
+	// Undo the red box-shadow glow added by Firefox on invalid inputs.
+	// See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-ui-invalid
+	&:-moz-ui-invalid {
+	  box-shadow: none;
+	}
+  
+	// Remove IE's default clear icon.
+	&::-ms-clear {
+	  display: none;
+	}
+  
+	// Note that we can't use something like visibility: hidden or
+	// display: none, because IE ends up preventing the user from
+	// focusing the input altogether.
+	// Needs to be !important, because the placeholder will end up inheriting the
+	// input color in IE, if the consumer overrides it with a higher specificity.
+	&::placeholder { color: transparent !important; }	
+	&::-moz-placeholder { color: transparent !important; }	
+	&::-webkit-input-placeholder { color: transparent !important; }	
+	&:-ms-input-placeholder { color: transparent !important; }
+  }
+  
+  // Prevents IE from always adding a scrollbar by default.
+  textarea.app-input-element {
+	// Only allow resizing along the Y axis.
+	resize: vertical;
+	overflow: auto;
+  }
+  

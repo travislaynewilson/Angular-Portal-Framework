@@ -1,0 +1,406 @@
+@import '../../../../styles/references';
+
+
+
+// Min amount of space between start and end hint.
+$mat-form-field-hint-min-space: 1em !default;
+
+// The height of the underline.
+$mat-form-field-underline-height: 1px !default;
+
+// Infix stretches to fit the container, but naturally wants to be this wide. We set this in order
+// to have a a consistent natural size for the various types of controls that can go in a form
+// field.
+$mat-form-field-default-infix-width: 180px !default;
+
+
+.app-form-field {
+  display: inline-block;
+  position: relative; // To avoid problems with text-align.
+  text-align: left;
+}
+
+// Global wrapper. We need to apply margin to the element for spacing, but
+// cannot apply it to the host element directly.
+.app-form-field-wrapper {
+  position: relative;
+}
+
+// We use a flex layout to baseline align the prefix and suffix elements.
+// The underline is outside of it so it can cover all of the elements under this flex container.
+.app-form-field-flex {
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+.app-form-field-prefix,
+.app-form-field-suffix {
+  white-space: nowrap;
+  flex: none; // Allow icons in a prefix or suffix to adapt to the correct size.
+  .app-icon {
+    width: 1em;
+  } // Allow icon buttons in a prefix or suffix to adapt to the correct size.
+  .app-icon-button {
+    font: inherit;
+    vertical-align: baseline;
+    .app-icon {
+      font-size: inherit;
+    }
+  }
+}
+
+.app-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: $mat-form-field-default-infix-width;
+}
+
+// Used to hide the placeholder overflow on IE, since IE doesn't take transform into account when
+// determining overflow.
+.app-form-field-placeholder-wrapper {
+  position: absolute;
+  left: 0;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; // We shouldn't catch mouse events (let them through).
+}
+
+// The placeholder label. This is invisible unless it is. The logic to show it is
+// basically `empty || (float && (!empty || focused))`. Float is dependent on the
+// `floatingPlaceholder` property.
+.app-form-field-placeholder {
+  // The placeholder is after the form field control, but needs to be aligned top-left of the
+  // infix <div>.
+  position: absolute;
+  left: 0;
+  font: inherit;
+  pointer-events: none; // We shouldn't catch mouse events (let them through).
+  // Put ellipsis text overflow.
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; // The perspective helps smooth out animations on Chrome and Firefox but isn't needed on IE.
+  transform: perspective(100px);
+  -ms-transform: none;
+  transform-origin: 0 0;
+  transition: transform $swift-ease-out-duration $swift-ease-out-timing-function, color $swift-ease-out-duration $swift-ease-out-timing-function, width $swift-ease-out-duration $swift-ease-out-timing-function; // Hide the placeholder initially, and only show it when it's floating or the control is empty.
+  display: none;
+}
+
+.app-form-field-empty.app-form-field-placeholder,
+.app-form-field-can-float.app-form-field-should-float .app-form-field-placeholder {
+  display: block;
+}
+
+// Pseudo-class for Chrome and Safari auto-fill to move the placeholder to the floating position.
+// This is necessary because these browsers do not actually fire any events when a form auto-fill is
+// occurring. Once the autofill is committed, a change event happen and the regular app-form-field
+// classes take over to fulfill this behaviour.
+.app-form-field-autofill-control:-webkit-autofill+.app-form-field-placeholder-wrapper .app-form-field-placeholder {
+  // The form field will be considered empty if it is autofilled, and therefore the placeholder will
+  // be shown. Therefore we need to override it to hidden...
+  display: none; // ...and re-show it only if it's able to float.
+  .app-form-field-can-float & {
+    display: block;
+    transition: none;
+  }
+}
+
+// Disable the placeholder animation when the control is not empty (this prevents placeholder
+// animating up when the value is set programmatically).
+.app-form-field-placeholder:not(.app-form-field-empty) {
+  transition: none;
+}
+
+// The underline is what's shown under the control, its prefix and its suffix.
+// The ripple is the blue animation coming on top of it.
+.app-form-field-underline {
+  position: absolute;
+  height: $mat-form-field-underline-height;
+  width: 100%; // Prevents underline from disappearing at lower zoom levels.
+  transform: perspective(1px);
+  .app-form-field-disabled & {
+    background-position: 0;
+    background-color: transparent;
+  }
+  .app-form-field-ripple {
+    position: absolute;
+    height: $mat-form-field-underline-height;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: 50%;
+    transform: scaleX(0.5);
+    visibility: hidden;
+    transition: background-color $swift-ease-in-duration $swift-ease-in-timing-function;
+    .app-focused & {
+      height: $mat-form-field-underline-height * 2;
+    }
+    .app-focused &,
+    .app-form-field-invalid & {
+      visibility: visible;
+      transform: scaleX(1);
+      transition: transform 150ms linear, background-color $swift-ease-in-duration $swift-ease-in-timing-function;
+    }
+  }
+}
+
+// Wrapper for the hints and error messages.
+.app-form-field-subscript-wrapper {
+  position: absolute;
+  width: 100%;
+  overflow: hidden; // prevents multi-line errors from overlapping the control
+}
+
+// Scale down icons in the placeholder and hint to be the same size as the text.
+.app-form-field-subscript-wrapper,
+.app-form-field-placeholder-wrapper {
+  .app-icon {
+    width: 1em;
+    height: 1em;
+    font-size: inherit;
+    vertical-align: baseline;
+  }
+}
+
+// Clears the floats on the hints. This is necessary for the hint animation to work.
+.app-form-field-hint-wrapper {
+  display: flex;
+}
+
+// Spacer used to make sure start and end hints have enough space between them.
+.app-form-field-hint-spacer {
+  flex: 1 0 $mat-form-field-hint-min-space;
+}
+
+// Single error message displayed beneath the form field underline.
+.app-error {
+  display: block;
+}
+
+
+
+
+
+// Theme
+$primary: color(primary);
+$warn: color(intent, danger);
+$background: color(white);
+$foreground: color(black, primary);
+
+// Placeholder colors. Required is used for the `*` star shown in the placeholder.
+$placeholder-color: color(black, hint);
+$focused-placeholder-color: color(black, primary);
+$required-placeholder-color: color(intent, danger);
+
+// Underline colors.
+$underline-color: color(black, hint);
+$underline-color-warn: color(intent, danger);
+$underline-focused-color: color(primary);
+
+.app-form-field-placeholder {
+  color: $placeholder-color;
+}
+
+.app-hint {
+  color: color(black, hint);
+}
+
+.app-focused .app-form-field-placeholder {
+  color: $focused-placeholder-color;
+
+  &.app-warn {
+	color: $underline-color-warn;
+  }
+}
+
+.app-focused .app-form-field-required-marker {
+  color: $required-placeholder-color;
+}
+
+.app-form-field-underline {
+  background-color: $underline-color;
+}
+
+.app-form-field-disabled .app-form-field-underline {
+	background-image: linear-gradient(to right, $underline-color 0%, $underline-color 33%, transparent 0%);
+	background-size: 4px 1px;
+	background-repeat: repeat-x;
+}
+
+.app-form-field-ripple {
+  background-color: $underline-focused-color;
+
+  &.app-warn {
+	background-color: $underline-color-warn;
+  }
+}
+
+// Styling for the error state of the form field. Note that while the same can be
+// achieved with the ng-* classes, we use this approach in order to ensure that the same
+// logic is used to style the error state and to show the error messages.
+.app-form-field-invalid {
+  .app-form-field-placeholder {
+	color: $underline-color-warn;
+
+	&.app-accent,
+	.app-form-field-required-marker {
+	  color: $underline-color-warn;
+	}
+  }
+
+  .app-form-field-ripple {
+	background-color: $underline-color-warn;
+  }
+}
+
+.app-error {
+  color: $underline-color-warn;
+}
+
+
+
+
+
+
+
+
+// Applies a floating placeholder above the form field control itself.
+@mixin _mat-form-field-placeholder-floating($font-scale, $infix-padding, $infix-margin-top) {
+	// We use perspective to fix the text blurriness as described here:
+	// http://www.useragentman.com/blog/2014/05/04/fixing-typography-inside-of-2-d-css-transforms/
+	// This results in a small jitter after the label floats on Firefox, which the
+	// translateZ fixes.
+	transform: translateY(-$infix-margin-top - $infix-padding) scale($font-scale) perspective(100px)
+			   translateZ(0.001px);
+	// The tricks above used to smooth out the animation on chrome and firefox actually make things
+	// worse on IE, so we don't include them in the IE version.
+	-ms-transform: translateY(-$infix-margin-top - $infix-padding) scale($font-scale);
+  
+	width: 100% / $font-scale;
+  }
+  
+  // This is a total duplicate of the mixin above with insignificant values added to the rules.
+  // This exists because the mixin is used in two places. When Google's CSS Optimizer runs over this
+  // css (after compiling from sass), it combines those two declarations into one. However, one of
+  // those places uses `:-webkit-autofill`. When Firefox encounters this unknown pseuedo-class,
+  // it ignores the entire rule. To work around this, we force one of the delcarations to be
+  // technically different but still render the same by adding a tiny value to the transform / width.
+  @mixin _mat-form-field-placeholder-float-nodedupe($font-scale, $infix-padding, $infix-margin-top) {
+	transform: translateY(-$infix-margin-top - $infix-padding) scale($font-scale) perspective(100px)
+			   translateZ(0.002px);
+	-ms-transform: translateY(-$infix-margin-top - $infix-padding) scale($font-scale);
+	width: (100% / $font-scale) + 0.0001;
+  }
+
+
+
+// The unit-less line-height from the font config.
+$line-height: $line-height-base;
+
+  // The amount to scale the font for the floating label and subscript.
+  $subscript-font-scale: 0.75;
+  // The amount to scale the font for the prefix and suffix icons.
+  $prefix-suffix-icon-font-scale: 1.5;
+
+  // The amount of space between the top of the line and the top of the actual text
+  // (as a fraction of the font-size).
+  $line-spacing: ($line-height - 1) / 2;
+  // The padding on the infix. Mocks show half of the text size, but seem to measure from the edge
+  // of the text itself, not the edge of the line; therefore we subtract off the line spacing.
+  $infix-padding: 0.5em - $line-spacing;
+  // The margin applied to the form-field-infix to reserve space for the floating label.
+  $infix-margin-top: 1em * $line-height * $subscript-font-scale;
+  // Font size to use for the label and subscript text.
+  $subscript-font-size: $subscript-font-scale * 100%;
+  // Font size to use for the for the prefix and suffix icons.
+  $prefix-suffix-icon-font-size: $prefix-suffix-icon-font-scale * 100%;
+  // The space between the bottom of the .app-form-field-flex area and the subscript wrapper.
+  // Mocks show half of the text size, but this margin is applied to an element with the subscript
+  // text font size, so we need to divide by the scale factor to make it half of the original text
+  // size. We again need to subtract off the line spacing since the mocks measure to the edge of the
+  // text, not the  edge of the line.
+  $subscript-margin-top: 0.5em / $subscript-font-scale - ($line-spacing * 2);
+  // The padding applied to the form-field-wrapper to reserve space for the subscript, since it's
+  // absolutely positioned. This is a combination of the subscript's margin and line-height, but we
+  // need to multiply by the subscript font scale factor since the wrapper has a larger font size.
+  $wrapper-padding-bottom: ($subscript-margin-top + $line-height) * $subscript-font-scale;
+
+  .app-form-field {
+    font-family: $font-family-base;
+    font-size: inherit;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height;
+  }
+
+  .app-form-field-wrapper {
+    padding-bottom: $wrapper-padding-bottom;
+  }
+
+  .app-form-field-prefix,
+  .app-form-field-suffix {
+    // Allow icons in a prefix or suffix to adapt to the correct size.
+    .app-icon {
+      font-size: $prefix-suffix-icon-font-size;
+      line-height: $line-height;
+    }
+
+    // Allow icon buttons in a prefix or suffix to adapt to the correct size.
+    .app-icon-button {
+      height: $prefix-suffix-icon-font-scale * 1em;
+      width: $prefix-suffix-icon-font-scale * 1em;
+
+      .app-icon {
+        height: $line-height * 1em;
+        line-height: $line-height;
+      }
+    }
+  }
+
+  .app-form-field-infix {
+    padding: $infix-padding 0;
+    // Throws off the baseline if we do it as a real margin, so we do it as a border instead.
+    border-top: $infix-margin-top solid transparent;
+  }
+
+  .app-form-field-can-float {
+    &.app-form-field-should-float .app-form-field-placeholder {
+      @include _mat-form-field-placeholder-floating(
+          $subscript-font-scale, $infix-padding, $infix-margin-top);
+    }
+
+    .app-form-field-autofill-control:-webkit-autofill + .app-form-field-placeholder-wrapper
+        .app-form-field-placeholder {
+      @include _mat-form-field-placeholder-float-nodedupe(
+              $subscript-font-scale, $infix-padding, $infix-margin-top);
+    }
+  }
+
+  .app-form-field-placeholder-wrapper {
+    top: -$infix-margin-top;
+    padding-top: $infix-margin-top;
+  }
+
+  .app-form-field-placeholder {
+    top: $infix-margin-top + $infix-padding;
+  }
+
+  .app-form-field-underline {
+    // We want the underline to start at the end of the content box, not the padding box,
+    // so we move it up by the padding amount.
+    bottom: $wrapper-padding-bottom;
+  }
+
+  .app-form-field-subscript-wrapper {
+    font-size: $subscript-font-size;
+    margin-top: $subscript-margin-top;
+
+    // We want the subscript to start at the end of the content box, not the padding box,
+    // so we move it up by the padding amount (adjusted for the smaller font size);
+    top: calc(100% - #{$wrapper-padding-bottom / $subscript-font-scale});
+  }

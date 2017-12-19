@@ -4,14 +4,61 @@
       <app-card-title>Vertical Forms</app-card-title>
     </app-card-header>
     <app-card-body paddedX paddedBottom>
+
+
+      <div paddedY>
+        <app-form-field>
+          <input appInput placeholder="Name" />
+        </app-form-field>
+
+        <app-form-field>
+          <input appInput type="email" placeholder="Email" [formControl]="$email" />
+          <app-hint>
+            We won't spam you ;)
+          </app-hint>
+          <app-error *ngIf="$email.hasError('email') && !$email.hasError('required')">
+            Please enter a valid email address
+          </app-error>
+          <app-error *ngIf="$email.hasError('required')">
+            Email is required
+          </app-error>
+        </app-form-field>
+
+
+        <app-form-field>
+          <textarea appInput appTextareaAutosize placeholder="Message"></textarea>
+        </app-form-field>
+
+        <br />
+
+        <app-form-field>
+          <input appInput placeholder="Name" />
+        </app-form-field>
+
+        <app-form-field>
+          <input appInput type="email" placeholder="Email" />
+        </app-form-field>
+
+        <app-form-field>
+          <textarea appInput appTextareaAutosize placeholder="Message"></textarea>
+        </app-form-field>
+
+
+      </div>
+
+
       <form class="form-validated">
         <fieldset>
           <legend>Form groups</legend>
+
+
           <div class="form-group">
             <label>Email Address</label>
             <input type="email" value="" class="form-control" />
             <div class="form-text">We'll never share your email address with anyone.</div>
           </div>
+
+
           <div class="form-group">
             <label>Message</label>
             <textarea class="form-control"></textarea>
@@ -36,13 +83,13 @@
             </app-checkbox-group>
           </div>
           <div class="form-group">
-			<label>Inline checkboxes</label>
-			
-			<app-checkbox-group stacked="false">
-				<app-checkbox>A</app-checkbox>
-				<app-checkbox checked="true">B</app-checkbox>
-				<app-checkbox disabled="true">C</app-checkbox>
-			</app-checkbox-group>
+            <label>Inline checkboxes</label>
+
+            <app-checkbox-group stacked="false">
+              <app-checkbox>A</app-checkbox>
+              <app-checkbox checked="true">B</app-checkbox>
+              <app-checkbox disabled="true">C</app-checkbox>
+            </app-checkbox-group>
           </div>
           <div class="form-group">
             <label>Radio buttons</label>
