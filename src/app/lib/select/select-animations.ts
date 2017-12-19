@@ -45,7 +45,7 @@ export const transformPanel: AnimationTriggerMetadata = trigger('transformPanel'
 		animate('150ms cubic-bezier(0.25, 0.8, 0.25, 1)')
 	]),
 	transition('* => void', [
-		animate('250ms 100ms linear', style({ opacity: 0 }))
+		animate('150ms linear', style({ opacity: 0 }))
 	])
 ]);
 
