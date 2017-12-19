@@ -75,9 +75,9 @@ $mat-menu-icon-margin: 16px !default;
 
 	// Focused
     &.app-active {
-      background: rgba(0,0,0,0.03);
+      background: rgba(167, 124, 124, 0.03);
 	  color: color(black, primary);
-	  
+
 	  &.app-selected:not(.app-option-multiple):not(.app-option-disabled) {
 		background: color(black, state-bg);
 		color: color(primary);

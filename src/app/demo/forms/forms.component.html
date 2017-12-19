@@ -28,8 +28,29 @@
         <app-form-field>
           <app-select placeholder="Favorite food">
             <app-option value="Sushi">Sushi</app-option>
-			<app-option value="Pizza">Pizza</app-option>
-			<app-option value="Hot Dogs">Hot dogs</app-option>
+            <app-option value="Pizza">Pizza</app-option>
+            <app-option value="Hot Dogs">Hot dogs</app-option>
+          </app-select>
+        </app-form-field>
+
+        <app-form-field>
+          <app-select placeholder="Pokemon" [formControl]="pokemonControl">
+            <app-option>-- None --</app-option>
+            <app-optgroup *ngFor="let group of pokemonGroups" [label]="group.name" [disabled]="group.disabled">
+              <app-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                {{ pokemon.viewValue }}
+              </app-option>
+            </app-optgroup>
+          </app-select>
+        </app-form-field>
+
+        <app-form-field>
+          <app-select placeholder="Pokemon" [formControl]="pokemonMultiControl" multiple>
+            <app-optgroup *ngFor="let group of pokemonGroups" [label]="group.name" [disabled]="group.disabled">
+              <app-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                {{ pokemon.viewValue }}
+              </app-option>
+            </app-optgroup>
           </app-select>
         </app-form-field>
 
@@ -45,7 +66,24 @@
 
         <app-form-field>
           <textarea appInput appTextareaAutosize placeholder="Message"></textarea>
-        </app-form-field>
+		</app-form-field>
+		
+		<app-form-field>
+				<app-select placeholder="Pokemon" [formControl]="pokemonMultiControl2" multiple>
+				  <app-select-trigger>
+					{{pokemonMultiControl.value ? pokemonMultiControl.value[0] : ''}}
+					<span *ngIf="pokemonMultiControl.value?.length > 1">
+					  (+{{pokemonMultiControl.value.length - 1}} others)
+					</span>
+				  </app-select-trigger>
+	  
+				  <app-optgroup *ngFor="let group of pokemonGroups" [label]="group.name" [disabled]="group.disabled">
+					<app-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+					  {{ pokemon.viewValue }}
+					</app-option>
+				  </app-optgroup>
+				</app-select>
+			  </app-form-field>
 
 
       </div>

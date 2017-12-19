@@ -16,7 +16,7 @@ $mat-menu-icon-margin: 16px !default;
 	line-height: $mat-menu-item-height;
 	height: $mat-menu-item-height;
 	padding: 0 $mat-menu-side-padding;
-  
+	margin: 0;
 	text-align: left;
 	text-decoration: none;   // necessary to reset anchor tags
   
@@ -33,7 +33,7 @@ $mat-menu-icon-margin: 16px !default;
 
 
 .app-optgroup-label {
-    color: color(black, secondary);
+    color: color(primary);
   }
 
   .app-optgroup-disabled .app-optgroup-label {

@@ -78,9 +78,14 @@ $mat-select-placeholder-arrow-space: 2 * ($mat-select-arrow-size + $mat-select-a
 
 // Override optgroup and option to scale based on font-size of the trigger.
 .app-select-panel {
-  .app-optgroup-label,
   .app-option {
-    font-size: inherit;
+	font-size: inherit;
+    line-height: $mat-select-item-height;
+    height: $mat-select-item-height;
+  }
+  .app-optgroup-label {
+	font-size: $font-size-sm;
+	font-weight: $font-weight-medium;
     line-height: $mat-select-item-height;
     height: $mat-select-item-height;
   }
