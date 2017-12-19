@@ -10,16 +10,17 @@ import {
 	Input,
 	OnDestroy,
 	Output,
+	QueryList,
 	Renderer2,
 	ViewChild,
-	ViewEncapsulation,
+	ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { 
+import {
 	CanDisable,
 	CoercionHelper,
 	DisabledMixin,
-	FocusMonitorService, 
+	FocusMonitorService,
 	FocusOrigin,
 	HasTabIndex,
 	TabIndexMixin
@@ -75,7 +76,7 @@ export class CheckboxComponentCore {
 export const BaseCheckboxComponent =
 	TabIndexMixin(DisabledMixin(CheckboxComponentCore));
 
-	
+
 
 /**
  * A checkbox component. Supports all of the functionality of an HTML5 checkbox,
@@ -138,7 +139,7 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 	set checked(checked: boolean) {
 		if (checked != this.checked) {
 			this._checked = checked;
-			this._changeDetectorRef.markForCheck();
+			this._markForCheck();
 		}
 	}
 	private _checked: boolean = false;
@@ -199,7 +200,7 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 
 	constructor (renderer: Renderer2,
 		elementRef: ElementRef,
-		private _changeDetectorRef: ChangeDetectorRef,
+		private _changeDetector: ChangeDetectorRef,
 		private _focusMonitorService: FocusMonitorService,
 		@Attribute('tabindex') tabIndex: string) {
 		super(renderer, elementRef);
@@ -226,7 +227,7 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 	 * that has been recognized by the appObserveContent directive.
 	 */
 	_onLabelTextChange() {
-		this._changeDetectorRef.markForCheck();
+		this._markForCheck();
 	}
 
 	/**
@@ -261,7 +262,7 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 	 */
 	setDisabledState(isDisabled: boolean) {
 		this.disabled = isDisabled;
-		this._changeDetectorRef.markForCheck();
+		this._markForCheck();
 	}
 
 	private _transitionCheckState(newState: TransitionCheckState) {
@@ -341,6 +342,17 @@ export class CheckboxComponent extends BaseCheckboxComponent implements ControlV
 			// we don't want to trigger a change event, when the `checked` variable changes for example.
 			this._emitChangeEvent();
 		}
+	}
+
+	/**
+	 * Marks the checkbox as needing checking for change detection.
+	 * This method is exposed because the parent checkbox group will directly
+	 * update bound properties of the checkbox.
+	 */
+	_markForCheck() {
+		// When group value changes, the button will not be notified. Use `markForCheck` to explicit
+		// update radio button's status
+		this._changeDetector.markForCheck();
 	}
 
 	/** Focuses the checkbox. */

@@ -1,28 +1,27 @@
 <div class="container" padded>
-	<app-card>
-	  <app-card-header>
-		<app-card-title>Checkboxes</app-card-title>
-	  </app-card-header>
-	  <app-card-body paddedX paddedBottom>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Checkboxes</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
 
-		<p>
-			<app-checkbox>Default</app-checkbox>
-		</p>
+      <app-checkbox-group paddedY>
+        <app-checkbox>Default</app-checkbox>
+        <app-checkbox checked="true">Checked</app-checkbox>
+        <app-checkbox disabled="true">Disabled</app-checkbox>
+        <app-checkbox indeterminate="true">Indeterminate</app-checkbox>
+	  </app-checkbox-group>
 
-		<p>
-			<app-checkbox checked="true">Checked</app-checkbox>
-		</p>
+	  <hr />
 
-		<p>
-			<app-checkbox disabled="true">Disabled</app-checkbox>
-		</p>
+	  <app-checkbox-group stacked="false" paddedY>
+        <app-checkbox>Default</app-checkbox>
+        <app-checkbox checked="true">Checked</app-checkbox>
+        <app-checkbox disabled="true">Disabled</app-checkbox>
+        <app-checkbox indeterminate="true">Indeterminate</app-checkbox>
+	  </app-checkbox-group>
 
-		<p>
-			<app-checkbox indeterminate="true">Indeterminate</app-checkbox>
-		</p>
+    </app-card-body>
+  </app-card>
 
-	  </app-card-body>
-	</app-card>
-  
-  </div>
-  
+</div>

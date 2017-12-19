@@ -30,19 +30,19 @@
           <div class="form-group">
             <label>Checkboxes</label>
 
-            <app-checkbox>Checkbox</app-checkbox>
-            <app-checkbox disabled="true">Disabled checkbox</app-checkbox>
+            <app-checkbox-group>
+              <app-checkbox>Checkbox</app-checkbox>
+              <app-checkbox disabled="true">Disabled checkbox</app-checkbox>
+            </app-checkbox-group>
           </div>
           <div class="form-group">
-            <label>Inline checkboxes</label>
-            <div class="form-check form-check-inline">
-              <label>
-                <input type="checkbox"> A </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <label>
-                <input type="checkbox"> B </label>
-            </div>
+			<label>Inline checkboxes</label>
+			
+			<app-checkbox-group stacked="false">
+				<app-checkbox>A</app-checkbox>
+				<app-checkbox checked="true">B</app-checkbox>
+				<app-checkbox disabled="true">C</app-checkbox>
+			</app-checkbox-group>
           </div>
           <div class="form-group">
             <label>Radio buttons</label>
