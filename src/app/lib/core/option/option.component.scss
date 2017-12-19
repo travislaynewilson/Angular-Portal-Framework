@@ -1,0 +1,90 @@
+@import '../../../../styles/references';
+
+
+
+$mat-menu-item-height: 35px !default;
+$mat-menu-side-padding: 16px !default;
+$mat-menu-icon-margin: 16px !default;
+
+
+
+.app-option {
+    // Needs to be a block for the ellipsis to work.
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  line-height: $mat-menu-item-height;
+  height: $mat-menu-item-height;
+  padding: 0 $mat-menu-side-padding;
+
+  text-align: left;
+  text-decoration: none;   // necessary to reset anchor tags
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  .app-icon {
+    margin-right: $mat-menu-icon-margin;
+  }
+
+    
+
+    &[aria-disabled='true'] {
+      @include user-select(none);
+      cursor: default;
+    }
+
+    .app-optgroup &:not(.app-option-multiple) {
+      padding-left: $mat-menu-side-padding * 2;
+    }
+  }
+
+  // Collapses unwanted whitespace created by newlines in code like the following:
+  // <app-option>
+  //   {{value}}
+  // </app-option>
+  .app-option-text {
+    display: inline-block;
+  }
+
+
+  .app-option-pseudo-checkbox {
+    $margin: $mat-menu-side-padding / 2;
+    margin-right: $margin;
+  }
+
+
+
+
+  // Theme
+  .app-option {
+    color: color(black, primary);
+
+    &:hover:not(.app-option-disabled),
+    &:focus:not(.app-option-disabled) {
+      background: rgba(0,0,0,0.03);
+    }
+
+    // In multiple mode there is a checkbox to show that the option is selected.
+    &.app-selected:not(.app-option-multiple):not(.app-option-disabled) {
+	  background: color(black, state-bg);
+	  color: color(primary);
+    }
+
+	// Focused
+    &.app-active {
+      background: rgba(0,0,0,0.03);
+	  color: color(black, primary);
+	  
+	  &.app-selected:not(.app-option-multiple):not(.app-option-disabled) {
+		background: color(black, state-bg);
+		color: color(primary);
+	  }
+    }
+
+    &.app-option-disabled {
+      color: color(black, disabled);
+    }
+  }

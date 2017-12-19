@@ -17,16 +17,18 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
 	applyCssTransform,
-	CanDisable,
 	CoercionHelper,
-	DisabledMixin,
 	FocusMonitorService, 
 	FocusOrigin,
 	HammerInput,
-	HasTabIndex,
-	Platform,
-	TabIndexMixin
+	Platform
 } from '@app/cdk';
+import {
+	CanDisable,
+	DisabledMixin,
+	HasTabIndex,
+	TabIndexMixin
+} from '@app/lib/core';
 import { SlideToggleRenderer } from './slide-toggle-renderer';
 
 

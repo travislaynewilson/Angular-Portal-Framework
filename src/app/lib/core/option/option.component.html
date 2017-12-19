@@ -1,0 +1,10 @@
+<span *ngIf="multiple">
+  <app-pseudo-checkbox 
+	  class="app-option-pseudo-checkbox" 
+	  [state]="selected ? 'checked' : ''" 
+	  [disabled]="disabled"></app-pseudo-checkbox>
+</span>
+
+<span class="app-option-text">
+  <ng-content></ng-content>
+</span>

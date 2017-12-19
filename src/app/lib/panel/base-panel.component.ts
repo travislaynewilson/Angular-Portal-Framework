@@ -6,11 +6,13 @@ import {
 } from '@angular/core';
 import { AccordionItemDirective } from '@app/cdk/accordion';
 import {
-	CanDisable,
 	CoercionHelper,
-	DisabledMixin,
 	UniqueSelectionDispatcherService
 } from '@app/cdk';
+import {
+	CanDisable,
+	DisabledMixin
+} from '@app/lib/core';
 import { PanelGroupDirective } from './panel-group.directive';
 
 

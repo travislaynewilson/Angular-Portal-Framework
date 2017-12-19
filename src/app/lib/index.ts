@@ -11,6 +11,7 @@ export * from './notification';
 export * from './panel';
 export * from './progress-bar';
 export * from './radio';
+export * from './select';
 export * from './slide-toggle';
 export * from './slider';
 export * from './tab';

@@ -1,0 +1,41 @@
+@import '../../../../styles/references';
+
+
+
+$mat-menu-item-height: 48px !default;
+$mat-menu-side-padding: 16px !default;
+$mat-menu-icon-margin: 16px !default;
+
+
+
+.app-optgroup-label {
+	@include user-select(none);
+	cursor: default;  
+	// Needs to be a block for the ellipsis to work.
+	display: block;
+	line-height: $mat-menu-item-height;
+	height: $mat-menu-item-height;
+	padding: 0 $mat-menu-side-padding;
+  
+	text-align: left;
+	text-decoration: none;   // necessary to reset anchor tags
+  
+	&[disabled] {
+	  cursor: default;
+	}
+  
+	.app-icon {
+	  margin-right: $mat-menu-icon-margin;
+	}
+
+  
+}
+
+
+.app-optgroup-label {
+    color: color(black, secondary);
+  }
+
+  .app-optgroup-disabled .app-optgroup-label {
+    color: color(black, disabled);
+  }

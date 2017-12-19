@@ -14,12 +14,10 @@ import {
 	TemplateRef,
 	ViewContainerRef,
 } from '@angular/core';
-
 import { Subscription } from 'rxjs/Subscription';
 import { CoercionHelper } from '@app/cdk/helpers';
 import { KeyCodes } from '@app/cdk/keycodes';
 import { TemplatePortal } from '@app/cdk/portal';
-
 import { OverlayService } from './overlay.service';
 import { OverlayRef } from './overlay-ref';
 import { OverlayConfig } from './overlay-config';
@@ -60,7 +58,7 @@ export function CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY(overlayServic
 export const CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER = {
 	provide: CONNECTED_OVERLAY_SCROLL_STRATEGY,
 	deps: [OverlayService],
-	useFactory: CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY,
+	useFactory: CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY
 };
 
 
@@ -170,7 +168,7 @@ export class ConnectedOverlayDirective implements OnDestroy, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (changes['open'] || changes['_deprecatedOpen']) {
+		if (changes['open']) {
 			this.open ? this._attachOverlay() : this._detachOverlay();
 		}
 	}

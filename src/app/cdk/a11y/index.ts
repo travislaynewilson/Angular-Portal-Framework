@@ -1,3 +1,4 @@
+export * from './active-descendant-key-manager';
 export * from './a11y.module';
 export * from './fake-mousedown';
 export * from './focusable-option';

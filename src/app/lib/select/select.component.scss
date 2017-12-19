@@ -1,0 +1,145 @@
+@import '../../../styles/references';
+
+
+
+// menu width must be a multiple of 56px
+$mat-menu-overlay-min-width: 112px !default;   // 56 * 2
+$mat-menu-overlay-max-width: 280px !default;   // 56 * 5
+
+$mat-select-arrow-size: 5px !default;
+$mat-select-arrow-margin: 4px !default;
+$mat-select-panel-max-height: 256px !default;
+$mat-select-item-height: 35px !default;
+
+$mat-select-placeholder-arrow-space: 2 * ($mat-select-arrow-size + $mat-select-arrow-margin);
+
+
+
+.app-select {
+  display: inline-block;
+  width: 100%;
+  outline: none;
+}
+
+.app-select-trigger {
+  display: inline-table;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+
+  .app-select-disabled & {
+    @include user-select(none);
+    cursor: default;
+  }
+}
+
+.app-select-value {
+  display: table-cell;
+  max-width: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-select-value-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.app-select-arrow-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.app-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: $mat-select-arrow-size solid transparent;
+  border-right: $mat-select-arrow-size solid transparent;
+  border-top: $mat-select-arrow-size solid;
+  margin: 0 $mat-select-arrow-margin;
+}
+
+.app-select-panel {
+	min-width: $mat-menu-overlay-min-width;
+	max-width: $mat-menu-overlay-max-width;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;   // for momentum scroll on mobile
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: $mat-select-panel-max-height;
+  min-width: 100%; // prevents some animation twitching and test inconsistencies in IE11
+
+  &:not([class*='app-elevation-z']) {
+    @include elevation(8);
+  }
+}
+
+// Override optgroup and option to scale based on font-size of the trigger.
+.app-select-panel {
+  .app-optgroup-label,
+  .app-option {
+    font-size: inherit;
+    line-height: $mat-select-item-height;
+    height: $mat-select-item-height;
+  }
+}
+
+.app-form-field-type-app-select {
+  &:not(.app-form-field-disabled) .app-form-field-flex {
+    cursor: pointer;
+  }
+
+  .app-form-field-placeholder {
+    width: calc(100% - #{$mat-select-placeholder-arrow-space});
+  }
+}
+
+
+
+
+
+// Theme
+.app-select-disabled .app-select-value,
+.app-select-arrow {
+  color: color(black, hint);
+}
+
+.app-select-content, .app-select-panel-done-animating {
+  background: color(white);
+}
+.app-select-content { 
+	padding-top: 8px;
+	padding-bottom: 8px;
+ }
+
+.app-select-value {
+  color: color(black, primary);
+}
+
+.app-select-panel {
+  .app-option.app-selected:not(.app-option-multiple) {
+	background: color(black, divider);
+  }
+}
+
+.app-form-field {
+  &.app-focused {
+	&.app-primary .app-select-arrow {
+	  color: color(primary);
+	}
+  }
+
+  .app-select.app-select-invalid .app-select-arrow {
+	color: color(intent, danger);
+  }
+
+  .app-select.app-select-disabled .app-select-arrow {
+	color: color(black, disabled);
+  }
+}
+
+.app-select.app-select-disabled .app-select-arrow {
+  color: color(intent, danger);
+}

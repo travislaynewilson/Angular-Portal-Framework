@@ -17,14 +17,16 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
-	CanDisable,
 	CoercionHelper,
-	DisabledMixin,
 	FocusMonitorService,
-	FocusOrigin,
+	FocusOrigin
+} from '@app/cdk';
+import {
+	CanDisable,
+	DisabledMixin,
 	HasTabIndex,
 	TabIndexMixin
-} from '@app/cdk';
+} from '@app/lib/core';
 
 
 

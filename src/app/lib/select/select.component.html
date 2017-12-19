@@ -1,0 +1,53 @@
+<div appOverlayOrigin
+     class="app-select-trigger"
+     aria-hidden="true"
+     (click)="toggle()"
+     #origin="appOverlayOrigin"
+     #trigger>
+  <div class="app-select-value">
+    <!--
+      TODO: &nbsp; is currently broken in components with preserveWhitespace: false, so we
+      evaluate it as a JS string binding instead. Change back to &nbsp; once it works again.
+    -->
+    <ng-container *ngIf="empty">&nbsp;</ng-container>
+    <span class="app-select-value-text" *ngIf="!empty" [ngSwitch]="!!customTrigger">
+      <span *ngSwitchDefault>{{ triggerValue }}</span>
+      <ng-content select="app-select-trigger" *ngSwitchCase="true"></ng-content>
+    </span>
+  </div>
+
+  <div class="app-select-arrow-wrapper"><div class="app-select-arrow"></div></div>
+</div>
+
+<ng-template
+  appConnectedOverlay
+  appConnectedOverlayHasBackdrop
+  appConnectedOverlayBackdropClass="app-overlay-transparent-backdrop"
+  [appConnectedOverlayScrollStrategy]="_scrollStrategy"
+  [appConnectedOverlayOrigin]="origin"
+  [appConnectedOverlayOpen]="panelOpen"
+  [appConnectedOverlayPositions]="_positions"
+  [appConnectedOverlayMinWidth]="_triggerRect?.width"
+  [appConnectedOverlayOffsetY]="_offsetY"
+  (backdropClick)="close()"
+  (attach)="_onAttached()"
+  (detach)="close()">
+
+  <div
+    #panel
+    class="app-select-panel {{ _getPanelTheme() }}"
+    [ngClass]="panelClass"
+    [@transformPanel]="multiple ? 'showing-multiple' : 'showing'"
+    (@transformPanel.done)="_onPanelDone()"
+    [style.transformOrigin]="_transformOrigin"
+    [class.app-select-panel-done-animating]="_panelDoneAnimating"
+    [style.font-size.px]="_triggerFontSize">
+
+    <div
+      class="app-select-content"
+      [@fadeInContent]="'showing'"
+      (@fadeInContent.done)="_onFadeInDone()">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>
