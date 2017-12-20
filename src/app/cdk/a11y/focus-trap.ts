@@ -133,17 +133,17 @@ export class FocusTrap {
 		}
 
 		// Contains the deprecated version of selector, for temporary backwards comparability.
-		let markers = this._element.querySelectorAll(`[cdk-focus-region-${bound}], ` +
-			`[cdkFocusRegion${bound}], ` +
-			`[cdk-focus-${bound}]`) as NodeListOf<HTMLElement>;
+		let markers = this._element.querySelectorAll(`[app-focus-region-${bound}], ` +
+			`[appFocusRegion${bound}], ` +
+			`[app-focus-${bound}]`) as NodeListOf<HTMLElement>;
 
 		for (let i = 0; i < markers.length; i++) {
-			if (markers[i].hasAttribute(`cdk-focus-${bound}`)) {
-				console.warn(`Found use of deprecated attribute 'cdk-focus-${bound}',` +
-					` use 'cdkFocusRegion${bound}' instead.`, markers[i]);
-			} else if (markers[i].hasAttribute(`cdk-focus-region-${bound}`)) {
-				console.warn(`Found use of deprecated attribute 'cdk-focus-region-${bound}',` +
-					` use 'cdkFocusRegion${bound}' instead.`, markers[i]);
+			if (markers[i].hasAttribute(`app-focus-${bound}`)) {
+				console.warn(`Found use of deprecated attribute 'app-focus-${bound}',` +
+					` use 'appFocusRegion${bound}' instead.`, markers[i]);
+			} else if (markers[i].hasAttribute(`app-focus-region-${bound}`)) {
+				console.warn(`Found use of deprecated attribute 'app-focus-region-${bound}',` +
+					` use 'appFocusRegion${bound}' instead.`, markers[i]);
 			}
 		}
 
@@ -164,11 +164,11 @@ export class FocusTrap {
 		}
 
 		// Contains the deprecated version of selector, for temporary backwards comparability.
-		const redirectToElement = this._element.querySelector(`[cdk-focus-initial], ` +
-			`[cdkFocusInitial]`) as HTMLElement;
+		const redirectToElement = this._element.querySelector(`[app-focus-initial], ` +
+			`[appFocusInitial]`) as HTMLElement;
 
-		if (this._element.hasAttribute(`cdk-focus-initial`)) {
-			console.warn(`Found use of deprecated attribute 'cdk-focus-initial',` +
+		if (this._element.hasAttribute(`app-focus-initial`)) {
+			console.warn(`Found use of deprecated attribute 'app-focus-initial',` +
 				` use 'cdkFocusInitial' instead.`, this._element);
 		}
 
@@ -257,8 +257,8 @@ export class FocusTrap {
 	private _createAnchor(): HTMLElement {
 		let anchor = document.createElement('div');
 		anchor.tabIndex = this._enabled ? 0 : -1;
-		anchor.classList.add('cdk-visually-hidden');
-		anchor.classList.add('cdk-focus-trap-anchor');
+		anchor.classList.add('app-visually-hidden');
+		anchor.classList.add('app-focus-trap-anchor');
 		return anchor;
 	}
 

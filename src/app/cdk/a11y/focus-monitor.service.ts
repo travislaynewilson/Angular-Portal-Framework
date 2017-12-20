@@ -248,13 +248,13 @@ export class FocusMonitorService {
 		// Note(mmalerba): This implementation is not quite perfect, there is a small edge case.
 		// Consider the following dom structure:
 		//
-		// <div #parent tabindex="0" cdkFocusClasses>
+		// <div #parent tabindex="0" appFocusClasses>
 		//   <div #child (click)="#parent.focus()"></div>
 		// </div>
 		//
 		// If the user touches the #child element and the #parent is programmatically focused as a
 		// result, this code will still consider it to have been caused by the touch event and will
-		// apply the cdk-touch-focused class rather than the cdk-program-focused class. This is a
+		// apply the app-touch-focused class rather than the app-program-focused class. This is a
 		// relatively small edge-case that can be worked around by using
 		// focusVia(parentEl, 'program') to focus the parent element.
 		//
@@ -275,7 +275,7 @@ export class FocusMonitorService {
 	private _onFocus(event: FocusEvent, element: HTMLElement) {
 		// NOTE(mmalerba): We currently set the classes based on the focus origin of the most recent
 		// focus event affecting the monitored element. If we want to use the origin of the first event
-		// instead we should check for the cdk-focused class here and return if the element already has
+		// instead we should check for the app-focused class here and return if the element already has
 		// it. (This only matters for elements that have includesChildren = true).
 
 		// If we are not counting child-element-focus as focused, make sure that the event target is the

@@ -1,0 +1,157 @@
+@import '../../../styles/references';
+
+
+
+$mat-drawer-content-z-index: 1;
+$mat-drawer-side-drawer-z-index: 2;
+$mat-drawer-backdrop-z-index: 3;
+$mat-drawer-over-drawer-z-index: 4;
+
+
+
+@mixin mat-drawer-stacking-context($z-index:1) {
+	position: relative;
+  
+	// Use a z-index to create a new stacking context. (We can't use transform because it breaks fixed
+	// positioning inside of the transformed element).
+	z-index: $z-index;
+  }
+
+
+
+.app-drawer-container {
+	// We need a stacking context here so that the backdrop and drawers are clipped to the
+	// MatDrawerContainer. This creates a new z-index stack so we use low numbered z-indices.
+	// We create another stacking context in the '.app-drawer-content' and in each drawer so that
+	// the application content does not get messed up with our own CSS.
+	@include mat-drawer-stacking-context();
+  
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
+  
+	// Need this to take up space in the layout.
+	display: block;
+  
+	// Hide the drawers when they're closed.
+	overflow: hidden;
+  
+	// TODO(hansl): Update this with a more robust solution.
+	&[fullscreen] {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		position: absolute;
+  
+	  &.app-drawer-opened {
+		overflow: hidden;
+	  }
+	}
+  }
+  
+  .app-drawer-backdrop {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;  
+	display: block;
+  
+	// Because of the new stacking context, the z-index stack is new and we can use our own
+	// numbers.
+	z-index: $mat-drawer-backdrop-z-index;
+  
+	// We use 'visibility: hidden | visible' because 'display: none' will not animate any
+	// transitions, while visibility will interpolate transitions properly.
+	// see https://developer.mozilla.org/en-US/docs/Web/CSS/visibility, the Interpolation
+	// section.
+	visibility: hidden;
+  
+	&.app-drawer-shown {
+	  visibility: visible;
+	}
+  
+	.app-drawer-transition & {
+	  transition: {
+		duration: $swift-ease-out-duration;
+		timing-function: $swift-ease-out-timing-function;
+		property: background-color, visibility;
+	  }
+	}
+  }
+  
+  .app-drawer-content {
+	// `backface-visibility` prevents the element from repainting on scroll. This is the
+	// equivalent of using `translateZ(0)`, but it doesn't create a new stacking context.
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	@include mat-drawer-stacking-context($mat-drawer-content-z-index);
+  
+	display: block;
+	height: 100%;
+	overflow: auto;
+  
+	.app-drawer-transition & {
+	  transition: {
+		duration: $swift-ease-out-duration;
+		timing-function: $swift-ease-out-timing-function;
+		property: transform, margin-left, margin-right;
+	  }
+	}
+  }
+  
+  .app-drawer {
+	@include mat-drawer-stacking-context($mat-drawer-over-drawer-z-index);
+  
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 3;
+	min-width: 5vw;
+	outline: 0;
+	box-sizing: border-box;
+	overflow-y: auto; // TODO(kara): revisit scrolling behavior for drawers
+	transform: translate3d(-100%, 0, 0);
+  
+	&.app-drawer-side {
+	  z-index: $mat-drawer-side-drawer-z-index;
+	}
+  
+	&.app-drawer-end {
+	  right: 0;
+	  transform: translate3d(100%, 0, 0);
+	}
+    
+	&.app-drawer-opening, &.app-drawer-opened {
+	  &:not(.app-drawer-side) {
+		@include elevation(16);
+	  }
+	}
+  }
+  
+  .app-sidenav-fixed {
+	position: fixed;
+  }
+  
+
+
+
+  // Theme
+  .app-drawer-container {
+    background-color: color(white);
+    color: color(black, primary);
+  }
+
+  .app-drawer {
+    background-color: color(white);
+    color: color(black, primary);
+
+    &.app-drawer-push {
+      background-color: rgba(black, 0.28);
+    }
+  }
+
+  .app-drawer-backdrop.app-drawer-shown {
+    background-color: rgba(black, 0.28);
+  }

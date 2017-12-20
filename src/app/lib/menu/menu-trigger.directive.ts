@@ -284,7 +284,7 @@ export class MenuTriggerDirective implements AfterContentInit, OnDestroy {
 		return new OverlayConfig({
 			positionStrategy: this._getPosition(),
 			hasBackdrop: !this.triggersSubmenu(),
-			backdropClass: 'cdk-overlay-transparent-backdrop',
+			backdropClass: 'app-overlay-transparent-backdrop',
 			scrollStrategy: this._scrollStrategy()
 		});
 	}

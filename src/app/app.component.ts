@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
 		{ text: "Preloaders", icon: "timelapse", route: '/demo/preloaders' },
 		{ text: "Progress Bars", icon: "hourglass_empty", route: '/demo/progress-bars' },
 		{ text: "Radio Buttons", icon: "radio_button_checked", route: '/demo/radio-buttons' },
+		{ text: "Sidenavs", icon: "menu", route: '/demo/sidenavs' },
 		{ text: "Slide Toggles", icon: "hdr_strong", route: '/demo/slide-toggles' },
 		{ text: "Sliders", icon: "tune", route: '/demo/sliders' },
 		{ text: "Steppers", icon: "linear_scale", route: '/demo/steppers' },

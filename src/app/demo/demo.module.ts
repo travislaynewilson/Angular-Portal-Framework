@@ -36,6 +36,7 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
 import { Sub1Component } from './tabs/subtabs/sub1.component';
 import { Sub2Component } from './tabs/subtabs/sub2.component';
+import { SidenavsComponent } from './sidenavs/sidenavs.component';
 
 
 
@@ -77,7 +78,8 @@ import { Sub2Component } from './tabs/subtabs/sub2.component';
 		TabsComponent,
 		ToolbarsComponent,
 		TooltipsComponent,
-		TypographyComponent
+		TypographyComponent,
+		SidenavsComponent
 	],
 	entryComponents: [
 		DialogDemoComponent

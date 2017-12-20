@@ -1,0 +1,11 @@
+<div class="app-drawer-backdrop" 
+	(click)="_onBackdropClicked()" 
+	[class.app-drawer-shown]="_isShowingBackdrop()"></div>
+
+<ng-content select="app-sidenav"></ng-content>
+
+<ng-content select="app-sidenav-content"></ng-content>
+
+<app-sidenav-content *ngIf="!_content" appScrollable>
+	<ng-content></ng-content>
+</app-sidenav-content>

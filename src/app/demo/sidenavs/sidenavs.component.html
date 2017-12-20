@@ -1,0 +1,32 @@
+<div class="container" padded>
+  <app-card>
+    <app-card-header>
+      <app-card-title>Sidenavs/Drawers</app-card-title>
+    </app-card-header>
+    <app-card-body paddedX paddedBottom>
+
+      <app-drawer-container class="example-container">
+        <app-drawer #sidenav [(mode)]="mode" [(opened)]="opened">Drawer content</app-drawer>
+        <app-drawer-content padded>
+
+          <p>
+			<app-form-field style="width: 320px">
+				<app-select placeholder="How should the drawer open?" [(ngModel)]="mode">
+					<app-option value="side">Slide in next to the content</app-option>
+					<app-option value="over">Slide in over the content</app-option>
+					<app-option value="push">Push the content to the side</app-option>
+				</app-select>
+			</app-form-field>
+          </p>
+          <p>
+            <app-checkbox [(ngModel)]="opened">sidenav.opened</app-checkbox>
+          </p>
+          <p>
+            <button appButton (click)="sidenav.toggle()">sidenav.toggle()</button>
+          </p>
+        </app-drawer-content>
+      </app-drawer-container>
+
+    </app-card-body>
+  </app-card>
+</div>

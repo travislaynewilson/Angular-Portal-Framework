@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 
 
 
-/** Adapts type `D` to be usable as a date by cdk-based components that work with dates. */
+/** Adapts type `D` to be usable as a date by app-based components that work with dates. */
 export abstract class DateAdapter<D> {
 
 	/** The locale to use for all dates. */

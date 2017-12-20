@@ -1,0 +1,11 @@
+<div class="app-drawer-backdrop" 
+	(click)="_onBackdropClicked()"
+	[class.app-drawer-shown]="_isShowingBackdrop()"></div>
+
+<ng-content select="app-drawer"></ng-content>
+
+<ng-content select="app-drawer-content"></ng-content>
+
+<app-drawer-content *ngIf="!_content" appScrollable>
+	<ng-content></ng-content>
+</app-drawer-content>
