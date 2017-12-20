@@ -6,23 +6,57 @@
     <app-card-body paddedX paddedBottom>
 
       <app-drawer-container class="example-container">
-        <app-drawer #sidenav [(mode)]="mode" [(opened)]="opened">Drawer content</app-drawer>
+        <app-drawer #drawer [(mode)]="mode" [(opened)]="opened" padded>
+          Drawer content
+        </app-drawer>
         <app-drawer-content padded>
+          <p>
+            <app-form-field style="width: 320px">
+              <app-select placeholder="How should this drawer open?" [(ngModel)]="mode">
+                <app-option value="side">Slide in next to the content</app-option>
+                <app-option value="over">Slide in over the content</app-option>
+                <app-option value="push">Push the content to the side</app-option>
+              </app-select>
+            </app-form-field>
+          </p>
+          <p>
+            <app-checkbox [(ngModel)]="opened">drawer.opened</app-checkbox>
+          </p>
+          <p>
+            <button appButton (click)="drawer.toggle()">drawer.toggle()</button>
+          </p>
+        </app-drawer-content>
+      </app-drawer-container>
 
+    </app-card-body>
+  </app-card>
+
+
+  <app-card>
+    <app-card-header>
+      <app-card-title>Card Drawer (Concept)</app-card-title>
+    </app-card-header>
+    <app-card-body>
+
+      <app-drawer-container class="example-carddrawer-container">
+        <app-drawer #carddrawer [(mode)]="carddrawermode" [(opened)]="carddraweropened" padded>
+          Drawer content
+        </app-drawer>
+        <app-drawer-content padded>
           <p>
-			<app-form-field style="width: 320px">
-				<app-select placeholder="How should the drawer open?" [(ngModel)]="mode">
-					<app-option value="side">Slide in next to the content</app-option>
-					<app-option value="over">Slide in over the content</app-option>
-					<app-option value="push">Push the content to the side</app-option>
-				</app-select>
-			</app-form-field>
+            <app-form-field style="width: 320px">
+              <app-select placeholder="How should this drawer open?" [(ngModel)]="carddrawermode">
+                <app-option value="side">Slide in next to the content</app-option>
+                <app-option value="over">Slide in over the content</app-option>
+                <app-option value="push">Push the content to the side</app-option>
+              </app-select>
+            </app-form-field>
           </p>
           <p>
-            <app-checkbox [(ngModel)]="opened">sidenav.opened</app-checkbox>
+            <app-checkbox [(ngModel)]="carddraweropened">carddrawer.opened</app-checkbox>
           </p>
           <p>
-            <button appButton (click)="sidenav.toggle()">sidenav.toggle()</button>
+            <button appButton (click)="carddrawer.toggle()">carddrawer.toggle()</button>
           </p>
         </app-drawer-content>
       </app-drawer-container>

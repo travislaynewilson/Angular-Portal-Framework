@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavsComponent implements OnInit {
 
 	mode: 'push' | 'over' | 'side' = 'side';
+	carddrawermode:  'push' | 'over' | 'side' = 'side';
 
 	constructor () { }
 
