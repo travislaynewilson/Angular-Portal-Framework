@@ -17,7 +17,8 @@ import {
 	AuthModule,
 	LoaderInterceptor,
 	LoaderModule,
-	LoggingInterceptor
+	LoggingInterceptor,
+	StorageModule
 } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { DemoModule } from '@app/demo';
@@ -45,14 +46,15 @@ import { RouteCollection } from './app.routing';
 		PlatformModule,
 		ScrollingModule,
 		SharedModule,
+		StorageModule,
 		LibModule
 	],
 	exports: [
 		AuthModule,
 		ScrollingModule,
 		LayoutModule,
-		RouterModule,
-		LibModule
+		LibModule,
+		RouterModule
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

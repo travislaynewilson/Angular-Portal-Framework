@@ -1,32 +1,35 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from '../../core/api';
+import { ApiService, AuthService, WEB_STORAGE_KEY_PREFIX } from '@app/core';
+
+
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+	selector: 'app-overview',
+	templateUrl: './overview.component.html',
+	styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit, OnDestroy {
 
+	users = [];
+	cachedUsers = [];
+	viewportSize: any;
+	usersSub;
 
-  users = [];
-  cachedUsers = [];
-  viewportSize: any;
-  usersSub;
+	constructor (
+		private api: ApiService,
+		private auth: AuthService
+	) {
 
-  constructor(
-    private api: ApiService
-  ) {
-   }
+	}
 
-  ngOnInit() {
-    this.usersSub = this.api.getUsers().subscribe(data => {
-      this.users = data;
-    });
-  }
+	ngOnInit() {
+		this.usersSub = this.api.getUsers().subscribe(data => {
+			this.users = data;
+		});
+	}
 
-  ngOnDestroy() {
-    this.usersSub.unsubscribe();
-  }
+	ngOnDestroy() {
+		this.usersSub.unsubscribe();
+	}
 
 }
