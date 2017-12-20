@@ -194,8 +194,8 @@ $background: color(white);
 $foreground: color(black, primary);
 
 // Placeholder colors. Required is used for the `*` star shown in the placeholder.
-$placeholder-color: color(black, hint);
-$focused-placeholder-color: color(black, primary);
+$placeholder-color: color(black, secondary);
+$focused-placeholder-color: color(primary);
 $required-placeholder-color: color(intent, danger);
 
 // Underline colors.
@@ -209,6 +209,10 @@ $underline-focused-color: color(primary);
 
 .app-hint {
   color: color(black, hint);
+
+  &.app-warn {
+	color: $underline-color-warn;
+  }
 }
 
 .app-focused .app-form-field-placeholder {
@@ -231,6 +235,10 @@ $underline-focused-color: color(primary);
 	background-image: linear-gradient(to right, $underline-color 0%, $underline-color 33%, transparent 0%);
 	background-size: 4px 1px;
 	background-repeat: repeat-x;
+}
+
+.app-form-field-disabled {
+	.app-form-field-placeholder { color: color(black, disabled); }
 }
 
 .app-form-field-ripple {

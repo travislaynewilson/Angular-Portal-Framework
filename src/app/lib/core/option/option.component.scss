@@ -64,7 +64,7 @@ $mat-menu-icon-margin: 16px !default;
 
     &:hover:not(.app-option-disabled),
     &:focus:not(.app-option-disabled) {
-      background: rgba(0,0,0,0.03);
+      background: color(black, state-bg);
     }
 
     // In multiple mode there is a checkbox to show that the option is selected.
@@ -75,7 +75,7 @@ $mat-menu-icon-margin: 16px !default;
 
 	// Focused
     &.app-active {
-      background: rgba(167, 124, 124, 0.03);
+      background: color(black, state-bg);
 	  color: color(black, primary);
 
 	  &.app-selected:not(.app-option-multiple):not(.app-option-disabled) {
