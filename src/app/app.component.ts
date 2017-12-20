@@ -1,5 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {
+	AfterContentInit,
+	ChangeDetectorRef,
+	Component,
+	OnDestroy,
+	OnInit,
+	ViewChild
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from './core/api';
+import {
+	BreakpointObserver,
+	Breakpoints
+} from '@app/cdk';
+import { SidenavComponent } from '@app/lib';
+import { Subscription } from 'rxjs/Subscription';
 
 
 
@@ -8,10 +22,16 @@ import { ApiService } from './core/api';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
 
-	title: string = 'app';
+	@ViewChild("appDrawer") sidenav: SidenavComponent;
+
+	isPhone: boolean;
+
+	breakpointObserverSubscription: Subscription;
+
 	api: ApiService;
+
 	mainNavItems: object[];
 
 	mainMenuLinks: object[] = [
@@ -44,9 +64,48 @@ export class AppComponent implements OnInit {
 		{ text: "Typography", icon: "text_fields", route: '/demo/typography' }
 	];
 
-	constructor (private apiService: ApiService) {
+	constructor (
+		private apiService: ApiService,
+		private breakpointObserver: BreakpointObserver,
+		private changeDetectorRef: ChangeDetectorRef,
+		private router: Router
+	) {
 		this.api = apiService;
 	}
 
-	ngOnInit() { }
+	ngAfterContentInit() {
+		/**
+		 * Subscribe to the breakpoint observer to know when to force toggle the 
+		 * app sidenav.
+		 */
+		this.breakpointObserverSubscription = this.breakpointObserver.observe(Breakpoints.Phone).subscribe(state => {
+			this.isPhone = state.matches;
+
+			if (this.isPhone) {
+				this.sidenav.close();
+				this.sidenav.mode = 'over';
+			} else {
+				this.sidenav.open();
+				this.sidenav.mode = 'side';
+			}
+
+			this.changeDetectorRef.markForCheck();
+		});
+	}
+
+	ngOnDestroy() {
+		if(this.breakpointObserverSubscription) {
+			this.breakpointObserverSubscription.unsubscribe();
+		}
+	}
+
+	ngOnInit() {
+
+	}
+	
+	closeSidenav(): void {
+		if(!this.isPhone) return;
+
+		this.sidenav.close();
+	}
 }

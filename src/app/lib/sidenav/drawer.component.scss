@@ -142,12 +142,10 @@ $mat-drawer-over-drawer-z-index: 4;
 
   // Theme
   .app-drawer-container {
-    background-color: color(white);
     color: color(black, primary);
   }
 
   .app-drawer {
-    background-color: color(white);
     color: color(black, primary);
 
     &.app-drawer-push {

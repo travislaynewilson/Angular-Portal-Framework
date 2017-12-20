@@ -8,7 +8,7 @@
       <img src="/assets/images/logo-rxlocal-white.svg" />
     </div>
 
-    <a href="#app-drawer" data-toggle="drawer" class="appbar-btn appbar-drawer-toggle">
+    <a (click)="appDrawer.toggle()" class="appbar-btn appbar-drawer-toggle">
       <i appIcon="menu"></i>
     </a>
 
@@ -39,88 +39,92 @@
       </button>
 
       <button appButton appIconButton [appMenuTriggerFor]="appbarMenu" xPosition="before">
-          <i appIcon="more_vert"></i>
+        <i appIcon="more_vert"></i>
+      </button>
+      <app-menu #appbarMenu="appMenu">
+        <button appMenuItem>
+          <i appIcon="settings"></i>
+          <span>Settings</span>
         </button>
-        <app-menu #appbarMenu="appMenu">
-          <button appMenuItem>
-            <i appIcon="settings"></i>
-            <span>Settings</span>
-          </button>
-          <button appMenuItem>
-            <i appIcon="feedback"></i>
-            <span>Send feedback</span>
-          </button>
-          <button appMenuItem>
-            <i appIcon="help"></i>
-            <span>Help</span>
-          </button>
-          <button appMenuItem>
-            <i appIcon="exit_to_app"></i>
-            <span>Sign out</span>
-          </button>
-        </app-menu>
+        <button appMenuItem>
+          <i appIcon="help"></i>
+          <span>Help & feedback</span>
+        </button>
+        <button appMenuItem>
+          <i appIcon="exit_to_app"></i>
+          <span>Sign out</span>
+        </button>
+      </app-menu>
     </div>
 
   </nav>
 
-  <section class="app-content">
 
-    <aside class="drawer" id="app-drawer">
+  <app-sidenav-container class="app-content">
+    <app-sidenav #appDrawer="appSidenav" fixedInViewport="true" fixedTopGap="56" autoFocusOnOpen="false">
 
-      <div class="drawer-header">
-        <div class="avatar"></div>
-        <div class="title">
-          Travis Wilson
-          <small>travis.wilson@pioneerrx.com</small>
-        </div>
-      </div>
+      <aside class="drawer" id="app-drawer">
 
-      <div class="drawer-body">
-
-        <div class="drawer-body-top">
-          <div class="list">
-            <a [routerLink]="item.route" routerLinkActive="active" class="list-item" *ngFor="let item of mainMenuLinks">
-              <div class="list-item-object">
-                <i [appIcon]="item.icon"></i>
-              </div>
-              <div class="list-item-body">
-                <h1>{{item.text}}</h1>
-              </div>
-			</a>
-          </div>
-        </div>
-		
-        <div class="drawer-body-bottom">
-          <div class="list">
-            <a href="javascript:;" class="list-item">
-              <div class="list-item-object">
-                <i appIcon="feedback"></i>
-              </div>
-              <div class="list-item-body">
-                <h1>Send feedback</h1>
-              </div>
-            </a>
-            <a href="javascript:;" class="list-item">
-              <div class="list-item-object">
-                <i appIcon="help"></i>
-              </div>
-              <div class="list-item-body">
-                <h1>Help</h1>
-              </div>
-            </a>
+        <div class="drawer-header">
+          <div class="avatar"></div>
+          <div class="title">
+            Travis Wilson
+            <small>travis.wilson@pioneerrx.com</small>
           </div>
         </div>
 
-      </div>
+        <div class="drawer-body">
 
-    </aside>
+          <div class="drawer-body-top">
+            <div class="list">
+              <a [routerLink]="item.route" (click)="closeSidenav()" routerLinkActive="active" class="list-item" *ngFor="let item of mainMenuLinks">
+                <div class="list-item-object">
+                  <i [appIcon]="item.icon"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>{{item.text}}</h1>
+                </div>
+              </a>
+            </div>
+          </div>
 
-    <main class="app-body">
+          <div class="drawer-body-bottom">
+            <div class="list">
+              <a href="javascript:;" class="list-item" *ngIf="isPhone">
+                <div class="list-item-object">
+                  <i appIcon="settings"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Settings</h1>
+                </div>
+              </a>
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i appIcon="help"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Help & feedback</h1>
+                </div>
+              </a>
+            </div>
+          </div>
 
-	  <router-outlet></router-outlet>
+        </div>
 
-    </main>
+      </aside>
 
-  </section>
+    </app-sidenav>
+
+    <app-sidenav-content>
+
+      <main class="app-body">
+
+        <router-outlet></router-outlet>
+
+      </main>
+
+    </app-sidenav-content>
+  </app-sidenav-container>
+
 
 </div>

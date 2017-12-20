@@ -164,13 +164,8 @@ export class FocusTrap {
 		}
 
 		// Contains the deprecated version of selector, for temporary backwards comparability.
-		const redirectToElement = this._element.querySelector(`[app-focus-initial], ` +
-			`[appFocusInitial]`) as HTMLElement;
+		const redirectToElement = this._element.querySelector(`[appFocusInitial]`) as HTMLElement;
 
-		if (this._element.hasAttribute(`app-focus-initial`)) {
-			console.warn(`Found use of deprecated attribute 'app-focus-initial',` +
-				` use 'cdkFocusInitial' instead.`, this._element);
-		}
 
 		if (redirectToElement) {
 			redirectToElement.focus();

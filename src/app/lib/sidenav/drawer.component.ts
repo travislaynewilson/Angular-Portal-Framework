@@ -169,6 +169,12 @@ export class DrawerComponent implements AfterContentInit, OnDestroy {
 	set disableClose(value: boolean) { this._disableClose = CoercionHelper.coerceBoolean(value); }
 	private _disableClose: boolean = false;
 
+	/** Whether the drawer will auto-focus to the first element when opened */
+	@Input()
+	get autoFocusOnOpen(): boolean { return this._autoFocusOnOpen; }
+	set autoFocusOnOpen(value: boolean) { this._autoFocusOnOpen = CoercionHelper.coerceBoolean(value); }
+	private _autoFocusOnOpen: boolean = true;
+
 	/** Whether the drawer is opened. */
 	private _opened: boolean = false;
 
@@ -238,7 +244,7 @@ export class DrawerComponent implements AfterContentInit, OnDestroy {
 					this._elementFocusedBeforeDrawerWasOpened = this._doc.activeElement as HTMLElement;
 				}
 
-				if (this._isFocusTrapEnabled && this._focusTrap) {
+				if (this._isFocusTrapEnabled && this._focusTrap && this.autoFocusOnOpen) {
 					this._focusTrap.focusInitialElementWhenReady();
 				}
 			} else {

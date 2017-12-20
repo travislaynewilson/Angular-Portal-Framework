@@ -1,14 +1,14 @@
 import { ComponentRef, Injectable, Injector, Optional, SkipSelf } from '@angular/core';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { first } from 'rxjs/operators/first';
-import { 
+import {
 	BreakpointObserver,
 	Breakpoints,
-	ComponentPortal, 
+	ComponentPortal,
 	ComponentType,
 	ObjectHelper,
-	OverlayService, 
-	OverlayConfig, 
+	OverlayService,
+	OverlayConfig,
 	OverlayRef,
 	PortalInjector
 } from '@app/cdk';
@@ -140,6 +140,19 @@ export class NotificationService {
 
 		// We can't pass this via the injector, because the injector is created earlier.
 		notificationContext.instance = contentRef.instance;
+
+		// Subscribe to the breakpoint observer and attach the app-notification-phone class as
+		// appropriate. This class is applied to the overlay element because the overlay must expand to
+		// fill the width of the screen for full width snackbars.
+		this._breakpointObserver.observe(Breakpoints.Phone).pipe(
+			takeUntil(overlayRef.detachments().pipe(first()))
+		).subscribe(state => {
+			if (state.matches) {
+				overlayRef.overlayElement.classList.add('app-notification-phone');
+			} else {
+				overlayRef.overlayElement.classList.remove('app-notification-phone');
+			}
+		});
 
 		return notificationContext;
 	}

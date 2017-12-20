@@ -3,7 +3,7 @@
 
 /* Drawers 
 *****************************************/
-.drawer { flex: 0 0 $app-sidebar-width; width: $app-sidebar-width; background-color: color(primary, 900); display: flex; flex-direction: column; overflow: auto; user-select: none;
+.drawer { flex: 0 0 $app-sidebar-width; width: $app-sidebar-width; height: 100%; background-color: color(primary, 900); display: flex; flex-direction: column; overflow: auto; user-select: none;
     .list { color: color(white, primary);
         .list-item {
             .list-item-object { color: color(white, secondary); }
@@ -42,8 +42,8 @@
 
 
 @include media-breakpoint-down(sm) {
-    .drawer { flex: unset; width: auto; background-color: $white; max-width: 280px; position: fixed; top: 0; right: 56px; bottom: 0; left: -280px; z-index: $zindex-drawer; transition: left 0.15s $easing-timing;
-        &.show { left: 0; @include z-depth-5; }
+    .drawer { background-color: $white; width: calc(100vw - 64px); max-width: 280px; /*flex: unset; width: auto; background-color: $white; max-width: 280px; position: fixed; top: 0; right: 56px; bottom: 0; left: -280px; z-index: $zindex-drawer; transition: left 0.15s $easing-timing;*/
+        &.show { /*left: 0; @include z-depth-5;*/ }
 
         .list { color: color(black, primary);
             .list-item {

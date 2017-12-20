@@ -30,12 +30,13 @@
 
 }
 
-.app-notification-handset {
+.app-notification-phone {
   width: 100%;
 
   .app-notification-container {
     margin: 0;
     max-width: inherit;
-    width: 100%;
+	width: 100%;
+	border-radius: 0;
   }
 }
