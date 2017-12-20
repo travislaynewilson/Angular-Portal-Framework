@@ -6,7 +6,7 @@ import { startWith } from 'rxjs/operators/startWith';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import { fromEventPattern } from 'rxjs/observable/fromEventPattern';
-import { MediaMatcher } from './media-matcher';
+import { MediaMatcherService } from './media-matcher.service';
 
 
 
@@ -32,7 +32,7 @@ export class BreakpointObserver implements OnDestroy {
 	/** A subject for all other observables to takeUntil based on. */
 	private _destroySubject: Subject<{}> = new Subject();
 
-	constructor (private mediaMatcher: MediaMatcher, private zone: NgZone) { }
+	constructor (private mediaMatcherService: MediaMatcherService, private zone: NgZone) { }
 
 	/** Completes the active subject, signalling to all other observables to complete. */
 	ngOnDestroy() {
@@ -73,7 +73,7 @@ export class BreakpointObserver implements OnDestroy {
 			return this._queries.get(query)!;
 		}
 
-		let mql: MediaQueryList = this.mediaMatcher.matchMedia(query);
+		let mql: MediaQueryList = this.mediaMatcherService.matchMedia(query);
 		// Create callback for match changes and add it is as a listener.
 		let queryObservable = fromEventPattern(
 			// Listener callback methods are wrapped to be placed back in ngZone. Callbacks must be placed
@@ -88,9 +88,9 @@ export class BreakpointObserver implements OnDestroy {
 				mql.removeListener((e: MediaQueryList) => this.zone.run(() => listener(e)));
 			})
 			.pipe(
-			takeUntil(this._destroySubject),
-			startWith(mql),
-			map((nextMql: MediaQueryList) => ({ matches: nextMql.matches }))
+				takeUntil(this._destroySubject),
+				startWith(mql),
+				map((nextMql: MediaQueryList) => ({ matches: nextMql.matches }))
 			);
 
 		// Add the MediaQueryList to the set of queries.

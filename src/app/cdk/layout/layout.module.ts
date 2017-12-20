@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BreakpointObserver } from './breakpoint-observer';
 import { PlatformModule } from '@app/cdk/platform';
-import { MediaMatcher } from './media-matcher';
+import { MediaMatcherService } from './media-matcher.service';
 import { VIEWPORT_SERVICE_PROVIDER } from './viewport.service';
 
 
@@ -9,7 +9,7 @@ import { VIEWPORT_SERVICE_PROVIDER } from './viewport.service';
 @NgModule({
 	providers: [
 		BreakpointObserver,
-		MediaMatcher,
+		MediaMatcherService,
 		VIEWPORT_SERVICE_PROVIDER
 	],
 	imports: [PlatformModule]

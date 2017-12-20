@@ -13,7 +13,7 @@ const styleElementForWebkitCompatibility: Map<string, HTMLStyleElement> = new Ma
 
 /** A utility for calling matchMedia queries. */
 @Injectable()
-export class MediaMatcher {
+export class MediaMatcherService {
 	/** The internal matchMedia method to return back a MediaQueryList like object. */
 	private _matchMedia: (query: string) => MediaQueryList;
 
