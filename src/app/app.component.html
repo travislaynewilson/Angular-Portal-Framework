@@ -25,10 +25,10 @@
       </div>
     </div>
 
-    <div class="appbar-identity">
+    <div class="appbar-identity" *ngIf="user">
       <div class="identity">
-        <div class="name">Dr. John Hammond</div>
-        <div class="title">Physician</div>
+        <div class="name">{{user.firstName}} {{user.lastName}}</div>
+        <div class="title" *ngIf="user.title?.length">{{user.title}}</div>
       </div>
     </div>
 

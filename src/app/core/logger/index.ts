@@ -1,1 +1,1 @@
-export { LoggingInterceptor } from './logging.interceptor';
+export * from './logging.interceptor';

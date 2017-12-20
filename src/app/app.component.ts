@@ -7,13 +7,10 @@ import {
 	ViewChild
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from './core/api';
-import {
-	BreakpointObserver,
-	Breakpoints
-} from '@app/cdk';
-import { SidenavComponent } from '@app/lib';
 import { Subscription } from 'rxjs/Subscription';
+import { AuthService, User } from '@app/core';
+import { SidenavComponent } from '@app/lib';
+import { BreakpointObserver, Breakpoints } from '@app/cdk';
 
 
 
@@ -30,7 +27,7 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
 
 	breakpointObserverSubscription: Subscription;
 
-	api: ApiService;
+	user: User | null = null;
 
 	mainNavItems: object[];
 
@@ -65,12 +62,14 @@ export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
 	];
 
 	constructor (
-		private apiService: ApiService,
+		private auth: AuthService,
 		private breakpointObserver: BreakpointObserver,
 		private changeDetectorRef: ChangeDetectorRef,
 		private router: Router
 	) {
-		this.api = apiService;
+		this.auth.authenticated.subscribe((e) => {
+			this.user = e.user;
+		});
 	}
 
 	ngAfterContentInit() {
