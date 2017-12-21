@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LibModule } from '@app/lib';
+import { WEB_STORAGE_KEY_PREFIX } from '@app/core';
+import { SharedModule } from '@app/shared';
 
 import { RouteCollection } from './demo.routing';
 
@@ -37,7 +39,6 @@ import { TypographyComponent } from './typography/typography.component';
 import { Sub1Component } from './tabs/subtabs/sub1.component';
 import { Sub2Component } from './tabs/subtabs/sub2.component';
 import { SidenavsComponent } from './sidenavs/sidenavs.component';
-import {WEB_STORAGE_KEY_PREFIX} from '@app/core';
 
 
 
@@ -45,9 +46,10 @@ import {WEB_STORAGE_KEY_PREFIX} from '@app/core';
 	imports: [
 		CommonModule,
 		FormsModule,
+		LibModule,
 		ReactiveFormsModule,
 		RouterModule.forChild(RouteCollection),
-		LibModule
+		SharedModule
 	],
 	declarations: [
 		AlertsComponent,

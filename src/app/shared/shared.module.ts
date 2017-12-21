@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LibModule } from '@app/lib';
+import { LoaderModule } from '@app/core';
 import {
 	ForbiddenComponent,
 	InternalServerErrorComponent,
@@ -9,24 +10,29 @@ import {
 	UnauthorizedComponent
 } from './errors';
 import { RouteCollection } from './shared.routing';
+import { SecureLayoutComponent } from './layouts/secure-layout/secure-layout.component';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 
 
 
 @NgModule({
 	imports: [
 		CommonModule,
-		RouterModule.forRoot(RouteCollection),
-		LibModule
+		RouterModule.forChild(RouteCollection),
+		LibModule,
+		LoaderModule
 	],
 	exports: [
 		RouterModule,
 		LibModule
 	],
 	declarations: [
-		NotFoundComponent,
 		ForbiddenComponent,
-		UnauthorizedComponent,
-		InternalServerErrorComponent
+		InternalServerErrorComponent,
+		NotFoundComponent,
+		PublicLayoutComponent,
+		SecureLayoutComponent,
+		UnauthorizedComponent
 	]
 })
 export class SharedModule { }

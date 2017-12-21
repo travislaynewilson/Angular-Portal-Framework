@@ -22,15 +22,13 @@ import {
 } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { DemoModule } from '@app/demo';
+import { LoginModule } from '@app/login';
 import { AppComponent } from './app.component';
 import { RouteCollection } from './app.routing';
 
 
 
 @NgModule({
-	declarations: [
-		AppComponent
-	],
 	imports: [
 		ApiModule,
 		AuthModule,
@@ -41,6 +39,7 @@ import { RouteCollection } from './app.routing';
 		HttpClientModule,
 		LayoutModule,
 		LoaderModule,
+		LoginModule,
 		MomentDateModule,
 		RouterModule.forRoot(RouteCollection),
 		PlatformModule,
@@ -55,6 +54,9 @@ import { RouteCollection } from './app.routing';
 		LayoutModule,
 		LibModule,
 		RouterModule
+	],
+	declarations: [
+		AppComponent
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

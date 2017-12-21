@@ -1,3 +1,4 @@
+import { AuthGuard } from '@app/core';
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -29,48 +30,52 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
 import { Sub1Component } from './tabs/subtabs/sub1.component';
 import { Sub2Component } from './tabs/subtabs/sub2.component';
-import { AuthGuard } from '@app/core';
+import { SecureLayoutComponent } from '@app/shared';
 
 
 
 export const RouteCollection = [
-	{ path: '', redirectTo: 'demo', pathMatch: 'full' },
 	{
-		path: 'demo', children: [
-			{ path: '', redirectTo: 'overview', pathMatch: 'full' },
-			{ path: 'overview', component: OverviewComponent },
-			{ path: 'alerts', component: AlertsComponent },
-			{ path: 'breadcrumbs', component: BreadcrumbsComponent },
-			{ path: 'buttons', component: ButtonsComponent },
-			{ path: 'checkboxes', component: CheckboxesComponent },
-			{ path: 'datatables', component: DatatablesComponent },
-			{ path: 'datepickers', component: DatepickersComponent },
-			{ path: 'dialogs', component: DialogsComponent },
-			{ path: 'error-pages', component: ErrorPagesComponent },
-			{ path: 'forms', component: FormsComponent },
-			{ path: 'grid', component: GridComponent },
-			{ path: 'input-groups', component: InputGroupsComponent },
-			{ path: 'lists', component: ListsComponent },
-			{ path: 'menus', component: MenusComponent },
-			{ path: 'panels', component: PanelsComponent },
-			{ path: 'preloaders', component: PreloadersComponent },
-			{ path: 'progress-bars', component: ProgressBarsComponent },
-			{ path: 'radio-buttons', component: RadioButtonsComponent },
-			{ path: 'sidenavs', component: SidenavsComponent },
-			{ path: 'slide-toggles', component: SlideTogglesComponent },
-			{ path: 'sliders', component: SlidersComponent },
-			{ path: 'steppers', component: SteppersComponent },
+		path: '', component: SecureLayoutComponent, canActivate: [AuthGuard], children: [
+			{ path: '', redirectTo: 'demo', pathMatch: 'full' },
 			{
-				path: 'tabs', component: TabsComponent, children: [
-					{ path: 'subone', component: Sub1Component },
-					{ path: 'subtwo', component: Sub2Component },
-					{ path: '**', redirectTo: 'subone', pathMatch: 'full' }
+				path: 'demo', children: [
+					{ path: '', redirectTo: 'overview', pathMatch: 'full' },
+					{ path: 'overview', component: OverviewComponent },
+					{ path: 'alerts', component: AlertsComponent },
+					{ path: 'breadcrumbs', component: BreadcrumbsComponent },
+					{ path: 'buttons', component: ButtonsComponent },
+					{ path: 'checkboxes', component: CheckboxesComponent },
+					{ path: 'datatables', component: DatatablesComponent },
+					{ path: 'datepickers', component: DatepickersComponent },
+					{ path: 'dialogs', component: DialogsComponent },
+					{ path: 'error-pages', component: ErrorPagesComponent },
+					{ path: 'forms', component: FormsComponent },
+					{ path: 'grid', component: GridComponent },
+					{ path: 'input-groups', component: InputGroupsComponent },
+					{ path: 'lists', component: ListsComponent },
+					{ path: 'menus', component: MenusComponent },
+					{ path: 'panels', component: PanelsComponent },
+					{ path: 'preloaders', component: PreloadersComponent },
+					{ path: 'progress-bars', component: ProgressBarsComponent },
+					{ path: 'radio-buttons', component: RadioButtonsComponent },
+					{ path: 'sidenavs', component: SidenavsComponent },
+					{ path: 'slide-toggles', component: SlideTogglesComponent },
+					{ path: 'sliders', component: SlidersComponent },
+					{ path: 'steppers', component: SteppersComponent },
+					{
+						path: 'tabs', component: TabsComponent, children: [
+							{ path: 'subone', component: Sub1Component },
+							{ path: 'subtwo', component: Sub2Component },
+							{ path: '**', redirectTo: 'subone', pathMatch: 'full' }
+						]
+					},
+					{ path: 'notifications', component: NotificationsComponent },
+					{ path: 'toolbars', component: ToolbarsComponent },
+					{ path: 'tooltips', component: TooltipsComponent },
+					{ path: 'typography', component: TypographyComponent }
 				]
-			},
-			{ path: 'notifications', component: NotificationsComponent },
-			{ path: 'toolbars', component: ToolbarsComponent },
-			{ path: 'tooltips', component: TooltipsComponent },
-			{ path: 'typography', component: TypographyComponent }
+			}
 		]
 	}
 ];

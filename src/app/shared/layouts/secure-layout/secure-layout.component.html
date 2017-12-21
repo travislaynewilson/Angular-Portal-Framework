@@ -1,0 +1,130 @@
+<div class="app">
+
+  <app-loader></app-loader>
+
+  <nav class="appbar">
+
+    <div class="appbar-logo">
+      <img src="/assets/images/logo-rxlocal-white.svg" />
+    </div>
+
+    <a (click)="appDrawer.toggle()" class="appbar-btn appbar-drawer-toggle">
+      <i appIcon="menu"></i>
+    </a>
+
+    <div class="appbar-title">
+      RxLocal Portal
+    </div>
+
+    <div class="appbar-search">
+      <div class="input-group">
+        <span class="input-group-icon" id="app-search">
+          <i appIcon="search"></i>
+        </span>
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="app-search" />
+      </div>
+    </div>
+
+    <div class="appbar-identity" *ngIf="user">
+      <div class="identity">
+        <div class="name">{{user.firstName}} {{user.lastName}}</div>
+        <div class="title" *ngIf="user.title?.length">{{user.title}}</div>
+      </div>
+    </div>
+
+    <div class="appbar-btn-group">
+
+      <button type="button" class="appbar-btn appbar-search-toggle">
+        <i appIcon="search"></i>
+      </button>
+
+      <button appButton appIconButton [appMenuTriggerFor]="appbarMenu" xPosition="before">
+        <i appIcon="more_vert"></i>
+      </button>
+      <app-menu #appbarMenu="appMenu">
+        <button appMenuItem>
+          <i appIcon="settings"></i>
+          <span>Settings</span>
+        </button>
+        <button appMenuItem>
+          <i appIcon="help"></i>
+          <span>Help & feedback</span>
+        </button>
+        <button appMenuItem>
+          <i appIcon="exit_to_app"></i>
+          <span>Sign out</span>
+        </button>
+      </app-menu>
+    </div>
+
+  </nav>
+
+
+  <app-sidenav-container class="app-content">
+    <app-sidenav #appDrawer="appSidenav" fixedInViewport="true" fixedTopGap="56" autoFocusOnOpen="false">
+
+      <aside class="drawer" id="app-drawer">
+
+        <div class="drawer-header">
+          <div class="avatar"></div>
+          <div class="title">
+            Travis Wilson
+            <small>travis.wilson@pioneerrx.com</small>
+          </div>
+        </div>
+
+        <div class="drawer-body">
+
+          <div class="drawer-body-top">
+            <div class="list">
+              <a [routerLink]="item.route" (click)="closeSidenav()" routerLinkActive="active" class="list-item" *ngFor="let item of mainMenuLinks">
+                <div class="list-item-object">
+                  <i [appIcon]="item.icon"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>{{item.text}}</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="drawer-body-bottom">
+            <div class="list">
+              <a href="javascript:;" class="list-item" *ngIf="isPhone">
+                <div class="list-item-object">
+                  <i appIcon="settings"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Settings</h1>
+                </div>
+              </a>
+              <a href="javascript:;" class="list-item">
+                <div class="list-item-object">
+                  <i appIcon="help"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Help & feedback</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </app-sidenav>
+
+    <app-sidenav-content>
+
+      <main class="app-body">
+
+        <router-outlet></router-outlet>
+
+      </main>
+
+    </app-sidenav-content>
+  </app-sidenav-container>
+
+
+</div>
