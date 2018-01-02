@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthService, User } from '@app/core';
 import { BreakpointObserver, Breakpoints } from '@app/cdk';
@@ -56,10 +57,15 @@ export class SecureLayoutComponent implements OnInit {
 	constructor (
 		private auth: AuthService,
 		private breakpointObserver: BreakpointObserver,
-		private changeDetectorRef: ChangeDetectorRef
+		private changeDetectorRef: ChangeDetectorRef,
+		private router: Router
 	) {
 		this.auth.authenticated.subscribe((e) => {
 			this.user = e.user;
+
+			if(!e.authenticated) {
+				this.router.navigate(['/login']);
+			}
 		});
 	}
 
@@ -99,4 +105,7 @@ export class SecureLayoutComponent implements OnInit {
 		this.sidenav.close();
 	}
 
+	logout(): void {
+		this.auth.logout();
+	}
 }

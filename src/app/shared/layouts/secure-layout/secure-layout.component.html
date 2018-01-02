@@ -50,7 +50,7 @@
           <i appIcon="help"></i>
           <span>Help & feedback</span>
         </button>
-        <button appMenuItem>
+        <button appMenuItem (click)="logout()">
           <i appIcon="exit_to_app"></i>
           <span>Sign out</span>
         </button>
@@ -68,8 +68,8 @@
         <div class="drawer-header">
           <div class="avatar"></div>
           <div class="title">
-            Travis Wilson
-            <small>travis.wilson@pioneerrx.com</small>
+            {{user.firstName}} {{user.lastName}}
+            <small *ngIf="user.title?.length">{{user.title}}</small>
           </div>
         </div>
 
@@ -84,13 +84,22 @@
                 <div class="list-item-body">
                   <h1>{{item.text}}</h1>
                 </div>
+			  </a>
+			  
+			  <a (click)="logout()" class="list-item" *ngIf="isPhoneBreakpoint">
+                <div class="list-item-object">
+                  <i appIcon="exit_to_app"></i>
+                </div>
+                <div class="list-item-body">
+                  <h1>Sign out</h1>
+                </div>
               </a>
             </div>
           </div>
 
           <div class="drawer-body-bottom">
             <div class="list">
-              <a href="javascript:;" class="list-item" *ngIf="isPhone">
+              <a href="javascript:;" class="list-item" *ngIf="isPhoneBreakpoint">
                 <div class="list-item-object">
                   <i appIcon="settings"></i>
                 </div>
