@@ -73,4 +73,8 @@ export class ChartsComponent implements OnInit {
 	public chartHovered(e: any): void {
 		console.log(e);
 	}
+
+	public chartResized(e: any): void {
+		console.log(e);
+	}
 }

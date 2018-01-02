@@ -37,9 +37,23 @@ export class ChartClickedEvent {
 };
 
 
+/** Describes an event emitted when the chart is resized, usually because of a responsive event */
+export class ChartResizedEvent {
+	constructor (
+		public chart: any,
+		public size: {width:number, height:number}) { }
+};
 
-/* tslint:disable-next-line */
-@Directive({ selector: 'canvas[appChart]', exportAs: 'appChart' })
+
+
+
+@Directive({ 
+	selector: 'canvas[appChart]', 
+	exportAs: 'appChart',
+	host: {
+		'class': 'app-chart'
+	}
+})
 export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 
 	public static defaultColors: Array<number[]> = [
@@ -87,6 +101,7 @@ export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 
 	@Output() public chartHover: EventEmitter<ChartHoveredEvent> = new EventEmitter();
 	@Output() public chartClick: EventEmitter<ChartClickedEvent> = new EventEmitter();
+	@Output() public chartResize: EventEmitter<ChartResizedEvent> = new EventEmitter();
 
 	public ctx: any;
 	public chart: any;
@@ -159,6 +174,12 @@ export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 					return;
 				}
 				this.chartClick.emit(new ChartClickedEvent(event, active));
+			};
+		}
+
+		if (!options.onResize) {
+			options.onResize = (chart: any, size: any) => {
+				this.chartResize.emit(new ChartResizedEvent(chart, size));
 			};
 		}
 
