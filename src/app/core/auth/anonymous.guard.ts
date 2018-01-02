@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
 	CanActivate,
+	CanActivateChild,
 	ActivatedRouteSnapshot,
 	RouterStateSnapshot,
 	Router
@@ -13,18 +14,22 @@ import { map } from 'rxjs/operators';
 
 
 @Injectable()
-export class AnonymousGuard implements CanActivate {
+export class AnonymousGuard implements CanActivate, CanActivateChild {
 	constructor (
 		private auth: AuthService,
 		private router: Router
 	) {}
 
-	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-		if(this.auth.authenticated.value.authenticated) {
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+		if(this.auth.isAuthenticated()) {
 			this.router.navigate(['/']);
 			return false;
 		}
 
 		return true;
+	}	
+
+	canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+		return this.canActivate(route, state);
 	}
 }

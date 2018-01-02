@@ -62,10 +62,18 @@ export class AuthService {
 		this.authenticated.next(new AuthenticatedEvent(false));
 	}
 
+	isAuthenticated(): boolean {
+		return this.authenticated.value.authenticated && this.getUser() != null;
+	}
+
 	getUser(): any {
 		let user = this.store.get(this.USER_STORE_KEY);
 
 		if (user === null) {
+			if(this.authenticated.value.authenticated) {
+				this.logout();
+			}
+
 			return null;
 		}
 

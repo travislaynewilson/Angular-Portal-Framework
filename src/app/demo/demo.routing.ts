@@ -1,4 +1,5 @@
 import { AuthGuard } from '@app/core';
+import { SecureLayoutComponent } from '@app/shared';
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -30,13 +31,12 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
 import { Sub1Component } from './tabs/subtabs/sub1.component';
 import { Sub2Component } from './tabs/subtabs/sub2.component';
-import { SecureLayoutComponent } from '@app/shared';
 
 
 
 export const RouteCollection = [
 	{
-		path: '', component: SecureLayoutComponent, canActivate: [AuthGuard], children: [
+		path: '', component: SecureLayoutComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard], children: [
 			{ path: '', redirectTo: 'demo', pathMatch: 'full' },
 			{
 				path: 'demo', children: [
