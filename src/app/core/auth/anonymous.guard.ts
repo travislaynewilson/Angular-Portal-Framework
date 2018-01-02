@@ -13,16 +13,15 @@ import { map } from 'rxjs/operators';
 
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AnonymousGuard implements CanActivate {
 	constructor (
 		private auth: AuthService,
 		private router: Router
 	) {}
 
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-		if(!this.auth.authenticated.value.authenticated) {
-			this.auth.logout();
-			this.auth.navigateToLogin();
+		if(this.auth.authenticated.value.authenticated) {
+			this.router.navigate(['/']);
 			return false;
 		}
 

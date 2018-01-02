@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { WebStorageService } from '@app/core/storage';
 import { AUTH_WEB_STORAGE_SERVICE } from './auth-web-storage-service.token';
@@ -8,9 +9,9 @@ import { User } from './user';
 
 /** Describes an event emitted when a user is signed in or out */
 export class AuthenticatedEvent {
-	constructor(
-		public authenticated: boolean, 
-		public user?: User | null) {}
+	constructor (
+		public authenticated: boolean,
+		public user?: User | null) { }
 };
 
 
@@ -27,6 +28,7 @@ export class AuthService {
 	store: WebStorageService;
 
 	constructor (
+		private router: Router,
 		@Inject(AUTH_WEB_STORAGE_SERVICE) private _webStorageService: WebStorageService
 	) {
 		this.store = _webStorageService;
@@ -37,12 +39,12 @@ export class AuthService {
 
 	login(username: string, password: string): boolean {
 		if (username === 'admin' && password === 'password') {
-			
+
 			// Get the user
 			let user = new User();
 			user.id = new Date().getTime();
 			user.firstName = 'John';
-			user.lastName = new Date().getTime().toString(); 
+			user.lastName = new Date().getTime().toString();
 			user.title = 'Janitor';
 
 			this.store.set(this.USER_STORE_KEY, user);
@@ -62,13 +64,16 @@ export class AuthService {
 
 	getUser(): any {
 		let user = this.store.get(this.USER_STORE_KEY);
-		
-		if(user === null) {
-			this.logout();
+
+		if (user === null) {
 			return null;
 		}
 
 		return user;
+	}
+
+	navigateToLogin(): void {
+		this.router.navigate(['/login']);
 	}
 }
 

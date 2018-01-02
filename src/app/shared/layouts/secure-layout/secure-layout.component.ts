@@ -64,7 +64,7 @@ export class SecureLayoutComponent implements OnInit {
 			this.user = e.user;
 
 			if(!e.authenticated) {
-				this.router.navigate(['/login']);
+				this.auth.navigateToLogin();
 			}
 		});
 	}
