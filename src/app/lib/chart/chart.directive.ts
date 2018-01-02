@@ -57,6 +57,7 @@ export class ChartResizedEvent {
 export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 
 	public static defaultColors: Array<number[]> = [
+		[20, 190, 200],
 		[255, 99, 132],
 		[54, 162, 235],
 		[255, 206, 86],

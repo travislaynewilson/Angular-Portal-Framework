@@ -1,37 +1,206 @@
 <div class="container" padded>
     <app-card>
         <app-card-header>
-            <app-card-title>Line charts</app-card-title>
+            <app-card-title>Charts (powered by ChartJS)</app-card-title>
         </app-card-header>
         <app-card-body paddedX paddedBottom>
 
+			<p>
+				<button appButton (click)="randomize()">Randomize data</button>
+			</p>
+
+			<hr />
+
             <div class="row">
                 <div class="col-md-6">
-                    <div style="display: block;">
+					<div paddedY>
 						<canvas appChart width="400" height="300"
 							chartType="line"
-							legend="false"
-							[datasets]="lineChartData"
+							legend="true"
+							[datasets]="singleChartData"
 							[labels]="lineChartLabels"
 							[options]="lineChartOptions"
 							[colors]="lineChartColors"
 							(chartHover)="chartHovered($event)"
 							(chartClick)="chartClicked($event)"
 							(chartResize)="chartResized($event)"></canvas>
-                    </div>
-                </div>
-                <div class="col-md-6" style="margin-bottom: 10px">
-                    <table class="table table-responsive table-condensed">
-                        <tr>
-                            <th *ngFor="let label of lineChartLabels">{{label}}</th>
-                        </tr>
-                        <tr *ngFor="let d of lineChartData">
-                            <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-                        </tr>
-                    </table>
-                    <button appButton (click)="randomize()">Randomize data</button>
-                </div>
-            </div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+							<canvas appChart width="400" height="300"
+								chartType="line"
+								legend="true"
+								[datasets]="multiChartData"
+								[labels]="lineChartLabels"
+								[options]="lineChartOptions"
+								[colors]="lineChartColors"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"
+								(chartResize)="chartResized($event)"></canvas>
+						</div>
+				</div>
+			</div>
+			
+
+			<div class="row">
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="bar"
+							legend="true"
+							[datasets]="singleChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="bar"
+							legend="true"
+							[datasets]="multiChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="pie"
+							legend="true"
+							[datasets]="singleChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="pie"
+							legend="true"
+							[datasets]="multiChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<div paddedY>
+							<canvas appChart width="400" height="300"
+								chartType="doughnut"
+								legend="true"
+								[datasets]="singleChartData"
+								[labels]="lineChartLabels"
+								[options]="lineChartOptions"
+								[colors]="lineChartColors"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"
+								(chartResize)="chartResized($event)"></canvas>
+						</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+							<canvas appChart width="400" height="300"
+								chartType="doughnut"
+								legend="true"
+								[datasets]="multiChartData"
+								[labels]="lineChartLabels"
+								[options]="lineChartOptions"
+								[colors]="lineChartColors"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"
+								(chartResize)="chartResized($event)"></canvas>
+						</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="radar"
+							legend="true"
+							[datasets]="singleChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="radar"
+							legend="true"
+							[datasets]="multiChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="polarArea"
+							legend="true"
+							[datasets]="singleChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div paddedY>
+						<canvas appChart width="400" height="300"
+							chartType="polarArea"
+							legend="true"
+							[datasets]="multiChartData"
+							[labels]="lineChartLabels"
+							[options]="lineChartOptions"
+							[colors]="lineChartColors"
+							(chartHover)="chartHovered($event)"
+							(chartClick)="chartClicked($event)"
+							(chartResize)="chartResized($event)"></canvas>
+					</div>
+				</div>
+			</div>
 
         </app-card-body>
     </app-card>
