@@ -1,5 +1,53 @@
-<p>
-  <button appButton (click)="login()">Login</button>
-</p>
+<div class="app-login" style="background-image: url('http://eskipaper.com/images/blurred-5.jpg');">
+  <div class="container">
 
+    <app-card>
+      <app-card-body>
 
+        <div class="content">
+          <div class="form">
+            <div class="form-wrapper">
+
+              <div class="logo">
+                <img src="/assets/images/logo-rxlocal.svg" />
+              </div>
+
+              <form>
+
+                <fieldset>
+                  <app-form-field>
+                    <input appInput placeholder="Username" value="admin" />
+                  </app-form-field>
+
+                  <app-form-field>
+                    <input appInput type="password" placeholder="Password" value="password" />
+                  </app-form-field>
+
+                  <app-checkbox>Remember me</app-checkbox>
+                </fieldset>
+
+                <nav>
+                  <button appButton (click)="login()">Login</button>
+                  <button appLinkButton>Forgot password?</button>
+                </nav>
+
+              </form>
+            </div>
+		  </div>
+		  
+          <div class="register">
+            <div class="register-wrapper">
+              Don't have an account?
+              <a href="javascript:;">Sign up</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner" style="background-image: url('https://www.ghs.org/wp-content/uploads/2011/08/iStock_000058514058_Medium.jpg');">
+        </div>
+
+      </app-card-body>
+    </app-card>
+
+  </div>
+</div>
