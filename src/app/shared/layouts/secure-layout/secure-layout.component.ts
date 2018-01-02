@@ -29,6 +29,7 @@ export class SecureLayoutComponent implements OnInit {
 		{ text: "Alerts", icon: "error_outline", route: '/demo/alerts' },
 		{ text: "Breadcrumbs", icon: "history", route: '/demo/breadcrumbs' },
 		{ text: "Buttons", icon: "crop_7_5", route: '/demo/buttons' },
+		{ text: "Charts", icon: "multiline_chart", route: '/demo/charts' },
 		{ text: "Checkboxes", icon: "check_box", route: '/demo/checkboxes' },
 		{ text: "Datatables", icon: "border_all", route: '/demo/datatables' },
 		{ text: "Datepickers", icon: "date_range", route: '/demo/datepickers' },

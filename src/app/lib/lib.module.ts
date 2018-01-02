@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from './button';
 import { CardModule } from './card';
+import { ChartModule } from './chart';
 import { CheckboxModule } from './checkbox';
 import { DatepickerModule } from './datepicker';
 import { DialogModule } from './dialog';
@@ -28,6 +29,7 @@ import { UtilModule } from './util';
 	imports: [
 		ButtonModule,
 		CardModule,
+		ChartModule,
 		CheckboxModule,
 		CommonModule,
 		DatepickerModule,
@@ -51,6 +53,7 @@ import { UtilModule } from './util';
 	exports: [
 		ButtonModule,
 		CardModule,
+		ChartModule,
 		CheckboxModule,
 		DialogModule,
 		DatepickerModule,

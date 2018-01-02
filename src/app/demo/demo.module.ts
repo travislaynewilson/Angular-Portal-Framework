@@ -11,6 +11,7 @@ import { RouteCollection } from './demo.routing';
 import { AlertsComponent } from './alerts/alerts.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { ChartsComponent } from './charts/charts.component';
 import { CheckboxesComponent } from './checkboxes/checkboxes.component';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { DatepickersComponent } from './datepickers/datepickers.component';
@@ -55,6 +56,7 @@ import { SidenavsComponent } from './sidenavs/sidenavs.component';
 		AlertsComponent,
 		BreadcrumbsComponent,
 		ButtonsComponent,
+		ChartsComponent,
 		CheckboxesComponent,
 		DatatablesComponent,
 		DatepickersComponent,
