@@ -1,0 +1,43 @@
+<div class="container" padded>
+    <app-card>
+        <app-card-header>
+            <app-card-title>Tables</app-card-title>
+        </app-card-header>
+        <app-card-body>
+
+            <app-table #table [dataSource]="dataSource" appSortable>
+
+                <!-- Position Column -->
+                <ng-container appColumnTemplate="position">
+                    <app-header-cell *appHeaderCellTemplate appSortHeader> No. </app-header-cell>
+                    <app-cell *appCellTemplate="let element"> {{element.position}} </app-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container appColumnTemplate="name">
+                    <app-header-cell *appHeaderCellTemplate appSortHeader> Name </app-header-cell>
+                    <app-cell *appCellTemplate="let element"> {{element.name}} </app-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container appColumnTemplate="weight">
+                    <app-header-cell *appHeaderCellTemplate appSortHeader> Weight </app-header-cell>
+                    <app-cell *appCellTemplate="let element"> {{element.weight}} </app-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container appColumnTemplate="symbol">
+                    <app-header-cell *appHeaderCellTemplate appSortHeader> Symbol </app-header-cell>
+                    <app-cell *appCellTemplate="let element"> {{element.symbol}} </app-cell>
+                </ng-container>
+
+				<app-header-row *appHeaderRowColumns="displayedColumns"></app-header-row>				
+				<app-row *appRowColumns="let row; columns: displayedColumns;"></app-row>
+				
+            </app-table>
+
+            <app-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></app-paginator>
+
+        </app-card-body>
+    </app-card>
+</div>

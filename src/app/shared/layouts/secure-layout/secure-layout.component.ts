@@ -51,6 +51,7 @@ export class SecureLayoutComponent implements OnInit {
 		{ text: "Sliders", icon: "tune", route: '/demo/sliders' },
 		{ text: "Steppers", icon: "linear_scale", route: '/demo/steppers' },
 		{ text: "Tabs", icon: "tab", route: '/demo/tabs' },
+		{ text: "Tables", icon: "grid_on", route: '/demo/tables' },
 		{ text: "Toolbars", icon: "space_bar", route: '/demo/toolbars' },
 		{ text: "Tooltips", icon: "live_help", route: '/demo/tooltips' },
 		{ text: "Typography", icon: "text_fields", route: '/demo/typography' }

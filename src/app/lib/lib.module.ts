@@ -20,61 +20,43 @@ import { SelectModule } from './select';
 import { SidenavModule } from './sidenav';
 import { SlideToggleModule } from './slide-toggle';
 import { SliderModule } from './slider';
+import { SortModule } from './sort';
 import { TabModule } from './tab';
+import { TableModule } from './table';
 import { TooltipModule } from './tooltip';
 import { UtilModule } from './util';
 
 
 
+const EXPORTED_DECLARATIONS = [
+	ButtonModule,
+	CardModule,
+	ChartModule,
+	CheckboxModule,
+	CommonModule,
+	DatepickerModule,
+	DialogModule,
+	FormFieldModule,
+	IconModule,
+	InputModule,
+	MenuModule,
+	NotificationModule,
+	PaginatorModule,
+	PanelModule,
+	ProgressBarModule,
+	RadioModule,
+	SelectModule,
+	SidenavModule,
+	SlideToggleModule,
+	SliderModule,
+	SortModule,
+	TabModule,
+	TableModule,
+	TooltipModule,
+	UtilModule
+];
 @NgModule({
-	imports: [
-		ButtonModule,
-		CardModule,
-		ChartModule,
-		CheckboxModule,
-		CommonModule,
-		DatepickerModule,
-		DialogModule,
-		FormFieldModule,
-		IconModule,
-		InputModule,
-		MenuModule,
-		NotificationModule,
-		PaginatorModule,
-		PanelModule,
-		ProgressBarModule,
-		RadioModule,
-		SelectModule,
-		SidenavModule,
-		SlideToggleModule,
-		SliderModule,
-		TabModule,
-		TooltipModule,
-		UtilModule
-	],
-	exports: [
-		ButtonModule,
-		CardModule,
-		ChartModule,
-		CheckboxModule,
-		DialogModule,
-		DatepickerModule,
-		FormFieldModule,
-		IconModule,
-		InputModule,
-		MenuModule,
-		NotificationModule,
-		PaginatorModule,
-		PanelModule,
-		ProgressBarModule,
-		RadioModule,
-		SelectModule,
-		SidenavModule,
-		SlideToggleModule,
-		SliderModule,
-		TabModule,
-		TooltipModule,
-		UtilModule
-	]
+	imports: [EXPORTED_DECLARATIONS],
+	exports: [EXPORTED_DECLARATIONS]
 })
 export class LibModule { }

@@ -1,0 +1,44 @@
+@import '../../../styles/references';
+
+
+
+$mat-row-height: 48px;
+$mat-row-horizontal-padding: 24px;
+
+.app-table {
+  display: block;
+}
+
+.app-row, .app-header-row {
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  min-height: $mat-row-height;
+  padding: 0 $mat-row-horizontal-padding;
+}
+
+.app-cell, .app-header-cell {
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+
+
+// Theme
+.app-table {
+    background: color(white);
+  }
+
+  .app-row, .app-header-row {
+    border-bottom-color: color(black, divider);
+  }
+
+  .app-header-cell {
+    color: mat-color(black, secondary);
+  }
+
+  .app-cell {
+    color: mat-color(black, primary);
+  }

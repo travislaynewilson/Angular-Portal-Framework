@@ -10,7 +10,7 @@ import { PageEvent, PaginatorComponent } from '@app/lib';
 })
 export class PaginatorsComponent implements OnInit {
 
-	@ViewChild('paginator') paginator: PaginatorComponent;
+	@ViewChild(PaginatorComponent) paginator: PaginatorComponent;
 
 	constructor () { }
 

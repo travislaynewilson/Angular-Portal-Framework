@@ -35,6 +35,7 @@ import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TablesComponent } from './tables/tables.component';
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -83,6 +84,7 @@ import { SidenavsComponent } from './sidenavs/sidenavs.component';
 		Sub1Component,
 		Sub2Component,
 		TabsComponent,
+		TablesComponent,
 		ToolbarsComponent,
 		TooltipsComponent,
 		TypographyComponent,

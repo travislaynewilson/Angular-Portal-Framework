@@ -28,6 +28,7 @@ import { SlideTogglesComponent } from './slide-toggles/slide-toggles.component';
 import { SlidersComponent } from './sliders/sliders.component';
 import { SteppersComponent } from './steppers/steppers.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TablesComponent } from './tables/tables.component';
 import { ToolbarsComponent } from './toolbars/toolbars.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -74,6 +75,7 @@ export const RouteCollection = [
 							{ path: '**', redirectTo: 'subone', pathMatch: 'full' }
 						]
 					},
+					{ path: 'tables', component: TablesComponent },
 					{ path: 'notifications', component: NotificationsComponent },
 					{ path: 'toolbars', component: ToolbarsComponent },
 					{ path: 'tooltips', component: TooltipsComponent },

@@ -1,0 +1,18 @@
+<div class="app-sort-header-container" [class.app-sort-header-position-before]="arrowPosition == 'before'">
+    <button class="app-sort-header-button" type="button" [attr.aria-label]="sortButtonLabel(id)">
+        <ng-content></ng-content>
+    </button>
+
+    <div *ngIf="_isSorted()" class="app-sort-header-arrow" [@indicatorToggle]="_sortContext.direction">
+        <div class="app-sort-header-stem"></div>
+        <div class="app-sort-header-indicator" [@indicator]="_sortContext.direction">
+            <div class="app-sort-header-pointer-left" [@leftPointer]="_sortContext.direction"></div>
+            <div class="app-sort-header-pointer-right" [@rightPointer]="_sortContext.direction"></div>
+            <div class="app-sort-header-pointer-middle"></div>
+        </div>
+    </div>
+</div>
+
+<span class="app-visually-hidden" *ngIf="_isSorted()">
+    &nbsp;{{sortDescriptionLabel(id, _sortContext.direction)}}
+</span>

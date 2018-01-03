@@ -16,7 +16,10 @@ export * from './select';
 export * from './sidenav';
 export * from './slide-toggle';
 export * from './slider';
+export * from './sort';
 export * from './tab';
+export * from './table';
+export * from './table';
 export * from './tooltip';
 export * from './util';
 

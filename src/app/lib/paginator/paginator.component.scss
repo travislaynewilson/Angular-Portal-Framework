@@ -62,20 +62,19 @@ $mat-paginator-button-increment-icon-margin: 16px;
 
 
 
-
 // Theme
 .app-paginator {
     background: transparent;
-  }
+}
 
-  .app-paginator,
-  .app-paginator-page-size .app-select-trigger {
+.app-paginator,
+.app-paginator-page-size .app-select-trigger {
     color: color(black, secondary);
-  }
+}
 
-  .app-icon-button[disabled] {
+.app-icon-button[disabled] {
     .app-paginator-navigation-previous,
     .app-paginator-navigation-next {
-      color: color(black, disabled);
+        color: color(black, disabled);
     }
-  }
+}
