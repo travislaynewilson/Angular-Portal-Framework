@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@app/lib';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PageEvent, PaginatorComponent } from '@app/lib';
 
 
 
@@ -9,6 +9,8 @@ import { PageEvent } from '@app/lib';
 	styleUrls: ['./paginators.component.scss']
 })
 export class PaginatorsComponent implements OnInit {
+
+	@ViewChild('paginator') paginator: PaginatorComponent;
 
 	constructor () { }
 
@@ -25,5 +27,9 @@ export class PaginatorsComponent implements OnInit {
 
 	setPageSizeOptions(setPageSizeOptionsInput: string) {
 		this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+	}
+
+	emitPageEvent(): void {
+		this.paginator.emitPageEvent();
 	}
 }

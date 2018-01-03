@@ -19,9 +19,12 @@
 				<input appInput 
 					[ngModel]="pageSizeOptions" 
 					(ngModelChange)="setPageSizeOptions($event)">
-            </app-form-field>
+			</app-form-field>
+			
+			<button appButton (click)="emitPageEvent()">Get Current State</button>
 
 			<app-paginator 
+				#paginator="appPaginator"
 				[length]="length" 
 				[pageSize]="pageSize" 
 				[pageSizeOptions]="pageSizeOptions"
