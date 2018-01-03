@@ -55,7 +55,7 @@ $mat-radio-label-content-margin-top: floor(($mat-radio-size - $mat-radio-label-f
   left: 0;
   position: absolute;
   top: 0;
-  transition: border-color ease 200ms;
+  transition: border-color ease 100ms;
   width: $mat-radio-size;
   border: {
     width: 1px;
@@ -72,7 +72,7 @@ $mat-radio-label-content-margin-top: floor(($mat-radio-size - $mat-radio-label-f
   left: 0;
   position: absolute;
   top: 0;
-  transition: transform ease 200ms, background-color ease 200ms;
+  transition: transform ease 100ms, background-color ease 100ms;
   width: $mat-radio-size;
 
   // Note: This starts from 0.001 instead of 0, because transitioning from 0 to 0.5 causes
