@@ -1,0 +1,47 @@
+<div class="app-paginator-container">
+	<div class="app-paginator-page-size">
+		<div class="app-paginator-page-size-label">
+		{{itemsPerPageLabel}}
+		</div>
+
+		<app-form-field
+			*ngIf="_displayedPageSizeOptions.length > 1"
+			class="app-paginator-page-size-select">
+			<app-select
+				[value]="pageSize"
+				[aria-label]="itemsPerPageLabel"
+				(selectionChange)="_changePageSize($event.value)">
+				<app-option *ngFor="let pageSizeOption of _displayedPageSizeOptions" [value]="pageSizeOption">
+					{{pageSizeOption}}
+				</app-option>
+			</app-select>
+		</app-form-field>
+
+		<div *ngIf="_displayedPageSizeOptions.length <= 1">{{pageSize}}</div>
+	</div>
+
+	<div class="app-paginator-range-actions">
+		<div class="app-paginator-range-label">
+			{{getRangeLabel(pageIndex, pageSize, length)}}
+		</div>
+
+		<button appLinkButton appIconButton
+				class="app-paginator-navigation-button app-paginator-navigation-previous"
+				(click)="previousPage()"
+				[attr.aria-label]="previousPageLabel"
+				[appTooltip]="previousPageLabel"
+				[appTooltipPosition]="'above'"
+				[disabled]="!hasPreviousPage()">
+			<i appIcon="chevron_left"></i>
+		</button>
+		<button appLinkButton appIconButton
+				class="app-paginator-navigation-button app-paginator-navigation-next"
+				(click)="nextPage()"
+				[attr.aria-label]="nextPageLabel"
+				[appTooltip]="nextPageLabel"
+				[appTooltipPosition]="'above'"
+				[disabled]="!hasNextPage()">
+			<i appIcon="chevron_right"></i>
+		</button>
+	</div>
+</div>

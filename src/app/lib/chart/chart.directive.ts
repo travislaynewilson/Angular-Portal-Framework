@@ -21,7 +21,7 @@ export type ChartType = 'line' | 'bar' | 'horizontalBar' | 'radar' | 'pie' | 'do
 
 
 /** Describes an event emitted when a user hovers over a chart point */
-export class ChartHoveredEvent {
+export class ChartHoverEvent {
 	constructor (
 		public event: any,
 		public data: Array<any>) { }
@@ -30,7 +30,7 @@ export class ChartHoveredEvent {
 
 
 /** Describes an event emitted when a user clicks on a chart point */
-export class ChartClickedEvent {
+export class ChartClickEvent {
 	constructor (
 		public event: any,
 		public data: Array<any>) { }
@@ -38,7 +38,7 @@ export class ChartClickedEvent {
 
 
 /** Describes an event emitted when the chart is resized, usually because of a responsive event */
-export class ChartResizedEvent {
+export class ChartResizeEvent {
 	constructor (
 		public chart: any,
 		public size: {width:number, height:number}) { }
@@ -100,9 +100,9 @@ export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 	set legend(value) { this._legend = CoercionHelper.coerceBoolean(value); }
 	private _legend: boolean;
 
-	@Output() public chartHover: EventEmitter<ChartHoveredEvent> = new EventEmitter();
-	@Output() public chartClick: EventEmitter<ChartClickedEvent> = new EventEmitter();
-	@Output() public chartResize: EventEmitter<ChartResizedEvent> = new EventEmitter();
+	@Output() public chartHover: EventEmitter<ChartHoverEvent> = new EventEmitter();
+	@Output() public chartClick: EventEmitter<ChartClickEvent> = new EventEmitter();
+	@Output() public chartResize: EventEmitter<ChartResizeEvent> = new EventEmitter();
 
 	public ctx: any;
 	public chart: any;
@@ -165,7 +165,7 @@ export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 				if (active && !active.length) {
 					return;
 				}
-				this.chartHover.emit(new ChartHoveredEvent(event, active));
+				this.chartHover.emit(new ChartHoverEvent(event, active));
 			};
 		}
 
@@ -174,13 +174,13 @@ export class ChartDirective implements OnDestroy, OnChanges, OnInit {
 				if (active && !active.length) {
 					return;
 				}
-				this.chartClick.emit(new ChartClickedEvent(event, active));
+				this.chartClick.emit(new ChartClickEvent(event, active));
 			};
 		}
 
 		if (!options.onResize) {
 			options.onResize = (chart: any, size: any) => {
-				this.chartResize.emit(new ChartResizedEvent(chart, size));
+				this.chartResize.emit(new ChartResizeEvent(chart, size));
 			};
 		}
 

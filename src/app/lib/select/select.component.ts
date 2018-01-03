@@ -405,7 +405,6 @@ export class SelectComponent extends BaseSelectComponent implements AfterContent
 	/**
 	 * Event that emits whenever the raw value of the select changes. This is here primarily
 	 * to facilitate the two-way binding for the `value` input.
-	 * @docs-private
 	 */
 	@Output() valueChange = new EventEmitter<any>();
 
@@ -797,7 +796,7 @@ export class SelectComponent extends BaseSelectComponent implements AfterContent
 	private _onSelect(option: OptionComponent): void {
 		const wasSelected = this._selectionContext.isSelected(option);
 
-		// TODO(crisbeto): handle blank/null options inside multi-select.
+		// TODO: handle blank/null options inside multi-select.
 		if (this.multiple) {
 			this._selectionContext.toggle(option);
 			this.stateChanges.next();

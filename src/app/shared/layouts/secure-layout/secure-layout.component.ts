@@ -41,6 +41,7 @@ export class SecureLayoutComponent implements OnInit {
 		{ text: "Lists", icon: "format_list_bulleted", route: '/demo/lists' },
 		{ text: "Menus", icon: "filter_frames", route: '/demo/menus' },
 		{ text: "Notifications", icon: "notifications_none", route: '/demo/notifications' },
+		{ text: "Paginators", icon: "settings_ethernet", route: '/demo/paginators' },
 		{ text: "Panels", icon: "view_day", route: '/demo/panels' },
 		{ text: "Preloaders", icon: "timelapse", route: '/demo/preloaders' },
 		{ text: "Progress Bars", icon: "hourglass_empty", route: '/demo/progress-bars' },

@@ -8,6 +8,7 @@ export * from './icon';
 export * from './input';
 export * from './menu';
 export * from './notification';
+export * from './paginator';
 export * from './panel';
 export * from './progress-bar';
 export * from './radio';

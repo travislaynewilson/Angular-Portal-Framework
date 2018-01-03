@@ -1,0 +1,81 @@
+@import '../../../styles/references';
+
+
+
+$mat-paginator-height: 56px;
+$mat-paginator-padding: 0 8px;
+
+$mat-paginator-page-size-margin-right: 8px;
+
+$mat-paginator-items-per-page-label-margin: 0 4px;
+$mat-paginator-selector-margin: 6px 4px 0 4px;
+$mat-paginator-selector-trigger-min-width: 56px;
+
+$mat-paginator-range-actions-min-height: 48px;
+
+$mat-paginator-range-label-margin: 0 32px 0 24px;
+
+$mat-paginator-button-margin: 8px;
+$mat-paginator-button-icon-height: 8px;
+$mat-paginator-button-icon-width: 8px;
+
+$mat-paginator-button-decrement-icon-margin: 12px;
+$mat-paginator-button-increment-icon-margin: 16px;
+
+.app-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: $mat-paginator-height;
+  padding: $mat-paginator-padding;
+  flex-wrap: wrap-reverse;
+}
+
+.app-paginator-page-size {
+  display: flex;
+  align-items: baseline;
+  margin-right: $mat-paginator-page-size-margin-right;
+}
+
+.app-paginator-page-size-label {
+  margin: $mat-paginator-items-per-page-label-margin;
+}
+
+.app-paginator-page-size-select {
+  margin: $mat-paginator-selector-margin;
+  width: $mat-paginator-selector-trigger-min-width;
+}
+
+.app-paginator-range-label {
+  margin: $mat-paginator-range-label-margin;
+}
+
+.app-paginator-range-actions {
+  display: flex;
+  align-items: center;
+  min-height: $mat-paginator-range-actions-min-height;
+}
+
+.btn.app-paginator-navigation-button {
+	color: color(black, secondary);
+ }
+
+
+
+
+// Theme
+.app-paginator {
+    background: transparent;
+  }
+
+  .app-paginator,
+  .app-paginator-page-size .app-select-trigger {
+    color: color(black, secondary);
+  }
+
+  .app-icon-button[disabled] {
+    .app-paginator-navigation-previous,
+    .app-paginator-navigation-next {
+      color: color(black, disabled);
+    }
+  }

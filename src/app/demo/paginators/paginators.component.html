@@ -1,0 +1,42 @@
+<div class="container" padded>
+    <app-card>
+        <app-card-header>
+            <app-card-title>Paginators</app-card-title>
+        </app-card-header>
+        <app-card-body paddedX paddedBottom>
+
+            <app-form-field>
+                List length:
+                <input appInput [(ngModel)]="length">
+            </app-form-field>
+
+            <app-form-field>
+                Page size:
+                <input appInput [(ngModel)]="pageSize">
+            </app-form-field>
+            <app-form-field>
+                Page size options:
+				<input appInput 
+					[ngModel]="pageSizeOptions" 
+					(ngModelChange)="setPageSizeOptions($event)">
+            </app-form-field>
+
+			<app-paginator 
+				[length]="length" 
+				[pageSize]="pageSize" 
+				[pageSizeOptions]="pageSizeOptions"
+				(page)="pageEvent = $event">
+            </app-paginator>
+
+            <div *ngIf="pageEvent">
+                <h5>Page Change Event Properties</h5>
+                <div>List length: {{pageEvent.length}}</div>
+                <div>Page size: {{pageEvent.pageSize}}</div>
+				<div>Page index: {{pageEvent.pageIndex}}</div>
+				<div>Skip: {{pageEvent.skip}}</div>
+				<div>Take: {{pageEvent.take}}</div>
+            </div>
+
+        </app-card-body>
+    </app-card>
+</div>

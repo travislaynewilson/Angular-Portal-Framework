@@ -17,6 +17,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MenusComponent } from './menus/menus.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { OverviewComponent } from './overview/overview.component';
+import { PaginatorsComponent } from './paginators/paginators.component';
 import { PanelsComponent } from './panels/panels.component';
 import { PreloadersComponent } from './preloaders/preloaders.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -57,6 +58,7 @@ export const RouteCollection = [
 					{ path: 'input-groups', component: InputGroupsComponent },
 					{ path: 'lists', component: ListsComponent },
 					{ path: 'menus', component: MenusComponent },
+					{ path: 'paginators', component: PaginatorsComponent },
 					{ path: 'panels', component: PanelsComponent },
 					{ path: 'preloaders', component: PreloadersComponent },
 					{ path: 'progress-bars', component: ProgressBarsComponent },
